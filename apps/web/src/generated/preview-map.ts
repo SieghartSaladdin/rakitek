@@ -26,5 +26,9 @@ export const PREVIEW_LOADERS: Record<string, () => Promise<{ default: ComponentT
   "section/story-chances-list": () => import("../../../../registry/sections/story-chances-list/preview"),
   "section/waitlist-hero": () => import("../../../../registry/sections/waitlist-hero/preview"),
   "template/editorial-storefront-template": () => import("../../../../registry/templates/editorial-storefront-template/preview"),
+  "template/kinetic-story-template": () => import("../../../../registry/templates/kinetic-story-template/preview"),
+  "template/saas-waitlist-template": () => import("../../../../registry/templates/saas-waitlist-template/preview"),
+  "page/kinetic-story-demo-page": () => import("../../../../registry/pages/kinetic-story-demo-page/preview"),
   "page/storefront-demo-page": () => import("../../../../registry/pages/storefront-demo-page/preview"),
+  "page/waitlist-landing-demo-page": () => import("../../../../registry/pages/waitlist-landing-demo-page/preview"),
 };

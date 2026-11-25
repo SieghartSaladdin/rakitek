@@ -1,0 +1,21 @@
+{
+  "id": "waitlist-landing-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "saas",
+  "name": "SaaS Waitlist Landing Demo Page",
+  "description": "Full composed dark SaaS waitlist reference page assembling the SaaS waitlist template with floating pill navbar, interactive waitlist hero, pointer spotlight stat band, and minimal SaaS footer.",
+  "styling": "css-modules",
+  "vibes": ["minimal", "tactile"],
+  "recommendedStyles": ["kinetic-obsidian"],
+  "dependencies": ["motion"],
+  "composes": [
+    "templates/saas-waitlist-template",
+    "sections/floating-pill-navbar",
+    "sections/waitlist-hero",
+    "sections/spotlight-stat-band",
+    "sections/minimal-saas-footer"
+  ],
+  "sourceRef": "saas-app/grail-next",
+  "tags": ["page", "demo", "saas", "waitlist", "landing", "composed", "full-page"]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "kinetic-story-template",
+  "kind": "template",
+  "level": "template",
+  "category": "storytelling",
+  "name": "Kinetic Story Template",
+  "description": "Full-bleed dark editorial storytelling page shell with isolated stacking context, ordered chapter slots (hero, manifesto, story, stats, orbit, footer), and a scroll-triggered floating bottom CTA pill.",
+  "styling": "css-modules",
+  "vibes": ["cinematic", "editorial"],
+  "recommendedStyles": ["kinetic-obsidian"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "saas-app/grail-next",
+  "tags": ["template", "layout", "storytelling", "dark", "chapters", "floating-cta", "shell"]
+}

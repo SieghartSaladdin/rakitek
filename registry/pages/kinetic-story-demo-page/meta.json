@@ -1,0 +1,23 @@
+{
+  "id": "kinetic-story-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "storytelling",
+  "name": "Kinetic Story Demo Page",
+  "description": "Full composed dark obsidian storytelling reference page assembling the kinetic story template with 3D spiral card deck hero, editorial manifesto chapter, story chances list, Matter.js physics stats pit, orbital crest wheel, and WebGL rays waitlist footer.",
+  "styling": "css-modules",
+  "vibes": ["cinematic", "editorial"],
+  "recommendedStyles": ["kinetic-obsidian"],
+  "dependencies": ["three", "matter-js"],
+  "composes": [
+    "templates/kinetic-story-template",
+    "sections/spiral-deck-hero",
+    "sections/editorial-manifesto-chapter",
+    "sections/story-chances-list",
+    "sections/physics-stats-pit",
+    "sections/orbital-crest-wheel",
+    "sections/rays-waitlist-footer"
+  ],
+  "sourceRef": "saas-app/grail-next",
+  "tags": ["page", "demo", "storytelling", "webgl", "threejs", "physics", "composed", "full-page"]
+}

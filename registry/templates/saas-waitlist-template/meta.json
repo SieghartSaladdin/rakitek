@@ -1,0 +1,15 @@
+{
+  "id": "saas-waitlist-template",
+  "kind": "template",
+  "level": "template",
+  "category": "saas",
+  "name": "SaaS Waitlist Landing Template",
+  "description": "Full-width dark SaaS waitlist landing shell with fixed top floating pill navigation region, ordered vertical content slots (spotlight, waitlist hero, extra), and closing footer slot.",
+  "styling": "css-modules",
+  "vibes": ["minimal", "tactile"],
+  "recommendedStyles": ["kinetic-obsidian"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "saas-app/grail-next",
+  "tags": ["template", "layout", "saas", "waitlist", "landing", "floating-nav", "shell"]
+}

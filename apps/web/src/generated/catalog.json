@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T11:07:49.670Z",
+  "generatedAt": "2026-11-25T11:25:44.419Z",
   "styles": [
     {
       "id": "editorial-roastery",
@@ -927,9 +927,119 @@
       "componentPath": "registry/templates/editorial-storefront-template/component.tsx",
       "previewPath": "registry/templates/editorial-storefront-template/preview.tsx",
       "stylesPath": "registry/templates/editorial-storefront-template/styles.module.css"
+    },
+    {
+      "id": "kinetic-story-template",
+      "kind": "template",
+      "level": "template",
+      "category": "storytelling",
+      "name": "Kinetic Story Template",
+      "description": "Full-bleed dark editorial storytelling page shell with isolated stacking context, ordered chapter slots (hero, manifesto, story, stats, orbit, footer), and a scroll-triggered floating bottom CTA pill.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "template",
+        "layout",
+        "storytelling",
+        "dark",
+        "chapters",
+        "floating-cta",
+        "shell"
+      ],
+      "componentPath": "registry/templates/kinetic-story-template/component.tsx",
+      "previewPath": "registry/templates/kinetic-story-template/preview.tsx",
+      "stylesPath": "registry/templates/kinetic-story-template/styles.module.css"
+    },
+    {
+      "id": "saas-waitlist-template",
+      "kind": "template",
+      "level": "template",
+      "category": "saas",
+      "name": "SaaS Waitlist Landing Template",
+      "description": "Full-width dark SaaS waitlist landing shell with fixed top floating pill navigation region, ordered vertical content slots (spotlight, waitlist hero, extra), and closing footer slot.",
+      "styling": "css-modules",
+      "vibes": [
+        "minimal",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "template",
+        "layout",
+        "saas",
+        "waitlist",
+        "landing",
+        "floating-nav",
+        "shell"
+      ],
+      "componentPath": "registry/templates/saas-waitlist-template/component.tsx",
+      "previewPath": "registry/templates/saas-waitlist-template/preview.tsx",
+      "stylesPath": "registry/templates/saas-waitlist-template/styles.module.css"
     }
   ],
   "pages": [
+    {
+      "id": "kinetic-story-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "storytelling",
+      "name": "Kinetic Story Demo Page",
+      "description": "Full composed dark obsidian storytelling reference page assembling the kinetic story template with 3D spiral card deck hero, editorial manifesto chapter, story chances list, Matter.js physics stats pit, orbital crest wheel, and WebGL rays waitlist footer.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "three",
+        "matter-js"
+      ],
+      "composes": [
+        "templates/kinetic-story-template",
+        "sections/spiral-deck-hero",
+        "sections/editorial-manifesto-chapter",
+        "sections/story-chances-list",
+        "sections/physics-stats-pit",
+        "sections/orbital-crest-wheel",
+        "sections/rays-waitlist-footer"
+      ],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "page",
+        "demo",
+        "storytelling",
+        "webgl",
+        "threejs",
+        "physics",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/kinetic-story-demo-page/component.tsx",
+      "previewPath": "registry/pages/kinetic-story-demo-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/kinetic-story-demo-page/demo-data.ts"
+        }
+      ]
+    },
     {
       "id": "storefront-demo-page",
       "kind": "page",
@@ -975,6 +1085,50 @@
         {
           "name": "demo-data.ts",
           "path": "registry/pages/storefront-demo-page/demo-data.ts"
+        }
+      ]
+    },
+    {
+      "id": "waitlist-landing-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "saas",
+      "name": "SaaS Waitlist Landing Demo Page",
+      "description": "Full composed dark SaaS waitlist reference page assembling the SaaS waitlist template with floating pill navbar, interactive waitlist hero, pointer spotlight stat band, and minimal SaaS footer.",
+      "styling": "css-modules",
+      "vibes": [
+        "minimal",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "composes": [
+        "templates/saas-waitlist-template",
+        "sections/floating-pill-navbar",
+        "sections/waitlist-hero",
+        "sections/spotlight-stat-band",
+        "sections/minimal-saas-footer"
+      ],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "page",
+        "demo",
+        "saas",
+        "waitlist",
+        "landing",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/waitlist-landing-demo-page/component.tsx",
+      "previewPath": "registry/pages/waitlist-landing-demo-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/waitlist-landing-demo-page/demo-data.ts"
         }
       ]
     }
