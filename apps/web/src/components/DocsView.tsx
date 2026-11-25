@@ -1,13 +1,13 @@
 "use client";
 
 import {
-  MCP_CONFIG_SNIPPET,
   MCP_TOOLS,
-  PLUGIN_INSTALL_SNIPPET,
+  MCP_URL,
   USAGE_COMPONENT_SNIPPET,
   USAGE_LAYOUT_SNIPPET,
 } from "@/lib/docs-snippets";
 import { CodeViewer } from "./CodeViewer";
+import { InstallGuide } from "./InstallGuide";
 import { useLanguage } from "./LanguageProvider";
 
 export function DocsView() {
@@ -31,7 +31,9 @@ export function DocsView() {
         </p>
       </div>
 
-      <section id="usage" className="scroll-mt-8 space-y-5">
+      <InstallGuide />
+
+      <section id="usage" className="scroll-mt-8 space-y-5 border-t border-white/10 pt-10">
         <div>
           <p className="font-mono text-xs uppercase tracking-wider text-zinc-400">{d.sec1Tag}</p>
           <h2 className="mt-1 text-2xl font-bold">{d.sec1Title}</h2>
@@ -69,9 +71,8 @@ export function DocsView() {
           </h2>
           <p className="mt-2 max-w-2xl text-sm text-zinc-300">
             <code className="font-mono text-white">rakitek-mcp</code> {d.sec2Intro1}{" "}
-            <code className="font-mono text-white">registry/.generated/catalog.json</code>.{" "}
-            {d.sec2Intro2} <code className="font-mono text-white">npm run sync</code>
-            {d.sec2Intro3}
+            <code className="break-all font-mono text-white">{MCP_URL}</code>. {d.sec2Intro2}{" "}
+            <code className="font-mono text-white">npm run sync</code> {d.sec2Intro3}
           </p>
         </div>
 
@@ -97,8 +98,6 @@ export function DocsView() {
             </tbody>
           </table>
         </div>
-
-        <CodeViewer code={MCP_CONFIG_SNIPPET} filename="mcp_config.json" />
       </section>
 
       <section id="skills" className="scroll-mt-8 space-y-5 border-t border-white/10 pt-10">
@@ -106,7 +105,8 @@ export function DocsView() {
           <p className="font-mono text-xs uppercase tracking-wider text-zinc-400">{d.sec3Tag}</p>
           <h2 className="mt-1 text-2xl font-bold">{d.sec3Title}</h2>
           <p className="mt-2 max-w-2xl text-sm text-zinc-300">
-            {d.sec3Intro1} <code className="font-mono text-white">packages/plugin/</code>{" "}
+            {d.sec3Intro1}{" "}
+            <code className="font-mono text-white">packages/plugin/skills/rakitek-build</code>{" "}
             {d.sec3Intro2}
           </p>
         </div>
@@ -125,8 +125,6 @@ export function DocsView() {
             </p>
           </article>
         </div>
-
-        <CodeViewer code={PLUGIN_INSTALL_SNIPPET} filename={d.installFilename} />
       </section>
     </div>
   );

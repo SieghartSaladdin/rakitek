@@ -1,19 +1,10 @@
-# Rakitek Plugin (untuk pengguna)
+# Rakitek untuk pengguna
 
-Bundle ini berisi `rakitek-mcp` + skill `rakitek-build` + `rules/AGENTS.md`. Isinya hanya untuk **merakit** website dari komponen Rakitek. Skill ekstrak (`rakitek-extract`) adalah alat internal pengelola dan tinggal di repo (`.agent/skills/`), tidak ikut di bundle ini.
+Isi folder ini yang dibagikan ke pengguna:
+- **MCP online:** `https://rakitek.qifor.my.id/mcp` (Streamable HTTP, publik, read-only, 60 request/menit per IP). Kode server ada di `packages/mcp`, endpoint-nya di `apps/web/src/app/mcp/route.ts`.
+- **Skill `rakitek-build`:** `skills/rakitek-build/SKILL.md`. Saat `npm run sync`, file ini disalin ke `apps/web/public/skills/rakitek-build/SKILL.md` supaya bisa diunduh dari `https://rakitek.qifor.my.id/skills/rakitek-build/SKILL.md`.
+- **`mcp_config.json`:** contoh config Antigravity (key `serverUrl`).
 
-## Cara Memasang
-1. Build rakitek (MCP membaca katalog dari `registry/.generated/catalog.json` di repo yang sama):
-   ```powershell
-   cd <RAKITEK_ROOT>
-   npm install
-   npm run build
-   ```
-2. Di `mcp_config.json`, ganti `<RAKITEK_ROOT>` dengan path folder rakitek di komputer kamu (pakai `/`, mis. `D:/kode/rakitek`).
-3. Salin folder ini ke direktori plugin global Antigravity:
-   ```powershell
-   Copy-Item -Recurse -Force "<RAKITEK_ROOT>\packages\plugin" "$env:USERPROFILE\.gemini\config\plugins\rakitek"
-   ```
-4. Restart Antigravity. Coba prompt: "Bangun landing page coffee shop pakai rakitek-build."
+Tutorial pemasangan untuk pengguna (Claude Code dan Antigravity) ada di halaman Docs web: `https://rakitek.qifor.my.id/docs#install`.
 
-Setiap kali registry diperbarui, jalankan `npm run sync` dan `npm run build` lagi di folder rakitek.
+Skill ekstrak (`rakitek-extract`) adalah alat internal pengelola, tinggal di `.agent/skills/`, dan tidak dibagikan.

@@ -56,6 +56,7 @@ export interface WebCopy {
     usageGuide: string;
     mcpDocs: string;
     skillsPlugin: string;
+    installGuide: string;
     websiteStyles: string;
     browseAllStyles: string;
     noMatches: (query: string) => string;
@@ -128,6 +129,20 @@ export interface WebCopy {
   };
   docs: {
     title: string;
+    install: {
+      tag: string;
+      title: string;
+      intro: string;
+      note: string;
+      clientLabel: string;
+      checkTitle: string;
+      checkFilename: string;
+      tryPrompt: string;
+      steps: Record<
+        "claude" | "antigravity",
+        { mcpTitle: string; mcpDesc: string; skillTitle: string; skillDesc: string; checkDesc: string }
+      >;
+    };
     introPart1: string;
     introPart2: string;
     sec1Tag: string;
@@ -160,6 +175,5 @@ export interface WebCopy {
     skill2Desc2: string;
     skill2Desc3: string;
     skill2Prompt: string;
-    installFilename: string;
   };
 }

@@ -1,16 +1,20 @@
 ---
 name: rakitek-build
 description: >-
-  Assemble production-grade websites and landing pages from verified Rakitek
-  styles, sections, and templates via rakitek-mcp instead of generating generic
-  UI from scratch.
+  Build websites, landing pages, and UI sections from verified Rakitek styles,
+  sections, and templates via the rakitek MCP server instead of generating generic
+  UI from scratch. Use when the user asks to build, design, or assemble a website,
+  landing page, or page section, or mentions Rakitek.
 ---
 
 # Rakitek Build (MCP → website)
 
-Use whenever building a website, landing page, or UI with Rakitek.
+Use whenever building a website, landing page, or UI section. Requires the `rakitek` MCP server (`https://rakitek.qifor.my.id/mcp`).
 
-**Core rule:** never write a section from scratch when rakitek-mcp has one. Copy returned files as-is, then change only props, copy, and images.
+## Rules
+- Never write a section from scratch when rakitek-mcp has one. Copy returned files as-is, then change only props, copy, and images.
+- Keep colors, fonts, radii, and easing on `var(--rk-*)`. No hardcoded hex values or new font names.
+- Never rewrite a section's layout or animation from memory. If it does not fit, use an `alternatives` id from the blueprint or `search_components`.
 
 ## Minimal call sequence (keeps tokens low)
 1. `suggest_page_blueprint({ niche })` — returns the style, a verified `basePage`, the ordered `stack` (one pick per slot + `alternatives`), and `next` steps. If it returns `note`, the niche had no tagged style; check `list_styles` only then.
@@ -28,4 +32,4 @@ Use `search_components` only when the blueprint has no fitting slot. It returns 
 5. `example.tsx` is reference only: it shows prop shapes and assembly order. Build your page from it with the brief's copy and images.
 
 ## Verify
-Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text. Keep all colors, fonts, radii, and easing on `var(--rk-*)`.
+Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text.

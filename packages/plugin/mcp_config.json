@@ -1,8 +1,7 @@
 {
   "mcpServers": {
-    "rakitek-mcp": {
-      "command": "node",
-      "args": ["<RAKITEK_ROOT>/packages/mcp/dist/index.js"]
+    "rakitek": {
+      "serverUrl": "https://rakitek.qifor.my.id/mcp"
     }
   }
 }

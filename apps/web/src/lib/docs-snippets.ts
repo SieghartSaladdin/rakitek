@@ -23,24 +23,68 @@ export default function Page() {
   );
 }`;
 
-export const MCP_CONFIG_SNIPPET = `{
+export const SITE_URL = "https://rakitek.qifor.my.id";
+export const MCP_URL = `${SITE_URL}/mcp`;
+const SKILL_URL = `${SITE_URL}/skills/rakitek-build/SKILL.md`;
+
+export type InstallClient = "claude" | "antigravity";
+
+/** Per client: global MCP install, global skill install (Windows + macOS/Linux), and a check. */
+export const INSTALL_SNIPPETS: Record<
+  InstallClient,
+  { mcp: { name: string; code: string }[]; skill: { name: string; code: string }[]; check: string }
+> = {
+  claude: {
+    mcp: [
+      {
+        name: "Terminal",
+        code: `claude mcp add --transport http --scope user rakitek ${MCP_URL}`,
+      },
+    ],
+    skill: [
+      {
+        name: "Windows (PowerShell)",
+        code: `New-Item -ItemType Directory -Force "$HOME\\.claude\\skills\\rakitek-build" | Out-Null
+Invoke-WebRequest ${SKILL_URL} -OutFile "$HOME\\.claude\\skills\\rakitek-build\\SKILL.md"`,
+      },
+      {
+        name: "macOS / Linux",
+        code: `mkdir -p ~/.claude/skills/rakitek-build
+curl -fsSL ${SKILL_URL} -o ~/.claude/skills/rakitek-build/SKILL.md`,
+      },
+    ],
+    check: `claude mcp list
+# rakitek: ${MCP_URL} (HTTP) - ✓ Connected`,
+  },
+  antigravity: {
+    mcp: [
+      {
+        name: "mcp_config.json",
+        code: `{
   "mcpServers": {
-    "rakitek-mcp": {
-      "command": "node",
-      "args": ["<RAKITEK_ROOT>/packages/mcp/dist/index.js"]
+    "rakitek": {
+      "serverUrl": "${MCP_URL}"
     }
   }
-}`;
-
-export const PLUGIN_INSTALL_SNIPPET = `# 1. Build rakitek first
-cd <RAKITEK_ROOT>
-npm install
-npm run build
-
-# 2. Replace <RAKITEK_ROOT> in packages/plugin/mcp_config.json with your rakitek path
-
-# 3. Copy plugin bundle (MCP + rakitek-build skill + rules) to global Antigravity config
-Copy-Item -Recurse -Force "packages\\plugin" "$env:USERPROFILE\\.gemini\\config\\plugins\\rakitek"`;
+}`,
+      },
+    ],
+    skill: [
+      {
+        name: "Windows (PowerShell)",
+        code: `New-Item -ItemType Directory -Force "$HOME\\.gemini\\config\\skills\\rakitek-build" | Out-Null
+Invoke-WebRequest ${SKILL_URL} -OutFile "$HOME\\.gemini\\config\\skills\\rakitek-build\\SKILL.md"`,
+      },
+      {
+        name: "macOS / Linux",
+        code: `mkdir -p ~/.gemini/config/skills/rakitek-build
+curl -fsSL ${SKILL_URL} -o ~/.gemini/config/skills/rakitek-build/SKILL.md`,
+      },
+    ],
+    check: `Customizations → Installed → MCP Servers
+# rakitek → 5 tools`,
+  },
+};
 
 export const MCP_TOOLS = [
   {

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { loadCatalog } from "./loader.js";
+import { RAKITEK_INSTRUCTIONS } from "./server.js";
 import { suggestBlueprintResult } from "./tools/blueprint.js";
 import { getComponentBundle, getComponentResult, searchComponentsResult } from "./tools/components.js";
 import { getStyleResult, listStylesResult } from "./tools/styles.js";
@@ -132,6 +133,12 @@ function runTests() {
   assert.equal(saas.basePage, "waitlist-landing-demo-page");
   assert.equal(saas.stack.filter((s) => s.slot === "hero").length, 1, "Exactly one hero in a blueprint");
   assert.ok("note" in suggestBlueprintResult("travel"), "Unknown niche must say it fell back to a default");
+
+  // Instructions ride along on every turn in Claude Code and Antigravity, so keep them ~300 tokens.
+  assert.ok(RAKITEK_INSTRUCTIONS.length < 1600, `Server instructions too long: ${RAKITEK_INSTRUCTIONS.length} chars`);
+  for (const tool of ["suggest_page_blueprint", "get_style", "get_component"]) {
+    assert.ok(RAKITEK_INSTRUCTIONS.includes(tool), `Instructions must mention ${tool}`);
+  }
 
   assertAllComponentImportsResolvable();
 

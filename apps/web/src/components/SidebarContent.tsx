@@ -37,6 +37,7 @@ export function SidebarContent({ onNavigate }: SidebarContentProps) {
   const q = query.trim().toLowerCase();
 
   const guideLinks = [
+    { href: "/docs#install", label: copy.sidebar.installGuide },
     { href: "/docs#usage", label: copy.sidebar.usageGuide },
     { href: "/docs#mcp", label: copy.sidebar.mcpDocs },
     { href: "/docs#skills", label: copy.sidebar.skillsPlugin },

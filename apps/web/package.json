@@ -9,6 +9,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "@rakitek/mcp": "*",
     "gsap": "^3.15.1",
     "matter-js": "^0.20.0",
     "motion": "^14.14.0",
