@@ -51,7 +51,7 @@ For each extracted component, create `registry/ui/<id>/`, `registry/sections/<id
 4. `preview.tsx` — Default export rendering realistic white-label demo data so it immediately renders live in `apps/web`.
 
 ### 3. Measure 1:1 Browser Fidelity, Auto-Sync, Lint & Verify
-Follow [docs/workflow-ekstrak-1to1.md](../../../../docs/workflow-ekstrak-1to1.md) strictly for every extracted component:
+Follow [docs/workflow-ekstrak-1to1.md](../../../docs/workflow-ekstrak-1to1.md) strictly for every extracted component:
 1. Measure the live original website (`1920x980` and `1024x768`, plus `375x812` if responsive) using `scripts/fidelity/measure.js` (via `npm run fidelity:sink` or `npm run fidelity:capture -- <job.json>`) and save JSON + screenshots under `fidelity/<id>/`.
 2. Build & restart the showcase server, then measure `/preview/<kind>/<id>` with the exact same labels and viewports.
 3. Run `npm run fidelity -- fidelity/<id>/original-1920.json fidelity/<id>/extract-1920.json` and `1024` until `0 FAIL`, and document every intentional WARN + side-by-side screenshots in `fidelity/<id>/REPORT.md`.

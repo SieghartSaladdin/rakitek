@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { checkFidelityEvidence } from "./lint-evidence";
+import { checkUtilityClasses } from "./lint-utility-classes";
 import { checkRegistryImports } from "./lint-imports";
 
 interface LintIssue {
@@ -196,6 +197,7 @@ function main() {
   checkSourceFiles(issues);
   checkRegistryImports(ROOT, issues);
   checkFidelityEvidence(ROOT, issues);
+  checkUtilityClasses(ROOT, issues);
 
   if (issues.length === 0) {
     console.log("[rakitek lint] PASS: 0 issues.");

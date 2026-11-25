@@ -1,36 +1,31 @@
 ---
 name: rakitek-build
 description: >-
-  Assemble production-grade, multi-style websites and landing pages using
-  verified Website Styles, UI Components, and Sections from rakitek-mcp instead
-  of generating generic UI from scratch.
+  Assemble production-grade websites and landing pages from verified Rakitek
+  styles, sections, and templates via rakitek-mcp instead of generating generic
+  UI from scratch.
 ---
 
-# Rakitek Build Workflow (MCP → Production Website)
+# Rakitek Build (MCP → website)
 
-Use this skill whenever building a new website, landing page, or UI using the Rakitek design system.
+Use whenever building a website, landing page, or UI with Rakitek.
 
-## Core Rule
-**Never guess or generate generic UI blocks from scratch when a matching style, UI component, or section exists in `rakitek-mcp`.**
+**Core rule:** never write a section from scratch when rakitek-mcp has one. Copy returned files as-is, then change only props, copy, and images.
 
-## Step-by-Step Assembly Procedure
+## Minimal call sequence (keeps tokens low)
+1. `suggest_page_blueprint({ niche })` — returns the style, a verified `basePage`, the ordered `stack` (one pick per slot + `alternatives`), and `next` steps. If it returns `note`, the niche had no tagged style; check `list_styles` only then.
+2. `get_style({ id })` — once per project. Gives `tokens.css`, Google Fonts URL, `base.css`, `smooth-scroll-provider.tsx`, and tested npm versions. Pass `includeSetup: false` if you already have the setup.
+3. `get_component({ id: basePage })` — returns the page, its template, and as many sections as fit one reply. For each id in `fetchSeparately`, call `get_component({ id, withComposed: false, includeExample: false })`.
+4. Swapping a slot: `get_component({ id: <alternative>, withComposed: false })` and replace only that section.
 
-### 1. Discover Style & Blueprint
-1. Call `list_styles` to inspect available Website Style presets.
-2. Optionally call `suggest_page_blueprint({ niche, styleId })` to get a cohesive starter combination of style + sections + UI primitives.
-3. Call `get_style({ id })` for the chosen style preset.
+Use `search_components` only when the blueprint has no fitting slot. It returns rows without code.
 
-### 2. Install Website Styling First
-1. Add the style's `googleFontsUrl` (or equivalent `next/font/google` setup) in the target project's root layout.
-2. Add the style's `tokensCss` into `globals.css` and apply `data-rk-style="<style-id>"` to the root container (or place the `--rk-*` tokens directly in `:root`).
-3. If the page uses smooth scroll, mount a single shared `SmoothScrollProvider` in the root layout.
+## Install into the target project
+1. Load `googleFontsUrl` in the root layout. In global CSS, add `base.css` first **unless** the project already imports `tailwindcss` v4 (components are verified on that reset), then `tokens.css`. Set `data-rk-style="<style-id>"` on `<html>` or `<body>`.
+2. Run the returned `installCommand` (versions are pinned to what was verified).
+3. Copy every `=== <id>/<file> ===` block into `<components>/<id>/<file>`. Keep `./` imports. Rewrite `@registry/<folder>/<id>/component` to `<components>/<id>/component`.
+4. Wrap the app once in `SmoothScrollProvider` if any section scrolls with animation (optional: `npm install lenis`). Never create Lenis inside a component.
+5. `example.tsx` is reference only: it shows prop shapes and assembly order. Build your page from it with the brief's copy and images.
 
-### 3. Fetch & Assemble Verified Components
-1. Call `search_components` by `kind` (`ui | section | template | page`), `level` (`atom | molecule | organism | template | page`), `category`, or `vibe` to find the best matching variants.
-2. Call `get_component({ id })` for each chosen item.
-3. Run the returned `installCommand` (or install listed `dependencies`, e.g. `gsap`, `swiper`, `three`, `matter-js`) in the target project.
-4. Copy `code` (`component.tsx`), `stylesCss` (`styles.module.css` if present), AND every file in `extraFiles` right next to the component so local `./` imports resolve out of the box.
-5. If `composedComponents` is non-empty (e.g. for a `template` or `page`), call `get_component({ id })` for each entry and remap its `@registry/<folder>/<id>/component` import path to the local target path (see `importGuide`). Customize **props, copy, images, and layout rhythm** to match the user's brief while keeping `--rk-*` variables intact so the entire site stays visually cohesive.
-
-### 4. Verify
-Run the target project's typecheck/build (`npm run build`) and verify visual consistency and responsiveness.
+## Verify
+Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text. Keep all colors, fonts, radii, and easing on `var(--rk-*)`.

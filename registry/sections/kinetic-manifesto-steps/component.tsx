@@ -153,7 +153,7 @@ export function KineticManifestoSteps({
   return (
     <section ref={sectionRef} className={styles.section} aria-label={words.join(" ")}>
       <div className={styles.root}>
-        <h2 className="sr-only">{words.join(" ")}</h2>
+        <h2 className={styles.srOnly}>{words.join(" ")}</h2>
 
         <div className={`${styles.padX} ${styles.line}`}>
           <p className={`${styles.tH1} ${styles.line1}`} data-manifesto-title="" aria-hidden="true">

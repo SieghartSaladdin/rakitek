@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { loadCatalog } from "./loader.js";
 import { suggestBlueprintResult } from "./tools/blueprint.js";
-import { getComponentResult, searchComponentsResult } from "./tools/components.js";
+import { getComponentBundle, getComponentResult, searchComponentsResult } from "./tools/components.js";
 import { getStyleResult, listStylesResult } from "./tools/styles.js";
 
 const RELATIVE_IMPORT_RE =
@@ -105,16 +105,37 @@ function runTests() {
   const hero = getComponentResult("editorial-storefront-hero");
   assert.equal(hero.styling, "css-modules", "Expected css-modules styling mode on high-fidelity hero");
   assert.ok(hero.stylesCss && hero.stylesCss.includes("var(--rk-"), "Expected token-bound stylesCss");
-  assert.ok(hero.dependencies.includes("gsap"), "Expected gsap dependency on high-fidelity hero");
-  assert.ok(hero.installCommand?.includes("gsap"), "Expected installCommand to include gsap");
+  assert.ok(hero.dependencies.gsap?.startsWith("^"), "Expected pinned gsap version on high-fidelity hero");
+  assert.ok(hero.installCommand?.includes('"gsap@^'), "Expected installCommand to pin gsap version");
+
+  assert.ok(roastery.baseCss && roastery.baseCss.includes("box-sizing"), "get_style must ship base reset CSS");
+  assert.ok(!roastery.baseCss.includes("--theme("), "base CSS must be plain CSS without Tailwind functions");
+  assert.ok(
+    roastery.primitives?.["smooth-scroll-provider.tsx"]?.includes("SmoothScrollProvider"),
+    "get_style must ship the SmoothScrollProvider primitive",
+  );
+  assert.equal(getStyleResult("editorial-roastery", false).baseCss, undefined, "includeSetup:false skips setup");
+
+  const pageBundle = getComponentBundle("storefront-demo-page", true);
+  const bundleIds = pageBundle.map((r) => r.id);
+  assert.equal(bundleIds.at(-1), "storefront-demo-page", "Requested item comes last, after its dependencies");
+  assert.ok(bundleIds.includes("editorial-storefront-hero"), "Page bundle must include composed sections");
+  assert.equal(new Set(bundleIds).size, bundleIds.length, "Bundle must not repeat components");
+  assert.equal(getComponentBundle("storefront-demo-page", false).length, 1, "withComposed:false returns one item");
 
   const blueprint = suggestBlueprintResult("coffee-shop");
-  assert.equal(blueprint.recommendedStyle.id, "editorial-roastery");
-  assert.ok(blueprint.sections.length >= 1, "Expected recommended sections");
+  assert.equal(blueprint.style.id, "editorial-roastery");
+  assert.equal(blueprint.basePage, "storefront-demo-page");
+  assert.equal(blueprint.stack[0]?.slot, "navbar", "Stack must be ordered, navbar first");
+  assert.equal(new Set(blueprint.stack.map((s) => s.id)).size, blueprint.stack.length, "One pick per slot");
+  const saas = suggestBlueprintResult("saas");
+  assert.equal(saas.basePage, "waitlist-landing-demo-page");
+  assert.equal(saas.stack.filter((s) => s.slot === "hero").length, 1, "Exactly one hero in a blueprint");
+  assert.ok("note" in suggestBlueprintResult("travel"), "Unknown niche must say it fell back to a default");
 
   assertAllComponentImportsResolvable();
 
-  console.log("[rakitek-mcp test] All 6 tool & import-resolution assertions passed.");
+  console.log("[rakitek-mcp test] All tool, setup, bundle, blueprint & import-resolution assertions passed.");
 }
 
 runTests();

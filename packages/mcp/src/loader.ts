@@ -75,6 +75,31 @@ export function loadCatalog(): CatalogData {
   return JSON.parse(fs.readFileSync(catalogPath, "utf8")) as CatalogData;
 }
 
+export interface SetupData {
+  baseCss: string;
+  baseCssSource: string;
+  dependencyVersions: Record<string, string>;
+  primitives: Record<string, string>;
+}
+
+export function loadSetup(): SetupData {
+  const setupPath = path.join(resolveRakitekRoot(), "registry", ".generated", "setup.json");
+  if (!fs.existsSync(setupPath)) {
+    throw new Error(`Setup not found at ${setupPath}. Run "npm run sync" inside the rakitek repo first.`);
+  }
+  return JSON.parse(fs.readFileSync(setupPath, "utf8")) as SetupData;
+}
+
+/** Compact JSON: no indentation, so tool output spends tokens on content, not whitespace. */
+export function compact(value: unknown): string {
+  return JSON.stringify(value);
+}
+
+/** Raw file block: code is returned unescaped so models read it as-is. */
+export function fileBlock(name: string, content: string): { type: "text"; text: string } {
+  return { type: "text", text: `=== ${name} ===\n${content}` };
+}
+
 export function readRegistryFile(relPath: string): string {
   const root = resolveRakitekRoot();
   const absPath = path.resolve(root, relPath);

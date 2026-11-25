@@ -8,6 +8,7 @@ import {
   type ComponentKind,
   type RakitekCatalog,
 } from "../registry/schema";
+import { buildSetup } from "./sync-setup";
 
 const ROOT = path.resolve(process.cwd());
 const REGISTRY_DIR = path.join(ROOT, "registry");
@@ -221,7 +222,11 @@ function main() {
   ].join("\n");
   fs.writeFileSync(path.join(WEB_GEN_DIR, "styles-bundle.css"), bundleCss, "utf8");
 
-  writePreviewMap([...ui, ...sections, ...templates, ...pages]);
+  const allItems = [...ui, ...sections, ...templates, ...pages];
+  const setup = buildSetup(ROOT, new Set(allItems.flatMap((item) => item.dependencies)));
+  fs.writeFileSync(path.join(GEN_REGISTRY_DIR, "setup.json"), JSON.stringify(setup) + "\n", "utf8");
+
+  writePreviewMap(allItems);
   writeSourcesJson(catalog);
 
   console.log(

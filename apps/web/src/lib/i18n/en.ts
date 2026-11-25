@@ -167,8 +167,7 @@ export const EN_COPY: WebCopy = {
   docs: {
     title: "Documentation",
     introPart1: "Complete guide to using Rakitek components manually, connecting",
-    introPart2: ", and working with the",
-    introPart3: "and",
+    introPart2: ", and using the skill",
     sec1Tag: "Section 01",
     sec1Title: "Manual Usage (Website & Copy)",
     sec1Intro1: "Every Rakitek component follows the CSS Variables contract",
@@ -206,27 +205,22 @@ export const EN_COPY: WebCopy = {
     tableArgs: "Arguments",
     tablePurpose: "Purpose",
     mcpToolPurposes: {
-      list_styles: "Lists all Website Style presets (palette, font pairing, vibe, tags).",
-      get_style: "Returns full tokens.css, Google Fonts URL, and setup instructions.",
-      search_components: "Searches components by kind, atomic level, category, vibe, or query.",
-      get_component:
-        "Returns clean TSX source, CSS modules, sibling extraFiles, dependencies, and composedComponents.",
       suggest_page_blueprint:
-        "Recommends a cohesive style + sections + UI primitives combination for a target niche.",
+        "Start here: picks a style and a verified page, the ordered section stack, and the next calls.",
+      get_style:
+        "One-time setup: tokens.css, Google Fonts, base.css, SmoothScrollProvider, pinned npm versions.",
+      get_component:
+        "Ready-to-copy files plus composed children in one reply; the rest are listed in fetchSeparately.",
+      search_components:
+        "Find components without code, only when the blueprint has no fitting slot.",
+      list_styles:
+        "Compare styles (palette, fonts, vibe) when the blueprint notes it used a default.",
     },
     sec3Tag: "Section 03",
     sec3Title: "Skills & Antigravity Plugin Documentation",
     sec3Intro1: "The plugin bundle lives in",
-    sec3Intro2: "and packages the MCP server, project rules, and 2 core skills.",
-    skill1Tag: "Skill 01 (Ingestion)",
-    skill1Desc1:
-      "Audits and extracts a Next.js REA project into Website Styles, Atoms, Molecules, Organisms, Templates, and Pages bound to",
-    skill1Desc2: ", then runs",
-    skill1Desc3: "and",
-    skill1Desc4: "so everything appears in the showcase and MCP.",
-    skill1Prompt:
-      'Example prompt: "Extract folder ecommerce-d2c/aardvark-book-club into rakitek using rakitek-extract."',
-    skill2Tag: "Skill 02 (Assembly)",
+    sec3Intro2: "and packages the MCP server, usage rules, and the rakitek-build skill.",
+    skill2Tag: "Skill (Assembly)",
     skill2Desc1: "Guides AI in new client projects to pull verified styles and components from",
     skill2Desc2: ", mount a single",
     skill2Desc3: ", and tailor props to match the brief.",

@@ -25,10 +25,6 @@ export function DocsView() {
           </code>
           {d.introPart2}{" "}
           <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-xs text-white">
-            rakitek-extract
-          </code>{" "}
-          {d.introPart3}{" "}
-          <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-xs text-white">
             rakitek-build
           </code>
           .
@@ -115,20 +111,7 @@ export function DocsView() {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          <article className="rounded-2xl border border-white/10 bg-[#141418] p-6">
-            <p className="font-mono text-xs text-zinc-400">{d.skill1Tag}</p>
-            <h3 className="mt-1 text-lg font-semibold text-white">rakitek-extract</h3>
-            <p className="mt-2 text-xs leading-relaxed text-zinc-300">
-              {d.skill1Desc1} <code className="font-mono">--rk-*</code>
-              {d.skill1Desc2} <code className="font-mono">npm run sync</code> {d.skill1Desc3}{" "}
-              <code className="font-mono">npm run lint</code> {d.skill1Desc4}
-            </p>
-            <p className="mt-4 rounded-lg border border-white/10 bg-[#0c0c0e] p-3 font-mono text-[11px] text-zinc-200">
-              {d.skill1Prompt}
-            </p>
-          </article>
-
+        <div className="max-w-2xl">
           <article className="rounded-2xl border border-white/10 bg-[#141418] p-6">
             <p className="font-mono text-xs text-zinc-400">{d.skill2Tag}</p>
             <h3 className="mt-1 text-lg font-semibold text-white">rakitek-build</h3>

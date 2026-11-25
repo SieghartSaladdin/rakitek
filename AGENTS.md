@@ -2,6 +2,10 @@
 
 `rakitek` = 1 Registry Tunggal (`registry/`) yang otomatis menggerakkan Website Showcase (`apps/web`), MCP Server (`packages/mcp`), dan Plugin/Skills (`packages/plugin`).
 
+Dua sisi yang dipisah:
+- **Internal (repo ini, untuk pengelola):** skill `rakitek-extract` ada di `.agent/skills/rakitek-extract/SKILL.md` dan **tidak** ikut dibagikan. Muat skill ini setiap kali diminta mengekstrak proyek REA ke rakitek.
+- **Pengguna (`packages/plugin`):** hanya `rakitek-mcp` + skill `rakitek-build` + `rules/AGENTS.md` versi pemakai. Jangan taruh aturan ekstrak, lint, atau `npm run verify` di sana, dan jangan tulis path lokal laptop di file plugin.
+
 ## Alur Kerja
 1. **Extract & Compose:** Ekstrak proyek REA ke `registry/styles|ui|sections/<id>/` secara high-fidelity & styling-agnostic (`styles.module.css`, Tailwind, atau hybrid + engine animasi asli seperti GSAP/Swiper), tetap terikat ke token `--rk-*`, props bersih, dan tanpa hardcode brand. Template layout (`registry/templates/<id>/`) dan demo page (`registry/pages/<id>/`) merangkai komponen yang sudah ada lewat import kanonis `@registry/<folder>/<id>/component`.
    - Setiap `meta.json` **wajib** mencantumkan `level: "atom" | "molecule" | "organism" | "template" | "page"` dan `composes` (format tunggal `<folder>/<id>`, mis. `"sections/editorial-storefront-hero"`, hanya diisi jika benar-benar di-import lewat `@registry/<folder>/<id>/component`).

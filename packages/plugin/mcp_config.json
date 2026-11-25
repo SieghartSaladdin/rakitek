@@ -2,10 +2,7 @@
   "mcpServers": {
     "rakitek-mcp": {
       "command": "node",
-      "args": ["C:/Users/Fafnir/Documents/rea-web/rakitek/packages/mcp/dist/index.js"],
-      "env": {
-        "RAKITEK_ROOT": "C:/Users/Fafnir/Documents/rea-web/rakitek"
-      }
+      "args": ["<RAKITEK_ROOT>/packages/mcp/dist/index.js"]
     }
   }
 }

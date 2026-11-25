@@ -169,7 +169,6 @@ export const ID_COPY: WebCopy = {
     title: "Dokumentasi",
     introPart1: "Panduan lengkap cara memakai komponen Rakitek secara manual, menghubungkan",
     introPart2: ", dan memakai skill",
-    introPart3: "serta",
     sec1Tag: "Bagian 01",
     sec1Title: "Cara Penggunaan Manual (Website & Salin)",
     sec1Intro1: "Setiap komponen di Rakitek memakai kontrak CSS Variables",
@@ -207,27 +206,22 @@ export const ID_COPY: WebCopy = {
     tableArgs: "Argumen",
     tablePurpose: "Fungsi",
     mcpToolPurposes: {
-      list_styles: "Menampilkan semua Website Style presets (palet, pasangan font, vibe, tag).",
-      get_style: "Mengambil isi lengkap tokens.css, Google Fonts URL, dan catatan pasang.",
-      search_components: "Mencari variasi komponen menurut kind, level atomic, kategori, vibe, atau kueri.",
-      get_component:
-        "Mengambil kode TSX bersih, CSS modules, file helper extraFiles, dependensi, dan composedComponents.",
       suggest_page_blueprint:
-        "Merekomendasikan kombinasi 1 style + sections + UI primitives untuk niche target.",
+        "Mulai di sini: pilih style dan halaman teruji, susunan section berurutan, dan panggilan berikutnya.",
+      get_style:
+        "Setup sekali per proyek: tokens.css, Google Fonts, base.css, SmoothScrollProvider, versi npm teruji.",
+      get_component:
+        "File siap salin plus komponen turunannya dalam satu jawaban; sisanya didaftar di fetchSeparately.",
+      search_components:
+        "Cari komponen tanpa kode, hanya kalau blueprint belum punya slot yang cocok.",
+      list_styles:
+        "Bandingkan style (palet, font, vibe) bila blueprint memberi catatan memakai default.",
     },
     sec3Tag: "Bagian 03",
     sec3Title: "Dokumentasi Skills & Plugin Antigravity",
     sec3Intro1: "Bundle plugin berada di",
-    sec3Intro2: "dan menyatukan MCP server, aturan proyek, serta 2 skill utama.",
-    skill1Tag: "Skill 01 (Ekstraksi)",
-    skill1Desc1:
-      "Mengaudit dan membedah proyek Next.js hasil REA menjadi Website Style, Atoms, Molecules, Organisms, Templates, dan Pages sesuai kontrak",
-    skill1Desc2: ", lalu menjalankan",
-    skill1Desc3: "dan",
-    skill1Desc4: "agar langsung muncul di website dan MCP.",
-    skill1Prompt:
-      'Contoh prompt: "Ekstrak folder ecommerce-d2c/aardvark-book-club ke rakitek pakai skill rakitek-extract."',
-    skill2Tag: "Skill 02 (Perakitan)",
+    sec3Intro2: "dan menyatukan MCP server, aturan pemakaian, serta skill rakitek-build.",
+    skill2Tag: "Skill (Perakitan)",
     skill2Desc1: "Memandu AI di proyek klien baru agar mengambil style dan komponen teruji dari",
     skill2Desc2: ", memasang",
     skill2Desc3: "tunggal, dan mengedit props sesuai brief.",

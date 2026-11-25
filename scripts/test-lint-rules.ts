@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { checkFidelityEvidence } from "./lint-evidence";
 import { checkRegistryImports, type ImportLintIssue } from "./lint-imports";
+import { checkUtilityClasses } from "./lint-utility-classes";
 
 function writeFile(root: string, relPath: string, content: string) {
   const full = path.join(root, relPath);
@@ -148,7 +149,28 @@ function runTests() {
     }
   }
 
-  console.log("[rakitek lint-rules test] All 5 synthetic import/hierarchy/composes/evidence assertions passed.");
+  // Case 6: no-global-utility-class. Tailwind utilities fail; module classes and library classes (swiper) pass.
+  {
+    const fx = makeFixture({
+      "registry/sections/leaky/meta.json": JSON.stringify({ styling: "css-modules" }),
+      "registry/sections/leaky/component.tsx":
+        'export const A = () => <h2 className="sr-only">x</h2>;\nexport const B = () => <div className={`flex ${s.a} md:grid`} />;\n',
+      "registry/sections/clean/meta.json": JSON.stringify({ styling: "css-modules" }),
+      "registry/sections/clean/component.tsx":
+        'export const C = () => <div className={`swiper-slide ${s.a}`}><div className="swiper-wrapper" /></div>;\n',
+    });
+    try {
+      const issues: ImportLintIssue[] = [];
+      checkUtilityClasses(fx.root, issues);
+      const tokens = issues.map((i) => i.message.match(/"([^"]+)"/)?.[1]).sort();
+      assert.deepEqual(tokens, ["flex", "md:grid", "sr-only"], `Unexpected utility-class issues: ${JSON.stringify(issues)}`);
+      assert.ok(issues.every((i) => i.file.includes("leaky")), "Clean component must not be flagged");
+    } finally {
+      fx.cleanup();
+    }
+  }
+
+  console.log("[rakitek lint-rules test] All 6 synthetic import/hierarchy/composes/evidence/utility-class assertions passed.");
 }
 
 runTests();

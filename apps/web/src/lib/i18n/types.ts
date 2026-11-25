@@ -130,7 +130,6 @@ export interface WebCopy {
     title: string;
     introPart1: string;
     introPart2: string;
-    introPart3: string;
     sec1Tag: string;
     sec1Title: string;
     sec1Intro1: string;
@@ -156,12 +155,6 @@ export interface WebCopy {
     sec3Title: string;
     sec3Intro1: string;
     sec3Intro2: string;
-    skill1Tag: string;
-    skill1Desc1: string;
-    skill1Desc2: string;
-    skill1Desc3: string;
-    skill1Desc4: string;
-    skill1Prompt: string;
     skill2Tag: string;
     skill2Desc1: string;
     skill2Desc2: string;

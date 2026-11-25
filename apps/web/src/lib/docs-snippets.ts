@@ -27,45 +27,45 @@ export const MCP_CONFIG_SNIPPET = `{
   "mcpServers": {
     "rakitek-mcp": {
       "command": "node",
-      "args": ["C:/Users/Fafnir/Documents/rea-web/rakitek/packages/mcp/dist/index.js"],
-      "env": {
-        "RAKITEK_ROOT": "C:/Users/Fafnir/Documents/rea-web/rakitek"
-      }
+      "args": ["<RAKITEK_ROOT>/packages/mcp/dist/index.js"]
     }
   }
 }`;
 
 export const PLUGIN_INSTALL_SNIPPET = `# 1. Build rakitek first
-cd C:\\Users\\Fafnir\\Documents\\rea-web\\rakitek
+cd <RAKITEK_ROOT>
+npm install
 npm run build
 
-# 2. Copy plugin bundle (MCP + Skills + Rules) to global Antigravity config
+# 2. Replace <RAKITEK_ROOT> in packages/plugin/mcp_config.json with your rakitek path
+
+# 3. Copy plugin bundle (MCP + rakitek-build skill + rules) to global Antigravity config
 Copy-Item -Recurse -Force "packages\\plugin" "$env:USERPROFILE\\.gemini\\config\\plugins\\rakitek"`;
 
 export const MCP_TOOLS = [
   {
-    name: "list_styles",
-    args: "none",
-    purpose: "Menampilkan semua Website Style presets (palet, font pairing, vibe, tags).",
+    name: "suggest_page_blueprint",
+    args: '{ niche: "coffee-shop", styleId? }',
+    purpose: "Mulai di sini: pilih style + halaman teruji, susunan section berurutan, dan langkah berikutnya.",
   },
   {
     name: "get_style",
-    args: '{ id: "editorial-roastery" }',
-    purpose: "Mengambil isi lengkap tokens.css, Google Fonts URL, dan catatan pasang.",
-  },
-  {
-    name: "search_components",
-    args: '{ kind?: "ui" | "section", category?, vibe?, query? }',
-    purpose: "Mencari variasi UI Component atau Section sesuai kategori dan gaya.",
+    args: '{ id: "editorial-roastery", includeSetup? }',
+    purpose: "Setup sekali per proyek: tokens.css, Google Fonts, base.css, SmoothScrollProvider, versi npm.",
   },
   {
     name: "get_component",
-    args: '{ id: "interactive-quiz" }',
-    purpose: "Mengambil source code TSX bersih, daftar dependencies, dan contoh pemakaian.",
+    args: '{ id: "storefront-demo-page", withComposed?, includeExample? }',
+    purpose: "File siap salin plus komponen turunannya dalam satu jawaban; sisanya di fetchSeparately.",
   },
   {
-    name: "suggest_page_blueprint",
-    args: '{ niche: "coffee-shop", styleId? }',
-    purpose: "Merekomendasikan kombinasi 1 style + sections + UI primitives untuk niche target.",
+    name: "search_components",
+    args: '{ kind?, level?, category?, vibe?, query? }',
+    purpose: "Cari komponen tanpa kode, hanya kalau blueprint belum punya slot yang cocok.",
+  },
+  {
+    name: "list_styles",
+    args: "none",
+    purpose: "Bandingkan style (palet, font, vibe) bila blueprint memberi catatan default.",
   },
 ];

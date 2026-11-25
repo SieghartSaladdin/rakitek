@@ -1,15 +1,19 @@
-# Rakitek Antigravity Plugin
+# Rakitek Plugin (untuk pengguna)
 
-Bundle ini berisi `rakitek-mcp` + 2 Skills (`rakitek-extract` dan `rakitek-build`) + `rules/AGENTS.md`.
+Bundle ini berisi `rakitek-mcp` + skill `rakitek-build` + `rules/AGENTS.md`. Isinya hanya untuk **merakit** website dari komponen Rakitek. Skill ekstrak (`rakitek-extract`) adalah alat internal pengelola dan tinggal di repo (`.agent/skills/`), tidak ikut di bundle ini.
 
-## Cara Memasang Secara Global (Kapan Saja Siap)
-1. Pastikan `rakitek` sudah di-build terlebih dahulu:
+## Cara Memasang
+1. Build rakitek (MCP membaca katalog dari `registry/.generated/catalog.json` di repo yang sama):
    ```powershell
-   cd C:\Users\Fafnir\Documents\rea-web\rakitek
+   cd <RAKITEK_ROOT>
+   npm install
    npm run build
    ```
-2. Salin (atau symlink) folder ini ke direktori plugin global Antigravity:
+2. Di `mcp_config.json`, ganti `<RAKITEK_ROOT>` dengan path folder rakitek di komputer kamu (pakai `/`, mis. `D:/kode/rakitek`).
+3. Salin folder ini ke direktori plugin global Antigravity:
    ```powershell
-   Copy-Item -Recurse -Force "C:\Users\Fafnir\Documents\rea-web\rakitek\packages\plugin" "$env:USERPROFILE\.gemini\config\plugins\rakitek"
+   Copy-Item -Recurse -Force "<RAKITEK_ROOT>\packages\plugin" "$env:USERPROFILE\.gemini\config\plugins\rakitek"
    ```
-3. Restart/reload Antigravity untuk mengaktifkan `rakitek-mcp`, `rakitek-extract`, dan `rakitek-build` di semua workspace.
+4. Restart Antigravity. Coba prompt: "Bangun landing page coffee shop pakai rakitek-build."
+
+Setiap kali registry diperbarui, jalankan `npm run sync` dan `npm run build` lagi di folder rakitek.
