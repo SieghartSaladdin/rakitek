@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLanguage } from "./LanguageProvider";
 
 export interface CodeFileTab {
   name: string;
@@ -41,6 +42,7 @@ interface CodeViewerProps {
 }
 
 export function CodeViewer({ code = "", filename, files }: CodeViewerProps) {
+  const { copy } = useLanguage();
   const resolvedFiles: CodeFileTab[] =
     files && files.length > 0
       ? files
@@ -69,7 +71,7 @@ export function CodeViewer({ code = "", filename, files }: CodeViewerProps) {
         <div
           className="flex flex-wrap items-center gap-1 border-b border-white/10 bg-[#101014] px-3 py-2"
           role="tablist"
-          aria-label="Component source files"
+          aria-label={copy.common.sourceFilesAria}
         >
           {resolvedFiles.map((file, idx) => {
             const active = idx === activeIndex;
@@ -103,7 +105,7 @@ export function CodeViewer({ code = "", filename, files }: CodeViewerProps) {
           onClick={handleCopy}
           className="shrink-0 rounded-md border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-zinc-200 transition-colors hover:bg-white/15 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         >
-          {copied ? "Copied ✓" : isMultiFile ? "Copy File" : "Copy Code"}
+          {copied ? `${copy.common.copied} ✓` : isMultiFile ? copy.common.copyFile : copy.common.copyCode}
         </button>
       </div>
       <pre className="max-h-[540px] overflow-auto p-4 font-mono text-xs leading-relaxed text-zinc-200">

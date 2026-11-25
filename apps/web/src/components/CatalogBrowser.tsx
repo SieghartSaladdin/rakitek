@@ -10,38 +10,41 @@ import {
   filterCatalogItems,
   type SelectOption,
 } from "@/lib/catalog-utils";
+import type { CatalogKindKey } from "@/lib/i18n/types";
 import { DropdownSelect } from "./DropdownSelect";
+import { useLanguage } from "./LanguageProvider";
 import { LivePreviewFrame } from "./LivePreviewFrame";
 
 interface CatalogBrowserProps {
-  kind: "ui" | "section" | "atom" | "molecule" | "organism" | "template" | "page";
-  title: string;
-  subtitle: string;
+  kind: CatalogKindKey;
+  title?: string;
+  subtitle?: string;
   items: CatalogComponentEntry[];
 }
 
-const KIND_PLURAL: Record<CatalogBrowserProps["kind"], string> = {
-  ui: "UI components",
-  section: "sections",
-  atom: "atoms",
-  molecule: "molecules",
-  organism: "organisms",
-  template: "templates",
-  page: "pages",
-};
-
 export function CatalogBrowser({ kind, title, subtitle, items }: CatalogBrowserProps) {
+  const { copy } = useLanguage();
+  const kindCopy = copy.catalog.kindMeta[kind];
+  const resolvedTitle = kindCopy.title ?? title ?? "";
+  const resolvedSubtitle = kindCopy.subtitle ?? subtitle ?? "";
+
   const styles = getAllStyles();
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [vibe, setVibe] = useState("all");
   const [styleId, setStyleId] = useState("all");
 
-  const categoryOptions = useMemo(() => buildCategoryOptions(items), [items]);
-  const vibeOptions = useMemo(() => buildVibeOptions(items), [items]);
+  const categoryOptions = useMemo(
+    () => buildCategoryOptions(items, copy.catalog.allCategories),
+    [items, copy.catalog.allCategories],
+  );
+  const vibeOptions = useMemo(
+    () => buildVibeOptions(items, copy.catalog.allVibes),
+    [items, copy.catalog.allVibes],
+  );
   const styleOptions = useMemo<SelectOption[]>(
     () => [
-      { value: "all", label: "All Styles", count: items.length },
+      { value: "all", label: copy.catalog.allStyles, count: items.length },
       ...styles.map((s) => ({
         value: s.id,
         label: s.name,
@@ -49,7 +52,7 @@ export function CatalogBrowser({ kind, title, subtitle, items }: CatalogBrowserP
         count: items.filter((i) => i.recommendedStyles.includes(s.id)).length,
       })),
     ],
-    [items, styles],
+    [items, styles, copy.catalog.allStyles],
   );
 
   const filtered = useMemo(
@@ -70,35 +73,40 @@ export function CatalogBrowser({ kind, title, subtitle, items }: CatalogBrowserP
       <div className="space-y-5 border-b border-white/10 pb-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
-            <p className="mt-2 max-w-2xl text-sm text-zinc-300">{subtitle}</p>
+            <h1 className="text-3xl font-bold tracking-tight">{resolvedTitle}</h1>
+            <p className="mt-2 max-w-2xl text-sm text-zinc-300">{resolvedSubtitle}</p>
           </div>
           <span className="font-mono text-xs text-zinc-400">
-            Showing {filtered.length} of {items.length}
+            {copy.common.showingOf(filtered.length, items.length)}
           </span>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
           <label htmlFor={`rk-catalog-search-${kind}`} className="sr-only">
-            Filter {title}
+            {copy.catalog.filterAria(resolvedTitle)}
           </label>
           <input
             id={`rk-catalog-search-${kind}`}
             type="search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder={`Search ${KIND_PLURAL[kind]}...`}
+            placeholder={copy.catalog.searchPlaceholder(kindCopy.plural)}
             className="min-h-[44px] w-full rounded-lg border border-white/15 bg-[#141418] px-3.5 text-xs text-white placeholder:text-zinc-400 outline-none focus-visible:ring-2 focus-visible:ring-white sm:w-60"
           />
           <DropdownSelect
-            label="Category"
+            label={copy.catalog.categoryLabel}
             value={category}
             options={categoryOptions}
             onChange={setCategory}
           />
-          <DropdownSelect label="Vibe" value={vibe} options={vibeOptions} onChange={setVibe} />
           <DropdownSelect
-            label="Style"
+            label={copy.catalog.vibeLabel}
+            value={vibe}
+            options={vibeOptions}
+            onChange={setVibe}
+          />
+          <DropdownSelect
+            label={copy.catalog.styleLabel}
             value={styleId}
             options={styleOptions}
             onChange={setStyleId}
@@ -109,7 +117,7 @@ export function CatalogBrowser({ kind, title, subtitle, items }: CatalogBrowserP
               onClick={resetFilters}
               className="min-h-[44px] px-2 text-xs font-semibold text-zinc-300 underline underline-offset-4 hover:text-white cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              Reset
+              {copy.common.reset}
             </button>
           ) : null}
         </div>
@@ -118,17 +126,15 @@ export function CatalogBrowser({ kind, title, subtitle, items }: CatalogBrowserP
       {filtered.length === 0 ? (
         <div className="rounded-2xl border border-white/10 bg-[#141418] p-10 text-center">
           <p className="text-sm font-medium text-white">
-            No {KIND_PLURAL[kind]} match the current filters.
+            {copy.catalog.emptyTitle(kindCopy.plural)}
           </p>
-          <p className="mt-1 text-xs text-zinc-400">
-            Reset the dropdowns or search term to view all available items.
-          </p>
+          <p className="mt-1 text-xs text-zinc-400">{copy.catalog.emptyHint}</p>
           <button
             type="button"
             onClick={resetFilters}
             className="mt-5 inline-flex min-h-[44px] items-center rounded-full bg-white px-5 text-xs font-semibold text-black cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            Reset Filters
+            {copy.common.resetFilters}
           </button>
         </div>
       ) : (
@@ -174,7 +180,7 @@ export function CatalogBrowser({ kind, title, subtitle, items }: CatalogBrowserP
                     href={`/item/${item.kind}/${item.id}`}
                     className="inline-flex min-h-[44px] items-center px-2 text-xs font-semibold text-white underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
-                    Inspect &amp; Code
+                    {copy.common.inspectAndCode}
                   </Link>
                 </div>
               </div>

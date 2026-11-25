@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "./LanguageProvider";
 
 export type ViewportMode = "desktop" | "tablet" | "mobile";
 
@@ -34,6 +35,7 @@ export function ResponsiveIframeStage({
   viewport,
   fullscreen = false,
 }: ResponsiveIframeStageProps) {
+  const { copy } = useLanguage();
   const boxRef = useRef<HTMLDivElement>(null);
   const [box, setBox] = useState({ width: 0, height: 0 });
   const preset = VIEWPORT_PRESETS[viewport];
@@ -75,7 +77,9 @@ export function ResponsiveIframeStage({
     >
       <div className="mb-3 flex items-center gap-2 rounded-full border border-white/10 bg-[#141418] px-3 py-1 font-mono text-[11px] text-zinc-300">
         <span>{preset.shortLabel}</span>
-        <span className="text-zinc-400">{box.width > 0 ? `${percent}% · scroll inside` : "real media query"}</span>
+        <span className="text-zinc-400">
+          {box.width > 0 ? `${percent}% · ${copy.common.scrollInside}` : copy.common.realMediaQuery}
+        </span>
       </div>
 
       <div ref={boxRef} className={fullscreen ? "min-h-0 w-full flex-1" : "w-full"}>

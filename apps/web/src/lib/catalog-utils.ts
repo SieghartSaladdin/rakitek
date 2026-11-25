@@ -52,20 +52,26 @@ export function filterCatalogItems(
   });
 }
 
-export function buildCategoryOptions(items: CatalogComponentEntry[]): SelectOption[] {
+export function buildCategoryOptions(
+  items: CatalogComponentEntry[],
+  allLabel = "All Categories",
+): SelectOption[] {
   const counts = new Map<string, number>();
   for (const item of items) {
     counts.set(item.category, (counts.get(item.category) ?? 0) + 1);
   }
   return [
-    { value: "all", label: "All Categories", count: items.length },
+    { value: "all", label: allLabel, count: items.length },
     ...Array.from(counts.entries())
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([value, count]) => ({ value, label: value, count })),
   ];
 }
 
-export function buildVibeOptions(items: CatalogComponentEntry[]): SelectOption[] {
+export function buildVibeOptions(
+  items: CatalogComponentEntry[],
+  allLabel = "All Vibes",
+): SelectOption[] {
   const counts = new Map<string, number>();
   for (const item of items) {
     for (const vibe of item.vibes) {
@@ -73,7 +79,7 @@ export function buildVibeOptions(items: CatalogComponentEntry[]): SelectOption[]
     }
   }
   return [
-    { value: "all", label: "All Vibes", count: items.length },
+    { value: "all", label: allLabel, count: items.length },
     ...Array.from(counts.entries())
       .sort(([a], [b]) => a.localeCompare(b))
       .map(([value, count]) => ({ value, label: value, count })),

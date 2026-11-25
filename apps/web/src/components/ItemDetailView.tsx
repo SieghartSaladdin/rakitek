@@ -9,6 +9,7 @@ import { buildSourceFileTabs, CodeViewer } from "./CodeViewer";
 import { DropdownSelect } from "./DropdownSelect";
 import { FullscreenPreviewModal } from "./FullscreenPreviewModal";
 import { ItemMetaGrid } from "./ItemMetaGrid";
+import { useLanguage } from "./LanguageProvider";
 import {
   ResponsiveIframeStage,
   VIEWPORT_PRESETS,
@@ -38,6 +39,7 @@ export function ItemDetailView({
   previewCode,
   extraFiles,
 }: ItemDetailViewProps) {
+  const { copy } = useLanguage();
   const styles = getAllStyles();
   const primaryStyle = item.recommendedStyles[0] ?? styles[0]?.id ?? "editorial-roastery";
   const [tab, setTab] = useState<DetailTab>("preview");
@@ -74,12 +76,15 @@ export function ItemDetailView({
   );
 
   const tabs: Array<{ key: DetailTab; label: string }> = [
-    { key: "preview", label: "Preview" },
+    { key: "preview", label: copy.itemDetail.tabPreview },
     {
       key: "code",
-      label: sourceFiles.length > 1 ? `Code (${sourceFiles.length} files)` : "TSX Code",
+      label:
+        sourceFiles.length > 1
+          ? copy.itemDetail.tabCodeMulti(sourceFiles.length)
+          : copy.itemDetail.tabCodeSingle,
     },
-    { key: "usage", label: "Usage" },
+    { key: "usage", label: copy.itemDetail.tabUsage },
   ];
 
   const mcpPrompt = `Use rakitek-mcp get_component("${item.id}") with style "${previewStyle}".`;
@@ -92,146 +97,149 @@ export function ItemDetailView({
 
   return (
     <>
-    <div className="space-y-8">
-      <div className="space-y-4 border-b border-white/10 pb-6">
-        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 font-mono text-xs text-zinc-400">
-          <Link
-            href={`/${item.level}s`}
-            className="capitalize hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      <div className="space-y-8">
+        <div className="space-y-4 border-b border-white/10 pb-6">
+          <nav
+            aria-label={copy.itemDetail.breadcrumbAria}
+            className="flex flex-wrap items-center gap-2 font-mono text-xs text-zinc-400"
           >
-            {item.level}s
-          </Link>
-          <span>/</span>
-          <span className="capitalize">{item.category}</span>
-          <span>/</span>
-          <span className="text-zinc-200">{item.id}</span>
-        </nav>
+            <Link
+              href={`/${item.level}s`}
+              className="capitalize hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {copy.sidebar.levels[item.level].title}
+            </Link>
+            <span>/</span>
+            <span className="capitalize">{item.category}</span>
+            <span>/</span>
+            <span className="text-zinc-200">{item.id}</span>
+          </nav>
 
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">{item.name}</h1>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300">
-              {item.description}
-            </p>
+          <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight">{item.name}</h1>
+              <p className="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300">
+                {item.description}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={handleCopyMcp}
+              className="inline-flex min-h-[44px] shrink-0 items-center rounded-lg border border-white/15 bg-white/6 px-4 text-xs font-semibold text-white transition-colors hover:bg-white/14 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {copiedMcp ? copy.itemDetail.copiedMcp : copy.itemDetail.copyMcp}
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={handleCopyMcp}
-            className="inline-flex min-h-[44px] shrink-0 items-center rounded-lg border border-white/15 bg-white/6 px-4 text-xs font-semibold text-white transition-colors hover:bg-white/14 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            {copiedMcp ? "MCP Prompt Copied" : "Copy MCP Prompt"}
-          </button>
+
+          <ItemMetaGrid item={item} primaryStyle={primaryStyle} />
         </div>
 
-        <ItemMetaGrid item={item} primaryStyle={primaryStyle} />
-      </div>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="inline-flex flex-wrap rounded-lg border border-white/10 bg-[#141418] p-1 text-xs">
+            {tabs.map((t) => (
+              <button
+                key={t.key}
+                type="button"
+                onClick={() => setTab(t.key)}
+                aria-pressed={tab === t.key}
+                className={`min-h-[44px] rounded-md px-4 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                  tab === t.key ? "bg-white text-black font-semibold" : "text-zinc-300 hover:text-white"
+                }`}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="inline-flex flex-wrap rounded-lg border border-white/10 bg-[#141418] p-1 text-xs">
-          {tabs.map((t) => (
-            <button
-              key={t.key}
-              type="button"
-              onClick={() => setTab(t.key)}
-              aria-pressed={tab === t.key}
-              className={`min-h-[44px] rounded-md px-4 transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                tab === t.key ? "bg-white text-black font-semibold" : "text-zinc-300 hover:text-white"
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
+          {tab === "preview" ? (
+            <div className="flex flex-wrap items-center gap-2">
+              <DropdownSelect
+                label={copy.itemDetail.styleLabel}
+                value={previewStyle}
+                options={styleOptions}
+                onChange={setPreviewStyle}
+                align="right"
+              />
+              <DropdownSelect
+                label={copy.itemDetail.viewportLabel}
+                value={viewport}
+                options={VIEWPORT_OPTIONS}
+                onChange={(val) => setViewport(val as ViewportMode)}
+                align="right"
+              />
+              <button
+                type="button"
+                onClick={() => setFullscreenOpen(true)}
+                aria-label={copy.common.fullscreenAria}
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-white/15 bg-white/8 px-3.5 text-xs font-semibold text-white transition-colors hover:bg-white/16 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path
+                    d="M2.5 6V2.5H6M10 2.5H13.5V6M13.5 10V13.5H10M6 13.5H2.5V10"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="square"
+                  />
+                </svg>
+                <span>{copy.common.fullscreen}</span>
+              </button>
+            </div>
+          ) : null}
         </div>
 
         {tab === "preview" ? (
-          <div className="flex flex-wrap items-center gap-2">
-            <DropdownSelect
-              label="Style"
-              value={previewStyle}
-              options={styleOptions}
-              onChange={setPreviewStyle}
-              align="right"
-            />
-            <DropdownSelect
-              label="Viewport"
-              value={viewport}
-              options={VIEWPORT_OPTIONS}
-              onChange={(val) => setViewport(val as ViewportMode)}
-              align="right"
-            />
-            <button
-              type="button"
-              onClick={() => setFullscreenOpen(true)}
-              aria-label="Open fullscreen preview"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-white/15 bg-white/8 px-3.5 text-xs font-semibold text-white transition-colors hover:bg-white/16 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          <ResponsiveIframeStage
+            kind={item.kind}
+            id={item.id}
+            title={item.name}
+            styleId={previewStyle}
+            viewport={viewport}
+          />
+        ) : tab === "code" ? (
+          <CodeViewer files={sourceFiles} />
+        ) : (
+          <CodeViewer code={previewCode ?? copy.itemDetail.noUsageFile} filename={item.previewPath} />
+        )}
+
+        <nav
+          aria-label={copy.itemDetail.adjacentAria}
+          className="grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2"
+        >
+          {prev ? (
+            <Link
+              href={`/item/${prev.kind}/${prev.id}`}
+              className="flex min-h-[44px] flex-col rounded-xl border border-white/10 bg-[#141418] p-4 transition-colors hover:border-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path
-                  d="M2.5 6V2.5H6M10 2.5H13.5V6M13.5 10V13.5H10M6 13.5H2.5V10"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="square"
-                />
-              </svg>
-              <span>Fullscreen</span>
-            </button>
-          </div>
-        ) : null}
+              <span className="font-mono text-[11px] text-zinc-400">{copy.common.previous}</span>
+              <span className="mt-1 text-sm font-semibold text-white">{prev.name}</span>
+            </Link>
+          ) : (
+            <div />
+          )}
+          {next ? (
+            <Link
+              href={`/item/${next.kind}/${next.id}`}
+              className="flex min-h-[44px] flex-col items-end rounded-xl border border-white/10 bg-[#141418] p-4 text-right transition-colors hover:border-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              <span className="font-mono text-[11px] text-zinc-400">{copy.common.next}</span>
+              <span className="mt-1 text-sm font-semibold text-white">{next.name}</span>
+            </Link>
+          ) : null}
+        </nav>
       </div>
 
-      {tab === "preview" ? (
-        <ResponsiveIframeStage
-          kind={item.kind}
-          id={item.id}
-          title={item.name}
-          styleId={previewStyle}
-          viewport={viewport}
-        />
-      ) : tab === "code" ? (
-        <CodeViewer files={sourceFiles} />
-      ) : (
-        <CodeViewer code={previewCode ?? "// No usage file."} filename={item.previewPath} />
-      )}
-
-      <nav
-        aria-label="Adjacent items"
-        className="grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2"
-      >
-        {prev ? (
-          <Link
-            href={`/item/${prev.kind}/${prev.id}`}
-            className="flex min-h-[44px] flex-col rounded-xl border border-white/10 bg-[#141418] p-4 transition-colors hover:border-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <span className="font-mono text-[11px] text-zinc-400">Previous</span>
-            <span className="mt-1 text-sm font-semibold text-white">{prev.name}</span>
-          </Link>
-        ) : (
-          <div />
-        )}
-        {next ? (
-          <Link
-            href={`/item/${next.kind}/${next.id}`}
-            className="flex min-h-[44px] flex-col items-end rounded-xl border border-white/10 bg-[#141418] p-4 text-right transition-colors hover:border-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <span className="font-mono text-[11px] text-zinc-400">Next</span>
-            <span className="mt-1 text-sm font-semibold text-white">{next.name}</span>
-          </Link>
-        ) : null}
-      </nav>
-    </div>
-
-    <FullscreenPreviewModal
-      open={fullscreenOpen}
-      kind={item.kind}
-      id={item.id}
-      name={item.name}
-      styleId={previewStyle}
-      styleOptions={styleOptions}
-      viewport={viewport}
-      onStyleChange={setPreviewStyle}
-      onViewportChange={setViewport}
-      onClose={() => setFullscreenOpen(false)}
-    />
+      <FullscreenPreviewModal
+        open={fullscreenOpen}
+        kind={item.kind}
+        id={item.id}
+        name={item.name}
+        styleId={previewStyle}
+        styleOptions={styleOptions}
+        viewport={viewport}
+        onStyleChange={setPreviewStyle}
+        onViewportChange={setViewport}
+        onClose={() => setFullscreenOpen(false)}
+      />
     </>
   );
 }

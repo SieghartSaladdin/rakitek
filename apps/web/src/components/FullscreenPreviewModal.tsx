@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import type { SelectOption } from "@/lib/catalog-utils";
 import { DropdownSelect } from "./DropdownSelect";
+import { useLanguage } from "./LanguageProvider";
 import {
   ResponsiveIframeStage,
   VIEWPORT_PRESETS,
@@ -38,6 +39,7 @@ export function FullscreenPreviewModal({
   onViewportChange,
   onClose,
 }: FullscreenPreviewModalProps) {
+  const { copy } = useLanguage();
   useEffect(() => {
     if (!open) return;
     const prevOverflow = document.body.style.overflow;
@@ -87,13 +89,17 @@ export function FullscreenPreviewModal({
                   viewport === mode ? "bg-white text-black" : "text-zinc-300 hover:text-white"
                 }`}
               >
-                {mode === "desktop" ? "Desktop 100%" : mode === "tablet" ? "Tablet" : "Phone"}
+                {mode === "desktop"
+                  ? copy.common.desktop100
+                  : mode === "tablet"
+                    ? copy.common.tablet
+                    : copy.common.phone}
               </button>
             ))}
           </div>
 
           <DropdownSelect
-            label="Style"
+            label={copy.itemDetail.styleLabel}
             value={styleId}
             options={styleOptions}
             onChange={onStyleChange}
@@ -106,7 +112,7 @@ export function FullscreenPreviewModal({
             rel="noopener noreferrer"
             className="inline-flex min-h-[40px] items-center rounded-lg border border-white/15 bg-white/5 px-3 text-xs font-medium text-zinc-200 transition-colors hover:bg-white/12 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            New Tab
+            {copy.common.newTab}
           </a>
 
           <button
@@ -114,7 +120,7 @@ export function FullscreenPreviewModal({
             onClick={onClose}
             className="inline-flex min-h-[40px] items-center rounded-lg border border-white/20 bg-white px-3.5 text-xs font-semibold text-black transition-opacity hover:opacity-90 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            Exit (Esc)
+            {copy.common.exitEsc}
           </button>
         </div>
       </header>

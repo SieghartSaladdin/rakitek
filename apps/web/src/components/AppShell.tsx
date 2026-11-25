@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
+import { useLanguage } from "./LanguageProvider";
+import { LanguageToggle } from "./LanguageToggle";
 import { RakitekLogo } from "./RakitekLogo";
 import { SidebarContent } from "./SidebarContent";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const { copy } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -33,15 +36,18 @@ export function AppShell({ children }: { children: ReactNode }) {
           <RakitekLogo size={28} />
           <span>rakitek</span>
         </Link>
-        <button
-          type="button"
-          onClick={() => setMobileOpen(true)}
-          aria-expanded={mobileOpen}
-          aria-controls="rk-mobile-sidebar"
-          className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3.5 text-xs font-semibold text-white cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          <span>Menu</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <LanguageToggle compact />
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            aria-expanded={mobileOpen}
+            aria-controls="rk-mobile-sidebar"
+            className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3.5 text-xs font-semibold text-white cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <span>{copy.common.menu}</span>
+          </button>
+        </div>
       </header>
 
       {/* Desktop persistent left sidebar */}
@@ -56,7 +62,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           className="fixed inset-0 z-50 flex lg:hidden"
           role="dialog"
           aria-modal="true"
-          aria-label="Navigation menu"
+          aria-label={copy.common.navMenuAria}
         >
           <div
             className="fixed inset-0 bg-black/60 backdrop-blur-[2px]"
@@ -68,10 +74,10 @@ export function AppShell({ children }: { children: ReactNode }) {
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
-                aria-label="Close navigation menu"
-                className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-white/15 text-xs text-zinc-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                aria-label={copy.common.closeNavAria}
+                className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-white/15 px-3 text-xs text-zinc-200 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Close
+                {copy.common.close}
               </button>
             </div>
             <SidebarContent onNavigate={() => setMobileOpen(false)} />
