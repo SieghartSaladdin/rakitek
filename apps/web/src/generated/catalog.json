@@ -1,0 +1,982 @@
+{
+  "generatedAt": "2026-11-25T09:59:16.571Z",
+  "styles": [
+    {
+      "id": "editorial-roastery",
+      "name": "Editorial Roastery",
+      "vibe": "editorial",
+      "description": "Warm paper surfaces, deep charcoal ink, condensed uppercase display type, hairline dividers, and vermilion accent inspired by artisanal roastery storefronts.",
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "fonts": {
+        "display": "'Oswald', sans-serif",
+        "body": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
+        "mono": "'JetBrains Mono', monospace",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      },
+      "palettePreview": {
+        "bg": "#F5F4F2",
+        "surface": "#EBE9E6",
+        "fg": "#151515",
+        "accent": "#CC1C00"
+      },
+      "tags": [
+        "coffee-shop",
+        "fnb",
+        "editorial",
+        "light",
+        "storefront"
+      ],
+      "tokensPath": "registry/styles/editorial-roastery/tokens.css"
+    },
+    {
+      "id": "kinetic-obsidian",
+      "name": "Kinetic Obsidian",
+      "vibe": "cinematic",
+      "description": "Deep obsidian canvas, translucent elevated glass surfaces, expressive editorial serif headlines, soft pill geometry, and warm amber highlights inspired by modern consumer app launches.",
+      "sourceRef": "saas-app/grail-next",
+      "fonts": {
+        "display": "Georgia, 'Times New Roman', serif",
+        "body": "'DM Sans', sans-serif",
+        "mono": "'JetBrains Mono', monospace",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      },
+      "palettePreview": {
+        "bg": "#0A0A0B",
+        "surface": "#151518",
+        "fg": "#FAFAF8",
+        "accent": "#E5B869"
+      },
+      "tags": [
+        "saas",
+        "mobile-app",
+        "dark",
+        "cinematic",
+        "waitlist"
+      ],
+      "tokensPath": "registry/styles/kinetic-obsidian/tokens.css"
+    }
+  ],
+  "ui": [
+    {
+      "id": "editorial-button",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "name": "Editorial Button",
+      "description": "1:1 condensed uppercase storefront CTA button with solid, dark, ghost, and light variants, responsive viewport-scaled sizing, 3px corner radius, and optional lighten blend mode.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "button",
+        "cta",
+        "editorial",
+        "ghost",
+        "blend",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/editorial-button/component.tsx",
+      "previewPath": "registry/ui/editorial-button/preview.tsx",
+      "stylesPath": "registry/ui/editorial-button/styles.module.css"
+    },
+    {
+      "id": "editorial-product-card",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "card",
+      "name": "Editorial Product Spec Card",
+      "description": "High-fidelity wireframe editorial product spec card with 1.5px currentColor outline, 0.6s color-invert hover, fluid typography, 2-column spec table, and optional photo tile variant.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal",
+        "corporate"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "card",
+        "product",
+        "ecommerce",
+        "spec-table",
+        "wireframe",
+        "hover-invert",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/editorial-product-card/component.tsx",
+      "previewPath": "registry/ui/editorial-product-card/preview.tsx",
+      "stylesPath": "registry/ui/editorial-product-card/styles.module.css"
+    },
+    {
+      "id": "magnetic-button",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "name": "Magnetic Button",
+      "description": "Cursor-tracking magnetic pill CTA button powered by motion/react springs (stiffness 150, damping 15), optional 32px circular icon badge, and reduced-motion support.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "tactile",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian",
+        "editorial-roastery"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "button",
+        "magnetic",
+        "cursor",
+        "micro-interaction",
+        "pill",
+        "motion",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/magnetic-button/component.tsx",
+      "previewPath": "registry/ui/magnetic-button/preview.tsx",
+      "stylesPath": "registry/ui/magnetic-button/styles.module.css"
+    },
+    {
+      "id": "marquee-ticker",
+      "kind": "ui",
+      "level": "atom",
+      "category": "marquee",
+      "name": "Editorial Marquee Ticker",
+      "description": "1:1 wireframe announcement bar with 1.5px currentColor outline, 10px radius, 20x24 upward arrow rows, responsive condensed uppercase display typography, and optional continuous scrollX marquee mode.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "marquee",
+        "ticker",
+        "announcement",
+        "editorial",
+        "wireframe",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/marquee-ticker/component.tsx",
+      "previewPath": "registry/ui/marquee-ticker/preview.tsx",
+      "stylesPath": "registry/ui/marquee-ticker/styles.module.css"
+    },
+    {
+      "id": "slide-over-drawer",
+      "kind": "ui",
+      "level": "organism",
+      "category": "drawer",
+      "name": "Slide-Over Cart Drawer",
+      "description": "1:1 editorial bag drawer: 440px white panel sliding in from the right, condensed uppercase title, grey free-shipping goal strip with ink progress bar, thumbnail line items with hairline quantity stepper, oversized subtotal, and full-width condensed checkout bar.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "drawer",
+        "cart",
+        "ecommerce",
+        "progress-bar",
+        "overlay",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/slide-over-drawer/component.tsx",
+      "previewPath": "registry/ui/slide-over-drawer/preview.tsx",
+      "stylesPath": "registry/ui/slide-over-drawer/styles.module.css"
+    },
+    {
+      "id": "waitlist-input",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "input",
+      "name": "Waitlist Input Card",
+      "description": "High-fidelity dark-obsidian waitlist form card with translucent email field, smooth cubic-bezier focus states, optional feedback opt-in checkbox, interactive 5-star idea rating block, and full-width pill submit control.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian",
+        "editorial-roastery"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "input",
+        "form",
+        "waitlist",
+        "newsletter",
+        "email",
+        "rating",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/waitlist-input/component.tsx",
+      "previewPath": "registry/ui/waitlist-input/preview.tsx",
+      "stylesPath": "registry/ui/waitlist-input/styles.module.css"
+    }
+  ],
+  "sections": [
+    {
+      "id": "collection-split-showcase",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "name": "Collection Split Showcase",
+      "description": "High-fidelity 8/4 collection switcher with dual-synced Swiper (visual slider + EffectFade details via Controller), GSAP ScrollTrigger horizontal product rail, and circular arrow navigation.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "swiper",
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "collections",
+        "swiper",
+        "gsap",
+        "showcase",
+        "product-rail",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/collection-split-showcase/component.tsx",
+      "previewPath": "registry/sections/collection-split-showcase/preview.tsx",
+      "stylesPath": "registry/sections/collection-split-showcase/styles.module.css"
+    },
+    {
+      "id": "editorial-dark-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "name": "Editorial Dark Footer",
+      "description": "Asymmetric dark editorial footer with staggered link columns, floating-label underline newsletter form, 1.8s viewport-gated stop-motion photo card, studio address, oversized social row, and rounded back-to-top bar.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal",
+        "corporate"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "footer",
+        "newsletter",
+        "editorial",
+        "stop-motion",
+        "back-to-top",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/editorial-dark-footer/component.tsx",
+      "previewPath": "registry/sections/editorial-dark-footer/preview.tsx",
+      "stylesPath": "registry/sections/editorial-dark-footer/styles.module.css"
+    },
+    {
+      "id": "editorial-manifesto-chapter",
+      "kind": "section",
+      "level": "organism",
+      "category": "manifesto",
+      "name": "Editorial Manifesto Chapter",
+      "description": "Full-viewport editorial chapter section with a pinned running header, staggered uppercase serif display lines that rise into view on scroll, and an offset manifesto body column.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "manifesto",
+        "editorial",
+        "chapter",
+        "typography",
+        "stagger",
+        "reveal",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/editorial-manifesto-chapter/component.tsx",
+      "previewPath": "registry/sections/editorial-manifesto-chapter/preview.tsx",
+      "stylesPath": "registry/sections/editorial-manifesto-chapter/styles.module.css"
+    },
+    {
+      "id": "editorial-mission-split",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "name": "Editorial Mission Split",
+      "description": "Full-bleed editorial mission narrative with inline condensed tagline, display blend CTA, opposing GSAP ScrollTrigger parallax on background and centered 535:668 portrait, flanking callouts, and coordinates stamp.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "story",
+        "mission",
+        "editorial",
+        "gsap",
+        "parallax",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/editorial-mission-split/component.tsx",
+      "previewPath": "registry/sections/editorial-mission-split/preview.tsx",
+      "stylesPath": "registry/sections/editorial-mission-split/styles.module.css"
+    },
+    {
+      "id": "editorial-storefront-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "name": "Editorial Storefront Hero",
+      "description": "1:1 storefront hero: giant split-character headline over a scaling parallax photo, scroll-pinned Shop Now button that shrinks into place beside the description, and an outlined mood block with a 3-product spec grid and arrow ticker.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "hero",
+        "storefront",
+        "editorial",
+        "gsap",
+        "marquee",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/editorial-storefront-hero/component.tsx",
+      "previewPath": "registry/sections/editorial-storefront-hero/preview.tsx",
+      "stylesPath": "registry/sections/editorial-storefront-hero/styles.module.css"
+    },
+    {
+      "id": "floating-pill-navbar",
+      "kind": "section",
+      "level": "organism",
+      "category": "navbar",
+      "name": "Floating Pill Navbar",
+      "description": "Centered frosted-glass floating pill navigation bar with Georgia serif wordmark, minimal section links, blur-drop entrance motion, and a Contact pill CTA that morphs into a Copied confirmation state.",
+      "styling": "css-modules",
+      "vibes": [
+        "minimal",
+        "cinematic",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian",
+        "editorial-roastery"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "navbar",
+        "floating",
+        "pill",
+        "glassmorphism",
+        "clipboard",
+        "motion",
+        "saas"
+      ],
+      "componentPath": "registry/sections/floating-pill-navbar/component.tsx",
+      "previewPath": "registry/sections/floating-pill-navbar/preview.tsx",
+      "stylesPath": "registry/sections/floating-pill-navbar/styles.module.css"
+    },
+    {
+      "id": "interactive-quiz",
+      "kind": "section",
+      "level": "organism",
+      "category": "quiz",
+      "name": "Interactive Product Match Quiz",
+      "description": "Multi-step guided recommendation quiz with hairline progress track, oversized condensed display prompt, 2-column tactile option grid, ghost and solid navigation buttons, and weighted result card with retake flow.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "quiz",
+        "interactive",
+        "recommendation",
+        "conversion",
+        "section",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/interactive-quiz/component.tsx",
+      "previewPath": "registry/sections/interactive-quiz/preview.tsx",
+      "stylesPath": "registry/sections/interactive-quiz/styles.module.css"
+    },
+    {
+      "id": "kinetic-manifesto-steps",
+      "kind": "section",
+      "level": "organism",
+      "category": "manifesto",
+      "name": "Staggered Manifesto & Steps",
+      "description": "High-fidelity light editorial section pairing three staggered giant condensed display words animated via GSAP split-character expo.out reveal with numbered 01-03 steps, scrub-parallax 311:364 media inset, and uppercase subscription block.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "manifesto",
+        "subscription",
+        "typography",
+        "gsap",
+        "steps",
+        "parallax",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/kinetic-manifesto-steps/component.tsx",
+      "previewPath": "registry/sections/kinetic-manifesto-steps/preview.tsx",
+      "stylesPath": "registry/sections/kinetic-manifesto-steps/styles.module.css"
+    },
+    {
+      "id": "minimal-saas-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "name": "Minimal SaaS Footer",
+      "description": "Ultra-clean single-row SaaS footer pairing a serif wordmark, vertical hairline divider, subtle editorial tagline, and motion view-reveal.",
+      "styling": "css-modules",
+      "vibes": [
+        "minimal",
+        "corporate",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian",
+        "editorial-roastery"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "footer",
+        "minimal",
+        "saas",
+        "motion",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/minimal-saas-footer/component.tsx",
+      "previewPath": "registry/sections/minimal-saas-footer/preview.tsx",
+      "stylesPath": "registry/sections/minimal-saas-footer/styles.module.css"
+    },
+    {
+      "id": "orbital-crest-wheel",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "name": "Orbital Crest Wheel",
+      "description": "Light editorial showcase with a continuously spinning ring of heraldic shield crests, scroll-velocity spin acceleration, radial pointer push-pull physics, frosted horizon blur scrim, and scroll-morphing display headlines.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "orbital",
+        "wheel",
+        "crests",
+        "heraldic",
+        "scroll",
+        "physics",
+        "showcase",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/orbital-crest-wheel/component.tsx",
+      "previewPath": "registry/sections/orbital-crest-wheel/preview.tsx",
+      "stylesPath": "registry/sections/orbital-crest-wheel/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "crest-art.tsx",
+          "path": "registry/sections/orbital-crest-wheel/crest-art.tsx"
+        },
+        {
+          "name": "wheel-engine.ts",
+          "path": "registry/sections/orbital-crest-wheel/wheel-engine.ts"
+        }
+      ]
+    },
+    {
+      "id": "physics-stats-pit",
+      "kind": "section",
+      "level": "organism",
+      "category": "stats",
+      "name": "Physics Stats Pit",
+      "description": "Full-viewport interactive stats section with a Matter.js 4-column physics ball pit, procedural goo-masked column textures, live eased counters, staggered display headline, and a responsive 2x2 mobile tile grid.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "matter-js"
+      ],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "stats",
+        "physics",
+        "matter-js",
+        "canvas",
+        "interactive",
+        "counters",
+        "cinematic",
+        "tactile"
+      ],
+      "componentPath": "registry/sections/physics-stats-pit/component.tsx",
+      "previewPath": "registry/sections/physics-stats-pit/preview.tsx",
+      "stylesPath": "registry/sections/physics-stats-pit/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "stats-physics.ts",
+          "path": "registry/sections/physics-stats-pit/stats-physics.ts"
+        },
+        {
+          "name": "stats-renderer.ts",
+          "path": "registry/sections/physics-stats-pit/stats-renderer.ts"
+        },
+        {
+          "name": "stats-textures.ts",
+          "path": "registry/sections/physics-stats-pit/stats-textures.ts"
+        }
+      ]
+    },
+    {
+      "id": "rays-waitlist-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "name": "Rays Waitlist Footer",
+      "description": "Full-viewport waitlist footer with a Three.js volumetric light-rays shader radiating from a pointer-lit emblem tile, staggered word reveals, interactive witty email validation bubble, and three-column legal row.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "three"
+      ],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "footer",
+        "waitlist",
+        "webgl",
+        "three",
+        "rays",
+        "shader",
+        "email-validation",
+        "cinematic"
+      ],
+      "componentPath": "registry/sections/rays-waitlist-footer/component.tsx",
+      "previewPath": "registry/sections/rays-waitlist-footer/preview.tsx",
+      "stylesPath": "registry/sections/rays-waitlist-footer/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "bubble.module.css",
+          "path": "registry/sections/rays-waitlist-footer/bubble.module.css"
+        },
+        {
+          "name": "email-feedback.ts",
+          "path": "registry/sections/rays-waitlist-footer/email-feedback.ts"
+        },
+        {
+          "name": "rays-shaders.ts",
+          "path": "registry/sections/rays-waitlist-footer/rays-shaders.ts"
+        },
+        {
+          "name": "rays-tile.tsx",
+          "path": "registry/sections/rays-waitlist-footer/rays-tile.tsx"
+        },
+        {
+          "name": "reveal-text.tsx",
+          "path": "registry/sections/rays-waitlist-footer/reveal-text.tsx"
+        },
+        {
+          "name": "waitlist-form.tsx",
+          "path": "registry/sections/rays-waitlist-footer/waitlist-form.tsx"
+        }
+      ]
+    },
+    {
+      "id": "right-rail-navbar",
+      "kind": "section",
+      "level": "organism",
+      "category": "navbar",
+      "name": "Right Rail Editorial Navbar",
+      "description": "High-fidelity 90px right-edge sticky navigation rail with 33px animated hamburger/close icon, 90deg rotated shipping ticker, cart/account/locale controls, and 460px slide-out accordion drawer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "navbar",
+        "sidebar",
+        "drawer",
+        "accordion",
+        "editorial",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/right-rail-navbar/component.tsx",
+      "previewPath": "registry/sections/right-rail-navbar/preview.tsx",
+      "stylesPath": "registry/sections/right-rail-navbar/styles.module.css"
+    },
+    {
+      "id": "spiral-deck-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "name": "Spiral Deck Hero",
+      "description": "Full-viewport cinematic hero with a layered top blur scrim, three-column navigation bar, viewport-fitted staggered display headline, and an interactive Three.js 3D spiral card deck.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "three"
+      ],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "hero",
+        "webgl",
+        "threejs",
+        "3d",
+        "spiral",
+        "cards",
+        "kinetic",
+        "editorial"
+      ],
+      "componentPath": "registry/sections/spiral-deck-hero/component.tsx",
+      "previewPath": "registry/sections/spiral-deck-hero/preview.tsx",
+      "stylesPath": "registry/sections/spiral-deck-hero/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "deck-data.ts",
+          "path": "registry/sections/spiral-deck-hero/deck-data.ts"
+        },
+        {
+          "name": "deck-motifs.ts",
+          "path": "registry/sections/spiral-deck-hero/deck-motifs.ts"
+        },
+        {
+          "name": "deck-scene.ts",
+          "path": "registry/sections/spiral-deck-hero/deck-scene.ts"
+        },
+        {
+          "name": "deck-shaders.ts",
+          "path": "registry/sections/spiral-deck-hero/deck-shaders.ts"
+        },
+        {
+          "name": "deck-textures.ts",
+          "path": "registry/sections/spiral-deck-hero/deck-textures.ts"
+        }
+      ]
+    },
+    {
+      "id": "spotlight-stat-band",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "name": "Spotlight Stat Band",
+      "description": "Full-bleed oversized serif stat section with ease-out count-up animation, cursor-following radial spotlight, hairline animated divider, and three staggered narrative columns.",
+      "styling": "css-modules",
+      "vibes": [
+        "minimal",
+        "cinematic",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian",
+        "editorial-roastery"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "stat",
+        "metrics",
+        "spotlight",
+        "count-up",
+        "editorial",
+        "story",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/spotlight-stat-band/component.tsx",
+      "previewPath": "registry/sections/spotlight-stat-band/preview.tsx",
+      "stylesPath": "registry/sections/spotlight-stat-band/styles.module.css"
+    },
+    {
+      "id": "story-chances-list",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "name": "Story Chances List",
+      "description": "Light editorial chapter sheet with a pinned running header, uppercase display headline featuring an inline rotating masked emblem crest, and a numbered 3-column story list with scroll reveal and pointer-tracking photo parallax.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "editorial",
+        "showcase",
+        "list",
+        "parallax",
+        "crest",
+        "chapter",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/story-chances-list/component.tsx",
+      "previewPath": "registry/sections/story-chances-list/preview.tsx",
+      "stylesPath": "registry/sections/story-chances-list/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "artwork.ts",
+          "path": "registry/sections/story-chances-list/artwork.ts"
+        }
+      ]
+    },
+    {
+      "id": "waitlist-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "name": "Spotlight Waitlist Hero",
+      "description": "Atmospheric waitlist hero featuring a cursor-lit continuous serif marquee, optional live member count pill, pointer-following spotlight headline, email signup card, and interactive 5-star idea rating.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "minimal",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "kinetic-obsidian",
+        "editorial-roastery"
+      ],
+      "dependencies": [
+        "motion"
+      ],
+      "composes": [],
+      "sourceRef": "saas-app/grail-next",
+      "tags": [
+        "hero",
+        "waitlist",
+        "spotlight",
+        "marquee",
+        "rating",
+        "saas",
+        "launch"
+      ],
+      "componentPath": "registry/sections/waitlist-hero/component.tsx",
+      "previewPath": "registry/sections/waitlist-hero/preview.tsx",
+      "stylesPath": "registry/sections/waitlist-hero/styles.module.css"
+    }
+  ],
+  "templates": [
+    {
+      "id": "editorial-storefront-template",
+      "kind": "template",
+      "level": "template",
+      "category": "storefront",
+      "name": "Editorial Storefront Template",
+      "description": "Full-page editorial storefront shell featuring a fixed 90px right-hand desktop navigation rail (calc(100vw - 90px) content column) collapsing cleanly to a 60px top bar on mobile, with ordered slots for hero, quiz, showcase, story, manifesto, footer, and slide-over drawer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "template",
+        "layout",
+        "storefront",
+        "right-rail",
+        "editorial",
+        "shell"
+      ],
+      "componentPath": "registry/templates/editorial-storefront-template/component.tsx",
+      "previewPath": "registry/templates/editorial-storefront-template/preview.tsx",
+      "stylesPath": "registry/templates/editorial-storefront-template/styles.module.css"
+    }
+  ],
+  "pages": [
+    {
+      "id": "storefront-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "storefront",
+      "name": "Editorial Storefront Demo Page",
+      "description": "Full composed editorial storefront reference page assembling the right-rail storefront template with hero, interactive quiz, split collection showcase, mission split, kinetic manifesto, dark footer, and live slide-over bag drawer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "editorial-roastery"
+      ],
+      "dependencies": [
+        "gsap",
+        "swiper"
+      ],
+      "composes": [
+        "templates/editorial-storefront-template",
+        "sections/right-rail-navbar",
+        "sections/editorial-storefront-hero",
+        "sections/interactive-quiz",
+        "sections/collection-split-showcase",
+        "sections/editorial-mission-split",
+        "sections/kinetic-manifesto-steps",
+        "sections/editorial-dark-footer",
+        "ui/slide-over-drawer"
+      ],
+      "sourceRef": "coffee-shop/escape-cafe-nextjs",
+      "tags": [
+        "page",
+        "demo",
+        "storefront",
+        "editorial",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/storefront-demo-page/component.tsx",
+      "previewPath": "registry/pages/storefront-demo-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/storefront-demo-page/demo-data.ts"
+        }
+      ]
+    }
+  ]
+}

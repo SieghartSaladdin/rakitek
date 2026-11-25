@@ -1,0 +1,33 @@
+{
+    "id":  "kinetic-manifesto-steps",
+    "kind":  "section",
+    "level":  "organism",
+    "category":  "manifesto",
+    "name":  "Staggered Manifesto \u0026 Steps",
+    "description":  "High-fidelity light editorial section pairing three staggered giant condensed display words animated via GSAP split-character expo.out reveal with numbered 01-03 steps, scrub-parallax 311:364 media inset, and uppercase subscription block.",
+    "vibes":  [
+                  "editorial",
+                  "minimal"
+              ],
+    "recommendedStyles":  [
+                              "editorial-roastery",
+                              "kinetic-obsidian"
+                          ],
+    "styling":  "css-modules",
+    "dependencies":  [
+                         "gsap"
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
+    "tags":  [
+                 "manifesto",
+                 "subscription",
+                 "typography",
+                 "gsap",
+                 "steps",
+                 "parallax",
+                 "css-modules"
+             ]
+}

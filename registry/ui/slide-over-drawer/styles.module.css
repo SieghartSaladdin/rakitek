@@ -1,0 +1,225 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0.35s ease;
+}
+.rootOpen {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(440px, 100vw);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--rk-surface-elevated);
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-weight: 300;
+  line-height: 1;
+  transform: translateX(100%);
+  transition: transform 0.4s var(--rk-ease, cubic-bezier(0.215, 0.61, 0.355, 1));
+}
+.rootOpen .panel { transform: translateX(0); }
+.header { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 24px 28px; border-bottom: 1px solid color-mix(in srgb, var(--rk-fg) 12%, transparent); }
+.title, .checkout { font-family: var(--rk-font-display); font-size: 22px; font-weight: 700; line-height: 1; text-transform: uppercase; }
+.title { margin: 0; }
+.closeBtn { position: absolute; top: 50%; right: 18px; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.closeIcon { width: 24px; height: 24px; }
+
+.goal {
+  padding: 16px 28px;
+  background: var(--rk-bg);
+  border-bottom: 1px solid color-mix(in srgb, var(--rk-fg) 8%, transparent);
+}
+
+.smallText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.bar {
+  margin-top: 10px;
+  height: 4px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--rk-fg) 14%, transparent);
+}
+.barFill {
+  height: 100%;
+  background: var(--rk-fg);
+  transition: width 0.35s ease;
+}
+
+.items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 0;
+  padding: 24px 28px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.empty {
+  opacity: 0.65;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid color-mix(in srgb, var(--rk-fg) 10%, transparent);
+}
+
+.thumb {
+  flex: none;
+  width: 68px;
+  height: 80px;
+  padding: 6px;
+  object-fit: contain;
+  background: var(--rk-bg);
+}
+.thumbPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: color-mix(in srgb, var(--rk-fg) 35%, transparent);
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--rk-fg) 20%, transparent);
+  font-size: 16px;
+}
+.qtyBtn {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 16px;
+  line-height: 1.1;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 28px;
+  border-top: 1px solid color-mix(in srgb, var(--rk-fg) 12%, transparent);
+}
+
+.subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.subtotalLabel {
+  flex: none;
+  font-family: var(--rk-font-narrow, var(--rk-font-display));
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.subtotalValue {
+  font-size: 22px;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.checkout {
+  width: 100%;
+  padding: 5px;
+  border: 0;
+  border-radius: 3px;
+  background: var(--rk-fg);
+  color: var(--rk-bg);
+  text-align: center;
+  cursor: pointer;
+}
+.checkout:not(:disabled):hover {
+  background: var(--rk-surface-elevated);
+  color: var(--rk-fg);
+}
+.checkout:disabled {
+  cursor: not-allowed;
+}
+
+.closeBtn:focus-visible,
+.qtyBtn:focus-visible,
+.checkout:focus-visible {
+  outline: 2px solid var(--rk-accent);
+  outline-offset: 2px;
+}
+
+@media only screen and (min-width: 1024px) {
+  .title,
+  .checkout {
+    font-size: min(1.80556vw, 3.20988vh);
+  }
+  .checkout {
+    padding: min(0.347222vw, 0.617284vh);
+  }
+  .smallText {
+    font-size: min(16px, min(1.11111vw, 1.97531vh));
+  }
+  .name,
+  .empty {
+    font-size: min(1.94444vw, 3.45679vh);
+  }
+  .subtotalLabel {
+    font-size: min(18px, min(1.25vw, 2.22222vh));
+  }
+  .subtotalValue {
+    font-size: min(3.47222vw, 6.17284vh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .panel,
+  .barFill {
+    transition: none;
+  }
+}

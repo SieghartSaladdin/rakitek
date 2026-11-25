@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "rakitek-web-prod",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start", "-w", "apps/web", "--", "-p", "3005"],
+      "port": 3005
+    }
+  ]
+}

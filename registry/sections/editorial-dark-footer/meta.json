@@ -1,0 +1,33 @@
+{
+    "id":  "editorial-dark-footer",
+    "kind":  "section",
+    "level":  "organism",
+    "category":  "footer",
+    "name":  "Editorial Dark Footer",
+    "description":  "Asymmetric dark editorial footer with staggered link columns, floating-label underline newsletter form, 1.8s viewport-gated stop-motion photo card, studio address, oversized social row, and rounded back-to-top bar.",
+    "vibes":  [
+                  "editorial",
+                  "minimal",
+                  "corporate"
+              ],
+    "recommendedStyles":  [
+                              "editorial-roastery",
+                              "kinetic-obsidian"
+                          ],
+    "styling":  "css-modules",
+    "dependencies":  [
+
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
+    "tags":  [
+                 "footer",
+                 "newsletter",
+                 "editorial",
+                 "stop-motion",
+                 "back-to-top",
+                 "css-modules"
+             ]
+}

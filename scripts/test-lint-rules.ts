@@ -1,0 +1,154 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { checkFidelityEvidence } from "./lint-evidence";
+import { checkRegistryImports, type ImportLintIssue } from "./lint-imports";
+
+function writeFile(root: string, relPath: string, content: string) {
+  const full = path.join(root, relPath);
+  fs.mkdirSync(path.dirname(full), { recursive: true });
+  fs.writeFileSync(full, content, "utf8");
+}
+
+function makeFixture(
+  files: Record<string, string>,
+): { root: string; run: () => ImportLintIssue[]; cleanup: () => void } {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), "rakitek-lint-test-"));
+  for (const [relPath, content] of Object.entries(files)) {
+    writeFile(root, relPath, content);
+  }
+  return {
+    root,
+    run: () => {
+      const issues: ImportLintIssue[] = [];
+      checkRegistryImports(root, issues);
+      return issues;
+    },
+    cleanup: () => fs.rmSync(root, { recursive: true, force: true }),
+  };
+}
+
+function runTests() {
+  // 1. Valid local helper + valid @registry organism -> atom with synced composes
+  {
+    const fx = makeFixture({
+      "registry/ui/demo-atom/meta.json": JSON.stringify({ id: "demo-atom", level: "atom", composes: [] }),
+      "registry/ui/demo-atom/component.tsx": "export function DemoAtom() { return null; }\n",
+      "registry/sections/demo-org/meta.json": JSON.stringify({
+        id: "demo-org",
+        level: "organism",
+        composes: ["ui/demo-atom"],
+      }),
+      "registry/sections/demo-org/helper.ts": "export const VAL = 1;\n",
+      "registry/sections/demo-org/component.tsx": [
+        'import { VAL } from "./helper";',
+        "import {",
+        "  DemoAtom,",
+        '} from "@registry/ui/demo-atom/component";',
+        "export function DemoOrg() { return [VAL, DemoAtom]; }",
+      ].join("\n"),
+    });
+    try {
+      const issues = fx.run();
+      assert.equal(issues.length, 0, `Expected 0 issues for valid fixture, got: ${JSON.stringify(issues)}`);
+    } finally {
+      fx.cleanup();
+    }
+  }
+
+  // 2. Relative parent escape "../" fails rakitek/imports-resolvable
+  {
+    const fx = makeFixture({
+      "registry/ui/demo-atom/meta.json": JSON.stringify({ id: "demo-atom", level: "atom", composes: [] }),
+      "registry/ui/demo-atom/component.tsx": "export const A = 1;\n",
+      "registry/ui/bad-escape/meta.json": JSON.stringify({ id: "bad-escape", level: "molecule", composes: [] }),
+      "registry/ui/bad-escape/component.tsx": 'import { A } from "../demo-atom/component";\nexport const B = A;\n',
+    });
+    try {
+      const issues = fx.run();
+      assert.ok(
+        issues.some((i) => i.rule === "rakitek/imports-resolvable"),
+        `Expected imports-resolvable failure, got: ${JSON.stringify(issues)}`,
+      );
+    } finally {
+      fx.cleanup();
+    }
+  }
+
+  // 3. Hierarchy violation (atom importing molecule inside ui/ via target meta.json) fails atomic-hierarchy
+  {
+    const fx = makeFixture({
+      "registry/ui/demo-mol/meta.json": JSON.stringify({ id: "demo-mol", level: "molecule", composes: [] }),
+      "registry/ui/demo-mol/component.tsx": "export const M = 1;\n",
+      "registry/ui/bad-atom/meta.json": JSON.stringify({
+        id: "bad-atom",
+        level: "atom",
+        composes: ["ui/demo-mol"],
+      }),
+      "registry/ui/bad-atom/component.tsx": 'import { M } from "@registry/ui/demo-mol/component";\nexport const X = M;\n',
+    });
+    try {
+      const issues = fx.run();
+      assert.ok(
+        issues.some((i) => i.rule === "rakitek/atomic-hierarchy"),
+        `Expected atomic-hierarchy failure, got: ${JSON.stringify(issues)}`,
+      );
+    } finally {
+      fx.cleanup();
+    }
+  }
+
+  // 4. composes mismatch (both missing imported ref and phantom unused composes entry) fails composes-sync
+  {
+    const fx = makeFixture({
+      "registry/ui/demo-atom/meta.json": JSON.stringify({ id: "demo-atom", level: "atom", composes: [] }),
+      "registry/ui/demo-atom/component.tsx": "export const A = 1;\n",
+      "registry/sections/bad-sync/meta.json": JSON.stringify({
+        id: "bad-sync",
+        level: "organism",
+        composes: ["ui/phantom-atom"],
+      }),
+      "registry/sections/bad-sync/component.tsx": 'import { A } from "@registry/ui/demo-atom/component";\nexport const B = A;\n',
+    });
+    try {
+      const issues = fx.run();
+      const syncIssues = issues.filter((i) => i.rule === "rakitek/composes-sync");
+      assert.equal(
+        syncIssues.length,
+        2,
+        `Expected 2 composes-sync issues (missing + unused), got: ${JSON.stringify(issues)}`,
+      );
+    } finally {
+      fx.cleanup();
+    }
+  }
+
+  // Case 5: fidelity-evidence. A section without proof fails; a template only needs REPORT.md.
+  {
+    const fx = makeFixture({
+      "registry/sections/no-proof/component.tsx": "export const A = 1;\n",
+      "registry/sections/has-proof/component.tsx": "export const B = 1;\n",
+      "fidelity/has-proof/REPORT.md": "ok\n",
+      "fidelity/has-proof/original-1920.json": "{}",
+      "fidelity/has-proof/extract-1920.json": "{}",
+      "fidelity/has-proof/original-1024.json": "{}",
+      "fidelity/has-proof/extract-1024.json": "{}",
+      "registry/templates/shell/component.tsx": "export const C = 1;\n",
+      "fidelity/shell/REPORT.md": "ok\n",
+    });
+    try {
+      const issues: ImportLintIssue[] = [];
+      checkFidelityEvidence(fx.root, issues);
+      assert.equal(issues.length, 1, `Expected only no-proof to fail, got: ${JSON.stringify(issues)}`);
+      assert.equal(issues[0].rule, "rakitek/fidelity-evidence");
+      assert.ok(issues[0].file.includes("no-proof"));
+    } finally {
+      fx.cleanup();
+    }
+  }
+
+  console.log("[rakitek lint-rules test] All 5 synthetic import/hierarchy/composes/evidence assertions passed.");
+}
+
+runTests();

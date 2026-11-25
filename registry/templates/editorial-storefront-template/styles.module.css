@@ -1,0 +1,158 @@
+.shell {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--rk-bg);
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  overflow-x: clip;
+}
+
+.skipLink {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 60;
+  padding: 12px 18px;
+  background-color: var(--rk-fg);
+  color: var(--rk-bg);
+  font-family: var(--rk-font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skipLink:focus-visible {
+  left: 16px;
+  top: 16px;
+  outline: 2px solid var(--rk-accent);
+  outline-offset: 2px;
+}
+
+.railSlot {
+  position: relative;
+  z-index: 20;
+}
+
+.contentColumn {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.mainRegion {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerRegion {
+  position: relative;
+  width: 100%;
+}
+
+.slotBlock {
+  position: relative;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  .contentColumn {
+    width: calc(100vw - 90px);
+  }
+}
+
+.placeholderRail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: var(--rk-surface-elevated);
+  border-bottom: 1px solid var(--rk-border);
+  color: var(--rk-fg);
+  font-family: var(--rk-font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 1024px) {
+  .placeholderRail {
+    left: auto;
+    right: 0;
+    width: 90px;
+    height: 100vh;
+    flex-direction: column;
+    padding: 28px 12px;
+    border-bottom: 0;
+    border-left: 1px solid var(--rk-border);
+  }
+}
+
+.placeholderRailLabel {
+  writing-mode: horizontal-tb;
+}
+
+@media only screen and (min-width: 1024px) {
+  .placeholderRailLabel {
+    writing-mode: vertical-rl;
+  }
+}
+
+.placeholderCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  padding: 36px 40px;
+  border-bottom: 1px solid var(--rk-border);
+  background-color: var(--rk-bg);
+  color: var(--rk-fg);
+  box-sizing: border-box;
+}
+
+.placeholderCardDark {
+  background-color: var(--rk-fg);
+  color: var(--rk-bg);
+}
+
+.placeholderCardHero {
+  min-height: 520px;
+  background-color: var(--rk-surface);
+}
+
+.placeholderTag {
+  font-family: var(--rk-font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.placeholderTitle {
+  margin: 12px 0 0;
+  font-family: var(--rk-font-display);
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: var(--rk-display-transform);
+}
+
+.placeholderNote {
+  margin: 10px 0 0;
+  max-width: 540px;
+  font-size: 14px;
+  line-height: 1.45;
+  opacity: 0.78;
+}

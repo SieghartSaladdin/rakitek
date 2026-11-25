@@ -1,0 +1,33 @@
+{
+    "id":  "interactive-quiz",
+    "kind":  "section",
+    "level":  "organism",
+    "category":  "quiz",
+    "name":  "Interactive Product Match Quiz",
+    "description":  "Multi-step guided recommendation quiz with hairline progress track, oversized condensed display prompt, 2-column tactile option grid, ghost and solid navigation buttons, and weighted result card with retake flow.",
+    "vibes":  [
+                  "editorial",
+                  "corporate",
+                  "tactile"
+              ],
+    "recommendedStyles":  [
+                              "editorial-roastery",
+                              "kinetic-obsidian"
+                          ],
+    "styling":  "css-modules",
+    "dependencies":  [
+
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
+    "tags":  [
+                 "quiz",
+                 "interactive",
+                 "recommendation",
+                 "conversion",
+                 "section",
+                 "css-modules"
+             ]
+}

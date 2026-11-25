@@ -1,0 +1,15 @@
+{
+  "id": "editorial-storefront-template",
+  "kind": "template",
+  "level": "template",
+  "category": "storefront",
+  "name": "Editorial Storefront Template",
+  "description": "Full-page editorial storefront shell featuring a fixed 90px right-hand desktop navigation rail (calc(100vw - 90px) content column) collapsing cleanly to a 60px top bar on mobile, with ordered slots for hero, quiz, showcase, story, manifesto, footer, and slide-over drawer.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["editorial-roastery"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "coffee-shop/escape-cafe-nextjs",
+  "tags": ["template", "layout", "storefront", "right-rail", "editorial", "shell"]
+}

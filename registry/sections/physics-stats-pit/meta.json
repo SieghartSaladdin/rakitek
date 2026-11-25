@@ -1,0 +1,33 @@
+{
+    "id":  "physics-stats-pit",
+    "kind":  "section",
+    "level":  "organism",
+    "category":  "stats",
+    "name":  "Physics Stats Pit",
+    "description":  "Full-viewport interactive stats section with a Matter.js 4-column physics ball pit, procedural goo-masked column textures, live eased counters, staggered display headline, and a responsive 2x2 mobile tile grid.",
+    "styling":  "css-modules",
+    "vibes":  [
+                  "cinematic",
+                  "tactile"
+              ],
+    "recommendedStyles":  [
+                              "kinetic-obsidian"
+                          ],
+    "dependencies":  [
+                         "matter-js"
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "saas-app/grail-next",
+    "tags":  [
+                 "stats",
+                 "physics",
+                 "matter-js",
+                 "canvas",
+                 "interactive",
+                 "counters",
+                 "cinematic",
+                 "tactile"
+             ]
+}

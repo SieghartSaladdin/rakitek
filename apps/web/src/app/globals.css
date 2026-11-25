@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "../generated/styles-bundle.css";
+
+@source "../../../registry";
+
+:root {
+  color-scheme: dark;
+  --shell-bg: #0c0c0e;
+  --shell-surface: #141418;
+  --shell-border: rgba(255, 255, 255, 0.1);
+  --shell-fg: #f4f4f5;
+  --shell-muted: #a1a1aa;
+}
+
+body {
+  background-color: var(--shell-bg);
+  color: var(--shell-fg);
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.32);
+}
+
+[data-rk-preview-stage="section"] > * {
+  border-radius: 0 !important;
+  border-left-width: 0 !important;
+  border-right-width: 0 !important;
+}

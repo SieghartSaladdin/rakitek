@@ -1,0 +1,174 @@
+.nav {
+  --pill-ink: color-mix(in srgb, var(--rk-bg) 94%, var(--rk-fg));
+  --pill-ink-hover: color-mix(in srgb, var(--rk-bg) 85%, var(--rk-fg));
+  --pill-link-muted: color-mix(in srgb, var(--rk-fg-muted) 69%, var(--rk-bg));
+  --pill-tint: color-mix(in srgb, var(--pill-ink) 4%, transparent);
+
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 8px 8px 8px 24px;
+  box-sizing: border-box;
+  border: 1px solid var(--pill-tint);
+  border-radius: 100px;
+  background: color-mix(in srgb, var(--rk-fg) 72%, transparent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 4px 24px var(--pill-tint);
+  color: var(--pill-ink);
+  font-family: var(--rk-font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.logo {
+  font-family: var(--rk-font-display);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--pill-ink);
+  white-space: nowrap;
+  padding: 0 8px 0 0;
+}
+
+.links {
+  display: flex;
+  gap: 4px;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.link {
+  display: block;
+  margin: 0;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--pill-link-muted);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color 0.4s var(--rk-ease),
+    background 0.4s var(--rk-ease);
+}
+
+.link:hover {
+  color: var(--pill-ink);
+  background: var(--pill-tint);
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 10px 10px 18px;
+  border: none;
+  border-radius: 100px;
+  background: var(--pill-ink);
+  color: var(--rk-fg);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.4s var(--rk-ease),
+    color 0.4s var(--rk-ease);
+}
+
+.contact:hover {
+  background: var(--pill-ink-hover);
+}
+
+.contactCopied {
+  background: var(--rk-accent);
+  color: var(--rk-accent-fg);
+}
+
+.contactCopied:hover {
+  background: color-mix(in srgb, var(--rk-accent) 88%, var(--rk-bg));
+}
+
+.contactLabel {
+  display: inline-block;
+  line-height: normal;
+}
+
+.contactIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 100px;
+  background: color-mix(in srgb, var(--rk-fg) 15%, transparent);
+  transition:
+    transform 0.4s var(--rk-ease),
+    background 0.4s var(--rk-ease);
+}
+
+.contact:hover .contactIcon {
+  background: color-mix(in srgb, var(--rk-fg) 20%, transparent);
+  transform: translate(2px, -1px);
+}
+
+.contactCopied .contactIcon {
+  background: color-mix(in srgb, var(--rk-accent-fg) 14%, transparent);
+}
+
+.contactCopied:hover .contactIcon {
+  background: color-mix(in srgb, var(--rk-accent-fg) 20%, transparent);
+}
+
+.link:focus-visible,
+.contact:focus-visible {
+  outline: 2px solid var(--pill-ink);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    top: 12px;
+    gap: 4px;
+    padding: 6px 6px 6px 18px;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link,
+  .contact,
+  .contactIcon {
+    transition: none;
+  }
+}

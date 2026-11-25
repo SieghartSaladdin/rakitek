@@ -1,0 +1,25 @@
+{
+  "id": "storefront-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "storefront",
+  "name": "Editorial Storefront Demo Page",
+  "description": "Full composed editorial storefront reference page assembling the right-rail storefront template with hero, interactive quiz, split collection showcase, mission split, kinetic manifesto, dark footer, and live slide-over bag drawer.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["editorial-roastery"],
+  "dependencies": ["gsap", "swiper"],
+  "composes": [
+    "templates/editorial-storefront-template",
+    "sections/right-rail-navbar",
+    "sections/editorial-storefront-hero",
+    "sections/interactive-quiz",
+    "sections/collection-split-showcase",
+    "sections/editorial-mission-split",
+    "sections/kinetic-manifesto-steps",
+    "sections/editorial-dark-footer",
+    "ui/slide-over-drawer"
+  ],
+  "sourceRef": "coffee-shop/escape-cafe-nextjs",
+  "tags": ["page", "demo", "storefront", "editorial", "composed", "full-page"]
+}

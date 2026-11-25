@@ -1,0 +1,33 @@
+{
+    "id":  "marquee-ticker",
+    "kind":  "ui",
+    "level":  "atom",
+    "category":  "marquee",
+    "name":  "Editorial Marquee Ticker",
+    "description":  "1:1 wireframe announcement bar with 1.5px currentColor outline, 10px radius, 20x24 upward arrow rows, responsive condensed uppercase display typography, and optional continuous scrollX marquee mode.",
+    "vibes":  [
+                  "editorial",
+                  "minimal",
+                  "cinematic"
+              ],
+    "recommendedStyles":  [
+                              "editorial-roastery",
+                              "kinetic-obsidian"
+                          ],
+    "styling":  "css-modules",
+    "dependencies":  [
+
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
+    "tags":  [
+                 "marquee",
+                 "ticker",
+                 "announcement",
+                 "editorial",
+                 "wireframe",
+                 "css-modules"
+             ]
+}

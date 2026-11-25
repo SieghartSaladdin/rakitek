@@ -1,0 +1,28 @@
+{
+  "name": "rakitek",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Multi-style UI/UX Registry, Next.js Visual Showcase, MCP Server, and Antigravity Skills",
+  "workspaces": [
+    "apps/web",
+    "packages/mcp"
+  ],
+  "scripts": {
+    "sync": "tsx scripts/sync-registry.ts",
+    "lint": "tsx scripts/lint-rakitek.ts",
+    "dev": "npm run sync && npm run dev -w apps/web",
+    "build": "npm run sync && npm run lint && npm run build -w packages/mcp && npm run build -w apps/web",
+    "test": "npm run sync && npm run lint && tsx scripts/test-lint-rules.ts && npm run test -w packages/mcp",
+    "fidelity": "tsx scripts/fidelity-compare.ts",
+    "fidelity:all": "tsx scripts/fidelity-all.ts",
+    "verify": "npm test && npm run fidelity:all && npm run build -w packages/mcp && npm run build -w apps/web",
+    "fidelity:capture": "tsx scripts/fidelity-capture.ts",
+    "fidelity:sink": "tsx scripts/fidelity-sink.ts",
+    "typecheck": "npm run typecheck -w packages/mcp && npm run typecheck -w apps/web"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.6",
+    "typescript": "^5.8.3",
+    "zod": "^3.25.76"
+  }
+}

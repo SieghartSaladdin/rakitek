@@ -1,0 +1,32 @@
+{
+    "id":  "story-chances-list",
+    "kind":  "section",
+    "level":  "organism",
+    "category":  "showcase",
+    "name":  "Story Chances List",
+    "description":  "Light editorial chapter sheet with a pinned running header, uppercase display headline featuring an inline rotating masked emblem crest, and a numbered 3-column story list with scroll reveal and pointer-tracking photo parallax.",
+    "styling":  "css-modules",
+    "vibes":  [
+                  "editorial",
+                  "cinematic"
+              ],
+    "recommendedStyles":  [
+                              "kinetic-obsidian"
+                          ],
+    "dependencies":  [
+
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "saas-app/grail-next",
+    "tags":  [
+                 "editorial",
+                 "showcase",
+                 "list",
+                 "parallax",
+                 "crest",
+                 "chapter",
+                 "css-modules"
+             ]
+}

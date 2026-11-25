@@ -1,0 +1,33 @@
+{
+    "id":  "editorial-button",
+    "kind":  "ui",
+    "level":  "atom",
+    "category":  "button",
+    "name":  "Editorial Button",
+    "description":  "1:1 condensed uppercase storefront CTA button with solid, dark, ghost, and light variants, responsive viewport-scaled sizing, 3px corner radius, and optional lighten blend mode.",
+    "vibes":  [
+                  "editorial",
+                  "corporate",
+                  "minimal"
+              ],
+    "recommendedStyles":  [
+                              "editorial-roastery",
+                              "kinetic-obsidian"
+                          ],
+    "styling":  "css-modules",
+    "dependencies":  [
+
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
+    "tags":  [
+                 "button",
+                 "cta",
+                 "editorial",
+                 "ghost",
+                 "blend",
+                 "css-modules"
+             ]
+}

@@ -1,0 +1,33 @@
+{
+    "id":  "rays-waitlist-footer",
+    "kind":  "section",
+    "level":  "organism",
+    "category":  "footer",
+    "name":  "Rays Waitlist Footer",
+    "description":  "Full-viewport waitlist footer with a Three.js volumetric light-rays shader radiating from a pointer-lit emblem tile, staggered word reveals, interactive witty email validation bubble, and three-column legal row.",
+    "styling":  "css-modules",
+    "vibes":  [
+                  "cinematic",
+                  "minimal"
+              ],
+    "recommendedStyles":  [
+                              "kinetic-obsidian"
+                          ],
+    "dependencies":  [
+                         "three"
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "saas-app/grail-next",
+    "tags":  [
+                 "footer",
+                 "waitlist",
+                 "webgl",
+                 "three",
+                 "rays",
+                 "shader",
+                 "email-validation",
+                 "cinematic"
+             ]
+}

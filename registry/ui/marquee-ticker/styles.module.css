@@ -1,0 +1,136 @@
+@keyframes scrollX {
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.ticker {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--rk-radius-lg, 10px);
+  box-shadow: 0 0 0 1.5px currentColor;
+  background-color: transparent;
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: left;
+}
+
+.tickerInverted {
+  color: var(--rk-bg);
+}
+
+.ticker:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.inner {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+  font-family: var(--rk-font-body);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.text {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+  font-family: var(--rk-font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.arrow {
+  display: inline;
+  vertical-align: baseline;
+  width: 20px;
+  height: 24px;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.scrollViewport {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.scrollTrack {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 24px;
+  padding-right: 24px;
+  white-space: nowrap;
+  animation: scrollX var(--rk-marquee-duration, 15s) linear infinite;
+}
+
+.scrollItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.scrollText {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-family: var(--rk-font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.scrollSep {
+  display: inline-block;
+  color: color-mix(in srgb, currentColor 70%, transparent);
+  font-family: var(--rk-font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ticker:hover .scrollTrack,
+.ticker:focus-within .scrollTrack {
+  animation-play-state: paused;
+}
+
+@media only screen and (min-width: 1024px) {
+  .text,
+  .scrollText,
+  .scrollSep {
+    font-size: min(1.8055555556vw, 3.2098765432vh);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollTrack {
+    animation: none;
+  }
+}

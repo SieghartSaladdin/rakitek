@@ -1,0 +1,34 @@
+{
+    "id":  "waitlist-input",
+    "kind":  "ui",
+    "level":  "molecule",
+    "category":  "input",
+    "name":  "Waitlist Input Card",
+    "description":  "High-fidelity dark-obsidian waitlist form card with translucent email field, smooth cubic-bezier focus states, optional feedback opt-in checkbox, interactive 5-star idea rating block, and full-width pill submit control.",
+    "vibes":  [
+                  "cinematic",
+                  "editorial",
+                  "minimal"
+              ],
+    "recommendedStyles":  [
+                              "kinetic-obsidian",
+                              "editorial-roastery"
+                          ],
+    "styling":  "css-modules",
+    "dependencies":  [
+
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "saas-app/grail-next",
+    "tags":  [
+                 "input",
+                 "form",
+                 "waitlist",
+                 "newsletter",
+                 "email",
+                 "rating",
+                 "css-modules"
+             ]
+}

@@ -1,0 +1,32 @@
+{
+    "id":  "right-rail-navbar",
+    "kind":  "section",
+    "level":  "organism",
+    "category":  "navbar",
+    "name":  "Right Rail Editorial Navbar",
+    "description":  "High-fidelity 90px right-edge sticky navigation rail with 33px animated hamburger/close icon, 90deg rotated shipping ticker, cart/account/locale controls, and 460px slide-out accordion drawer.",
+    "vibes":  [
+                  "editorial",
+                  "minimal"
+              ],
+    "recommendedStyles":  [
+                              "editorial-roastery",
+                              "kinetic-obsidian"
+                          ],
+    "styling":  "css-modules",
+    "dependencies":  [
+
+                     ],
+    "composes":  [
+
+                 ],
+    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
+    "tags":  [
+                 "navbar",
+                 "sidebar",
+                 "drawer",
+                 "accordion",
+                 "editorial",
+                 "css-modules"
+             ]
+}

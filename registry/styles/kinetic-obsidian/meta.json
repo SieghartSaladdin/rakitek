@@ -1,0 +1,20 @@
+{
+  "id": "kinetic-obsidian",
+  "name": "Kinetic Obsidian",
+  "vibe": "cinematic",
+  "description": "Deep obsidian canvas, translucent elevated glass surfaces, expressive editorial serif headlines, soft pill geometry, and warm amber highlights inspired by modern consumer app launches.",
+  "sourceRef": "saas-app/grail-next",
+  "fonts": {
+    "display": "Georgia, 'Times New Roman', serif",
+    "body": "'DM Sans', sans-serif",
+    "mono": "'JetBrains Mono', monospace",
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+  },
+  "palettePreview": {
+    "bg": "#0A0A0B",
+    "surface": "#151518",
+    "fg": "#FAFAF8",
+    "accent": "#E5B869"
+  },
+  "tags": ["saas", "mobile-app", "dark", "cinematic", "waitlist"]
+}

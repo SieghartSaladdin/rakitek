@@ -1,0 +1,26 @@
+{
+  "id": "editorial-roastery",
+  "name": "Editorial Roastery",
+  "vibe": "editorial",
+  "description": "Warm paper surfaces, deep charcoal ink, condensed uppercase display type, hairline dividers, and vermilion accent inspired by artisanal roastery storefronts.",
+  "sourceRef": "coffee-shop/escape-cafe-nextjs",
+  "fonts": {
+    "display": "'Oswald', sans-serif",
+    "body": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
+    "mono": "'JetBrains Mono', monospace",
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+  },
+  "palettePreview": {
+    "bg": "#F5F4F2",
+    "surface": "#EBE9E6",
+    "fg": "#151515",
+    "accent": "#CC1C00"
+  },
+  "tags": [
+    "coffee-shop",
+    "fnb",
+    "editorial",
+    "light",
+    "storefront"
+  ]
+}

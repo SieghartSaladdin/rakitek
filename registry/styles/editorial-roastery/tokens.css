@@ -1,0 +1,24 @@
+[data-rk-style="editorial-roastery"] {
+  --rk-bg: #f5f4f2;
+  --rk-surface: #ebe9e6;
+  --rk-surface-elevated: #ffffff;
+  --rk-fg: #151515;
+  --rk-fg-muted: #5a5650;
+  --rk-accent: #cc1c00;
+  --rk-accent-fg: #ffffff;
+  --rk-highlight: #eaca3e;
+  --rk-border: rgba(21, 21, 21, 0.16);
+  --rk-border-strong: rgba(21, 21, 21, 0.85);
+  --rk-font-display: "Oswald", sans-serif;
+  --rk-font-narrow: "Barlow Condensed", sans-serif;
+  --rk-font-body: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --rk-font-mono: "JetBrains Mono", monospace;
+  --rk-display-transform: uppercase;
+  --rk-display-tracking: -0.02em;
+  --rk-radius-sm: 2px;
+  --rk-radius-md: 4px;
+  --rk-radius-lg: 10px;
+  --rk-radius-pill: 4px;
+  --rk-shadow: 0 12px 30px -16px rgba(21, 21, 21, 0.18);
+  --rk-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+}

@@ -1,0 +1,186 @@
+@keyframes scaleX {
+  0% { transform: scaleX(1) translateZ(0); transform-origin: 100% 50%; }
+  49.9% { transform: scaleX(0) translateZ(0); transform-origin: 100% 50%; }
+  50.1% { transform: scaleX(0) translateZ(0); transform-origin: 0 0; }
+  100% { transform: scaleX(1) translateZ(0); transform-origin: 0 0; }
+}
+
+.sectionRoot { z-index: 3; }
+
+.stickyLogo {
+  position: fixed; display: none; top: 30px; left: 52px; width: 40px; height: 25px;
+  z-index: 10; color: var(--rk-fg); text-decoration: none;
+}
+.stickyLogo svg { display: block; width: 100%; height: 100%; fill: currentColor; }
+
+.logoTagline {
+  position: absolute; display: none; top: 30px; left: calc(52px + 40px + 15px); z-index: 10;
+  color: var(--rk-fg); text-decoration: none; font-family: var(--rk-font-display);
+  font-size: 24px; font-weight: 700; line-height: 25px; letter-spacing: 0.04em;
+  text-transform: var(--rk-display-transform);
+}
+
+.brandInverted {
+  color: var(--rk-bg);
+}
+
+.railWrapper {
+  position: fixed; top: 0; left: 0; display: block; width: 100%; height: 60px; z-index: 20;
+  background-color: var(--rk-surface-elevated); color: var(--rk-fg); font-family: var(--rk-font-body);
+  font-size: 16px; font-weight: 300; line-height: 1; padding: 0; box-sizing: border-box;
+  will-change: transform;
+}
+
+.railHeader {
+  position: relative; height: 100%; display: flex; align-items: center;
+  padding: 0 12px; box-sizing: border-box; background: transparent;
+}
+
+.menuTriggerWrap { display: flex; align-items: center; justify-content: center; }
+
+.menuBtn {
+  position: relative; display: block; width: 45px; height: 45px; padding: 0; border: 0;
+  background: transparent; color: var(--rk-fg); font-family: var(--rk-font-body);
+  font-size: 22.4px; font-weight: 400; line-height: normal; cursor: pointer; perspective: 800px;
+}
+
+.menuGlyphBox { display: flex; align-items: center; justify-content: center; height: 100%; }
+
+.iconHamburger, .iconClose { display: block; width: 33px; height: 33px; fill: none; }
+.iconHamburger path { --d: 0s; }
+.iconHamburger path:nth-child(2) { --d: 75ms; }
+.iconHamburger path:last-child { --d: 0.15s; }
+.menuBtn:hover .iconHamburger path { animation: scaleX 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) var(--d); }
+.iconClose { transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); }
+.menuBtn:hover .iconClose { transform: rotateX(180deg) translateZ(0); }
+
+.railLines {
+  display: none; position: absolute; top: 90px; left: calc(100% - 30px);
+  transform: rotate(90deg); transform-origin: 0% 0%;
+  grid-template-columns: 1fr 42vh; column-gap: 25px;
+  font-family: var(--rk-font-body); font-size: 16px; font-weight: 300; line-height: 1; color: var(--rk-fg);
+}
+.railLine { margin: 0; line-height: 1.05; }
+.railLine:first-child { white-space: nowrap; }
+
+.railIcons { display: flex; justify-content: center; align-items: center; margin-left: auto; }
+
+.cartBtn {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  width: 45px; height: 45px; padding: 0; border: 0; background: transparent; color: var(--rk-fg);
+  font-family: var(--rk-font-body); font-size: 22.4px; font-weight: 400; line-height: normal; cursor: pointer;
+}
+
+.accountLink {
+  position: relative; display: flex; align-items: center; justify-content: center;
+  width: 45px; height: 45px; padding: 0; box-sizing: border-box; color: var(--rk-fg);
+  text-decoration: none; font-family: var(--rk-font-body); font-size: 22.4px; font-weight: 300; line-height: 1;
+}
+
+.railSvg { display: block; width: 25px; height: 25px; fill: none; transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1); }
+.cartBtn:hover .railSvg, .accountLink:hover .railSvg { transform: scale(1.1) translateZ(0); }
+
+.cartBadge {
+  position: absolute; top: 4px; right: 20px; min-width: 18px; height: 18px; padding: 0 5px;
+  border-radius: 999px; background: var(--rk-accent); color: var(--rk-accent-fg);
+  font-family: var(--rk-font-body); font-size: 11px; font-weight: 700; line-height: 18px; text-align: center;
+}
+
+.langBtn {
+  display: none; width: 100%; padding: 13.5px 0; border: 0; background: transparent;
+  color: var(--rk-fg); text-align: center; font-family: var(--rk-font-body); font-size: 14px;
+  font-weight: 400; line-height: 1.35; cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.langBtn:hover, .langBtn:focus-visible { transform: scale(1.1) translateZ(0); }
+
+.navDrawer { position: fixed; inset: 0; z-index: 19; pointer-events: none; visibility: hidden; transition: visibility 0.35s ease; }
+.isOpen { pointer-events: auto; visibility: visible; }
+
+.backdrop {
+  position: absolute; inset: 0; background: color-mix(in srgb, var(--rk-fg) 45%, transparent);
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.isOpen .backdrop { opacity: 1; }
+
+.drawerPanel {
+  position: absolute; top: 0; right: 0; height: 100%; width: min(460px, 100vw); box-sizing: border-box;
+  background: var(--rk-surface-elevated); color: var(--rk-fg); padding: 96px 40px 48px;
+  overflow-y: auto; font-family: var(--rk-font-body); font-size: 16px; font-weight: 300; line-height: 1;
+  transform: translateX(100%); transition: transform 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.isOpen .drawerPanel { transform: translateX(0); }
+
+.topNav { margin-bottom: 36px; padding-bottom: 24px; border-bottom: 1px solid color-mix(in srgb, var(--rk-fg) 12%, transparent); }
+
+.shopHeading {
+  margin: 0 0 16px; padding: 0; opacity: 0.55; font-family: var(--rk-font-narrow);
+  font-size: 18px; font-weight: 600; line-height: 1; text-transform: uppercase;
+}
+
+.menuList { list-style: none; margin: 0; padding: 0; }
+.menuItem { margin-bottom: 10px; }
+.cta { transition: opacity 0.6s cubic-bezier(0.37, 0.31, 0, 1); }
+
+.shopLink {
+  display: inline; padding: 1.1rem 3.2rem; color: var(--rk-fg); text-decoration: none;
+  font-family: var(--rk-font-body); font-size: 22px; font-weight: 300; line-height: 1.05;
+  transition: opacity 0.6s cubic-bezier(0.37, 0.31, 0, 1);
+}
+
+.mainLink {
+  display: inline; padding: 1.1rem 3.2rem; color: var(--rk-fg); text-decoration: none;
+  font-family: var(--rk-font-narrow); font-size: 18px; font-weight: 600; line-height: 1;
+  text-transform: uppercase; text-box: trim-end text alphabetic;
+  transition: opacity 0.6s cubic-bezier(0.37, 0.31, 0, 1);
+}
+
+.accBtn {
+  width: 100%; background: transparent; border: 0; padding: 8px 0;
+  display: flex; align-items: center; justify-content: space-between; cursor: pointer;
+  color: inherit; text-align: left; font-family: var(--rk-font-narrow);
+  font-size: 18px; font-weight: 600; line-height: 1; text-transform: uppercase;
+}
+
+.accSign { font-family: var(--rk-font-body); font-size: 20px; font-weight: 400; line-height: 1; }
+.accList { list-style: none; margin: 0; padding: 6px 0 14px 14px; }
+.accSubLink {
+  display: inline-block; padding: 5px 0; color: var(--rk-fg); text-decoration: none;
+  font-family: var(--rk-font-body); font-size: 14px; font-weight: 300; line-height: 1.35;
+  transition: opacity 0.6s cubic-bezier(0.37, 0.31, 0, 1);
+}
+
+.shopLink:hover, .mainLink:hover, .accSubLink:hover, .accBtn:hover .cta { opacity: 0.4; }
+.stickyLogo:focus-visible, .logoTagline:focus-visible, .menuBtn:focus-visible, .cartBtn:focus-visible,
+.accountLink:focus-visible, .langBtn:focus-visible, .shopLink:focus-visible, .mainLink:focus-visible,
+.accBtn:focus-visible, .accSubLink:focus-visible { outline: 2px solid var(--rk-accent); outline-offset: -2px; }
+
+@media only screen and (min-width: 1024px) {
+  .stickyLogo, .logoTagline { display: inline-block; }
+  .railWrapper { left: auto; right: 0; width: 90px; height: 100%; }
+  .railHeader { flex-direction: column; align-items: stretch; padding: 17.5px 0; }
+  .menuBtn, .cartBtn { width: 100%; height: 50px; margin: 0 auto; }
+  .accountLink { width: 100%; height: 50px; padding: 13.5px 0; margin: 0 auto; }
+  .railLines { display: grid; }
+  .railIcons { flex-direction: column; margin-left: 0; margin-top: auto; }
+  .langBtn { display: block; font-size: min(16px, min(1.1111111111vw, 1.975308642vh)); }
+  .drawerPanel { right: 90px; border-right: 1px solid color-mix(in srgb, var(--rk-fg) 15%, transparent); }
+  .shopHeading, .mainLink, .accBtn { font-size: min(22px, min(1.5277777778vw, 2.7160493827vh)); }
+  .shopLink { font-size: min(1.9444444444vw, 3.4567901235vh); }
+  .accSubLink { font-size: min(16px, min(1.1111111111vw, 1.975308642vh)); }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 1024px) {
+  .menuBtn, .cartBtn { height: 60px; }
+  .accountLink { height: 60px; padding: 17.5px 0; }
+  .langBtn { padding: 17.5px 0; }
+}
+
+@media screen and (min-height: 1024px) {
+  .railLines { top: 120px; column-gap: 45px; grid-template-columns: 1fr 38vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iconHamburger path, .iconClose, .railSvg, .langBtn, .navDrawer, .backdrop, .drawerPanel,
+  .cta, .shopLink, .mainLink, .accSubLink { animation: none; transition: none; }
+}

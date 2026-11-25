@@ -1,0 +1,96 @@
+.bubbleWrap {
+  position: absolute;
+  top: 0;
+  left: var(--endx, 50%);
+  z-index: 2;
+  height: 0;
+  pointer-events: none;
+  transition: left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: 3.4s ease-in-out infinite bubbleFloat;
+}
+@keyframes bubbleFloat {
+  0%, to { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.bubble {
+  position: absolute;
+  top: -46px;
+  left: -48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--bw, auto);
+  max-width: 440px;
+  height: 52px;
+  padding: 0 22px;
+  border-radius: 26px;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: auto;
+  background: color-mix(in srgb, var(--rk-accent) 68%, var(--rk-fg));
+  color: var(--rk-accent-fg);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+  transform: rotate(var(--tilt, -4deg));
+  animation: 0.3s cubic-bezier(0.22, 1, 0.36, 1) bubblePop;
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), max-width 0.35s cubic-bezier(0.22, 1, 0.36, 1), height 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-radius 0.35s cubic-bezier(0.22, 1, 0.36, 1), padding 0.35s cubic-bezier(0.22, 1, 0.36, 1), top 0.35s cubic-bezier(0.22, 1, 0.36, 1), left 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: var(--tailx, 34px);
+  width: 12px;
+  height: 12px;
+  background: color-mix(in srgb, var(--rk-accent) 68%, var(--rk-fg));
+  transform: rotate(45deg);
+  transition: opacity 0.2s, left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.bubbleLeft { --tailx: calc(100% - 46px); transform: translateX(calc(-100% + 96px)) rotate(calc(var(--tilt, -4deg) * -1)); }
+.bubbleCenter { --tailx: calc(50% - 6px); transform: translateX(calc(-50% + 48px)) rotate(calc(var(--tilt, -4deg) * 0.5)); }
+.bubbleMeasure { position: absolute; top: 0; left: 0; visibility: hidden; pointer-events: none; white-space: pre; font-size: 15px; font-weight: 600; }
+.dots { display: inline-flex; align-items: center; gap: 3px; margin-left: 9px; }
+.dots i { width: 4px; height: 4px; border-radius: 50%; background: var(--rk-accent-fg); animation: 1.2s ease-in-out infinite dotRun; }
+.dots i:nth-child(2) { animation-delay: 0.18s; }
+.dots i:nth-child(3) { animation-delay: 0.36s; }
+@keyframes dotRun {
+  0%, 60%, to { opacity: 0.25; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+.bubbleEnter {
+  width: clamp(64px, 6.2vw, 96px);
+  max-width: clamp(64px, 6.2vw, 96px);
+  height: clamp(48px, 4.6vw, 72px);
+  padding: 0;
+  border-radius: 999px;
+  top: calc(clamp(40px, 6.4vw, 92px) / 2.27273 - clamp(24px, 2.3vw, 36px));
+  left: 22px;
+  transform: rotate(0);
+}
+.bubbleEnter::after { opacity: 0; }
+.bubbleText { animation: 0.2s bubbleLine; }
+.enterBtn {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: var(--rk-accent-fg);
+  cursor: pointer;
+  font-size: clamp(22px, 2.4vw, 34px);
+  line-height: 1;
+  animation: 0.2s bubbleLine;
+}
+.enterBtn:focus-visible { outline: 2px solid var(--rk-accent-fg); outline-offset: -4px; border-radius: 999px; }
+.enterBtn:disabled { cursor: default; opacity: 0.6; }
+@keyframes bubblePop {
+  0% { opacity: 0; transform: translateY(8px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes bubbleLine {
+  0% { opacity: 0; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bubbleWrap, .bubble, .bubble::after, .bubbleText, .enterBtn, .dots i { animation: none; transition: none; }
+}
