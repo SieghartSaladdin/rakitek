@@ -31,6 +31,20 @@ Aturan anti-curang (wajib):
 
 User cukup membaca output `verify`, melihat screenshot, dan membuka web. Kalau user masih harus mencari beda sendiri, pekerjaan belum selesai.
 
+## Kerja Paralel (beberapa agent sekaligus)
+- Satu agent = satu proyek sumber = satu git worktree sendiri (`git worktree add ../rakitek-<sumber> -b extract/<sumber>`), lalu `npm install` di sana. Jangan ekstrak di folder `rakitek/` utama selagi agent lain jalan.
+- Pakai blok port sendiri, `30N1` web asli, `30N5` showcase, `46N1` fidelity sink (`RK_FIDELITY_PORT`), dengan N dari tabel ini. Utamakan `npm run fidelity:capture` (headless, port CDP acak).
+
+  | N | Dipakai oleh |
+  |---|---|
+  | 0 | folder utama (3000/3005/4599) |
+  | 1 | kikkfestival-be-nextjs |
+  | 2 | obys-agency-nextjs |
+  | 3–9 | bebas; tulis nama sumbernya di sini saat mulai |
+- Satu proyek sumber hanya dikerjakan satu agent. Folder yang sudah `(done)` tidak dikerjakan lagi.
+- Awali id komponen baru dengan nama style atau ciri yang khas (mis. `kikk-lineup-grid`), supaya tidak bentrok dengan agent lain.
+- Commit di branch sendiri, `npm run verify` lolos di worktree itu. Jangan push dan jangan merge ke `main`; penggabungan dikerjakan satu orang, yang menjalankan `npm run sync` lalu `npm run verify` sekali setelah semua branch masuk. File generated (`registry/.generated/*`, `apps/web/src/generated/*`) boleh diambil dari sisi mana pun saat konflik, karena dibuat ulang oleh sync.
+
 ## Folder Sumber Selesai
 Setelah ekstrak satu proyek REA selesai dan sudah di-commit dengan `npm run verify` lolos, ganti nama folder sumbernya menjadi `<nama>(done)` (mis. `coffee-shop/escape-cafe-nextjs(done)`) supaya jelas mana yang belum diekstrak. `sourceRef` di `meta.json` tetap ditulis tanpa `(done)`. Saat mengukur ulang web asli, jalankan dari folder `(done)` itu.
 
