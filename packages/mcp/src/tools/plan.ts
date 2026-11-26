@@ -128,6 +128,15 @@ export function planPageResult(args: { brief: string; pageType?: string; styleId
   const roleHolders = all.filter((c) => (c.kind === "section" || c.kind === "ui") && (c.roles ?? []).length > 0);
   const used = new Set<string>();
 
+  // A template is a page shell built around one navbar. Only offer a shell verified in the
+  // chosen style; a dark SaaS shell under a light editorial style breaks the page.
+  const templates = new Map((catalog.templates ?? []).map((t) => [t.id, t]));
+  const shellFor = (navId: string) =>
+    (catalog.pages ?? [])
+      .filter((p) => p.composes?.includes(`sections/${navId}`))
+      .map((p) => p.composes?.find((ref) => ref.startsWith("templates/"))?.slice("templates/".length))
+      .find((id) => id && templates.get(id)?.recommendedStyles.includes(style.id));
+
   const slots = recipe.slots.map((slot) => {
     const candidates = roleHolders
       .filter((c) => c.roles!.includes(slot.role))
@@ -135,6 +144,8 @@ export function planPageResult(args: { brief: string; pageType?: string; styleId
         c,
         inStyle: c.recommendedStyles.includes(style.id),
         primary: c.roles![0] === slot.role,
+        // A navbar whose page shell is verified in this style keeps the whole layout coherent.
+        hasShell: slot.role === "navigation" && Boolean(shellFor(c.id)),
         score: briefScore(c, briefWords),
       }))
       // One section per page: an unused candidate beats a better-styled one already picked above.
@@ -142,6 +153,7 @@ export function planPageResult(args: { brief: string; pageType?: string; styleId
         (a, b) =>
           Number(used.has(a.c.id)) - Number(used.has(b.c.id)) ||
           Number(b.inStyle) - Number(a.inStyle) ||
+          Number(b.hasShell) - Number(a.hasShell) ||
           Number(b.primary) - Number(a.primary) ||
           b.score - a.score,
       );
@@ -163,13 +175,8 @@ export function planPageResult(args: { brief: string; pageType?: string; styleId
     };
   });
 
-  // A template is a page shell built around one navbar; offer the one that fits the picked navbar.
   const nav = slots.find((s) => s.role === "navigation")?.pick;
-  const pages = catalog.pages ?? [];
-  const shell = pages
-    .filter((p) => nav && p.composes?.includes(`sections/${nav}`))
-    .map((p) => p.composes?.find((ref) => ref.startsWith("templates/"))?.slice("templates/".length))
-    .find(Boolean);
+  const shell = nav ? shellFor(nav) : undefined;
 
   return {
     brief: args.brief,

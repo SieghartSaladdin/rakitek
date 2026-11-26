@@ -61,7 +61,7 @@ export function getStyleResult(id: string, includeSetup = true) {
 export function registerStyleTools(server: McpServer) {
   server.tool(
     "list_styles",
-    "List Rakitek style presets (palette, fonts, vibe). Use only to compare styles; suggest_page_blueprint already picks one.",
+    "List Rakitek style presets (palette, fonts, vibe). Use only to compare styles before forcing a styleId; plan_page already picks one.",
     {},
     async () => ({ content: [{ type: "text", text: compact(listStylesResult()) }] }),
   );

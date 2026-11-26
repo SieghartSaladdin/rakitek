@@ -36,5 +36,12 @@ Rakitek is a set of parts, not a set of finished pages. You pick the sections th
 ## Other frameworks
 Components are React + CSS Modules. For Vue or Svelte, port the markup and logic 1:1, keep `styles.module.css` byte-for-byte, and keep the animation code (GSAP, Swiper, Lenis) with the same versions.
 
+Vue pitfalls that silently break animations:
+- Start GSAP, Swiper, and Lenis in `onMounted` (clean up in `onBeforeUnmount`). A `watch(..., { immediate: true })` runs before the DOM exists, so they never start.
+- Do not put an animation's initial state (opacity, transform, filter) in a `:style` binding. Vue re-applies bound styles on every re-render and overwrites the animated values. Set the initial state in `onMounted`, then animate.
+- `withDefaults` cannot reference constants declared inside `<script setup>`. Put default data in a separate `<script>` block or a `defaults.ts` file.
+- For `motion/react` sections, use the vanilla `animate()` from the same `motion` package with the same values, and replace `AnimatePresence` with `<Transition>` JS hooks.
+- `ReactNode` props become slots; `on*` callback props become emits or function props.
+
 ## Verify
 Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text, readable text contrast on every background.

@@ -162,6 +162,15 @@ function runTests() {
   assert.ok(company.shell.template, `Shell must fit navbar ${navPick}`);
   const navHosts = (loadCatalog().pages ?? []).filter((p) => p.composes?.includes(`sections/${navPick}`));
   assert.ok(navHosts.some((p) => p.composes?.includes(`templates/${company.shell.template}`)), "Shell must come from a page that uses the picked navbar");
+  // The shell must be verified in the chosen style, whatever style is forced.
+  for (const s of loadCatalog().styles) {
+    const forced = planPageResult({ brief: "company profile untuk studio arsitektur", styleId: s.id });
+    const tpl = forced.shell.template;
+    if (tpl) {
+      const entry = (loadCatalog().templates ?? []).find((t) => t.id === tpl);
+      assert.ok(entry?.recommendedStyles.includes(s.id), `Shell ${tpl} is not verified in style ${s.id}`);
+    }
+  }
   assert.equal(planPageResult({ brief: "landing buat startup aplikasi" }).pageType, "saas");
   assert.equal(planPageResult({ brief: "toko kopi" }).pageType, "storefront");
   assert.ok("pageTypeNote" in planPageResult({ brief: "xyz" }), "Unmatched brief must say it fell back");
