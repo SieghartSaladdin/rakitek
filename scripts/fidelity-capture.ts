@@ -89,6 +89,7 @@ async function runCapture(jobPath: string) {
     "utf8",
   );
   const port = 9300 + Math.floor(Math.random() * 500);
+  sweepStaleProfiles();
   const userDataDir = fs.mkdtempSync(path.join(os.tmpdir(), "rk-cdp-"));
 
   const chrome = spawn(
@@ -106,9 +107,10 @@ async function runCapture(jobPath: string) {
     { stdio: "ignore" },
   );
 
+  let cdp: ReturnType<typeof createCdpClient> | undefined;
   try {
     const wsUrl = await waitForWs(port);
-    const cdp = createCdpClient(wsUrl);
+    cdp = createCdpClient(wsUrl);
     await cdp.send("Page.enable");
     await cdp.send("Runtime.enable");
     await cdp.send("Emulation.setDeviceMetricsOverride", {
@@ -171,13 +173,41 @@ async function runCapture(jobPath: string) {
       console.log(`[fidelity-capture] saved ${job.outImage}`);
     }
 
-    cdp.close();
   } finally {
-    chrome.kill("SIGKILL");
+    // Chrome keeps its profile files locked until all of its processes have exited, and on
+    // Windows kill() only ends the parent. Deleting right after kill() failed silently and left
+    // one profile per capture in TEMP (332 profiles, 4.4 GB, filled the disk). Close the whole
+    // browser over CDP first, wait for exit, kill as a fallback, then delete with retries.
+    const exited = new Promise<void>((resolve) => chrome.once("exit", () => resolve()));
+    if (cdp) {
+      await Promise.race([cdp.send("Browser.close").catch(() => undefined), sleep(3000)]);
+      cdp.close();
+    }
+    await Promise.race([exited, sleep(5000)]);
+    if (chrome.exitCode === null) chrome.kill("SIGKILL");
+    await Promise.race([exited, sleep(3000)]);
+    removeProfile(userDataDir);
+  }
+}
+
+function removeProfile(dir: string) {
+  try {
+    fs.rmSync(dir, { recursive: true, force: true, maxRetries: 10, retryDelay: 200 });
+  } catch (err) {
+    console.warn(`[fidelity-capture] could not remove ${dir}: ${(err as Error).message}`);
+  }
+}
+
+/** Removes profiles left behind by earlier runs (older than 10 minutes, so parallel captures are safe). */
+function sweepStaleProfiles() {
+  const cutoff = Date.now() - 10 * 60 * 1000;
+  for (const name of fs.readdirSync(os.tmpdir())) {
+    if (!name.startsWith("rk-cdp-")) continue;
+    const full = path.join(os.tmpdir(), name);
     try {
-      fs.rmSync(userDataDir, { recursive: true, force: true });
+      if (fs.statSync(full).mtimeMs < cutoff) removeProfile(full);
     } catch {
-      // ignore temp cleanup error on Windows
+      // vanished meanwhile
     }
   }
 }
