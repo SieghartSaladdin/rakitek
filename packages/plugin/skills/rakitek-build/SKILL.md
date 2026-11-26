@@ -41,7 +41,10 @@ Vue pitfalls that silently break animations:
 - Do not put an animation's initial state (opacity, transform, filter) in a `:style` binding. Vue re-applies bound styles on every re-render and overwrites the animated values. Set the initial state in `onMounted`, then animate.
 - `withDefaults` cannot reference constants declared inside `<script setup>`. Put default data in a separate `<script>` block or a `defaults.ts` file.
 - For `motion/react` sections, use the vanilla `animate()` from the same `motion` package with the same values, and replace `AnimatePresence` with `<Transition>` JS hooks.
-- `ReactNode` props become slots; `on*` callback props become emits or function props.
+- `ReactNode` props become slots. A template whose slots are props (`hero`, `footer`, ...) becomes named slots rendered in the same order; check `$slots.<name>` where the React code checked the prop.
+- A helper `.tsx` that exports several components becomes one `.vue` file per component in the same folder.
+- `on*` callback props: use a function prop when the React code checks whether the callback exists (e.g. `onClick={onCtaClick}` leaves `#` links native when it is undefined, or `onX ? handler : undefined`). Use emits only for pure notifications. An emit is always "present", so it would change that behavior.
+- `get_component` lists `alsoNeeded` children it did not send; fetch those too.
 
 ## Verify
 Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text, readable text contrast on every background.

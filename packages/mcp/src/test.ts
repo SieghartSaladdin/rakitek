@@ -4,6 +4,7 @@ import { RAKITEK_INSTRUCTIONS } from "./server.js";
 import { suggestBlueprintResult } from "./tools/blueprint.js";
 import {
   getComponentBundle,
+  getComponentReply,
   getComponentResult,
   OUTPUT_BUDGET_CHARS,
   searchComponentsResult,
@@ -133,6 +134,16 @@ function runTests() {
   assert.ok(bundleIds.includes("editorial-storefront-hero"), "Page bundle must include composed sections");
   assert.equal(new Set(bundleIds).size, bundleIds.length, "Bundle must not repeat components");
   assert.equal(getComponentBundle("storefront-demo-page", false).length, 1, "withComposed:false returns one item");
+
+  // withComposed:false must name every imported child it did not ship.
+  const catalogAll = [...loadCatalog().ui, ...loadCatalog().sections];
+  const parent = catalogAll.find((c) => c.kind === "section" && (c.composes ?? []).length > 0);
+  assert.ok(parent, "Expected a section that composes another component");
+  const headerOf = (args: Parameters<typeof getComponentReply>[0]) => JSON.parse(getComponentReply(args)[0].text);
+  const lean = headerOf({ id: parent.id, withComposed: false });
+  const childIds = (parent.composes ?? []).map((ref) => ref.split("/")[1]);
+  assert.deepEqual([...lean.alsoNeeded].sort(), [...childIds].sort(), "alsoNeeded must list the children left out");
+  assert.ok(!("alsoNeeded" in headerOf({ id: parent.id })), "A full bundle has nothing left to fetch");
 
   const blueprint = suggestBlueprintResult("coffee-shop");
   assert.equal(blueprint.style.id, "editorial-roastery");
