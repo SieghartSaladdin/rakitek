@@ -79,6 +79,21 @@ export function resolveRakitekRoot(): string {
   return path.resolve(currentDir, "..", "..", "..");
 }
 
+/**
+ * Parsed JSON kept in memory and re-read only when the file's mtime changes, so a large
+ * registry is not re-parsed on every tool call while `npm run sync` still takes effect.
+ */
+const jsonCache = new Map<string, { mtimeMs: number; value: unknown }>();
+
+export function readJsonCached<T>(filePath: string): T {
+  const { mtimeMs } = fs.statSync(filePath);
+  const hit = jsonCache.get(filePath);
+  if (hit && hit.mtimeMs === mtimeMs) return hit.value as T;
+  const value = JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
+  jsonCache.set(filePath, { mtimeMs, value });
+  return value;
+}
+
 export function loadCatalog(): CatalogData {
   const root = resolveRakitekRoot();
   const catalogPath = path.join(root, "registry", ".generated", "catalog.json");
@@ -87,7 +102,7 @@ export function loadCatalog(): CatalogData {
       `Catalog not found at ${catalogPath}. Run "npm run sync" inside the rakitek repo first.`,
     );
   }
-  return JSON.parse(fs.readFileSync(catalogPath, "utf8")) as CatalogData;
+  return readJsonCached<CatalogData>(catalogPath);
 }
 
 export interface SetupData {
@@ -102,7 +117,7 @@ export function loadSetup(): SetupData {
   if (!fs.existsSync(setupPath)) {
     throw new Error(`Setup not found at ${setupPath}. Run "npm run sync" inside the rakitek repo first.`);
   }
-  return JSON.parse(fs.readFileSync(setupPath, "utf8")) as SetupData;
+  return readJsonCached<SetupData>(setupPath);
 }
 
 /** Compact JSON: no indentation, so tool output spends tokens on content, not whitespace. */

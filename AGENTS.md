@@ -30,6 +30,9 @@ Aturan anti-curang (wajib):
 
 User cukup membaca output `verify`, melihat screenshot, dan membuka web. Kalau user masih harus mencari beda sendiri, pekerjaan belum selesai.
 
+## Skala
+Kalau `npm run sync` mencetak `[rakitek skala] ...`, kerjakan langkah yang disebut di [docs/rencana-skala.md](docs/rencana-skala.md) sebelum menambah komponen lagi. Setiap tool MCP baru wajib membatasi ukuran jawabannya (limit/paging).
+
 ## Aturan Evolusi Lint
 - Setiap kali memperbaiki bug yang berulang atau monoton, tambahkan aturan cek deterministik baru (di `scripts/lint-rakitek.ts` atau modul `scripts/lint-*.ts`) beserta kasus tes sintetis di `scripts/test-lint-rules.ts`.
 

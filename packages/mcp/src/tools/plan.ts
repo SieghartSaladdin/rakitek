@@ -92,6 +92,9 @@ const RECIPES: Recipe[] = [
   },
 ];
 
+/** Best candidates listed per slot; the rest are counted and reachable via search_components. */
+export const CANDIDATES_PER_SLOT = 5;
+
 function words(text: string): string[] {
   return text.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 1);
 }
@@ -164,13 +167,17 @@ export function planPageResult(args: { brief: string; pageType?: string; styleId
       purpose: slot.purpose,
       ...(slot.optional ? { optional: true } : {}),
       pick: pick?.c.id ?? null,
-      candidates: candidates.map(({ c, inStyle }) => ({
+      // The reply grows with the registry, so only the best few per slot are listed.
+      candidates: candidates.slice(0, CANDIDATES_PER_SLOT).map(({ c, inStyle }) => ({
         id: c.id,
         name: c.name,
         what: c.description.split(/(?<=\.)\s/)[0].slice(0, 160),
         ...(inStyle ? {} : { verifiedInStyle: false }),
         ...(c.roles!.length > 1 ? { alsoFits: c.roles!.filter((r) => r !== slot.role) } : {}),
       })),
+      ...(candidates.length > CANDIDATES_PER_SLOT
+        ? { moreCandidates: candidates.length - CANDIDATES_PER_SLOT, more: `search_components({ role: "${slot.role}" })` }
+        : {}),
       ...(pick ? {} : { gap: "No registry section has this role yet. Skip it, or write a small section that uses only var(--rk-*) tokens and the style's fonts." }),
     };
   });

@@ -4,12 +4,15 @@ import { RAKITEK_INSTRUCTIONS } from "./server.js";
 import { suggestBlueprintResult } from "./tools/blueprint.js";
 import {
   getComponentBundle,
-  getComponentReply,
   getComponentResult,
   OUTPUT_BUDGET_CHARS,
+  SEARCH_DEFAULT_LIMIT,
+  SEARCH_MAX_LIMIT,
+  searchComponentsPage,
   searchComponentsResult,
 } from "./tools/components.js";
-import { planPageResult } from "./tools/plan.js";
+import { getComponentReply } from "./tools/component-reply.js";
+import { CANDIDATES_PER_SLOT, planPageResult } from "./tools/plan.js";
 import { getStyleResult, listStylesResult } from "./tools/styles.js";
 
 const RELATIVE_IMPORT_RE =
@@ -186,6 +189,21 @@ function runTests() {
   assert.equal(planPageResult({ brief: "toko kopi" }).pageType, "storefront");
   assert.ok("pageTypeNote" in planPageResult({ brief: "xyz" }), "Unmatched brief must say it fell back");
   assert.equal(planPageResult({ brief: "xyz", pageType: "waitlist" }).pageType, "waitlist");
+  // Replies must stay bounded as the registry grows.
+  for (const s of company.slots) {
+    assert.ok(s.candidates.length <= CANDIDATES_PER_SLOT, `Slot ${s.role} lists more than ${CANDIDATES_PER_SLOT} candidates`);
+  }
+  const pageOne = searchComponentsPage({ limit: 3 });
+  assert.equal(pageOne.rows.length, 3, "limit caps the rows");
+  assert.equal(pageOne.total, searchComponentsResult({}).length, "total counts every match");
+  assert.equal(pageOne.nextOffset, 3, "nextOffset points at the next page");
+  const pageTwo = searchComponentsPage({ limit: 3, offset: pageOne.nextOffset });
+  assert.notEqual(pageTwo.rows[0]?.id, pageOne.rows[0]?.id, "offset moves to the next page");
+  assert.ok(searchComponentsPage({}).rows.length <= SEARCH_DEFAULT_LIMIT, "Default page is capped");
+  assert.ok(searchComponentsPage({ limit: 999 }).rows.length <= SEARCH_MAX_LIMIT, "limit cannot exceed the max");
+  // Catalog is parsed once and reused until the file changes.
+  assert.equal(loadCatalog(), loadCatalog(), "loadCatalog must reuse the cached parse");
+
   const roleRows = searchComponentsResult({ role: "offerings" });
   assert.ok(roleRows.length >= 2 && roleRows.every((r) => r.roles?.includes("offerings")), "role filter must match roles");
 

@@ -9,6 +9,7 @@ import {
   type RakitekCatalog,
 } from "../registry/schema";
 import { buildSetup } from "./sync-setup";
+import { printScaleReminders } from "./scale-check";
 
 const ROOT = path.resolve(process.cwd());
 const REGISTRY_DIR = path.join(ROOT, "registry");
@@ -241,6 +242,7 @@ function main() {
   console.log(
     `[rakitek sync] Synced ${styles.length} styles, ${ui.length} UI, ${sections.length} sections, ${templates.length} templates, ${pages.length} pages.`,
   );
+  printScaleReminders(ROOT, allItems.length);
 }
 
 main();

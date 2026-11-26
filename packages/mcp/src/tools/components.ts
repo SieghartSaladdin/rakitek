@@ -2,7 +2,6 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import {
   compact,
-  fileBlock,
   loadCatalog,
   loadSetup,
   readRegistryFile,
@@ -11,6 +10,7 @@ import {
   type ComponentEntry,
   type ComponentKind,
 } from "../loader.js";
+import { getComponentReply } from "./component-reply.js";
 
 export interface SearchComponentsArgs {
   kind?: ComponentKind | "all";
@@ -89,6 +89,24 @@ export function searchComponentsResult(args: SearchComponentsArgs) {
     }));
 }
 
+export const SEARCH_DEFAULT_LIMIT = 20;
+export const SEARCH_MAX_LIMIT = 50;
+
+/** One page of search rows, so a large registry never floods the reply. */
+export function searchComponentsPage(args: SearchComponentsArgs & { limit?: number; offset?: number }) {
+  const all = searchComponentsResult(args);
+  const limit = Math.min(Math.max(args.limit ?? SEARCH_DEFAULT_LIMIT, 1), SEARCH_MAX_LIMIT);
+  const offset = Math.max(args.offset ?? 0, 0);
+  const rows = all.slice(offset, offset + limit);
+  const nextOffset = offset + rows.length;
+  return {
+    total: all.length,
+    offset,
+    rows,
+    ...(nextOffset < all.length ? { nextOffset } : {}),
+  };
+}
+
 export function getComponentResult(id: string) {
   const catalog = loadCatalog();
   const all = allComponents(catalog);
@@ -157,10 +175,12 @@ export function registerComponentTools(server: McpServer) {
       role: z.string().optional().describe("Content role, e.g. offerings or about"),
       vibe: z.string().optional().describe("e.g. editorial, cinematic"),
       query: z.string().optional().describe("Keywords; all words must match"),
+      limit: z.number().int().min(1).max(SEARCH_MAX_LIMIT).optional().describe(`Rows per page, default ${SEARCH_DEFAULT_LIMIT}`),
+      offset: z.number().int().min(0).optional().describe("Skip this many rows (use nextOffset from the previous page)"),
     },
     async (args) => {
-      const rows = searchComponentsResult(args);
-      const text = rows.length > 0 ? compact(rows) : "No match. Retry with fewer filters.";
+      const page = searchComponentsPage(args);
+      const text = page.total > 0 ? compact(page) : "No match. Retry with fewer filters.";
       return { content: [{ type: "text", text }] };
     },
   );
@@ -175,67 +195,4 @@ export function registerComponentTools(server: McpServer) {
     },
     async (args) => ({ content: getComponentReply(args) }),
   );
-}
-
-/** The get_component reply: a JSON header, then raw "=== <id>/<file> ===" blocks. */
-export function getComponentReply({
-  id,
-  withComposed,
-  includeExample,
-}: {
-  id: string;
-  withComposed?: boolean;
-  includeExample?: boolean;
-}) {
-  const bundle = getComponentBundle(id, withComposed ?? true);
-  const blocksOf = (r: (typeof bundle)[number]) => {
-    const blocks = [fileBlock(`${r.id}/component.tsx`, r.code)];
-    if (r.stylesCss) blocks.push(fileBlock(`${r.id}/styles.module.css`, r.stylesCss));
-    for (const [name, code] of Object.entries(r.extraFiles ?? {})) {
-      blocks.push(fileBlock(`${r.id}/${name}`, code));
-    }
-    if ((includeExample ?? true) && r.id === id) {
-      blocks.push(fileBlock(`${r.id}/example.tsx (reference only)`, r.usageExample));
-    }
-    return blocks;
-  };
-  const size = (blocks: { text: string }[]) => blocks.reduce((n, b) => n + b.text.length, 0);
-
-  // Requested item always ships; children are added until the budget, the rest are named for follow-up calls.
-  const main = bundle[bundle.length - 1];
-  const mainBlocks = blocksOf(main);
-  let used = size(mainBlocks);
-  const included: typeof bundle = [];
-  const fetchSeparately: string[] = [];
-  const childBlocks = [];
-  for (const r of bundle.slice(0, -1)) {
-    const blocks = blocksOf(r);
-    if (used + size(blocks) <= OUTPUT_BUDGET_CHARS) {
-      used += size(blocks);
-      included.push(r);
-      childBlocks.push(...blocks);
-    } else {
-      fetchSeparately.push(r.id);
-    }
-  }
-
-  const install = new Set(
-    bundle.flatMap((r) => Object.entries(r.dependencies).map(([d, v]) => `"${d}@${v}"`)),
-  );
-  // withComposed:false ships only the requested item; name the children it imports so the
-  // caller fetches them now instead of finding out from a failed build.
-  const shipped = new Set([...included, main].map((r) => r.id));
-  const alsoNeeded = (main.composedComponents ?? []).map((c) => c.id).filter((cid) => !shipped.has(cid) && !fetchSeparately.includes(cid));
-  const header = {
-    items: [...included, main].map((r) => ({ id: r.id, kind: r.kind, level: r.level, name: r.name })),
-    ...(alsoNeeded.length > 0
-      ? { alsoNeeded, alsoNeededNote: "Imported by this component but not in this reply. Call get_component({ id, withComposed: false }) for each unless you already have it." }
-      : {}),
-    ...(fetchSeparately.length > 0
-      ? { fetchSeparately, fetchNote: "Too large for one reply. Call get_component({ id, withComposed: false, includeExample: false }) for each." }
-      : {}),
-    installCommand: install.size > 0 ? `npm install ${[...install].join(" ")}` : null,
-    layout: "Put each <id>/ folder in your components dir. Rewrite `@registry/<folder>/<id>/component` imports to that folder. Keep ./ imports as-is.",
-  };
-  return [{ type: "text" as const, text: compact(header) }, ...childBlocks, ...mainBlocks];
 }
