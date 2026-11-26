@@ -40,7 +40,7 @@ Create `registry/styles/<style-id>/`:
 
 ### 2. Extract High-Fidelity, White-Label UI Components & Sections
 For each extracted component, create `registry/ui/<id>/`, `registry/sections/<id>/`, `registry/templates/<id>/`, or `registry/pages/<id>/` containing:
-1. `meta.json` — valid against `ComponentMetaSchema` (`id` MUST match folder name, `kind`: `"ui"` or `"section"`, `level`: `"atom" | "molecule" | "organism"`, `composes`: array of `"<folder>/<id>"` matching actual `@registry/<folder>/<id>/component` imports or `[]`, `styling`: `"css-modules"` | `"tailwind"` | `"hybrid"`, `dependencies`: original motion/interaction libraries such as `["gsap"]`, `["swiper", "gsap"]`, `["motion"]`, `["three"]`, `["matter-js"]`). A component may only import components with the same or lower `level`, and local helpers must stay in the same folder via `./`.
+1. `meta.json` — valid against `ComponentMetaSchema` (`id` MUST match folder name, `kind`: `"ui"` or `"section"`, `level`: `"atom" | "molecule" | "organism"`, `composes`: array of `"<folder>/<id>"` matching actual `@registry/<folder>/<id>/component` imports or `[]`, `styling`: `"css-modules"` | `"tailwind"` | `"hybrid"`, `dependencies`: original motion/interaction libraries such as `["gsap"]`, `["swiper", "gsap"]`, `["motion"]`, `["three"]`, `["matter-js"]`; sections also need `roles`: what the section communicates on any site, from `navigation | hero | offerings | about | process | story | stats | proof | engagement | signup | contact | footer | cart`, e.g. a coffee product rail is `["offerings"]` so `plan_page` can offer it for a company's services). A component may only import components with the same or lower `level`, and local helpers must stay in the same folder via `./`.
 2. `styles.module.css` (Recommended for CSS-heavy / custom-motion / editorial websites) — **1:1 Source-Faithful Geometry Rule:** NEVER paraphrase or invent generic replacement grids from memory. Read the exact source TSX and CSS stylesheet rules (`grid-template-columns`, `grid-column` tracks, `vw`/`vh` display scale, `aspect-ratio`, `border-radius`, `box-shadow`, easing curves, keyframes, and hover transitions) and port them faithfully into `styles.module.css`, replacing ONLY hardcoded hex colors and proprietary font names with `var(--rk-*)` tokens and `color-mix(in srgb, var(--rk-...) ..., ...)`.
 3. `component.tsx` — MUST follow the Rakitek Styling-Agnostic Contract:
    - **Preserve native mechanics:** Keep real animation/interaction engines (`gsap`, `swiper`, `three`, `matter-js`, etc.) when present in the source website; never dumb down complex motion into static placeholders.
@@ -48,7 +48,13 @@ For each extracted component, create `registry/ui/<id>/`, `registry/sections/<id
    - **Token-only styling:** CSS Modules (`styles.module.css`), Tailwind, or Hybrid — all colors, fonts, radii, and easing MUST reference `var(--rk-*)` CSS variables (zero hardcoded hex literals in both `.tsx` and `.module.css`).
    - **Readable & AI-editable:** Clean TypeScript props interface with sensible defaults, `<= 250` lines per file.
    - **No scroll conflicts:** Never instantiate `Lenis` inside a component.
-4. `preview.tsx` — Default export rendering realistic white-label demo data so it immediately renders live in `apps/web`.
+   - **Reusable outside the source site** (users adapt sections only through props, so every gap here becomes a dead end for them). Defaults must reproduce the original 1:1:
+     - `id?: string` on the root element, so navigation can link to the section.
+     - Every visible or aria text is a prop (labels, "of", "Search", "Menu", empty states), not a literal in JSX.
+     - Domain-specific parts get a hide flag (`showCart`, `showSearch`, `showNewsletter`, ...), so a company site can drop a shop's cart or a travel site's trip search.
+     - Prices go through `formatPrice?: (value: number) => string`; never bake in `$` or `toFixed(2)` (lint `rakitek/no-hardcoded-currency`).
+     - Never `preventDefault()` a link unless the caller passed a click handler; `#anchor` links must work by default.
+4. `preview.tsx` — Default export rendering realistic white-label demo data so it immediately renders live in `apps/web`. It doubles as the `example.tsx` that `get_component` sends to users, so pass every prop explicitly (not a bare `<Component />`): it is the only place users see the prop shapes.
 
 ### 3. Measure 1:1 Browser Fidelity, Auto-Sync, Lint & Verify
 Follow [docs/workflow-ekstrak-1to1.md](../../../docs/workflow-ekstrak-1to1.md) strictly for every extracted component:
