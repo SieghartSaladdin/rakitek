@@ -31,6 +31,9 @@ Aturan anti-curang (wajib):
 
 User cukup membaca output `verify`, melihat screenshot, dan membuka web. Kalau user masih harus mencari beda sendiri, pekerjaan belum selesai.
 
+## Folder Sumber Selesai
+Setelah ekstrak satu proyek REA selesai dan sudah di-commit dengan `npm run verify` lolos, ganti nama folder sumbernya menjadi `<nama>(done)` (mis. `coffee-shop/escape-cafe-nextjs(done)`) supaya jelas mana yang belum diekstrak. `sourceRef` di `meta.json` tetap ditulis tanpa `(done)`. Saat mengukur ulang web asli, jalankan dari folder `(done)` itu.
+
 ## Skala
 Kalau `npm run sync` mencetak `[rakitek skala] ...`, kerjakan langkah yang disebut di [docs/rencana-skala.md](docs/rencana-skala.md) sebelum menambah komponen lagi. Setiap tool MCP baru wajib membatasi ukuran jawabannya (limit/paging).
 
