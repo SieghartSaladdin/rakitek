@@ -1,0 +1,36 @@
+{
+  "id": "heritage-manifesto-band",
+  "kind": "section",
+  "level": "organism",
+  "category": "about",
+  "roles": [
+    "about",
+    "story"
+  ],
+  "name": "Heritage Manifesto Band",
+  "description": "Centered deep-navy rounded manifesto card with monospace eyebrow surtext and oversized serif statement animated via GSAP ScrollTrigger.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "manifesto",
+    "about",
+    "editorial",
+    "serif",
+    "gsap",
+    "css-modules"
+  ]
+}

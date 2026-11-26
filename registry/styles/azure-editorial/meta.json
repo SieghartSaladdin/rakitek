@@ -1,0 +1,27 @@
+{
+  "id": "azure-editorial",
+  "name": "Azure Editorial",
+  "vibe": "editorial",
+  "description": "Cool slate-blue canvas, crisp light surfaces, deep navy ink, cobalt blue accents, and classic editorial serif headings paired with geometric sans and monospace metadata.",
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "fonts": {
+    "display": "'Source Serif 4', Georgia, serif",
+    "body": "'Barlow', Arial, sans-serif",
+    "mono": "'IBM Plex Mono', monospace",
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+  },
+  "palettePreview": {
+    "bg": "#E3E7EC",
+    "surface": "#F3F3F3",
+    "fg": "#0A254D",
+    "accent": "#125ED1"
+  },
+  "tags": [
+    "voyage",
+    "tourism",
+    "editorial",
+    "light",
+    "azure",
+    "hospitality"
+  ]
+}

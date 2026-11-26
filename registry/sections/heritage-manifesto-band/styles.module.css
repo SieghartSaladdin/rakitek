@@ -1,0 +1,67 @@
+.featuredText {
+  --w: 1440;
+  --p: 25;
+  --padding-inline: calc(100vw * var(--p) / var(--w));
+  --gutter: max(10px, calc(var(--padding-inline)));
+  --radius: max(5px, calc(100vw * 5 / var(--w)));
+  text-align: center;
+  margin: var(--gutter);
+  font-family: var(--rk-font-body);
+  font-size: max(17px, 1700svw / var(--w));
+  line-height: 1.15;
+}
+
+@media (max-width: 767px) {
+  .featuredText {
+    --w: 375;
+    --p: 10;
+  }
+}
+
+.inner {
+  background: var(--rk-fg);
+  color: var(--rk-bg);
+  padding: calc(11600svw / var(--w));
+  border-radius: var(--radius);
+}
+
+@media (max-width: 767px) {
+  .inner {
+    padding: calc(4700svw / var(--w)) calc(2200svw / var(--w));
+  }
+}
+
+.surtext {
+  line-height: 1;
+  font-family: var(--rk-font-mono);
+  font-size: max(14px, 1500svw / var(--w));
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .surtext {
+    font-size: calc(1400svw / var(--w));
+  }
+}
+
+.text {
+  font-family: var(--rk-font-display);
+  line-height: 0.9;
+  font-size: max(60px, 8000svw / var(--w));
+  font-weight: 400;
+  margin: calc(5000svw / var(--w)) 0 0;
+}
+
+.lineWrapper {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.05em;
+  margin-block: -0.2em;
+}
+
+@media (max-width: 767px) {
+  .text {
+    font-size: max(30px, 4000svw / var(--w));
+    margin-top: calc(3900svw / var(--w));
+  }
+}

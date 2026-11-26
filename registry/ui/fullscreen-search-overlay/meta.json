@@ -1,0 +1,33 @@
+{
+  "id": "fullscreen-search-overlay",
+  "kind": "ui",
+  "level": "organism",
+  "category": "search",
+  "name": "Fullscreen Search Overlay",
+  "description": "Full-viewport navy search overlay with 3 interactive steps: live autocomplete suggestions, dual-month date range picker with duration pills, and dashed-ring destination selector.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/rolling-cta-button",
+    "ui/trip-search-bar"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "search-overlay",
+    "modal",
+    "calendar",
+    "autocomplete",
+    "travel",
+    "css-modules"
+  ]
+}

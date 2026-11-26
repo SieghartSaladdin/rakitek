@@ -1,0 +1,38 @@
+{
+  "id": "partner-cta-banner",
+  "kind": "section",
+  "level": "organism",
+  "category": "engagement",
+  "roles": [
+    "engagement",
+    "contact"
+  ],
+  "name": "Partner CTA Banner",
+  "description": "Rounded editorial two-row grid banner pairing an oversized serif headline and rolling CTA on the top-left with body copy on the bottom-right and responsive mobile CTA placement.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [
+    "ui/rolling-cta-button"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "banner",
+    "cta",
+    "partners",
+    "editorial",
+    "grid",
+    "css-modules"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "rolling-cta-button",
+  "kind": "ui",
+  "level": "atom",
+  "category": "button",
+  "name": "Rolling CTA Button",
+  "description": "Vertical rolling-label editorial CTA button and circular arrow/close trigger with primary, secondary, white, small, fixed, and dashed-outline hover-invert states.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "button",
+    "cta",
+    "rolling-text",
+    "arrow",
+    "editorial",
+    "css-modules"
+  ]
+}

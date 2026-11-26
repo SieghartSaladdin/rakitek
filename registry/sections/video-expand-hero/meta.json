@@ -1,0 +1,37 @@
+{
+  "id": "video-expand-hero",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": [
+    "hero"
+  ],
+  "name": "Video Expand Hero",
+  "description": "Full-viewport editorial hero with centered serif headline, integrated three-segment search bar, dark scrim, and GSAP-scrubbed parallax background media.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "cinematic",
+    "corporate"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [
+    "ui/trip-search-bar"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "hero",
+    "parallax",
+    "search-bar",
+    "video",
+    "gsap",
+    "css-modules"
+  ]
+}

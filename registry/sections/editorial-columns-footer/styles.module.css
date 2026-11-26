@@ -1,0 +1,250 @@
+.footer {
+  --w: 1440;
+  --p: 25;
+  --padding-inline: calc(100vw * var(--p) / var(--w));
+  --gutter: max(10px, calc(var(--padding-inline)));
+  --tm: 0.25s;
+  --ts: 0.15s;
+  --smooth: var(--rk-ease, cubic-bezier(0.42, 0.09, 0.25, 1));
+  background: var(--rk-bg);
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: max(15px, 1700svw / var(--w));
+  line-height: 1.15;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .footer {
+    --w: 375;
+    --p: 10;
+  }
+}
+
+.top {
+  padding: max(68px, 6800svw / var(--w)) var(--gutter) max(86px, 8600svw / var(--w));
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: calc(2400svw / var(--w));
+}
+
+@media (max-width: 767px) {
+  .top {
+    display: block;
+    padding-block: max(24px, 2400svw / var(--w)) max(38px, 3800svw / var(--w));
+  }
+}
+
+.col {
+  width: calc(44700svw / var(--w));
+}
+
+@media (max-width: 767px) {
+  .col {
+    width: auto;
+  }
+
+  .col:not(:last-child) {
+    margin-bottom: max(40px, 4000svw / var(--w));
+  }
+}
+
+.colBrand {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+}
+
+.brandCta {
+  min-width: 14.0666666667em;
+}
+
+.brandCta:not(:last-child) {
+  margin-bottom: max(17px, 1700svw / var(--w));
+}
+
+.logoLink {
+  display: block;
+  margin-bottom: max(52px, 5200svw / var(--w));
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo {
+  width: max(256px, 25600svw / var(--w));
+  height: auto;
+  display: inline;
+  vertical-align: middle;
+}
+
+@media (max-width: 767px) {
+  .logo {
+    width: max(156px, 15600svw / var(--w));
+  }
+}
+
+.linksTitle {
+  font-family: var(--rk-font-mono);
+  color: var(--rk-accent);
+  text-transform: uppercase;
+  font-size: max(13px, 1500svw / var(--w));
+  margin-bottom: 1.9333333333em;
+}
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 max(10px, 1000svw / var(--w));
+}
+
+@media (max-width: 767px) {
+  .links {
+    padding-left: 0;
+  }
+}
+
+.links li {
+  margin: 0;
+}
+
+.links li:not(:last-child) {
+  margin-bottom: 1.0588235294em;
+}
+
+.rollLink {
+  overflow: hidden;
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  line-height: 1.2;
+  margin-block: -0.1em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.rollLabel {
+  display: block;
+  position: relative;
+}
+
+.rollLabel:before,
+.rollLabel:after {
+  content: attr(data-label);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all var(--tm) var(--smooth);
+}
+
+.rollLabel:before {
+  transform: translateY(0);
+}
+
+.rollLabel:after {
+  transform: translateY(100%);
+}
+
+.rollLabel span {
+  opacity: 0;
+}
+
+@media (min-width: 1025px) {
+  .rollLink:hover .rollLabel:before {
+    transform: translateY(-100%);
+  }
+
+  .rollLink:hover .rollLabel:after {
+    transform: translateY(0);
+  }
+}
+
+.bottom {
+  border-top: 1px solid var(--rk-border);
+  display: flex;
+  padding: max(29px, 2900svw / var(--w)) var(--gutter) max(25px, 2500svw / var(--w));
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: max(13px, 1500svw / var(--w));
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .bottom {
+    padding-block: max(25px, 2500svw / var(--w));
+    display: block;
+  }
+}
+
+.legalBadges {
+  white-space: nowrap;
+}
+
+.legalNote {
+  opacity: 0.5;
+}
+
+.badgeLink {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  margin-left: 1.3333333333em;
+  vertical-align: middle;
+  opacity: 0.85;
+}
+
+.badgeSvg {
+  height: 38px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 767px) {
+  .badgeSvg {
+    max-height: 2.4666666667em;
+  }
+}
+
+.bottomLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bottomLinks li {
+  display: inline-block;
+  margin: 0 0 0 1.6em;
+}
+
+@media (max-width: 767px) {
+  .bottomLinks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.2em;
+  }
+
+  .bottomLinks li {
+    margin-left: 0;
+  }
+}
+
+.bottomLinks a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.5;
+  transition: opacity var(--tm) var(--smooth);
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2;
+}
+
+.bottomLinks a:hover {
+  opacity: 1;
+}

@@ -1,0 +1,230 @@
+.searchBar {
+  --w: 1440;
+  --p: 25;
+  --padding-inline: calc(100vw * var(--p) / var(--w));
+  --gutter: max(10px, calc(var(--padding-inline)));
+  --radius: max(5px, calc(100vw * 5 / var(--w)));
+  --ts: 0.15s;
+  --tm: 0.25s;
+  --smooth: var(--rk-ease, cubic-bezier(0.42, 0.09, 0.25, 1));
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  border-radius: var(--radius);
+  padding: clamp(4px, 500svw / var(--w), 6px);
+  background: var(--rk-surface);
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: max(17px, 1700svw / var(--w));
+  line-height: 1.15;
+}
+
+@media (max-width: 767px) {
+  .searchBar {
+    --w: 375;
+    --p: 10;
+  }
+
+  .searchBar:has(.isSelected) .label:not(.isSelected) {
+    display: none;
+  }
+
+  .searchBar:not(.isClicky) {
+    flex-direction: column;
+    background: none;
+    padding: 0;
+    gap: var(--gutter);
+    margin-bottom: clamp(16px, 2000svw / var(--w), 24px);
+  }
+
+  .searchBar:not(.isClicky) .label {
+    opacity: 1;
+    background: var(--rk-surface);
+    border-radius: var(--radius);
+    margin: 0;
+    padding: clamp(10.4px, 1300svw / var(--w), 15.6px) clamp(14.4px, 1800svw / var(--w), 21.6px);
+  }
+
+  .searchBar:not(.isClicky) .submit {
+    display: none;
+  }
+
+  .isClicky .label {
+    padding-right: 0;
+  }
+
+  .isClicky .labelHideMobile {
+    display: none;
+  }
+
+  .isClicky .label:after {
+    display: none;
+  }
+}
+
+.isClicky {
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.isClicky * {
+  cursor: inherit;
+}
+
+.label {
+  text-align: left;
+  position: relative;
+  white-space: nowrap;
+  opacity: 0.5;
+  cursor: pointer;
+  width: 100%;
+  transition: all var(--ts) var(--smooth);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  padding-block: clamp(4px, 500svw / var(--w), 6px);
+  margin: clamp(4.8px, 600svw / var(--w), 7.2px) clamp(20.8px, 2600svw / var(--w), 31.2px) clamp(4.8px, 600svw / var(--w), 7.2px) 0;
+}
+
+.label:focus-visible {
+  outline: 2px solid var(--rk-accent);
+  outline-offset: 2px;
+}
+
+.labelWithDivider {
+  padding-right: clamp(20.8px, 2600svw / var(--w), 31.2px);
+}
+
+.labelWithDivider:after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  background: var(--rk-fg);
+  opacity: 0.2;
+}
+
+.isSelected {
+  opacity: 1;
+}
+
+.isClicky .isSelected {
+  opacity: 0.5;
+}
+
+.isSelected .labelValue,
+.isSelected .input {
+  font-weight: 700;
+}
+
+.isClicky .isSelected .labelValue {
+  font-weight: 400;
+}
+
+.labelTitle {
+  font-family: var(--rk-font-mono);
+  font-size: 0.7058823529em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 0.6666666667em;
+}
+
+.inModal .labelTitle {
+  font-size: 12px;
+}
+
+.labelValue,
+.input {
+  font-size: clamp(12.8px, 1600svw / var(--w), 19.2px);
+  line-height: 1;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  display: block;
+  background: none;
+  width: 100%;
+  font-family: inherit;
+  transition: all var(--ts) var(--smooth);
+}
+
+.inModal .labelValue,
+.inModal .input {
+  font-size: 16px;
+}
+
+.input {
+  outline: none;
+}
+
+.input::placeholder {
+  opacity: 1;
+  color: inherit;
+}
+
+.hasClear .labelValue {
+  padding-right: 3.125em;
+}
+
+.clearBtn {
+  position: absolute;
+  bottom: 0.6em;
+  right: clamp(20.8px, 2600svw / var(--w), 31.2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--ts) var(--smooth);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-size: clamp(12.8px, 1600svw / var(--w), 19.2px);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.inModal .clearBtn {
+  font-size: 16px;
+}
+
+.isEditedVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.submit {
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  background: var(--rk-fg);
+  color: var(--rk-fg);
+  min-width: 5.5944055944%;
+  max-width: 5.5944055944%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 0;
+  transition: all var(--tm) var(--smooth);
+  text-decoration: none;
+}
+
+.submit:hover {
+  background: var(--rk-accent);
+}
+
+.submit:hover .submitIcon {
+  color: var(--rk-accent-fg);
+}
+
+.submit:focus-visible {
+  outline: 2px solid var(--rk-accent);
+  outline-offset: 2px;
+}
+
+.submitIcon {
+  width: 42%;
+  height: auto;
+  color: var(--rk-surface);
+  pointer-events: none;
+  transform: translateY(-10%);
+}

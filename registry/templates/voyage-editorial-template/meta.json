@@ -1,0 +1,30 @@
+{
+  "id": "voyage-editorial-template",
+  "kind": "template",
+  "level": "template",
+  "category": "editorial",
+  "name": "Voyage Editorial Template",
+  "description": "Full-page editorial travel showcase shell with floating header slot, fullscreen search overlay slot, surface-layered main stack, sticky prefooter reveal, and structured footer region.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "template",
+    "layout",
+    "travel",
+    "editorial",
+    "shell",
+    "css-modules"
+  ]
+}

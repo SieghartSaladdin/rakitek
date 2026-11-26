@@ -1,0 +1,39 @@
+{
+  "id": "parallax-destination-carousel",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": [
+    "offerings",
+    "story"
+  ],
+  "name": "Parallax Destination Carousel",
+  "description": "Horizontal Swiper destination showcase with GSAP real-time image parallax per slide, editorial heading, View All CTA, and circular arrow controls.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "cinematic",
+    "corporate"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "swiper",
+    "gsap"
+  ],
+  "composes": [
+    "ui/rolling-cta-button"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "carousel",
+    "swiper",
+    "parallax",
+    "destinations",
+    "gsap",
+    "css-modules"
+  ]
+}

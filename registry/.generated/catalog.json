@@ -1,6 +1,34 @@
 {
-  "generatedAt": "2026-11-26T04:35:11.493Z",
+  "generatedAt": "2026-11-26T06:14:58.161Z",
   "styles": [
+    {
+      "id": "azure-editorial",
+      "name": "Azure Editorial",
+      "vibe": "editorial",
+      "description": "Cool slate-blue canvas, crisp light surfaces, deep navy ink, cobalt blue accents, and classic editorial serif headings paired with geometric sans and monospace metadata.",
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "fonts": {
+        "display": "'Source Serif 4', Georgia, serif",
+        "body": "'Barlow', Arial, sans-serif",
+        "mono": "'IBM Plex Mono', monospace",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      },
+      "palettePreview": {
+        "bg": "#E3E7EC",
+        "surface": "#F3F3F3",
+        "fg": "#0A254D",
+        "accent": "#125ED1"
+      },
+      "tags": [
+        "voyage",
+        "tourism",
+        "editorial",
+        "light",
+        "azure",
+        "hospitality"
+      ],
+      "tokensPath": "registry/styles/azure-editorial/tokens.css"
+    },
     {
       "id": "editorial-roastery",
       "name": "Editorial Roastery",
@@ -125,6 +153,53 @@
       "stylesPath": "registry/ui/editorial-product-card/styles.module.css"
     },
     {
+      "id": "fullscreen-search-overlay",
+      "kind": "ui",
+      "level": "organism",
+      "category": "search",
+      "roles": [],
+      "name": "Fullscreen Search Overlay",
+      "description": "Full-viewport navy search overlay with 3 interactive steps: live autocomplete suggestions, dual-month date range picker with duration pills, and dashed-ring destination selector.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/rolling-cta-button",
+        "ui/trip-search-bar"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "search-overlay",
+        "modal",
+        "calendar",
+        "autocomplete",
+        "travel",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/fullscreen-search-overlay/component.tsx",
+      "previewPath": "registry/ui/fullscreen-search-overlay/preview.tsx",
+      "stylesPath": "registry/ui/fullscreen-search-overlay/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "calendar.module.css",
+          "path": "registry/ui/fullscreen-search-overlay/calendar.module.css"
+        },
+        {
+          "name": "date-range-calendar.tsx",
+          "path": "registry/ui/fullscreen-search-overlay/date-range-calendar.tsx"
+        }
+      ]
+    },
+    {
       "id": "magnetic-button",
       "kind": "ui",
       "level": "atom",
@@ -194,6 +269,40 @@
       "stylesPath": "registry/ui/marquee-ticker/styles.module.css"
     },
     {
+      "id": "rolling-cta-button",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "roles": [],
+      "name": "Rolling CTA Button",
+      "description": "Vertical rolling-label editorial CTA button and circular arrow/close trigger with primary, secondary, white, small, fixed, and dashed-outline hover-invert states.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "button",
+        "cta",
+        "rolling-text",
+        "arrow",
+        "editorial",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/rolling-cta-button/component.tsx",
+      "previewPath": "registry/ui/rolling-cta-button/preview.tsx",
+      "stylesPath": "registry/ui/rolling-cta-button/styles.module.css"
+    },
+    {
       "id": "slide-over-drawer",
       "kind": "ui",
       "level": "organism",
@@ -226,6 +335,81 @@
       "componentPath": "registry/ui/slide-over-drawer/component.tsx",
       "previewPath": "registry/ui/slide-over-drawer/preview.tsx",
       "stylesPath": "registry/ui/slide-over-drawer/styles.module.css"
+    },
+    {
+      "id": "trip-search-bar",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "search",
+      "roles": [],
+      "name": "Trip Search Bar",
+      "description": "Three-segment search bar with query, date period, and destination selectors plus square submit button; supports clickable trigger mode and live input mode.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "search-bar",
+        "travel",
+        "booking",
+        "filters",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/trip-search-bar/component.tsx",
+      "previewPath": "registry/ui/trip-search-bar/preview.tsx",
+      "stylesPath": "registry/ui/trip-search-bar/styles.module.css"
+    },
+    {
+      "id": "voyage-package-card",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "card",
+      "roles": [],
+      "name": "Voyage Package Card",
+      "description": "Editorial travel package card with scrubbed parallax image, corner badge tag, title, category pills, dotted-divider spec list with starting price, and upward navy invert hover.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "card",
+        "travel",
+        "package",
+        "parallax",
+        "hover-invert",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/voyage-package-card/component.tsx",
+      "previewPath": "registry/ui/voyage-package-card/preview.tsx",
+      "stylesPath": "registry/ui/voyage-package-card/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "parallax-media.tsx",
+          "path": "registry/ui/voyage-package-card/parallax-media.tsx"
+        }
+      ]
     },
     {
       "id": "waitlist-input",
@@ -264,6 +448,47 @@
   ],
   "sections": [
     {
+      "id": "alternating-story-split",
+      "kind": "section",
+      "level": "organism",
+      "category": "about",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Alternating Story Split",
+      "description": "Stacked alternating 50/50 editorial rows pairing GSAP-scrubbed parallax imagery with serif headings, body copy, hairline rules, and rolling CTA buttons.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/rolling-cta-button"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "story",
+        "split",
+        "parallax",
+        "editorial",
+        "gsap",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/alternating-story-split/component.tsx",
+      "previewPath": "registry/sections/alternating-story-split/preview.tsx",
+      "stylesPath": "registry/sections/alternating-story-split/styles.module.css"
+    },
+    {
       "id": "collection-split-showcase",
       "kind": "section",
       "level": "organism",
@@ -299,6 +524,43 @@
       "componentPath": "registry/sections/collection-split-showcase/component.tsx",
       "previewPath": "registry/sections/collection-split-showcase/preview.tsx",
       "stylesPath": "registry/sections/collection-split-showcase/styles.module.css"
+    },
+    {
+      "id": "editorial-columns-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "roles": [
+        "footer"
+      ],
+      "name": "Editorial Columns Footer",
+      "description": "Three-column editorial footer pairing a brand mark and stacked dual CTAs with rolling-label navigation columns and an accreditation/legal bottom bar.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/rolling-cta-button"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "footer",
+        "editorial",
+        "columns",
+        "rolling-links",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/editorial-columns-footer/component.tsx",
+      "previewPath": "registry/sections/editorial-columns-footer/preview.tsx",
+      "stylesPath": "registry/sections/editorial-columns-footer/styles.module.css"
     },
     {
       "id": "editorial-dark-footer",
@@ -410,6 +672,47 @@
       "stylesPath": "registry/sections/editorial-mission-split/styles.module.css"
     },
     {
+      "id": "editorial-spotlight-banner",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "story",
+        "proof"
+      ],
+      "name": "Editorial Spotlight Banner",
+      "description": "Full-bleed dark-scrim parallax story banner with category label, top-right archive link, and sticky white-surface feature card with secondary CTA.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic",
+        "corporate"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/rolling-cta-button"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "editorial",
+        "article",
+        "banner",
+        "sticky-card",
+        "parallax",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/editorial-spotlight-banner/component.tsx",
+      "previewPath": "registry/sections/editorial-spotlight-banner/preview.tsx",
+      "stylesPath": "registry/sections/editorial-spotlight-banner/styles.module.css"
+    },
+    {
       "id": "editorial-storefront-hero",
       "kind": "section",
       "level": "organism",
@@ -444,6 +747,46 @@
       "componentPath": "registry/sections/editorial-storefront-hero/component.tsx",
       "previewPath": "registry/sections/editorial-storefront-hero/preview.tsx",
       "stylesPath": "registry/sections/editorial-storefront-hero/styles.module.css"
+    },
+    {
+      "id": "featured-packages-grid",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "offerings"
+      ],
+      "name": "Featured Packages Grid",
+      "description": "Responsive 3-to-4 column editorial showcase grid with centered serif heading and parallax travel package cards featuring hover inversion.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/voyage-package-card"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "grid",
+        "packages",
+        "travel",
+        "cards",
+        "showcase",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/featured-packages-grid/component.tsx",
+      "previewPath": "registry/sections/featured-packages-grid/preview.tsx",
+      "stylesPath": "registry/sections/featured-packages-grid/styles.module.css"
     },
     {
       "id": "floating-pill-navbar",
@@ -482,6 +825,45 @@
       "componentPath": "registry/sections/floating-pill-navbar/component.tsx",
       "previewPath": "registry/sections/floating-pill-navbar/preview.tsx",
       "stylesPath": "registry/sections/floating-pill-navbar/styles.module.css"
+    },
+    {
+      "id": "heritage-manifesto-band",
+      "kind": "section",
+      "level": "organism",
+      "category": "about",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Heritage Manifesto Band",
+      "description": "Centered deep-navy rounded manifesto card with monospace eyebrow surtext and oversized serif statement animated via GSAP ScrollTrigger.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "manifesto",
+        "about",
+        "editorial",
+        "serif",
+        "gsap",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/heritage-manifesto-band/component.tsx",
+      "previewPath": "registry/sections/heritage-manifesto-band/preview.tsx",
+      "stylesPath": "registry/sections/heritage-manifesto-band/styles.module.css"
     },
     {
       "id": "interactive-quiz",
@@ -592,6 +974,45 @@
       "stylesPath": "registry/sections/minimal-saas-footer/styles.module.css"
     },
     {
+      "id": "newsletter-prefooter",
+      "kind": "section",
+      "level": "organism",
+      "category": "signup",
+      "roles": [
+        "signup",
+        "engagement"
+      ],
+      "name": "Newsletter Prefooter",
+      "description": "Deep-navy centered newsletter signup prefooter band with oversized editorial serif headline, lead copy, and rolling secondary CTA button.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/rolling-cta-button"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "prefooter",
+        "newsletter",
+        "cta",
+        "signup",
+        "editorial",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/newsletter-prefooter/component.tsx",
+      "previewPath": "registry/sections/newsletter-prefooter/preview.tsx",
+      "stylesPath": "registry/sections/newsletter-prefooter/styles.module.css"
+    },
+    {
       "id": "orbital-crest-wheel",
       "kind": "section",
       "level": "organism",
@@ -635,6 +1056,89 @@
           "path": "registry/sections/orbital-crest-wheel/wheel-engine.ts"
         }
       ]
+    },
+    {
+      "id": "parallax-destination-carousel",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "offerings",
+        "story"
+      ],
+      "name": "Parallax Destination Carousel",
+      "description": "Horizontal Swiper destination showcase with GSAP real-time image parallax per slide, editorial heading, View All CTA, and circular arrow controls.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic",
+        "corporate"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "swiper",
+        "gsap"
+      ],
+      "composes": [
+        "ui/rolling-cta-button"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "carousel",
+        "swiper",
+        "parallax",
+        "destinations",
+        "gsap",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/parallax-destination-carousel/component.tsx",
+      "previewPath": "registry/sections/parallax-destination-carousel/preview.tsx",
+      "stylesPath": "registry/sections/parallax-destination-carousel/styles.module.css"
+    },
+    {
+      "id": "partner-cta-banner",
+      "kind": "section",
+      "level": "organism",
+      "category": "engagement",
+      "roles": [
+        "engagement",
+        "contact"
+      ],
+      "name": "Partner CTA Banner",
+      "description": "Rounded editorial two-row grid banner pairing an oversized serif headline and rolling CTA on the top-left with body copy on the bottom-right and responsive mobile CTA placement.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/rolling-cta-button"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "banner",
+        "cta",
+        "partners",
+        "editorial",
+        "grid",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/partner-cta-banner/component.tsx",
+      "previewPath": "registry/sections/partner-cta-banner/preview.tsx",
+      "stylesPath": "registry/sections/partner-cta-banner/styles.module.css"
     },
     {
       "id": "physics-stats-pit",
@@ -851,6 +1355,54 @@
       ]
     },
     {
+      "id": "split-dropdown-navbar",
+      "kind": "section",
+      "level": "organism",
+      "category": "navbar",
+      "roles": [
+        "navigation"
+      ],
+      "name": "Split Dropdown Navbar",
+      "description": "Fixed floating editorial header with brand wordmark, rolling-label links, animated category dropdown with dashed-ring icons, search trigger, CTA pill, and slide-down mobile drawer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/rolling-cta-button"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "navbar",
+        "header",
+        "dropdown",
+        "mobile-drawer",
+        "search-trigger",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/split-dropdown-navbar/component.tsx",
+      "previewPath": "registry/sections/split-dropdown-navbar/preview.tsx",
+      "stylesPath": "registry/sections/split-dropdown-navbar/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "menus.module.css",
+          "path": "registry/sections/split-dropdown-navbar/menus.module.css"
+        },
+        {
+          "name": "navbar-menus.tsx",
+          "path": "registry/sections/split-dropdown-navbar/navbar-menus.tsx"
+        }
+      ]
+    },
+    {
       "id": "spotlight-stat-band",
       "kind": "section",
       "level": "organism",
@@ -929,6 +1481,46 @@
           "path": "registry/sections/story-chances-list/artwork.ts"
         }
       ]
+    },
+    {
+      "id": "video-expand-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero"
+      ],
+      "name": "Video Expand Hero",
+      "description": "Full-viewport editorial hero with centered serif headline, integrated three-segment search bar, dark scrim, and GSAP-scrubbed parallax background media.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic",
+        "corporate"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/trip-search-bar"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "hero",
+        "parallax",
+        "search-bar",
+        "video",
+        "gsap",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/video-expand-hero/component.tsx",
+      "previewPath": "registry/sections/video-expand-hero/preview.tsx",
+      "stylesPath": "registry/sections/video-expand-hero/styles.module.css"
     },
     {
       "id": "waitlist-hero",
@@ -1065,6 +1657,40 @@
       "componentPath": "registry/templates/saas-waitlist-template/component.tsx",
       "previewPath": "registry/templates/saas-waitlist-template/preview.tsx",
       "stylesPath": "registry/templates/saas-waitlist-template/styles.module.css"
+    },
+    {
+      "id": "voyage-editorial-template",
+      "kind": "template",
+      "level": "template",
+      "category": "editorial",
+      "roles": [],
+      "name": "Voyage Editorial Template",
+      "description": "Full-page editorial travel showcase shell with floating header slot, fullscreen search overlay slot, surface-layered main stack, sticky prefooter reveal, and structured footer region.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "azure-editorial",
+        "editorial-roastery",
+        "kinetic-obsidian"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "template",
+        "layout",
+        "travel",
+        "editorial",
+        "shell",
+        "css-modules"
+      ],
+      "componentPath": "registry/templates/voyage-editorial-template/component.tsx",
+      "previewPath": "registry/templates/voyage-editorial-template/preview.tsx",
+      "stylesPath": "registry/templates/voyage-editorial-template/styles.module.css"
     }
   ],
   "pages": [
@@ -1163,6 +1789,60 @@
         {
           "name": "demo-data.ts",
           "path": "registry/pages/storefront-demo-page/demo-data.ts"
+        }
+      ]
+    },
+    {
+      "id": "voyage-editorial-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "editorial",
+      "roles": [],
+      "name": "Voyage Editorial Demo Page",
+      "description": "Full composed voyage editorial demo page assembling the voyage editorial template with floating dropdown navbar, search overlay, video hero, horizontal parallax carousel, featured packages grid, heritage manifesto, story splits, spotlight banner, partner CTA, newsletter prefooter, and structured footer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "corporate",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "azure-editorial"
+      ],
+      "dependencies": [
+        "gsap",
+        "swiper"
+      ],
+      "composes": [
+        "templates/voyage-editorial-template",
+        "sections/split-dropdown-navbar",
+        "sections/video-expand-hero",
+        "sections/parallax-destination-carousel",
+        "sections/featured-packages-grid",
+        "sections/heritage-manifesto-band",
+        "sections/alternating-story-split",
+        "sections/editorial-spotlight-banner",
+        "sections/partner-cta-banner",
+        "sections/newsletter-prefooter",
+        "sections/editorial-columns-footer",
+        "ui/fullscreen-search-overlay",
+        "ui/trip-search-bar"
+      ],
+      "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+      "tags": [
+        "page",
+        "demo",
+        "voyage",
+        "editorial",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/voyage-editorial-demo-page/component.tsx",
+      "previewPath": "registry/pages/voyage-editorial-demo-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/voyage-editorial-demo-page/demo-data.ts"
         }
       ]
     },

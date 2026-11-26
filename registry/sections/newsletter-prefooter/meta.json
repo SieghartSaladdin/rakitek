@@ -1,0 +1,36 @@
+{
+  "id": "newsletter-prefooter",
+  "kind": "section",
+  "level": "organism",
+  "category": "signup",
+  "roles": [
+    "signup",
+    "engagement"
+  ],
+  "name": "Newsletter Prefooter",
+  "description": "Deep-navy centered newsletter signup prefooter band with oversized editorial serif headline, lead copy, and rolling secondary CTA button.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/rolling-cta-button"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "prefooter",
+    "newsletter",
+    "cta",
+    "signup",
+    "editorial",
+    "css-modules"
+  ]
+}

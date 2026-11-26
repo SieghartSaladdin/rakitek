@@ -1,0 +1,35 @@
+{
+  "id": "split-dropdown-navbar",
+  "kind": "section",
+  "level": "organism",
+  "category": "navbar",
+  "roles": [
+    "navigation"
+  ],
+  "name": "Split Dropdown Navbar",
+  "description": "Fixed floating editorial header with brand wordmark, rolling-label links, animated category dropdown with dashed-ring icons, search trigger, CTA pill, and slide-down mobile drawer.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/rolling-cta-button"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "navbar",
+    "header",
+    "dropdown",
+    "mobile-drawer",
+    "search-trigger",
+    "css-modules"
+  ]
+}

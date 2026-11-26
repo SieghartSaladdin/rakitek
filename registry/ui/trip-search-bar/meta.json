@@ -1,0 +1,29 @@
+{
+  "id": "trip-search-bar",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "search",
+  "name": "Trip Search Bar",
+  "description": "Three-segment search bar with query, date period, and destination selectors plus square submit button; supports clickable trigger mode and live input mode.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "search-bar",
+    "travel",
+    "booking",
+    "filters",
+    "css-modules"
+  ]
+}

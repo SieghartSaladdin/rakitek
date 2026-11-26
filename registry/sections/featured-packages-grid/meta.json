@@ -1,0 +1,37 @@
+{
+  "id": "featured-packages-grid",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": [
+    "offerings"
+  ],
+  "name": "Featured Packages Grid",
+  "description": "Responsive 3-to-4 column editorial showcase grid with centered serif heading and parallax travel package cards featuring hover inversion.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [
+    "ui/voyage-package-card"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "grid",
+    "packages",
+    "travel",
+    "cards",
+    "showcase",
+    "css-modules"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "editorial-spotlight-banner",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": [
+    "story",
+    "proof"
+  ],
+  "name": "Editorial Spotlight Banner",
+  "description": "Full-bleed dark-scrim parallax story banner with category label, top-right archive link, and sticky white-surface feature card with secondary CTA.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "cinematic",
+    "corporate"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [
+    "ui/rolling-cta-button"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "editorial",
+    "article",
+    "banner",
+    "sticky-card",
+    "parallax",
+    "css-modules"
+  ]
+}

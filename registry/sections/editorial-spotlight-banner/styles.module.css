@@ -1,0 +1,134 @@
+.article {
+  --w: 1440;
+  --p: 25;
+  --padding-inline: calc(100vw * var(--p) / var(--w));
+  --gutter: max(10px, calc(var(--padding-inline)));
+  --radius: max(5px, calc(100vw * 5 / var(--w)));
+  --header-spacing: 86px;
+  --smooth: var(--rk-ease, cubic-bezier(0.42, 0.09, 0.25, 1));
+  position: relative;
+  min-height: min(100svh, 1000px);
+  padding: calc(var(--gutter) + max(5px, 500svw / var(--w))) var(--gutter);
+  font-family: var(--rk-font-body);
+  font-size: max(16px, 1600svw / var(--w));
+  line-height: 1.15;
+  color: var(--rk-surface);
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .article {
+    --w: 375;
+    --p: 10;
+    --header-spacing: 80px;
+    padding-top: calc(var(--gutter) + max(10px, 1000svw / var(--w)));
+    min-height: max(100svh, 820px);
+  }
+}
+
+.article:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0);
+  opacity: 0.2;
+}
+
+.category {
+  position: relative;
+  z-index: 2;
+  margin-bottom: calc(5200svw / var(--w));
+  max-width: calc(100% - 5em);
+}
+
+@media (max-width: 767px) {
+  .category {
+    margin-bottom: calc(3700svw / var(--w));
+  }
+}
+
+.viewAll {
+  position: absolute;
+  z-index: 2;
+  right: var(--gutter);
+  top: calc(var(--gutter) + max(5px, 500svw / var(--w)));
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+}
+
+.viewAll:hover {
+  border-bottom: none;
+}
+
+.infos {
+  background: var(--rk-surface);
+  color: var(--rk-fg);
+  border-radius: var(--radius);
+  width: 20.625em;
+  padding: var(--gutter);
+  padding-top: calc(var(--gutter) + calc(2000svw / var(--w)));
+  z-index: 2;
+  position: sticky;
+  transition: all 1s var(--smooth);
+  top: calc(var(--header-spacing) + var(--gutter) / 1.5);
+}
+
+@media (max-width: 767px) {
+  .infos {
+    width: 100%;
+    padding: calc(2400svw / var(--w));
+  }
+}
+
+.infosTitle {
+  font-size: max(20px, 2500svw / var(--w));
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .infosTitle {
+    line-height: 1;
+    font-size: max(20px, 2000svw / var(--w));
+  }
+}
+
+.infosAuthor {
+  color: var(--rk-accent);
+  font-size: max(13px, 1400svw / var(--w));
+  margin-top: 1em;
+}
+
+.cta {
+  min-width: 14.4em;
+  margin-top: 2.8666666667em;
+}
+
+@media (max-width: 767px) {
+  .cta {
+    margin-top: 1.0666666667em;
+  }
+}
+
+.imgBox {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  container-type: size;
+  background-color: var(--rk-fg);
+}
+
+.imgBox img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}

@@ -1,0 +1,24 @@
+[data-rk-style="azure-editorial"] {
+  --rk-bg: #e3e7ec;
+  --rk-surface: #f3f3f3;
+  --rk-surface-elevated: #ffffff;
+  --rk-fg: #0a254d;
+  --rk-fg-muted: #334766;
+  --rk-accent: #125ed1;
+  --rk-accent-fg: #ffffff;
+  --rk-highlight: #125ed1;
+  --rk-border: rgba(10, 37, 77, 0.14);
+  --rk-border-strong: rgba(10, 37, 77, 0.45);
+  --rk-font-display: "Source Serif 4", Georgia, serif;
+  --rk-font-narrow: "Barlow", Arial, sans-serif;
+  --rk-font-body: "Barlow", Arial, sans-serif;
+  --rk-font-mono: "IBM Plex Mono", monospace;
+  --rk-display-transform: none;
+  --rk-display-tracking: 0em;
+  --rk-radius-sm: 5px;
+  --rk-radius-md: 5px;
+  --rk-radius-lg: 10px;
+  --rk-radius-pill: 9999px;
+  --rk-shadow: 0 18px 42px -18px rgba(10, 37, 77, 0.22);
+  --rk-ease: cubic-bezier(0.42, 0.09, 0.25, 1);
+}

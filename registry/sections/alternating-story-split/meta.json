@@ -1,0 +1,38 @@
+{
+  "id": "alternating-story-split",
+  "kind": "section",
+  "level": "organism",
+  "category": "about",
+  "roles": [
+    "about",
+    "story"
+  ],
+  "name": "Alternating Story Split",
+  "description": "Stacked alternating 50/50 editorial rows pairing GSAP-scrubbed parallax imagery with serif headings, body copy, hairline rules, and rolling CTA buttons.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [
+    "ui/rolling-cta-button"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "story",
+    "split",
+    "parallax",
+    "editorial",
+    "gsap",
+    "css-modules"
+  ]
+}

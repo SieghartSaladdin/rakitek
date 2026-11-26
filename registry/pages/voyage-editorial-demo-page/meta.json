@@ -1,0 +1,45 @@
+{
+  "id": "voyage-editorial-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "editorial",
+  "name": "Voyage Editorial Demo Page",
+  "description": "Full composed voyage editorial demo page assembling the voyage editorial template with floating dropdown navbar, search overlay, video hero, horizontal parallax carousel, featured packages grid, heritage manifesto, story splits, spotlight banner, partner CTA, newsletter prefooter, and structured footer.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "azure-editorial"
+  ],
+  "dependencies": [
+    "gsap",
+    "swiper"
+  ],
+  "composes": [
+    "templates/voyage-editorial-template",
+    "sections/split-dropdown-navbar",
+    "sections/video-expand-hero",
+    "sections/parallax-destination-carousel",
+    "sections/featured-packages-grid",
+    "sections/heritage-manifesto-band",
+    "sections/alternating-story-split",
+    "sections/editorial-spotlight-banner",
+    "sections/partner-cta-banner",
+    "sections/newsletter-prefooter",
+    "sections/editorial-columns-footer",
+    "ui/fullscreen-search-overlay",
+    "ui/trip-search-bar"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "page",
+    "demo",
+    "voyage",
+    "editorial",
+    "composed",
+    "full-page"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "editorial-columns-footer",
+  "kind": "section",
+  "level": "organism",
+  "category": "footer",
+  "roles": [
+    "footer"
+  ],
+  "name": "Editorial Columns Footer",
+  "description": "Three-column editorial footer pairing a brand mark and stacked dual CTAs with rolling-label navigation columns and an accreditation/legal bottom bar.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/rolling-cta-button"
+  ],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "footer",
+    "editorial",
+    "columns",
+    "rolling-links",
+    "css-modules"
+  ]
+}

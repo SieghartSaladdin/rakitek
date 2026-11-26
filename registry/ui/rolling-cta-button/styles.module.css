@@ -1,0 +1,231 @@
+.cta {
+  --w: 1440;
+  --p: 25;
+  --radius: max(5px, calc(100vw * 5 / var(--w)));
+  --tm: 0.25s;
+  --smooth: var(--rk-ease, cubic-bezier(0.42, 0.09, 0.25, 1));
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1.2;
+  margin-block: -0.1em;
+  text-transform: uppercase;
+  font-family: var(--rk-font-mono);
+  border-radius: var(--radius);
+  padding: 1.4666666667em;
+  min-width: 4em;
+  text-align: center;
+  font-size: max(13px, 1500svw / var(--w));
+  transition: all var(--tm) var(--smooth), color 0s;
+  background: var(--rk-fg);
+  color: var(--rk-surface);
+  outline-offset: -1px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .cta {
+    --w: 375;
+    --p: 10;
+  }
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--rk-accent);
+  outline-offset: 2px;
+}
+
+.minWide {
+  min-width: 11.3333333333em;
+}
+
+.isFixed {
+  font-size: 15px;
+}
+
+.isSmall {
+  padding: 0.6em 0.8em;
+}
+
+.secondary {
+  background: var(--rk-accent);
+  color: var(--rk-accent-fg);
+}
+
+.isWhite:not(.isArrow, .isClose, :hover) {
+  background-color: var(--rk-surface);
+  color: var(--rk-fg);
+}
+
+.cta:hover {
+  background: transparent;
+  color: var(--rk-fg);
+  outline: 1px dashed var(--rk-fg);
+}
+
+.secondary:hover {
+  color: var(--rk-accent);
+  outline-color: var(--rk-accent);
+}
+
+.lightHover:hover {
+  color: var(--rk-surface);
+  outline-color: var(--rk-surface);
+}
+
+.inner {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.labelRoll:before,
+.labelRoll:after {
+  content: attr(data-label);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--tm) var(--smooth);
+}
+
+.labelRoll:before {
+  transform: translateY(0);
+}
+
+.labelRoll:after {
+  transform: translateY(100%);
+}
+
+.txt {
+  opacity: 0;
+}
+
+@media (min-width: 1025px) {
+  .cta:hover .labelRoll:before {
+    transform: translateY(-100%);
+  }
+
+  .cta:hover .labelRoll:after {
+    transform: translateY(0);
+  }
+}
+
+.isArrow,
+.isClose {
+  aspect-ratio: 1;
+  border-radius: 100%;
+  outline: none;
+  width: max(50px, 5000svw / var(--w));
+  min-width: max(50px, 5000svw / var(--w));
+  padding: 0;
+  margin: 0;
+}
+
+.isArrowLg {
+  width: max(80px, 8000svw / var(--w));
+  min-width: max(80px, 8000svw / var(--w));
+}
+
+.isArrow.isFixed,
+.isClose.isFixed {
+  width: 50px;
+  min-width: 50px;
+}
+
+.isArrow.isWhite,
+.isClose.isWhite {
+  background-color: var(--rk-surface);
+  color: var(--rk-fg);
+}
+
+.isArrow:hover,
+.isClose:hover {
+  background: var(--rk-accent);
+  color: var(--rk-accent-fg);
+  outline: none;
+}
+
+.isArrow.secondary:hover,
+.isClose.secondary:hover {
+  background: var(--rk-fg);
+  color: var(--rk-surface);
+}
+
+.isArrow[disabled],
+.isClose[disabled] {
+  pointer-events: none;
+  background: none;
+  color: var(--rk-surface);
+  outline: 1px dashed var(--rk-fg);
+}
+
+.isArrow[disabled] svg,
+.isClose[disabled] svg {
+  color: var(--rk-fg);
+}
+
+.isArrow .inner,
+.isClose .inner {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: relative;
+  transition: all var(--tm) var(--smooth);
+}
+
+.iconSlide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--tm) var(--smooth);
+}
+
+.iconBefore {
+  transform: translateX(-100%);
+}
+
+.iconAfter {
+  transform: none;
+}
+
+.isArrow:hover .iconBefore {
+  transform: none;
+}
+
+.isArrow:hover .iconAfter {
+  transform: translateX(100%);
+}
+
+.left .iconBefore {
+  transform: rotate(180deg);
+}
+
+.left .iconAfter {
+  transform: translateX(100%) rotate(180deg);
+}
+
+.left:hover .iconBefore {
+  transform: translateX(-100%) rotate(180deg);
+}
+
+.left:hover .iconAfter {
+  transform: rotate(180deg);
+}
+
+.isClose .iconAfter {
+  transform: none;
+}
+
+.isClose:hover .iconAfter {
+  transform: scale(1.2);
+}

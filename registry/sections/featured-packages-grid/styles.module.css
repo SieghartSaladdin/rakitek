@@ -1,0 +1,79 @@
+.inner {
+  --w: 1440;
+  --p: 25;
+  --padding-inline: calc(100vw * var(--p) / var(--w));
+  --gutter: max(10px, calc(var(--padding-inline)));
+  background: var(--rk-surface);
+  color: var(--rk-fg);
+  padding: calc(5800svw / var(--w)) var(--gutter) var(--gutter);
+  font-family: var(--rk-font-body);
+  font-size: max(17px, 1700svw / var(--w));
+  line-height: 1.15;
+}
+
+@media (max-width: 767px) {
+  .inner {
+    --w: 375;
+    --p: 10;
+    padding-top: calc(3400svw / var(--w));
+  }
+}
+
+.title {
+  font-family: var(--rk-font-display);
+  line-height: 0.9;
+  font-size: max(60px, 8000svw / var(--w));
+  font-weight: 400;
+  text-align: center;
+  max-width: 9.45em;
+  margin: 0 auto 1em;
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: max(40px, 4000svw / var(--w));
+    text-align: left;
+    margin-bottom: 0.8em;
+  }
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.05em 0.1em;
+  margin-block: -0.1em -0.05em;
+}
+
+.charWrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.charInner {
+  display: inline-block;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+}
+
+@media (min-width: 1920px) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

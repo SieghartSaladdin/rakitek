@@ -1,0 +1,32 @@
+{
+  "id": "voyage-package-card",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "card",
+  "name": "Voyage Package Card",
+  "description": "Editorial travel package card with scrubbed parallax image, corner badge tag, title, category pills, dotted-divider spec list with starting price, and upward navy invert hover.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "corporate",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "azure-editorial",
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [],
+  "sourceRef": "travel-services/tours-chanteclerc-nextjs",
+  "tags": [
+    "card",
+    "travel",
+    "package",
+    "parallax",
+    "hover-invert",
+    "css-modules"
+  ]
+}
