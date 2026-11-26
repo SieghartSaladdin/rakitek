@@ -1,15 +1,16 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1024,
     "height": 768
   },
-  "url": "http://localhost:3000/preview/section/orbital-crest-wheel",
+  "url": "http://localhost:3005/preview/section/orbital-crest-wheel",
   "elements": {
     "section": {
       "selector": "section[class*='section']",
       "x": 0,
       "y": 0,
-      "width": 1014,
+      "width": 1024,
       "height": 942.1,
       "fontFamily": "DM Sans",
       "fontRendered": "DM Sans",
@@ -30,13 +31,13 @@
       "gap": "normal",
       "display": "block",
       "visible": true,
-      "text": "About Houses Chapter 07 The Meridian Sailors Join a house. O"
+      "text": "About Houses Chapter 07 The Keystone Keepers Join a house. O"
     },
     "topbar": {
       "selector": "section[class*='section'] [class*='topbar']",
       "x": 32,
       "y": 25,
-      "width": 950,
+      "width": 960,
       "height": 18,
       "fontFamily": "DM Sans",
       "fontRendered": "DM Sans",
@@ -61,10 +62,10 @@
     },
     "wheel": {
       "selector": "section[class*='section'] [class*='wheel']",
-      "x": -48.9,
-      "y": 83.1,
-      "width": 1111.8,
-      "height": 1111.8,
+      "x": 89.6,
+      "y": 216.6,
+      "width": 844.8,
+      "height": 844.8,
       "fontFamily": "DM Sans",
       "fontRendered": "DM Sans",
       "fontSize": 16,
@@ -88,7 +89,7 @@
     },
     "kicker": {
       "selector": "section[class*='section'] [class*='kicker']",
-      "x": 421.3,
+      "x": 426.3,
       "y": 411.6,
       "width": 171.5,
       "height": 18,
@@ -115,7 +116,7 @@
     },
     "headWrap": {
       "selector": "section[class*='section'] [class*='headWrap']",
-      "x": 199.8,
+      "x": 204.8,
       "y": 436.2,
       "width": 614.4,
       "height": 173,
@@ -142,7 +143,7 @@
     },
     "head": {
       "selector": "section[class*='section'] h2",
-      "x": 199.8,
+      "x": 204.8,
       "y": 436.2,
       "width": 614.4,
       "height": 173,
@@ -169,7 +170,7 @@
     },
     "leadStack": {
       "selector": "section[class*='section'] [class*='leadStack']",
-      "x": 199.8,
+      "x": 204.8,
       "y": 436.2,
       "width": 614.4,
       "height": 344.8,
@@ -196,7 +197,7 @@
     },
     "lead": {
       "selector": "section[class*='section'] [class*='leadStack'] > p:first-child",
-      "x": 199.8,
+      "x": 204.8,
       "y": 436.2,
       "width": 614.4,
       "height": 230.6,
@@ -223,7 +224,7 @@
     },
     "blurb": {
       "selector": "section[class*='section'] [class*='blurbBody']",
-      "x": 289,
+      "x": 294,
       "y": 689.4,
       "width": 436,
       "height": 91.6,

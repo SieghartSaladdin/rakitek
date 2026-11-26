@@ -17,12 +17,16 @@ export interface EditorialMissionSplitProps {
   backgroundAlt?: string;
   insetImage?: string;
   insetAlt?: string;
+  /** When provided, called on CTA click; otherwise the link navigates normally (in-page anchors work). */
   onCtaClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+  /** Optional id on the root section, e.g. for in-page anchor targets. */
+  id?: string;
+  ariaLabel?: string;
 }
 
 export function EditorialMissionSplit({
   tagline = "Our\nMission",
-  statement = "We have been accused of having a one-track mind. To those accusations we simply say thank you. Because we know it is by focusing on one craft that many things happen. At our roastery, that one craft has always been coffee. We go deeper into every harvest than anyone, cupping each lot by hand from origin to final roast.",
+  statement = "People say we have a one-track mind. And to that we always reply - thank you. Because we believe that by focusing on one thing, many good things happen. And for our whole team, that one thing was always coffee. We have gone deeper into coffee than anyone, with busy hands and grinder dust on our sleeves at every step.",
   ctaLabel = "Learn More",
   ctaHref = "#mission",
   topCaption = "craft\nis always possible.",
@@ -33,6 +37,8 @@ export function EditorialMissionSplit({
   insetImage,
   insetAlt = "Overhead specialty coffee portrait",
   onCtaClick,
+  id,
+  ariaLabel = "Editorial mission split",
 }: EditorialMissionSplitProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
@@ -108,7 +114,7 @@ export function EditorialMissionSplit({
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.section} aria-label="Editorial mission split">
+    <section ref={sectionRef} id={id} className={styles.section} aria-label={ariaLabel}>
       <div className={styles.root}>
         <div ref={bgRef} className={styles.bg} aria-hidden="true">
           <div className={styles.mediaInner}>
@@ -133,10 +139,7 @@ export function EditorialMissionSplit({
           <a
             href={ctaHref}
             className={styles.btn}
-            onClick={(event) => {
-              if (onCtaClick) onCtaClick(event);
-              else if (ctaHref.startsWith("#")) event.preventDefault();
-            }}
+            onClick={onCtaClick}
           >
             {ctaLabel}
           </a>

@@ -34,3 +34,7 @@ Keadaan: animasi masuk huruf headline dan spiral 3D selesai (`waitMs: 2600` asli
 - **Pembulatan token warna (`--rk-*`)**: seluruh warna memakai `var(--rk-*)` dan `color-mix()` tanpa `#hex` atau `rgb()` mentah (`--rk-fg: #fafaf8` vs `#ffffff`, `--rk-bg: #0a0a0b` vs `#000000`, pill CTA `color-mix(in srgb, var(--rk-fg) 90%, var(--rk-bg))` vs `#ecd2f3`).
 - **Offset horizontal (`headline.x`, `tagline.x`)**: halaman asli panjang sehingga memiliki scrollbar vertikal `15px` (lebar konten `1905` / `1009`), sedangkan preview terisolasi `100vh` tanpa scrollbar (lebar penuh `1920` / `1024`), menggeser pusat horizontal `7.5px`.
 - **Aset 3D prosedural & aksesibilitas**: seluruh 5 motif belakang kartu, lambang perisai bercahaya, dan avatar pil digambar prosedural di Canvas2D tanpa bergantung pada `/patterns/*.webp` atau `/avatars/*.webp`. Ditambahkan dukungan `prefers-reduced-motion`, `:focus-visible`, dan fallback kipas kartu CSS jika inisialisasi WebGL gagal.
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Hasil `npm run fidelity`: 1920x980 7 elemen, **0 FAIL**, 35 WARN; 1024x768 7 elemen, **0 FAIL**, 35 WARN. Catatan pergeseran pusat 7.5px akibat scrollbar di atas tidak berlaku lagi: kedua sisi kini diukur 1920/1024px. Tidak ada perubahan CSS.

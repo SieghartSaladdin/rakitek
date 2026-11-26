@@ -79,7 +79,7 @@ export const EN_COPY: WebCopy = {
     wf2BeforeStrong: "Click",
     wf2Strong: "Copy MCP Prompt",
     wf2Between: "on any item detail page, or instruct your AI to call",
-    wf2AfterCode: "to assemble a complete page.",
+    wf2AfterCode: "with your brief to pick sections from every demo and assemble your own page.",
     featuredSection: "Featured Section",
     featuredUi: "Featured UI Components",
   },
@@ -189,7 +189,7 @@ export const EN_COPY: WebCopy = {
           mcpDesc: "Open Customizations → Installed → MCP Servers, click Copy Config File Path, open that file, and add the rakitek entry below inside mcpServers. The personal config lives at ~/.gemini/config/mcp_config.json.",
           skillTitle: "Install the rakitek-build skill (global)",
           skillDesc: "Antigravity global skills live in ~/.gemini/config/skills and apply to every workspace. Re-run the same command to update.",
-          checkDesc: "Restart the rakitek server from the ⋮ menu (or restart Antigravity), then check that its 5 tools appear.",
+          checkDesc: "Restart the rakitek server from the ⋮ menu (or restart Antigravity), then check that its 6 tools appear.",
         },
       },
     },
@@ -232,16 +232,17 @@ export const EN_COPY: WebCopy = {
     tableArgs: "Arguments",
     tablePurpose: "Purpose",
     mcpToolPurposes: {
+      plan_page: "Start here: turns a brief into ordered content slots, each offering every section from any demo that fits.",
       suggest_page_blueprint:
-        "Start here: picks a style and a verified page, the ordered section stack, and the next calls.",
+        "One whole verified demo page; use it only when the brief closely matches that demo.",
       get_style:
         "One-time setup: tokens.css, Google Fonts, base.css, SmoothScrollProvider, pinned npm versions.",
       get_component:
-        "Ready-to-copy files plus composed children in one reply; the rest are listed in fetchSeparately.",
+        "Ready-to-copy files for one component (plus its children unless withComposed is false).",
       search_components:
-        "Find components without code, only when the blueprint has no fitting slot.",
+        "Find components without code, e.g. every section with the offerings role.",
       list_styles:
-        "Compare styles (palette, fonts, vibe) when the blueprint notes it used a default.",
+        "Compare styles (palette, fonts, vibe) before forcing a styleId.",
     },
     sec3Tag: "Section 03",
     sec3Title: "The rakitek-build skill",

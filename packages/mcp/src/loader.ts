@@ -26,12 +26,27 @@ export interface StyleEntry {
 
 export type AtomicLevel = "atom" | "molecule" | "organism" | "template" | "page";
 export type ComponentKind = "ui" | "section" | "template" | "page";
+export type SectionRole =
+  | "navigation"
+  | "hero"
+  | "offerings"
+  | "about"
+  | "process"
+  | "story"
+  | "stats"
+  | "proof"
+  | "engagement"
+  | "signup"
+  | "contact"
+  | "footer"
+  | "cart";
 
 export interface ComponentEntry {
   id: string;
   kind: ComponentKind;
   level: AtomicLevel;
   category: string;
+  roles?: SectionRole[];
   name: string;
   description: string;
   vibes: string[];

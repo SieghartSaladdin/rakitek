@@ -32,3 +32,18 @@ Catatan pengukuran: di web asli, `.section` dibatasi `100vw - 90px` untuk member
 - Opsi kuis di aslinya memakai `.t-h5` besar dalam font `Arial` (`min(3.4722222222vw, 6.1728395062vh)`, `line-height: 1.06`, `letter-spacing: -0.01em`, uppercase) di atas latar putih `--rk-surface-elevated` yang berbalik ke `--rk-fg` saat hover/terpilih.
 - Tombol navigasi memakai ukuran & padding responsif `.btn.t-h4` (`min(1.8055555556vw, 3.2098765432vh)`, padding `min(0.3472222222vw, 0.6172839506vh)`, `border-radius: 3px`) dan varian ghost/dark sesuai aslinya.
 - Layar hasil akhir lengkap dipertahankan (grid `1.3fr 0.7fr`, deskripsi `58ch`, CTA utama/sekunder, tombol `Retake quiz`, serta slot media/placeholder).
+
+## Pembaruan 2026-11-26: props untuk dipakai ulang
+
+Props opsional baru: `ofLabel` (default `"of"`), `progressLabel(current, total)` untuk mengganti seluruh teks langkah, `navAriaLabel` (default `"Quiz navigation buttons"`). Default semua prop baru menghasilkan DOM yang sama dengan sebelumnya.
+
+Diukur ulang 2026-11-26 dengan `scripts/fidelity-capture.ts` (label dan selector sama dengan ekstrak lama, build produksi baru):
+
+- 1920x980: 14 elemen, 1 FAIL, 18 WARN
+- 1024x768: 14 elemen, 9 FAIL, 23 WARN
+
+Catatan: semua FAIL tersisa adalah lebar elemen selebar viewport. `original-*.json` diukur sebelum normalisasi scrollbar (scrollbar 15px, lebar 1905/1009px), sedangkan ekstrak baru diukur dengan `fidelity-capture` yang menyembunyikan scrollbar (1920/1024px). FAIL yang sama sudah ada sebelum perubahan ini (ekstrak lama 1910/1014px juga FAIL melawan 1905/1009px). Perbandingan ekstrak lama vs baru hanya berbeda di lebar viewport itu (plus tinggi blok beraspek-rasio yang ikut melebar), tanpa beda struktur atau teks. Perbaikannya: ukur ulang `original-*.json` dengan `measure.js` terbaru (ternormalisasi).
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Hasil `npm run fidelity`: 1920x980 14 elemen, **0 FAIL**, 17 WARN; 1024x768 14 elemen, **0 FAIL**, 19 WARN. FAIL lebar viewport di catatan sebelumnya hilang karena kedua sisi kini sama-sama 1920/1024px. Tidak ada perubahan CSS.

@@ -1,34 +1,35 @@
 {
-    "id":  "floating-pill-navbar",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "navbar",
-    "name":  "Floating Pill Navbar",
-    "description":  "Centered frosted-glass floating pill navigation bar with Georgia serif wordmark, minimal section links, blur-drop entrance motion, and a Contact pill CTA that morphs into a Copied confirmation state.",
-    "styling":  "css-modules",
-    "vibes":  [
-                  "minimal",
-                  "cinematic",
-                  "editorial"
-              ],
-    "recommendedStyles":  [
-                              "kinetic-obsidian",
-                              "editorial-roastery"
-                          ],
-    "dependencies":  [
-                         "motion"
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "saas-app/grail-next",
-    "tags":  [
-                 "navbar",
-                 "floating",
-                 "pill",
-                 "glassmorphism",
-                 "clipboard",
-                 "motion",
-                 "saas"
-             ]
+  "id": "floating-pill-navbar",
+  "kind": "section",
+  "level": "organism",
+  "category": "navbar",
+  "roles": [
+    "navigation"
+  ],
+  "name": "Floating Pill Navbar",
+  "description": "Centered frosted-glass floating pill navigation bar with Georgia serif wordmark, minimal section links, blur-drop entrance motion, and a Contact pill CTA that morphs into a Copied confirmation state.",
+  "styling": "css-modules",
+  "vibes": [
+    "minimal",
+    "cinematic",
+    "editorial"
+  ],
+  "recommendedStyles": [
+    "kinetic-obsidian",
+    "editorial-roastery"
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "composes": [],
+  "sourceRef": "saas-app/grail-next",
+  "tags": [
+    "navbar",
+    "floating",
+    "pill",
+    "glassmorphism",
+    "clipboard",
+    "motion",
+    "saas"
+  ]
 }

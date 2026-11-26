@@ -11,25 +11,30 @@ description: >-
 
 Use whenever building a website, landing page, or UI section. Requires the `rakitek` MCP server (`https://rakitek.qifor.my.id/mcp`).
 
+Rakitek is a set of parts, not a set of finished pages. You pick the sections that serve the user's brief from across every demo, then adapt them with props.
+
 ## Rules
-- Never write a section from scratch when rakitek-mcp has one. Copy returned files as-is, then change only props, copy, and images.
+- Never write a section from scratch when rakitek-mcp has one for that slot. Copy returned files as-is, then adapt them through props.
+- Adapt through props only: copy, images, links, section `id`s, labels and aria text, `formatPrice`, and show/hide flags such as `showCart`. Leave out parts the brief does not need (empty data or the hide prop).
 - Keep colors, fonts, radii, and easing on `var(--rk-*)`. No hardcoded hex values or new font names.
-- Never rewrite a section's layout or animation from memory. If it does not fit, use an `alternatives` id from the blueprint or `search_components`.
+- Never rewrite a section's layout or animation from memory. If props cannot make a section fit, pick another candidate for that slot.
 
 ## Minimal call sequence (keeps tokens low)
-1. `suggest_page_blueprint({ niche })` — returns the style, a verified `basePage`, the ordered `stack` (one pick per slot + `alternatives`), and `next` steps. If it returns `note`, the niche had no tagged style; check `list_styles` only then.
-2. `get_style({ id })` — once per project. Gives `tokens.css`, Google Fonts URL, `base.css`, `smooth-scroll-provider.tsx`, and tested npm versions. Pass `includeSetup: false` if you already have the setup.
-3. `get_component({ id: basePage })` — returns the page, its template, and as many sections as fit one reply. For each id in `fetchSeparately`, call `get_component({ id, withComposed: false, includeExample: false })`.
-4. Swapping a slot: `get_component({ id: <alternative>, withComposed: false })` and replace only that section.
+1. `plan_page({ brief })`: returns a style, a layout `shell`, and ordered `slots` (navigation, hero, offerings, about, process, stats, proof, footer, ...). Each slot has a `pick` and all `candidates` from any demo that can fill it. Choose per slot by the brief and drop optional slots that do not serve it. Pass `pageType` (`company-profile`, `saas`, `storefront`, `story`, `waitlist`) if it says no page type matched. A candidate marked `verifiedInStyle: false` still uses only tokens, so it adopts the style, but check it visually.
+2. `get_style({ id })`: once per project. Gives `tokens.css`, Google Fonts URL, `base.css`, `smooth-scroll-provider.tsx`, and `setupInstallCommand`. Pass `includeSetup: false` if you already have the setup.
+3. `get_component({ id, withComposed: false })`: for each chosen section and for the shell template. The example file shows every prop. Add `includeExample: false` when you already know the props.
 
-Use `search_components` only when the blueprint has no fitting slot. It returns rows without code.
+`suggest_page_blueprint({ niche })` returns one whole verified demo page instead. Use it only when the brief closely matches that demo (for example a coffee storefront). `search_components({ role })` lists sections by role without code.
 
 ## Install into the target project
 1. Load `googleFontsUrl` in the root layout. In global CSS, add `base.css` first **unless** the project already imports `tailwindcss` v4 (components are verified on that reset), then `tokens.css`. Set `data-rk-style="<style-id>"` on `<html>` or `<body>`.
-2. Run the returned `installCommand` (versions are pinned to what was verified).
+2. Run `setupInstallCommand` once, then each component's `installCommand` (versions are pinned to what was verified).
 3. Copy every `=== <id>/<file> ===` block into `<components>/<id>/<file>`. Keep `./` imports. Rewrite `@registry/<folder>/<id>/component` to `<components>/<id>/component`.
-4. Wrap the app once in `SmoothScrollProvider` if any section scrolls with animation (optional: `npm install lenis`). Never create Lenis inside a component.
-5. `example.tsx` is reference only: it shows prop shapes and assembly order. Build your page from it with the brief's copy and images.
+4. Wrap the app once in `SmoothScrollProvider`. Never create Lenis inside a component.
+5. Put the chosen sections into the shell template's slots in plan order (slot props accept any section), or stack them in `<main>` when there is no shell. Give sections the `id`s your navigation links point to.
+
+## Other frameworks
+Components are React + CSS Modules. For Vue or Svelte, port the markup and logic 1:1, keep `styles.module.css` byte-for-byte, and keep the animation code (GSAP, Swiper, Lenis) with the same versions.
 
 ## Verify
-Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text.
+Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text, readable text contrast on every background.

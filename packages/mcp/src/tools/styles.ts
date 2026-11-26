@@ -15,6 +15,9 @@ export function listStylesResult() {
   }));
 }
 
+/** Installed once per project for the primitives; component packages come with get_component. */
+const SETUP_DEPENDENCIES = ["lenis"];
+
 export function getStyleResult(id: string, includeSetup = true) {
   const catalog = loadCatalog();
   const style = catalog.styles.find((s) => s.id === id);
@@ -24,6 +27,9 @@ export function getStyleResult(id: string, includeSetup = true) {
     );
   }
   const setup = includeSetup ? loadSetup() : undefined;
+  const setupVersions = setup
+    ? Object.fromEntries(SETUP_DEPENDENCIES.map((d) => [d, setup.dependencyVersions[d] ?? "latest"]))
+    : undefined;
   return {
     id: style.id,
     name: style.name,
@@ -33,7 +39,10 @@ export function getStyleResult(id: string, includeSetup = true) {
       ? {
           baseCss: setup.baseCss,
           primitives: setup.primitives,
-          dependencyVersions: setup.dependencyVersions,
+          dependencyVersions: setupVersions,
+          setupInstallCommand: `npm install ${Object.entries(setupVersions!)
+            .map(([d, v]) => `"${d}@${v}"`)
+            .join(" ")}`,
         }
       : {}),
     steps: [
@@ -42,7 +51,7 @@ export function getStyleResult(id: string, includeSetup = true) {
       ...(setup
         ? [
             "If the project does NOT already import tailwindcss v4, add base.css to global CSS before tokens.css (components are verified on this reset).",
-            "Copy primitives next to your layout; wrap the app once in SmoothScrollProvider (optional: npm install lenis).",
+            "Run setupInstallCommand. Copy primitives next to your layout; wrap the app once in SmoothScrollProvider.",
           ]
         : []),
     ],
@@ -59,7 +68,7 @@ export function registerStyleTools(server: McpServer) {
 
   server.tool(
     "get_style",
-    "One-time project setup: style tokens.css, Google Fonts URL, base reset CSS, SmoothScrollProvider primitive, and tested npm versions. Call once per project.",
+    "One-time project setup: style tokens.css, Google Fonts URL, base reset CSS, SmoothScrollProvider primitive, and setupInstallCommand. Call once per project.",
     {
       id: z.string().describe("Style ID, e.g. 'editorial-roastery'"),
       includeSetup: z
@@ -75,7 +84,7 @@ export function registerStyleTools(server: McpServer) {
           text: compact({
             id: r.id,
             googleFontsUrl: r.googleFontsUrl,
-            dependencyVersions: r.dependencyVersions,
+            ...(r.setupInstallCommand ? { setupInstallCommand: r.setupInstallCommand } : {}),
             steps: r.steps,
           }),
         },

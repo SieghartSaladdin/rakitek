@@ -49,6 +49,29 @@ export const ComposesRefSchema = z
   .string()
   .regex(/^(ui|sections|templates|pages)\/[a-z0-9-]+$/);
 
+/**
+ * What a section communicates on a page, independent of the site it was extracted from.
+ * plan_page matches a brief's slots to these, so a "showcase" from a coffee shop can
+ * still be offered for a company's service list.
+ */
+export const SectionRoleSchema = z.enum([
+  "navigation",
+  "hero",
+  "offerings",
+  "about",
+  "process",
+  "story",
+  "stats",
+  "proof",
+  "engagement",
+  "signup",
+  "contact",
+  "footer",
+  "cart",
+]);
+
+export type SectionRole = z.infer<typeof SectionRoleSchema>;
+
 export const ComponentKindSchema = z.enum(["ui", "section", "template", "page"]);
 
 export type ComponentKind = z.infer<typeof ComponentKindSchema>;
@@ -58,6 +81,7 @@ export const ComponentMetaSchema = z.object({
   kind: ComponentKindSchema,
   level: AtomicLevelSchema,
   category: z.string().min(2),
+  roles: z.array(SectionRoleSchema).default([]),
   name: z.string().min(2),
   description: z.string().min(5),
   styling: StylingModeSchema.default("tailwind"),

@@ -34,3 +34,11 @@ Seluruh 8 elemen terukur (`section`, `numberWrap`, `bigNumber`, `divider`, `text
 
 - Permukaan latar terang `#fafaf8` (`var(--rk-fg)`) dilukis lewat `.section::before` di dalam `isolation: isolate`, sehingga komponen tampil mandiri di atas latar gelap sambil mempertahankan `getComputedStyle(section).backgroundColor` (`rgba(0, 0, 0, 0)`) seperti halaman asli.
 - Menetapkan `line-height: normal` pada `.section` dan `margin: 0` pada `.colText` agar reset Tailwind v4 tidak mengubah tinggi baris blok.
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Tanpa scrollbar, kolom 1024 di aslinya selebar 332.8px dan teks Switzer jadi 4 baris (sebelumnya 5 baris di lebar 1009px), sedangkan copy ekstrak dengan DM Sans tetap 5 baris: `section.height` 663.7 vs 639.9 dan `col1`-`col3` 119 vs 95.2 (5 FAIL).
+
+Perbaikan CSS: `.colText` diberi `letter-spacing: -0.017em` sebagai kompensasi font pengganti. Angkanya dari pengukuran copy asli yang sama di kedua font pada 14px: DM Sans 820px vs Switzer 788px (129 glyph) dan 1324px vs 1277px (202 glyph), jadi DM Sans ~0.017em lebih lebar per glyph. Kolom 3 ekstrak kini 4 baris di 1024 dan tetap 2 baris di 1920.
+
+Hasil `npm run fidelity` (sebelum -> sesudah): 1024x768 5 FAIL, 37 WARN -> **0 FAIL**, 40 WARN; 1920x980 0 FAIL, 37 WARN -> **0 FAIL**, 40 WARN (WARN tambahan: `letterSpacing` beda dari aslinya). Bukti ekstrak diambil dari dev server; perlu capture ulang dari build produksi.

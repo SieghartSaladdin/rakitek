@@ -37,3 +37,7 @@ Keadaan: section aktif (`focused` / `.in`), headline & body selesai naik, 4 kolo
 - **Teks white-label & counter awal**: teks brand Grail (`About Stats`, `Every quest / lands somewhere.`, `Charisma / Strength / Wisdom / Intellect`) diganti copy netral (`About Metrics`, `Every habit / leaves a trace.`, `Vitality / Clarity / Craft / Presence`) dengan panjang baris terkalibrasi agar `body` tepat 4 baris (`73.3px`) dan `head` tepat 2 baris (`163.7px` di 1920, `116.6px` di 1024).
 - **Tekstur pola prosedural & backdrop atmosferik**: aset gambar `/patterns/stats-bg-*.webp` dan WebGL `TotemBackdrop` diganti motif Canvas2D prosedural di `stats-textures.ts` (serta gradien CSS murni untuk grid 2x2 mobile) dan radial glow berlapis di `.backdrop` memakai `--rk-bg` dan `--rk-accent`.
 - **Lebar viewport scrollbar**: halaman home asli panjang sehingga lebar konten terukur `1905px` / `1009px` (dikurangi scrollbar 15px), sedangkan preview terisolasi penuh `1920px` / `1024px` (masih di dalam toleransi 2%).
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Hasil `npm run fidelity`: 1920x980 9 elemen, **0 FAIL**, 45 WARN; 1024x768 9 elemen, **0 FAIL**, 45 WARN. Catatan "lebar viewport scrollbar 1905/1009px" di atas tidak berlaku lagi: kedua sisi kini diukur 1920/1024px. Tidak ada perubahan CSS.

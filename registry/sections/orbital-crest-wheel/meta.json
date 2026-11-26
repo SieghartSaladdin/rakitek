@@ -1,33 +1,32 @@
 {
-    "id":  "orbital-crest-wheel",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "showcase",
-    "name":  "Orbital Crest Wheel",
-    "description":  "Light editorial showcase with a continuously spinning ring of heraldic shield crests, scroll-velocity spin acceleration, radial pointer push-pull physics, frosted horizon blur scrim, and scroll-morphing display headlines.",
-    "styling":  "css-modules",
-    "vibes":  [
-                  "cinematic",
-                  "editorial"
-              ],
-    "recommendedStyles":  [
-                              "kinetic-obsidian"
-                          ],
-    "dependencies":  [
-
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "saas-app/grail-next",
-    "tags":  [
-                 "orbital",
-                 "wheel",
-                 "crests",
-                 "heraldic",
-                 "scroll",
-                 "physics",
-                 "showcase",
-                 "css-modules"
-             ]
+  "id": "orbital-crest-wheel",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": [
+    "proof"
+  ],
+  "name": "Orbital Crest Wheel",
+  "description": "Light editorial showcase with a continuously spinning ring of heraldic shield crests, scroll-velocity spin acceleration, radial pointer push-pull physics, frosted horizon blur scrim, and scroll-morphing display headlines.",
+  "styling": "css-modules",
+  "vibes": [
+    "cinematic",
+    "editorial"
+  ],
+  "recommendedStyles": [
+    "kinetic-obsidian"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "saas-app/grail-next",
+  "tags": [
+    "orbital",
+    "wheel",
+    "crests",
+    "heraldic",
+    "scroll",
+    "physics",
+    "showcase",
+    "css-modules"
+  ]
 }

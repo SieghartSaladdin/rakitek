@@ -1,34 +1,36 @@
 {
-    "id":  "waitlist-hero",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "hero",
-    "name":  "Spotlight Waitlist Hero",
-    "description":  "Atmospheric waitlist hero featuring a cursor-lit continuous serif marquee, optional live member count pill, pointer-following spotlight headline, email signup card, and interactive 5-star idea rating.",
-    "styling":  "css-modules",
-    "vibes":  [
-                  "cinematic",
-                  "minimal",
-                  "editorial"
-              ],
-    "recommendedStyles":  [
-                              "kinetic-obsidian",
-                              "editorial-roastery"
-                          ],
-    "dependencies":  [
-                         "motion"
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "saas-app/grail-next",
-    "tags":  [
-                 "hero",
-                 "waitlist",
-                 "spotlight",
-                 "marquee",
-                 "rating",
-                 "saas",
-                 "launch"
-             ]
+  "id": "waitlist-hero",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": [
+    "hero",
+    "signup"
+  ],
+  "name": "Spotlight Waitlist Hero",
+  "description": "Atmospheric waitlist hero featuring a cursor-lit continuous serif marquee, optional live member count pill, pointer-following spotlight headline, email signup card, and interactive 5-star idea rating.",
+  "styling": "css-modules",
+  "vibes": [
+    "cinematic",
+    "minimal",
+    "editorial"
+  ],
+  "recommendedStyles": [
+    "kinetic-obsidian",
+    "editorial-roastery"
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "composes": [],
+  "sourceRef": "saas-app/grail-next",
+  "tags": [
+    "hero",
+    "waitlist",
+    "spotlight",
+    "marquee",
+    "rating",
+    "saas",
+    "launch"
+  ]
 }

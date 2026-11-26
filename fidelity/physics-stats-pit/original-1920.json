@@ -1,4 +1,5 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1920,
     "height": 980
@@ -9,7 +10,7 @@
       "selector": "section[class*='stats']",
       "x": 0,
       "y": 0,
-      "width": 1905,
+      "width": 1920,
       "height": 980,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -36,7 +37,7 @@
       "selector": "section[class*='stats'] [class*='colontitle']",
       "x": 32,
       "y": 25,
-      "width": 1841,
+      "width": 1856,
       "height": 18.3,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -117,7 +118,7 @@
       "selector": "section[class*='stats'] [class*='labels']",
       "x": 0,
       "y": 0,
-      "width": 1905,
+      "width": 1920,
       "height": 980,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -138,7 +139,7 @@
       "gap": "normal",
       "display": "block",
       "visible": true,
-      "text": "Charisma 20 Strength 32 Wisdom 24 Intellect 32"
+      "text": "Charisma 28 Strength 24 Wisdom 24 Intellect 20"
     },
     "label1": {
       "selector": "section[class*='stats'] [class*='labels'] > div:first-child",
@@ -165,7 +166,7 @@
       "gap": "2px",
       "display": "flex",
       "visible": true,
-      "text": "Charisma 20"
+      "text": "Charisma 28"
     },
     "labelName1": {
       "selector": "section[class*='stats'] [class*='labels'] > div:first-child span:first-child",
@@ -219,13 +220,13 @@
       "gap": "normal",
       "display": "block",
       "visible": true,
-      "text": "20"
+      "text": "28"
     },
     "physicsCanvas": {
       "selector": "section[class*='stats'] canvas[class*='canvas']",
       "x": 0,
       "y": 0,
-      "width": 1905,
+      "width": 1920,
       "height": 980,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",

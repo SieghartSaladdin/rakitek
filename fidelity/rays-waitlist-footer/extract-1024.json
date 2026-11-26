@@ -1,9 +1,10 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1024,
     "height": 768
   },
-  "url": "http://localhost:3000/preview/section/rays-waitlist-footer",
+  "url": "http://localhost:3005/preview/section/rays-waitlist-footer",
   "elements": {
     "lead": {
       "selector": "section:has([data-tile]) > p:nth-of-type(1)",

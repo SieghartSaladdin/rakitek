@@ -1,9 +1,10 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1920,
     "height": 980
   },
-  "url": "http://localhost:3005/preview/ui/slide-over-drawer",
+  "url": "http://localhost:3105/preview/ui/slide-over-drawer",
   "elements": {
     "panel": {
       "selector": "[class$=\"_panel\"]",

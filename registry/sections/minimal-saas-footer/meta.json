@@ -1,32 +1,33 @@
 {
-    "id":  "minimal-saas-footer",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "footer",
-    "name":  "Minimal SaaS Footer",
-    "description":  "Ultra-clean single-row SaaS footer pairing a serif wordmark, vertical hairline divider, subtle editorial tagline, and motion view-reveal.",
-    "vibes":  [
-                  "minimal",
-                  "corporate",
-                  "cinematic"
-              ],
-    "recommendedStyles":  [
-                              "kinetic-obsidian",
-                              "editorial-roastery"
-                          ],
-    "styling":  "css-modules",
-    "dependencies":  [
-                         "motion"
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "saas-app/grail-next",
-    "tags":  [
-                 "footer",
-                 "minimal",
-                 "saas",
-                 "motion",
-                 "css-modules"
-             ]
+  "id": "minimal-saas-footer",
+  "kind": "section",
+  "level": "organism",
+  "category": "footer",
+  "roles": [
+    "footer"
+  ],
+  "name": "Minimal SaaS Footer",
+  "description": "Ultra-clean single-row SaaS footer pairing a serif wordmark, vertical hairline divider, subtle editorial tagline, and motion view-reveal.",
+  "vibes": [
+    "minimal",
+    "corporate",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "kinetic-obsidian",
+    "editorial-roastery"
+  ],
+  "styling": "css-modules",
+  "dependencies": [
+    "motion"
+  ],
+  "composes": [],
+  "sourceRef": "saas-app/grail-next",
+  "tags": [
+    "footer",
+    "minimal",
+    "saas",
+    "motion",
+    "css-modules"
+  ]
 }

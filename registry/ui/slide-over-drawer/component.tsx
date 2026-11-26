@@ -27,6 +27,15 @@ export interface SlideOverDrawerProps {
   checkoutLabel?: string;
   /** The source theme hides the fill (empty div), so it is off by default for a 1:1 match. */
   progressFill?: boolean;
+  /** Formats every amount (items, subtotal, shipping goal). Default: `${currencySymbol}${value.toFixed(2)}` plus the currency code. */
+  formatPrice?: (value: number) => string;
+  /** Shown once the free-shipping threshold is reached. Default: `You unlocked ${shippingLabel}!` */
+  goalReachedText?: string;
+  /** Shown while below the threshold; receives formatted remaining and threshold amounts. */
+  goalRemainingText?: (amountLabel: string, thresholdLabel: string) => string;
+  closeLabel?: string;
+  decreaseLabel?: (itemName: string) => string;
+  increaseLabel?: (itemName: string) => string;
 }
 
 function CloseIcon({ className }: { className?: string }) {
@@ -72,6 +81,12 @@ export function SlideOverDrawer({
   subtotalLabel = "Subtotal",
   checkoutLabel = "Checkout",
   progressFill = false,
+  formatPrice,
+  goalReachedText,
+  goalRemainingText,
+  closeLabel = "Close cart",
+  decreaseLabel = (name) => `Decrease quantity of ${name}`,
+  increaseLabel = (name) => `Increase quantity of ${name}`,
 }: SlideOverDrawerProps) {
   useEffect(() => {
     if (!open) return;
@@ -87,13 +102,23 @@ export function SlideOverDrawer({
     };
   }, [open, onClose]);
 
-  const formatPrice = (value: number) =>
-    `${currencySymbol}${value.toFixed(2)}${currencyCode ? ` ${currencyCode}` : ""}`;
+  const fmtPrice = (value: number) =>
+    formatPrice
+      ? formatPrice(value)
+      : `${currencySymbol}${value.toFixed(2)}${currencyCode ? ` ${currencyCode}` : ""}`;
 
   const totalCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const progress = Math.min(100, (subtotal / freeShippingThreshold) * 100);
   const remaining = Math.max(0, freeShippingThreshold - subtotal);
+  const remainingLabel = formatPrice ? formatPrice(remaining) : `${currencySymbol}${remaining.toFixed(2)}`;
+  const thresholdLabel = formatPrice ? formatPrice(freeShippingThreshold) : `${currencySymbol}${freeShippingThreshold}`;
+  const goalText =
+    remaining === 0
+      ? (goalReachedText ?? `You unlocked ${shippingLabel}!`)
+      : goalRemainingText
+        ? goalRemainingText(remainingLabel, thresholdLabel)
+        : `Add ${remainingLabel} more for ${shippingLabel} (${thresholdLabel}+)`;
 
   return (
     <div
@@ -108,16 +133,14 @@ export function SlideOverDrawer({
           <h2 className={styles.title}>
             {title} ({totalCount})
           </h2>
-          <button type="button" onClick={onClose} className={styles.closeBtn} aria-label="Close cart">
+          <button type="button" onClick={onClose} className={styles.closeBtn} aria-label={closeLabel}>
             <CloseIcon className={styles.closeIcon} />
           </button>
         </div>
 
         <div className={styles.goal}>
           <p className={styles.smallText}>
-            {remaining === 0
-              ? `You unlocked ${shippingLabel}!`
-              : `Add ${currencySymbol}${remaining.toFixed(2)} more for ${shippingLabel} (${currencySymbol}${freeShippingThreshold}+)`}
+            {goalText}
           </p>
           <div className={styles.bar}>
             {progressFill ? <div className={styles.barFill} style={{ width: `${progress}%` }} /> : null}
@@ -141,13 +164,13 @@ export function SlideOverDrawer({
                 )}
                 <div className={styles.info}>
                   <p className={styles.name}>{item.name}</p>
-                  <p className={styles.smallText}>{formatPrice(item.price)}</p>
+                  <p className={styles.smallText}>{fmtPrice(item.price)}</p>
                   <div className={styles.qty}>
                     <button
                       type="button"
                       className={styles.qtyBtn}
                       onClick={() => onUpdateQty(item.id, -1)}
-                      aria-label={`Decrease quantity of ${item.name}`}
+                      aria-label={decreaseLabel(item.name)}
                     >
                       −
                     </button>
@@ -156,7 +179,7 @@ export function SlideOverDrawer({
                       type="button"
                       className={styles.qtyBtn}
                       onClick={() => onUpdateQty(item.id, 1)}
-                      aria-label={`Increase quantity of ${item.name}`}
+                      aria-label={increaseLabel(item.name)}
                     >
                       +
                     </button>
@@ -170,7 +193,7 @@ export function SlideOverDrawer({
         <div className={styles.footer}>
           <div className={styles.subtotal}>
             <span className={styles.subtotalLabel}>{subtotalLabel}</span>
-            <span className={styles.subtotalValue}>{formatPrice(subtotal)}</span>
+            <span className={styles.subtotalValue}>{fmtPrice(subtotal)}</span>
           </div>
           <button
             type="button"

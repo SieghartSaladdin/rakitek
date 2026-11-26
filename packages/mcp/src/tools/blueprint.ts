@@ -91,7 +91,7 @@ export function suggestBlueprintResult(niche: string, styleId?: string) {
 export function registerBlueprintTools(server: McpServer) {
   server.tool(
     "suggest_page_blueprint",
-    "Start here. Picks a style and a verified page for a niche, returning the ordered section stack with alternatives per slot and the exact next calls.",
+    "Returns one whole verified demo page (its style and ordered section stack) closest to a niche. Use plan_page instead for a new site; use this only when the brief closely matches a demo.",
     {
       niche: z.string().describe("e.g. 'coffee-shop', 'saas', 'company-profile'"),
       styleId: z.string().optional().describe("Force a style ID"),

@@ -1,15 +1,16 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1920,
     "height": 980
   },
-  "url": "http://localhost:3000/preview/section/interactive-quiz",
+  "url": "http://localhost:3005/preview/section/interactive-quiz",
   "elements": {
     "section": {
       "selector": "#quiz",
       "x": 0,
       "y": 0,
-      "width": 1910,
+      "width": 1920,
       "height": 1035.8,
       "fontFamily": "Arial",
       "fontRendered": "Arial",

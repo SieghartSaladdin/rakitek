@@ -1,32 +1,34 @@
 {
-    "id":  "editorial-mission-split",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "story",
-    "name":  "Editorial Mission Split",
-    "description":  "Full-bleed editorial mission narrative with inline condensed tagline, display blend CTA, opposing GSAP ScrollTrigger parallax on background and centered 535:668 portrait, flanking callouts, and coordinates stamp.",
-    "vibes":  [
-                  "editorial",
-                  "cinematic"
-              ],
-    "recommendedStyles":  [
-                              "editorial-roastery",
-                              "kinetic-obsidian"
-                          ],
-    "styling":  "css-modules",
-    "dependencies":  [
-                         "gsap"
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
-    "tags":  [
-                 "story",
-                 "mission",
-                 "editorial",
-                 "gsap",
-                 "parallax",
-                 "css-modules"
-             ]
+  "id": "editorial-mission-split",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": [
+    "about",
+    "story"
+  ],
+  "name": "Editorial Mission Split",
+  "description": "Full-bleed editorial mission narrative with inline condensed tagline, display blend CTA, opposing GSAP ScrollTrigger parallax on background and centered 535:668 portrait, flanking callouts, and coordinates stamp.",
+  "vibes": [
+    "editorial",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "styling": "css-modules",
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [],
+  "sourceRef": "coffee-shop/escape-cafe-nextjs",
+  "tags": [
+    "story",
+    "mission",
+    "editorial",
+    "gsap",
+    "parallax",
+    "css-modules"
+  ]
 }

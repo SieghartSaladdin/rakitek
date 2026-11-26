@@ -34,7 +34,9 @@
 .footer ::selection { background-color: var(--rk-bg); color: var(--rk-fg); }
 
 .smallText { font-size: 14px; line-height: 1.35; }
-.narrowSmall { font-family: var(--rk-font-narrow, var(--rk-font-display)); font-size: 15px; line-height: 1; text-transform: uppercase; }
+/* Substitute-font compensation (Garaje -> Barlow Condensed): the original "back to top"
+   label sets 93.8px vs 83px over 18 glyphs at 12.8px, i.e. ~0.047em wider per glyph. */
+.narrowSmall { font-family: var(--rk-font-narrow, var(--rk-font-display)); font-size: 15px; line-height: 1; text-transform: uppercase; letter-spacing: -0.047em; }
 .tH2 { margin: 0; font-family: var(--rk-font-display); font-size: 38px; font-weight: 300; line-height: 1; text-transform: uppercase; }
 .cta { color: inherit; text-decoration: none; transition: opacity 0.6s cubic-bezier(0.37, 0.31, 0, 1); }
 .cta:hover, .cta:active { opacity: 0.4; }

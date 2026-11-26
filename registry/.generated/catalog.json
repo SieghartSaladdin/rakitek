@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T16:35:56.368Z",
+  "generatedAt": "2026-11-26T04:35:11.493Z",
   "styles": [
     {
       "id": "editorial-roastery",
@@ -62,6 +62,7 @@
       "kind": "ui",
       "level": "atom",
       "category": "button",
+      "roles": [],
       "name": "Editorial Button",
       "description": "1:1 condensed uppercase storefront CTA button with solid, dark, ghost, and light variants, responsive viewport-scaled sizing, 3px corner radius, and optional lighten blend mode.",
       "styling": "css-modules",
@@ -94,6 +95,7 @@
       "kind": "ui",
       "level": "molecule",
       "category": "card",
+      "roles": [],
       "name": "Editorial Product Spec Card",
       "description": "High-fidelity wireframe editorial product spec card with 1.5px currentColor outline, 0.6s color-invert hover, fluid typography, 2-column spec table, and optional photo tile variant.",
       "styling": "css-modules",
@@ -127,6 +129,7 @@
       "kind": "ui",
       "level": "atom",
       "category": "button",
+      "roles": [],
       "name": "Magnetic Button",
       "description": "Cursor-tracking magnetic pill CTA button powered by motion/react springs (stiffness 150, damping 15), optional 32px circular icon badge, and reduced-motion support.",
       "styling": "css-modules",
@@ -162,6 +165,7 @@
       "kind": "ui",
       "level": "atom",
       "category": "marquee",
+      "roles": [],
       "name": "Editorial Marquee Ticker",
       "description": "1:1 wireframe announcement bar with 1.5px currentColor outline, 10px radius, 20x24 upward arrow rows, responsive condensed uppercase display typography, and optional continuous scrollX marquee mode.",
       "styling": "css-modules",
@@ -194,6 +198,9 @@
       "kind": "ui",
       "level": "organism",
       "category": "drawer",
+      "roles": [
+        "cart"
+      ],
       "name": "Slide-Over Cart Drawer",
       "description": "1:1 editorial bag drawer: 440px white panel sliding in from the right, condensed uppercase title, grey free-shipping goal strip with ink progress bar, thumbnail line items with hairline quantity stepper, oversized subtotal, and full-width condensed checkout bar.",
       "styling": "css-modules",
@@ -225,6 +232,7 @@
       "kind": "ui",
       "level": "molecule",
       "category": "input",
+      "roles": [],
       "name": "Waitlist Input Card",
       "description": "High-fidelity dark-obsidian waitlist form card with translucent email field, smooth cubic-bezier focus states, optional feedback opt-in checkbox, interactive 5-star idea rating block, and full-width pill submit control.",
       "styling": "css-modules",
@@ -260,6 +268,9 @@
       "kind": "section",
       "level": "organism",
       "category": "showcase",
+      "roles": [
+        "offerings"
+      ],
       "name": "Collection Split Showcase",
       "description": "High-fidelity 8/4 collection switcher with dual-synced Swiper (visual slider + EffectFade details via Controller), GSAP ScrollTrigger horizontal product rail, and circular arrow navigation.",
       "styling": "css-modules",
@@ -294,6 +305,11 @@
       "kind": "section",
       "level": "organism",
       "category": "footer",
+      "roles": [
+        "footer",
+        "contact",
+        "signup"
+      ],
       "name": "Editorial Dark Footer",
       "description": "Asymmetric dark editorial footer with staggered link columns, floating-label underline newsletter form, 1.8s viewport-gated stop-motion photo card, studio address, oversized social row, and rounded back-to-top bar.",
       "styling": "css-modules",
@@ -326,6 +342,10 @@
       "kind": "section",
       "level": "organism",
       "category": "manifesto",
+      "roles": [
+        "story",
+        "about"
+      ],
       "name": "Editorial Manifesto Chapter",
       "description": "Full-viewport editorial chapter section with a pinned running header, staggered uppercase serif display lines that rise into view on scroll, and an offset manifesto body column.",
       "styling": "css-modules",
@@ -357,6 +377,10 @@
       "kind": "section",
       "level": "organism",
       "category": "story",
+      "roles": [
+        "about",
+        "story"
+      ],
       "name": "Editorial Mission Split",
       "description": "Full-bleed editorial mission narrative with inline condensed tagline, display blend CTA, opposing GSAP ScrollTrigger parallax on background and centered 535:668 portrait, flanking callouts, and coordinates stamp.",
       "styling": "css-modules",
@@ -390,6 +414,9 @@
       "kind": "section",
       "level": "organism",
       "category": "hero",
+      "roles": [
+        "hero"
+      ],
       "name": "Editorial Storefront Hero",
       "description": "1:1 storefront hero: giant split-character headline over a scaling parallax photo, scroll-pinned Shop Now button that shrinks into place beside the description, and an outlined mood block with a 3-product spec grid and arrow ticker.",
       "styling": "css-modules",
@@ -423,6 +450,9 @@
       "kind": "section",
       "level": "organism",
       "category": "navbar",
+      "roles": [
+        "navigation"
+      ],
       "name": "Floating Pill Navbar",
       "description": "Centered frosted-glass floating pill navigation bar with Georgia serif wordmark, minimal section links, blur-drop entrance motion, and a Contact pill CTA that morphs into a Copied confirmation state.",
       "styling": "css-modules",
@@ -458,6 +488,9 @@
       "kind": "section",
       "level": "organism",
       "category": "quiz",
+      "roles": [
+        "engagement"
+      ],
       "name": "Interactive Product Match Quiz",
       "description": "Multi-step guided recommendation quiz with hairline progress track, oversized condensed display prompt, 2-column tactile option grid, ghost and solid navigation buttons, and weighted result card with retake flow.",
       "styling": "css-modules",
@@ -490,6 +523,9 @@
       "kind": "section",
       "level": "organism",
       "category": "manifesto",
+      "roles": [
+        "process"
+      ],
       "name": "Staggered Manifesto & Steps",
       "description": "High-fidelity light editorial section pairing three staggered giant condensed display words animated via GSAP split-character expo.out reveal with numbered 01-03 steps, scrub-parallax 311:364 media inset, and uppercase subscription block.",
       "styling": "css-modules",
@@ -524,6 +560,9 @@
       "kind": "section",
       "level": "organism",
       "category": "footer",
+      "roles": [
+        "footer"
+      ],
       "name": "Minimal SaaS Footer",
       "description": "Ultra-clean single-row SaaS footer pairing a serif wordmark, vertical hairline divider, subtle editorial tagline, and motion view-reveal.",
       "styling": "css-modules",
@@ -557,6 +596,9 @@
       "kind": "section",
       "level": "organism",
       "category": "showcase",
+      "roles": [
+        "proof"
+      ],
       "name": "Orbital Crest Wheel",
       "description": "Light editorial showcase with a continuously spinning ring of heraldic shield crests, scroll-velocity spin acceleration, radial pointer push-pull physics, frosted horizon blur scrim, and scroll-morphing display headlines.",
       "styling": "css-modules",
@@ -599,6 +641,9 @@
       "kind": "section",
       "level": "organism",
       "category": "stats",
+      "roles": [
+        "stats"
+      ],
       "name": "Physics Stats Pit",
       "description": "Full-viewport interactive stats section with a Matter.js 4-column physics ball pit, procedural goo-masked column textures, live eased counters, staggered display headline, and a responsive 2x2 mobile tile grid.",
       "styling": "css-modules",
@@ -647,6 +692,10 @@
       "kind": "section",
       "level": "organism",
       "category": "footer",
+      "roles": [
+        "footer",
+        "signup"
+      ],
       "name": "Rays Waitlist Footer",
       "description": "Full-viewport waitlist footer with a Three.js volumetric light-rays shader radiating from a pointer-lit emblem tile, staggered word reveals, interactive witty email validation bubble, and three-column legal row.",
       "styling": "css-modules",
@@ -707,6 +756,9 @@
       "kind": "section",
       "level": "organism",
       "category": "navbar",
+      "roles": [
+        "navigation"
+      ],
       "name": "Right Rail Editorial Navbar",
       "description": "High-fidelity 90px right-edge sticky navigation rail with 33px animated hamburger/close icon, 90deg rotated shipping ticker, cart/account/locale controls, and 460px slide-out accordion drawer.",
       "styling": "css-modules",
@@ -731,13 +783,22 @@
       ],
       "componentPath": "registry/sections/right-rail-navbar/component.tsx",
       "previewPath": "registry/sections/right-rail-navbar/preview.tsx",
-      "stylesPath": "registry/sections/right-rail-navbar/styles.module.css"
+      "stylesPath": "registry/sections/right-rail-navbar/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "icons.ts",
+          "path": "registry/sections/right-rail-navbar/icons.ts"
+        }
+      ]
     },
     {
       "id": "spiral-deck-hero",
       "kind": "section",
       "level": "organism",
       "category": "hero",
+      "roles": [
+        "hero"
+      ],
       "name": "Spiral Deck Hero",
       "description": "Full-viewport cinematic hero with a layered top blur scrim, three-column navigation bar, viewport-fitted staggered display headline, and an interactive Three.js 3D spiral card deck.",
       "styling": "css-modules",
@@ -794,6 +855,10 @@
       "kind": "section",
       "level": "organism",
       "category": "story",
+      "roles": [
+        "stats",
+        "proof"
+      ],
       "name": "Spotlight Stat Band",
       "description": "Full-bleed oversized serif stat section with ease-out count-up animation, cursor-following radial spotlight, hairline animated divider, and three staggered narrative columns.",
       "styling": "css-modules",
@@ -829,6 +894,10 @@
       "kind": "section",
       "level": "organism",
       "category": "showcase",
+      "roles": [
+        "offerings",
+        "story"
+      ],
       "name": "Story Chances List",
       "description": "Light editorial chapter sheet with a pinned running header, uppercase display headline featuring an inline rotating masked emblem crest, and a numbered 3-column story list with scroll reveal and pointer-tracking photo parallax.",
       "styling": "css-modules",
@@ -866,6 +935,10 @@
       "kind": "section",
       "level": "organism",
       "category": "hero",
+      "roles": [
+        "hero",
+        "signup"
+      ],
       "name": "Spotlight Waitlist Hero",
       "description": "Atmospheric waitlist hero featuring a cursor-lit continuous serif marquee, optional live member count pill, pointer-following spotlight headline, email signup card, and interactive 5-star idea rating.",
       "styling": "css-modules",
@@ -903,6 +976,7 @@
       "kind": "template",
       "level": "template",
       "category": "storefront",
+      "roles": [],
       "name": "Editorial Storefront Template",
       "description": "Full-page editorial storefront shell featuring a fixed 90px right-hand desktop navigation rail (calc(100vw - 90px) content column) collapsing cleanly to a 60px top bar on mobile, with ordered slots for hero, quiz, showcase, story, manifesto, footer, and slide-over drawer.",
       "styling": "css-modules",
@@ -933,6 +1007,7 @@
       "kind": "template",
       "level": "template",
       "category": "storytelling",
+      "roles": [],
       "name": "Kinetic Story Template",
       "description": "Full-bleed dark editorial storytelling page shell with isolated stacking context, ordered chapter slots (hero, manifesto, story, stats, orbit, footer), and a scroll-triggered floating bottom CTA pill.",
       "styling": "css-modules",
@@ -964,6 +1039,7 @@
       "kind": "template",
       "level": "template",
       "category": "saas",
+      "roles": [],
       "name": "SaaS Waitlist Landing Template",
       "description": "Full-width dark SaaS waitlist landing shell with fixed top floating pill navigation region, ordered vertical content slots (spotlight, waitlist hero, extra), and closing footer slot.",
       "styling": "css-modules",
@@ -997,6 +1073,7 @@
       "kind": "page",
       "level": "page",
       "category": "storytelling",
+      "roles": [],
       "name": "Kinetic Story Demo Page",
       "description": "Full composed dark obsidian storytelling reference page assembling the kinetic story template with 3D spiral card deck hero, editorial manifesto chapter, story chances list, Matter.js physics stats pit, orbital crest wheel, and WebGL rays waitlist footer.",
       "styling": "css-modules",
@@ -1045,6 +1122,7 @@
       "kind": "page",
       "level": "page",
       "category": "storefront",
+      "roles": [],
       "name": "Editorial Storefront Demo Page",
       "description": "Full composed editorial storefront reference page assembling the right-rail storefront template with hero, interactive quiz, split collection showcase, mission split, kinetic manifesto, dark footer, and live slide-over bag drawer.",
       "styling": "css-modules",
@@ -1093,6 +1171,7 @@
       "kind": "page",
       "level": "page",
       "category": "saas",
+      "roles": [],
       "name": "SaaS Waitlist Landing Demo Page",
       "description": "Full composed dark SaaS waitlist reference page assembling the SaaS waitlist template with floating pill navbar, interactive waitlist hero, pointer spotlight stat band, and minimal SaaS footer.",
       "styling": "css-modules",

@@ -1,4 +1,5 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1920,
     "height": 980
@@ -9,7 +10,7 @@
       "selector": "section[class*='guilds']",
       "x": 0,
       "y": -235,
-      "width": 1905,
+      "width": 1920,
       "height": 1766.4,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -36,7 +37,7 @@
       "selector": "section[class*='guilds'] [class*='topbar']",
       "x": 32,
       "y": -210,
-      "width": 1841,
+      "width": 1856,
       "height": 19,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -61,10 +62,10 @@
     },
     "wheel": {
       "selector": "section[class*='guilds'] [class*='wheel']",
-      "x": -96.3,
-      "y": -94.5,
-      "width": 2097.6,
-      "height": 2097.6,
+      "x": 168,
+      "y": 162.2,
+      "width": 1584,
+      "height": 1584,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
       "fontSize": 16,
@@ -88,7 +89,7 @@
     },
     "kicker": {
       "selector": "section[class*='guilds'] [class*='kicker']",
-      "x": 872.4,
+      "x": 879.9,
       "y": 540.1,
       "width": 160.2,
       "height": 19,
@@ -115,7 +116,7 @@
     },
     "headWrap": {
       "selector": "section[class*='guilds'] [class*='headWrap']",
-      "x": 376.5,
+      "x": 384,
       "y": 586.2,
       "width": 1152,
       "height": 324.4,
@@ -142,7 +143,7 @@
     },
     "head": {
       "selector": "section[class*='guilds'] h2",
-      "x": 376.5,
+      "x": 384,
       "y": 586.2,
       "width": 1152,
       "height": 324.4,
@@ -169,7 +170,7 @@
     },
     "leadStack": {
       "selector": "section[class*='guilds'] [class*='leadStack']",
-      "x": 376.5,
+      "x": 384,
       "y": 586.2,
       "width": 1152,
       "height": 566.4,
@@ -196,7 +197,7 @@
     },
     "lead": {
       "selector": "section[class*='guilds'] [class*='leadStack'] > p:first-child",
-      "x": 376.5,
+      "x": 384,
       "y": 586.2,
       "width": 1152,
       "height": 432.5,
@@ -223,7 +224,7 @@
     },
     "blurb": {
       "selector": "section[class*='guilds'] [class*='blurbBody']",
-      "x": 734.9,
+      "x": 742.4,
       "y": 1061,
       "width": 435.3,
       "height": 91.6,

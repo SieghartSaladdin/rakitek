@@ -3,6 +3,7 @@ import path from "node:path";
 import { checkFidelityEvidence } from "./lint-evidence";
 import { checkUtilityClasses } from "./lint-utility-classes";
 import { checkRegistryImports } from "./lint-imports";
+import { checkReuse } from "./lint-reuse";
 
 interface LintIssue {
   rule: string;
@@ -198,6 +199,7 @@ function main() {
   checkRegistryImports(ROOT, issues);
   checkFidelityEvidence(ROOT, issues);
   checkUtilityClasses(ROOT, issues);
+  checkReuse(ROOT, issues);
 
   if (issues.length === 0) {
     console.log("[rakitek lint] PASS: 0 issues.");

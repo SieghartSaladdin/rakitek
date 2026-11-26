@@ -1,4 +1,5 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1920,
     "height": 980
@@ -9,7 +10,7 @@
       "selector": "#mission",
       "x": 0,
       "y": 0.3,
-      "width": 1905,
+      "width": 1920,
       "height": 1872.1,
       "fontFamily": "TWK Lausanne",
       "fontRendered": "Arial",
@@ -36,7 +37,7 @@
       "selector": "#mission .homeMission",
       "x": 0,
       "y": 0.3,
-      "width": 1905,
+      "width": 1920,
       "height": 1872.1,
       "fontFamily": "TWK Lausanne",
       "fontRendered": "Arial",
@@ -63,7 +64,7 @@
       "selector": "#mission .homeMission__manifest",
       "x": 50,
       "y": 40.3,
-      "width": 1805,
+      "width": 1820,
       "height": 384.8,
       "fontFamily": "TWK Lausanne",
       "fontRendered": "Arial",
@@ -171,7 +172,7 @@
       "selector": "#mission .homeMission__visual",
       "x": 50,
       "y": 612.5,
-      "width": 1805,
+      "width": 1820,
       "height": 887,
       "fontFamily": "TWK Lausanne",
       "fontRendered": "Arial",
@@ -223,7 +224,7 @@
     },
     "frontImg": {
       "selector": "#mission .homeMission__img",
-      "x": 600.8,
+      "x": 608.3,
       "y": 612.5,
       "width": 710.4,
       "height": 887,
@@ -250,7 +251,7 @@
     },
     "bottomCaption": {
       "selector": "#mission .homeMission__visual > p:last-child",
-      "x": 1714.6,
+      "x": 1729.6,
       "y": 1054,
       "width": 140.4,
       "height": 44,
@@ -279,7 +280,7 @@
       "selector": "#mission .homeMission__imageTagline",
       "x": 50,
       "y": 1682.9,
-      "width": 1805,
+      "width": 1820,
       "height": 22,
       "fontFamily": "Garaje",
       "fontRendered": "Garaje",

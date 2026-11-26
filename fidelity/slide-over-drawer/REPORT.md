@@ -33,3 +33,14 @@ Lebar judul "YOUR BAG (1)" di 1920: asli 178.4px, Oswald 173.6px (sebelumnya Bar
 - Padding tombol Checkout di aslinya responsif (`min(0.347222vw, 0.617284vh)`).
 - Isian progress bar di aslinya tidak tampil (div kosong disembunyikan tema), jadi `progressFill` default `false`.
 - Header 5.5px lebih tinggi di 1024 karena ikon X, sudah diperbaiki.
+
+## Pembaruan 2026-11-26: props untuk dipakai ulang
+
+Props opsional baru: `formatPrice(value)` (default format lama `simbol + toFixed(2) + kode`), `goalReachedText`, `goalRemainingText(amountLabel, thresholdLabel)`, `closeLabel`, `decreaseLabel(name)`, `increaseLabel(name)`. Tanpa prop baru, teks dan angka sama persis dengan sebelumnya. Default semua prop baru menghasilkan DOM yang sama dengan sebelumnya.
+
+Diukur ulang 2026-11-26 dengan `scripts/fidelity-capture.ts` (label dan selector sama dengan ekstrak lama, build produksi baru):
+
+- 1920x980: 16 elemen, 0 FAIL, 9 WARN
+- 1024x768: 16 elemen, 0 FAIL, 9 WARN
+
+WARN yang tersisa sama dengan daftar beda yang disengaja di atas, ditambah WARN `capture` karena `original-*.json` belum ternormalisasi.

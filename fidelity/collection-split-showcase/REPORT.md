@@ -27,3 +27,18 @@ Catatan pengukuran: di web asli, lebar `#collections` mengikuti container 100% v
 ## Perbaikan Phase 2
 
 - Memangkas deskripsi `limited-series` dari 347 ke 325 karakter di `preview.tsx` dan `component.tsx` agar tidak meluber 1 kata ke baris ke-8 di `1024x768` (sebelumnya `detailBody.height` 138.1px vs 120.9px asli). Setelah perbaikan, kedua viewport lulus dengan **0 FAIL**.
+
+## Pembaruan 2026-11-26: props untuk dipakai ulang
+
+Props opsional baru: `formatPrice(value)` (default `` `$${value}` ``), `selectProductLabel(name, priceLabel)`, `prevLabel`, `nextLabel`, `prevMobileLabel`, `nextMobileLabel`. Produk tanpa harga tetap hanya menampilkan nama (komponen ini tidak pernah mengarang `$28`; fallback itu ada di `storefront-demo-page`). Default semua prop baru menghasilkan DOM yang sama dengan sebelumnya.
+
+Diukur ulang 2026-11-26 dengan `scripts/fidelity-capture.ts` (label dan selector sama dengan ekstrak lama, build produksi baru):
+
+- 1920x980: 13 elemen, 11 FAIL, 26 WARN
+- 1024x768: 13 elemen, 11 FAIL, 26 WARN
+
+Catatan: semua FAIL tersisa adalah lebar elemen selebar viewport. `original-*.json` diukur sebelum normalisasi scrollbar (scrollbar 15px, lebar 1905/1009px), sedangkan ekstrak baru diukur dengan `fidelity-capture` yang menyembunyikan scrollbar (1920/1024px). FAIL yang sama sudah ada sebelum perubahan ini (ekstrak lama 1910/1014px juga FAIL melawan 1905/1009px). Perbandingan ekstrak lama vs baru hanya berbeda di lebar viewport itu (plus tinggi blok beraspek-rasio yang ikut melebar), tanpa beda struktur atau teks. Perbaikannya: ukur ulang `original-*.json` dengan `measure.js` terbaru (ternormalisasi).
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Hasil `npm run fidelity`: 1920x980 13 elemen, **0 FAIL**, 11 WARN; 1024x768 13 elemen, **0 FAIL**, 11 WARN. FAIL lebar viewport di catatan sebelumnya hilang karena kedua sisi kini sama-sama 1920/1024px. Tidak ada perubahan CSS.

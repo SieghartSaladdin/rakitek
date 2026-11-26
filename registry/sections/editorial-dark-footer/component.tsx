@@ -28,6 +28,12 @@ export interface EditorialDarkFooterProps {
   creditHref?: string;
   onSubscribe?: (email: string) => void;
   onLinkClick?: (href: string, event: MouseEvent<HTMLAnchorElement>) => void;
+  /** Optional id on the root footer, e.g. for in-page anchor targets. */
+  id?: string;
+  ariaLabel?: string;
+  submitLabel?: string;
+  facebookLabel?: string;
+  instagramLabel?: string;
 }
 
 const DEFAULT_MAIN_LINKS: FooterLinkItem[] = [
@@ -94,13 +100,18 @@ export function EditorialDarkFooter({
   facebookHref = "#facebook",
   instagramHref = "#instagram",
   closingHeadline = "And you? How do you roast?",
-  copyright = "2026 © Meridian Coffee Company",
+  copyright = "2026 © Copper Coffee Company",
   backToTopLabel = "Scroll back to top",
   creditPrefix = "Original design by",
   creditLabel = "Studio",
   creditHref = "#credit",
   onSubscribe,
   onLinkClick,
+  id,
+  ariaLabel = "Editorial dark footer",
+  submitLabel = "Subscribe",
+  facebookLabel = "Facebook",
+  instagramLabel = "Instagram",
 }: EditorialDarkFooterProps) {
   const inputId = useId();
   const visualsRef = useRef<HTMLDivElement | null>(null);
@@ -157,7 +168,7 @@ export function EditorialDarkFooter({
   );
 
   return (
-    <footer className={styles.section} aria-label="Editorial dark footer">
+    <footer id={id} className={styles.section} aria-label={ariaLabel}>
       <div className={styles.footer}>
         <div className={styles.top}>
           <div className={styles.mainMenu}>
@@ -190,7 +201,7 @@ export function EditorialDarkFooter({
                 <div className={styles.field}>
                   <input id={inputId} type="email" className={`${styles.fieldInput} ${styles.smallText}`} value={email} onChange={(e) => setEmail(e.target.value)} placeholder=" " required />
                   <label className={`${styles.smallText} ${styles.fieldLabel}`} htmlFor={inputId}>{emailLabel}</label>
-                  <button type="submit" aria-label="Subscribe" className={styles.submitBtn}><ArrowRightIcon /></button>
+                  <button type="submit" aria-label={submitLabel} className={styles.submitBtn}><ArrowRightIcon /></button>
                 </div>
                 {subscribed && <p className={`${styles.smallText} ${styles.thanks}`}>{subscribedMessage}</p>}
               </div>
@@ -210,8 +221,8 @@ export function EditorialDarkFooter({
           <div className={styles.socials}>
             <h2 className={`${styles.tH2} ${styles.socialsHeading}`}>{socialsHeading}</h2>
             <ul className={styles.socialList}>
-              <li><a href={facebookHref} className={styles.socialLink} aria-label="Facebook" onClick={handleNavClick(facebookHref)}><FacebookIcon /></a></li>
-              <li><a href={instagramHref} className={styles.socialLink} aria-label="Instagram" onClick={handleNavClick(instagramHref)}><InstagramIcon /></a></li>
+              <li><a href={facebookHref} className={styles.socialLink} aria-label={facebookLabel} onClick={handleNavClick(facebookHref)}><FacebookIcon /></a></li>
+              <li><a href={instagramHref} className={styles.socialLink} aria-label={instagramLabel} onClick={handleNavClick(instagramHref)}><InstagramIcon /></a></li>
             </ul>
           </div>
           <h2 className={`${styles.tH2} ${styles.moodHeading}`}>{closingHeadline}</h2>

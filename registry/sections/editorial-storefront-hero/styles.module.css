@@ -92,7 +92,10 @@
   line-height: 1;
   text-transform: uppercase;
 }
-.desc { display: block; grid-column: span 6; letter-spacing: var(--rk-display-tracking); }
+/* Substitute-font compensation (Molitor -> Oswald): -0.01em keeps the original line
+   breaks: 4 lines in the 293px column at 1024, 3 lines at 1920 and in the 562px column
+   of the calc(100vw - 90px) template. */
+.desc { display: block; grid-column: span 6; letter-spacing: -0.01em; }
 
 .lines {
   opacity: 0;
@@ -132,6 +135,9 @@
   font-size: 36px;
   line-height: 0.85;
   text-transform: uppercase;
+  /* Substitute-font compensation (Molitor -> Oswald): the heading sets 830px vs 878px
+     over 34 glyphs at 54.4px (1920), i.e. ~0.026em narrower per glyph. */
+  letter-spacing: 0.026em;
 }
 .mood svg { display: block; width: 60px; margin-top: 15px; }
 
@@ -166,6 +172,9 @@
   font-size: 15px;
   line-height: 1;
   text-transform: uppercase;
+  /* Substitute-font compensation (Garaje -> Barlow Condensed): the spec copy sets
+     917px vs 813px over 171 glyphs at 12.8px, i.e. ~0.048em wider per glyph. */
+  letter-spacing: -0.048em;
 }
 .spec tr { display: grid; grid-template-columns: 70px auto; column-gap: 20px; }
 .spec tr + tr { margin-top: 5px; }

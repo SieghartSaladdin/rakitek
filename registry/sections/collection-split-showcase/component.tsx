@@ -21,6 +21,9 @@ export interface CollectionSplitShowcaseProps {
   onViewAllClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
   onSelectProduct?: (product: CollectionProductItem, series: CollectionSlideData) => void;
   onLearnMoreClick?: (series: CollectionSlideData, event: MouseEvent<HTMLAnchorElement>) => void;
+  /** Formats a product price for its title tooltip. Default: `$${value}`. Products without a price show only their name. */
+  formatPrice?: (value: number) => string; selectProductLabel?: (name: string, priceLabel: string) => string;
+  prevLabel?: string; nextLabel?: string; prevMobileLabel?: string; nextMobileLabel?: string;
 }
 
 const ARROW_PATHS = {
@@ -83,6 +86,8 @@ export function CollectionSplitShowcase({
   onViewAllClick,
   onSelectProduct,
   onLearnMoreClick,
+  formatPrice = (value) => `$${value}`, selectProductLabel = (name, priceLabel) => `Select ${name} (${priceLabel})`,
+  prevLabel = "Slide left", nextLabel = "Slide right", prevMobileLabel = "Previous slide", nextMobileLabel = "Next slide",
 }: CollectionSplitShowcaseProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
   const visualSwiperElRef = useRef<HTMLDivElement | null>(null);
@@ -168,8 +173,8 @@ export function CollectionSplitShowcase({
           <h2 className={styles.headerTitle}>{heading}</h2>
           <a href={viewAllHref} className={styles.viewAll} onClick={onViewAllClick}>{viewAllLabel}</a>
           <div className={styles.sliderHeaderButtons}>
-            <button ref={prevBtnRef} type="button" className={`${styles.swiperBtn} ${styles.prevBtn} ${activeIndex === 0 ? styles.swiperBtnDisabled : ""}`} aria-label="Slide left"><ArrowIcon dir="left" /></button>
-            <button ref={nextBtnRef} type="button" className={`${styles.swiperBtn} ${styles.nextBtn} ${activeIndex >= collections.length - 1 ? styles.swiperBtnDisabled : ""}`} aria-label="Slide right"><ArrowIcon dir="right" /></button>
+            <button ref={prevBtnRef} type="button" className={`${styles.swiperBtn} ${styles.prevBtn} ${activeIndex === 0 ? styles.swiperBtnDisabled : ""}`} aria-label={prevLabel}><ArrowIcon dir="left" /></button>
+            <button ref={nextBtnRef} type="button" className={`${styles.swiperBtn} ${styles.nextBtn} ${activeIndex >= collections.length - 1 ? styles.swiperBtnDisabled : ""}`} aria-label={nextLabel}><ArrowIcon dir="right" /></button>
           </div>
         </div>
 
@@ -197,7 +202,7 @@ export function CollectionSplitShowcase({
                 {collections.map((series, idx) => (
                   <div key={series.id} className={`${styles.productsLine} ${activeIndex === idx ? styles.productsLineActive : ""}`}>
                     {series.bags.map((bag) => (
-                      <button key={bag.id} type="button" className={styles.productMedia} tabIndex={activeIndex === idx ? 0 : -1} onClick={() => onSelectProduct?.(bag, series)} title={bag.price ? `Select ${bag.name} ($${bag.price})` : bag.name}>
+                      <button key={bag.id} type="button" className={styles.productMedia} tabIndex={activeIndex === idx ? 0 : -1} onClick={() => onSelectProduct?.(bag, series)} title={bag.price ? selectProductLabel(bag.name, formatPrice(bag.price)) : bag.name}>
                         <img src={bag.imageSrc} alt={bag.name} />
                       </button>
                     ))}
@@ -226,8 +231,8 @@ export function CollectionSplitShowcase({
         <div className={styles.innerMobile}>
           <div className={styles.infos}>
             <div className={`${styles.mobileButtons} ${styles.padX}`}>
-              <button ref={prevMobileBtnRef} type="button" className={`${styles.swiperBtn} ${activeIndex === 0 ? styles.swiperBtnDisabled : ""}`} aria-label="Previous slide"><ArrowIcon dir="left" /></button>
-              <button ref={nextMobileBtnRef} type="button" className={`${styles.swiperBtn} ${activeIndex >= collections.length - 1 ? styles.swiperBtnDisabled : ""}`} aria-label="Next slide"><ArrowIcon dir="right" /></button>
+              <button ref={prevMobileBtnRef} type="button" className={`${styles.swiperBtn} ${activeIndex === 0 ? styles.swiperBtnDisabled : ""}`} aria-label={prevMobileLabel}><ArrowIcon dir="left" /></button>
+              <button ref={nextMobileBtnRef} type="button" className={`${styles.swiperBtn} ${activeIndex >= collections.length - 1 ? styles.swiperBtnDisabled : ""}`} aria-label={nextMobileLabel}><ArrowIcon dir="right" /></button>
             </div>
             <div ref={mobileSwiperElRef} className={`${styles.details} swiper`}>
               <div className="swiper-wrapper">

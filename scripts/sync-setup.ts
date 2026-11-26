@@ -59,7 +59,8 @@ export function buildSetup(root: string, usedDeps: Iterable<string>): RakitekSet
   ) as { dependencies?: Record<string, string> };
   const declared = webPkg.dependencies ?? {};
   const dependencyVersions: Record<string, string> = {};
-  for (const dep of ["react", "react-dom", ...usedDeps]) {
+  // lenis backs the SmoothScrollProvider primitive, which no component lists as a dependency.
+  for (const dep of ["react", "react-dom", "lenis", ...usedDeps]) {
     if (declared[dep]) dependencyVersions[dep] = declared[dep];
   }
 

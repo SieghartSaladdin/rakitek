@@ -1,33 +1,34 @@
 {
-    "id":  "collection-split-showcase",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "showcase",
-    "name":  "Collection Split Showcase",
-    "description":  "High-fidelity 8/4 collection switcher with dual-synced Swiper (visual slider + EffectFade details via Controller), GSAP ScrollTrigger horizontal product rail, and circular arrow navigation.",
-    "vibes":  [
-                  "editorial",
-                  "minimal"
-              ],
-    "recommendedStyles":  [
-                              "editorial-roastery",
-                              "kinetic-obsidian"
-                          ],
-    "styling":  "css-modules",
-    "dependencies":  [
-                         "swiper",
-                         "gsap"
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
-    "tags":  [
-                 "collections",
-                 "swiper",
-                 "gsap",
-                 "showcase",
-                 "product-rail",
-                 "css-modules"
-             ]
+  "id": "collection-split-showcase",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": [
+    "offerings"
+  ],
+  "name": "Collection Split Showcase",
+  "description": "High-fidelity 8/4 collection switcher with dual-synced Swiper (visual slider + EffectFade details via Controller), GSAP ScrollTrigger horizontal product rail, and circular arrow navigation.",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "styling": "css-modules",
+  "dependencies": [
+    "swiper",
+    "gsap"
+  ],
+  "composes": [],
+  "sourceRef": "coffee-shop/escape-cafe-nextjs",
+  "tags": [
+    "collections",
+    "swiper",
+    "gsap",
+    "showcase",
+    "product-rail",
+    "css-modules"
+  ]
 }

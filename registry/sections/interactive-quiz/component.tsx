@@ -37,6 +37,11 @@ export interface InteractiveQuizProps {
   nextLabel?: string;
   finishLabel?: string;
   retakeLabel?: string;
+  /** Word between the step numbers ("Question 1 of 2"). Ignored when `progressLabel` is given. */
+  ofLabel?: string;
+  /** Full override for the step text, e.g. (n, total) => `Pertanyaan ${n}/${total}`. */
+  progressLabel?: (current: number, total: number) => string;
+  navAriaLabel?: string;
   /** The source theme hides the fill (empty div), so it is off by default for a 1:1 match. */
   progressFill?: boolean;
   questions: QuizQuestion[];
@@ -74,6 +79,9 @@ export function InteractiveQuiz({
   nextLabel = "Next question",
   finishLabel = "See my match",
   retakeLabel = "Retake quiz",
+  ofLabel = "of",
+  progressLabel,
+  navAriaLabel = "Quiz navigation buttons",
   progressFill = false,
   questions,
   results,
@@ -120,13 +128,16 @@ export function InteractiveQuiz({
   };
 
   const matched = completed ? computeMatch() : null;
+  const stepText = progressLabel
+    ? progressLabel(step + 1, questions.length)
+    : `${stepLabel} ${step + 1} ${ofLabel} ${questions.length}`;
 
   return (
     <section id={id} className={styles.section} aria-label={ariaLabel}>
       <div className={styles.container}>
         <div className={styles.header}>
           <p className={styles.eyebrow}>
-            {completed ? eyebrow : `${stepLabel} ${step + 1} of ${questions.length}`}
+            {completed ? eyebrow : stepText}
           </p>
           <div className={styles.progress}>
             {progressFill ? (
@@ -139,7 +150,7 @@ export function InteractiveQuiz({
           <div
             className={styles.body}
             role="region"
-            aria-label={`${stepLabel} ${step + 1} of ${questions.length}`}
+            aria-label={stepText}
           >
             <h2 className={styles.prompt}>{current.prompt}</h2>
 
@@ -160,7 +171,7 @@ export function InteractiveQuiz({
               })}
             </div>
 
-            <nav className={styles.nav} aria-label="Quiz navigation buttons">
+            <nav className={styles.nav} aria-label={navAriaLabel}>
               <button
                 type="button"
                 className={`${styles.btn} ${styles.btnGhost}`}

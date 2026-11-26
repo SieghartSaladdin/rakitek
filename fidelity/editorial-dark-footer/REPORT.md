@@ -32,3 +32,25 @@ Catatan pengukuran: di web asli, `.section` dibatasi `100vw - 90px` untuk member
 - Memindahkan latar gelap `var(--rk-fg)` ke `.footer::before` agar warna & transparansi elemen `root` sama persis dengan aslinya.
 - Mengganti form newsletter ke pola garis ganda (`border-top` + `border-bottom`), label mengambang `placeholder-shown`, tombol panah kanan SVG asli, dan kartu visual 1:1 penuh tanpa overlay teks buatan.
 - Mengembalikan ikon lingkaran `60px` Facebook & Instagram SVG asli, heading 2 baris dengan `margin-top: -1em`, dan bilah bawah rounded `10px` dengan 5+5 panah atas SVG asli.
+
+## Pembaruan 2026-11-26: props untuk dipakai ulang
+
+Props opsional baru: `id`, `ariaLabel` (default `"Editorial dark footer"`), `submitLabel` (default `"Subscribe"`), `facebookLabel`, `instagramLabel`. Default semua prop baru menghasilkan DOM yang sama dengan sebelumnya.
+
+Diukur ulang 2026-11-26 dengan `scripts/fidelity-capture.ts` (label dan selector sama dengan ekstrak lama, build produksi baru):
+
+- 1920x980: 16 elemen, 6 FAIL, 18 WARN
+- 1024x768: 16 elemen, 6 FAIL, 18 WARN
+
+Catatan: semua FAIL tersisa adalah lebar elemen selebar viewport. `original-*.json` diukur sebelum normalisasi scrollbar (scrollbar 15px, lebar 1905/1009px), sedangkan ekstrak baru diukur dengan `fidelity-capture` yang menyembunyikan scrollbar (1920/1024px). FAIL yang sama sudah ada sebelum perubahan ini (ekstrak lama 1910/1014px juga FAIL melawan 1905/1009px). Perbandingan ekstrak lama vs baru hanya berbeda di lebar viewport itu (plus tinggi blok beraspek-rasio yang ikut melebar), tanpa beda struktur atau teks. Perbaikannya: ukur ulang `original-*.json` dengan `measure.js` terbaru (ternormalisasi).
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Tanpa scrollbar muncul 3 FAIL di 1024: `bottomInner.height` 68.7 vs 62 (ikut `section`/`root` 935.6 vs 928.9). Penyebab: grid `1fr auto 1fr`. Kolom tengah (label "back to top" Barlow Condensed) lebih lebar sehingga kolom kiri menyempit ke 162.2px, dan copyright Arial "2026 © Meridian Coffee Company" (171.9px) turun jadi 2 baris. Di aslinya kolom kiri 167.5px dan copyright 166.2px muat 1 baris.
+
+Perbaikan:
+
+- CSS `.narrowSmall`: `letter-spacing: -0.047em`. Label asli "Escape back to top" di Barlow Condensed 93.8px vs Garaje 83px untuk 18 glyph pada 12.8px.
+- Copy default `copyright`: "Meridian" -> "Copper" (171.9px -> 165.6px di Arial 11.4px, asli 166.2px). Fontnya sama (Arial), jadi selisih ini murni dari panjang copy netral.
+
+Hasil `npm run fidelity` (sebelum -> sesudah): 1024x768 3 FAIL, 15 WARN -> **0 FAIL**, 14 WARN; 1920x980 sudah 0 FAIL -> **0 FAIL**, 14 WARN. Bukti ekstrak diambil dari dev server; perlu capture ulang dari build produksi.

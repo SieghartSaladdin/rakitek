@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef, type MouseEvent } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./styles.module.css";
@@ -13,6 +13,10 @@ export interface KineticManifestoStepsProps {
   description?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  /** When provided, called on CTA click; otherwise the link navigates normally (in-page anchors work). */
+  onCtaClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
+  /** Optional id on the root section, e.g. for in-page anchor targets. */
+  id?: string;
 }
 
 const DEFAULT_STEPS = [
@@ -82,6 +86,8 @@ export function KineticManifestoSteps({
   description = "Subscribe to monthly deliveries and save up to 15% on every order. Pick the roast or series that fits your taste.",
   ctaLabel = "Subscribe",
   ctaHref = "#subscribe",
+  onCtaClick,
+  id,
 }: KineticManifestoStepsProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const imageBoxRef = useRef<HTMLDivElement>(null);
@@ -146,12 +152,8 @@ export function KineticManifestoSteps({
     return () => ctx.revert();
   }, [words]);
 
-  const handleCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (ctaHref.startsWith("#")) e.preventDefault();
-  };
-
   return (
-    <section ref={sectionRef} className={styles.section} aria-label={words.join(" ")}>
+    <section ref={sectionRef} id={id} className={styles.section} aria-label={words.join(" ")}>
       <div className={styles.root}>
         <h2 className={styles.srOnly}>{words.join(" ")}</h2>
 
@@ -209,7 +211,7 @@ export function KineticManifestoSteps({
               className={`${styles.ctaBtn} ${styles.tH4}`}
               data-manifesto-anim-in=""
               data-delay="0.3"
-              onClick={handleCtaClick}
+              onClick={onCtaClick}
             >
               {ctaLabel}
             </a>
@@ -226,7 +228,7 @@ export function KineticManifestoSteps({
           <p className={`${styles.tH4} ${styles.animLines}`} data-manifesto-lines="">
             {description}
           </p>
-          <a href={ctaHref} className={`${styles.ctaBtn} ${styles.tH4}`} onClick={handleCtaClick}>
+          <a href={ctaHref} className={`${styles.ctaBtn} ${styles.tH4}`} onClick={onCtaClick}>
             {ctaLabel}
           </a>
         </div>

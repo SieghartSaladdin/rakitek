@@ -1,33 +1,34 @@
 {
-    "id":  "spiral-deck-hero",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "hero",
-    "name":  "Spiral Deck Hero",
-    "description":  "Full-viewport cinematic hero with a layered top blur scrim, three-column navigation bar, viewport-fitted staggered display headline, and an interactive Three.js 3D spiral card deck.",
-    "styling":  "css-modules",
-    "vibes":  [
-                  "cinematic",
-                  "editorial"
-              ],
-    "recommendedStyles":  [
-                              "kinetic-obsidian"
-                          ],
-    "dependencies":  [
-                         "three"
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "saas-app/grail-next",
-    "tags":  [
-                 "hero",
-                 "webgl",
-                 "threejs",
-                 "3d",
-                 "spiral",
-                 "cards",
-                 "kinetic",
-                 "editorial"
-             ]
+  "id": "spiral-deck-hero",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": [
+    "hero"
+  ],
+  "name": "Spiral Deck Hero",
+  "description": "Full-viewport cinematic hero with a layered top blur scrim, three-column navigation bar, viewport-fitted staggered display headline, and an interactive Three.js 3D spiral card deck.",
+  "styling": "css-modules",
+  "vibes": [
+    "cinematic",
+    "editorial"
+  ],
+  "recommendedStyles": [
+    "kinetic-obsidian"
+  ],
+  "dependencies": [
+    "three"
+  ],
+  "composes": [],
+  "sourceRef": "saas-app/grail-next",
+  "tags": [
+    "hero",
+    "webgl",
+    "threejs",
+    "3d",
+    "spiral",
+    "cards",
+    "kinetic",
+    "editorial"
+  ]
 }

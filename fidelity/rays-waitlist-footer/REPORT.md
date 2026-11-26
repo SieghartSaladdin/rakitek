@@ -47,3 +47,7 @@ Seluruh 10 elemen terukur (`footer`, `topbar`, `tile`, `lead`, `pitch`, `inputWr
 - Menetapkan `background: transparent` pada `<section>` dengan `.footer::before { background: var(--rk-bg); z-index: -1; }` sehingga `backgroundColor` terukur tetap `rgba(0, 0, 0, 0)` seperti aslinya sambil tetap aman dipakai di halaman terang mana pun.
 - Menetapkan `line-height: normal` pada `.footer`, `.topbar`, `.caption` dan `line-height: 19px` pada `.bcol` agar tinggi `.bottom` tepat `84px` di kedua viewport (mengatasi reset `line-height: 1.5` Tailwind v4 dan perbedaan tinggi baris `DM Sans` vs `Segoe UI`).
 - Menetapkan `markTexture.flipY = false` pada `THREE.CanvasTexture` sehingga koordinat UV occluder pada shader 44-langkah cocok dengan sistem koordinat atas-ke-bawah kanvas WebGL asli.
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Hasil `npm run fidelity`: 1920x980 10 elemen, **0 FAIL**, 45 WARN; 1024x768 10 elemen, **0 FAIL**, 45 WARN. Tidak ada perubahan CSS.

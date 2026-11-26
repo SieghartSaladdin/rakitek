@@ -1,9 +1,10 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1920,
     "height": 980
   },
-  "url": "http://localhost:3000/preview/section/right-rail-navbar",
+  "url": "http://localhost:3105/preview/section/right-rail-navbar",
   "elements": {
     "railWrapper": {
       "selector": "[class*=\"railWrapper\"]",

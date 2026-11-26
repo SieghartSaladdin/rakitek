@@ -5,6 +5,7 @@ import path from "node:path";
 import { checkFidelityEvidence } from "./lint-evidence";
 import { checkRegistryImports, type ImportLintIssue } from "./lint-imports";
 import { checkUtilityClasses } from "./lint-utility-classes";
+import { checkReuse } from "./lint-reuse";
 
 function writeFile(root: string, relPath: string, content: string) {
   const full = path.join(root, relPath);
@@ -170,7 +171,36 @@ function runTests() {
     }
   }
 
-  console.log("[rakitek lint-rules test] All 6 synthetic import/hierarchy/composes/evidence/utility-class assertions passed.");
+  // Case 7: reuse rules. A section without roles fails section-roles; a baked "$" in output fails
+  // no-hardcoded-currency, while demo-data price strings, comments and the default formatter pass.
+  {
+    const fx = makeFixture({
+      "registry/sections/coffee-only/meta.json": JSON.stringify({ id: "coffee-only", roles: [] }),
+      "registry/sections/coffee-only/component.tsx":
+        'export const A = ({ p }) => <b title={`Buy (${"$"}${p})`}>{"$" + p}</b>;\nexport const B = ({ p }) => <i>{`$${p ?? 28}`}</i>;\n',
+      "registry/sections/reusable/meta.json": JSON.stringify({ id: "reusable", roles: ["offerings"] }),
+      "registry/sections/reusable/component.tsx":
+        'const DEFAULTS = [{ price: "$24.00" }];\n/** Default: `$${value}` */\nconst defaultFormatPrice = (v: number) => `$${v}`;\nexport const C = ({ formatPrice = defaultFormatPrice, p }) => <b>{formatPrice(p)}</b>;\n',
+    });
+    try {
+      const issues: ImportLintIssue[] = [];
+      checkReuse(fx.root, issues);
+      const got = issues.map((i) => `${i.rule}@${i.file.split("/")[2]}:${i.line}`).sort();
+      assert.deepEqual(
+        got,
+        [
+          "rakitek/no-hardcoded-currency@coffee-only:1",
+          "rakitek/no-hardcoded-currency@coffee-only:2",
+          "rakitek/section-roles@coffee-only:1",
+        ],
+        `Unexpected reuse issues: ${JSON.stringify(issues)}`,
+      );
+    } finally {
+      fx.cleanup();
+    }
+  }
+
+  console.log("[rakitek lint-rules test] All 7 synthetic import/hierarchy/composes/evidence/utility-class/reuse assertions passed.");
 }
 
 runTests();

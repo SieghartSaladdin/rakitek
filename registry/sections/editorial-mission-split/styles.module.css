@@ -73,6 +73,10 @@
   position: relative;
   margin-bottom: 20px;
   white-space: pre-line;
+  /* Substitute-font compensation (Garaje -> Barlow Condensed): "Mission" is 62.2 vs 59px
+     at 22px and 44.2 vs 41.9px at 15.6px, i.e. ~0.021em wider per glyph. The tagline width
+     sets where the first statement line starts. */
+  letter-spacing: -0.021em;
 }
 .text {
   position: relative;
@@ -129,7 +133,12 @@
   justify-content: center;
 }
 .topCaption,
-.bottomCaption { white-space: pre-line; }
+.bottomCaption {
+  white-space: pre-line;
+  /* Substitute-font compensation (Garaje -> Barlow Condensed): caption boxes measure
+     161.5 vs 147.4px and 153.3 vs 140.4px over 19/18 glyphs at 22px, ~0.033em per glyph. */
+  letter-spacing: -0.033em;
+}
 .topCaption { margin-right: auto; }
 .bottomCaption { margin-left: auto; text-align: right; }
 .frontImg {

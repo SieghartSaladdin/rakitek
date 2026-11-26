@@ -6,7 +6,7 @@ export default function EditorialMissionSplitPreview() {
   return (
     <EditorialMissionSplit
       tagline={"Our\nMission"}
-      statement="We have been accused of having a one-track mind. To those accusations we simply say thank you. Because we know it is by focusing on one craft that many things happen. At our roastery, that one craft has always been coffee. We go deeper into every harvest than anyone, cupping each lot by hand from origin to final roast."
+      statement="People say we have a one-track mind. And to that we always reply - thank you. Because we believe that by focusing on one thing, many good things happen. And for our whole team, that one thing was always coffee. We have gone deeper into coffee than anyone, with busy hands and grinder dust on our sleeves at every step."
       ctaLabel="Learn More"
       ctaHref="#mission"
       topCaption={"craft\nis always possible."}

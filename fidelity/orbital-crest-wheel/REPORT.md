@@ -47,3 +47,22 @@ Seluruh 9 elemen terukur (`section`, `topbar`, `wheel`, `kicker`, `headWrap`, `h
 - Menetapkan `line-height: normal` pada `.section`, `.topbar`, `.kicker`, dan `.crestName` agar preflight Tailwind v4 tidak memperbesar tinggi baris teks `14px`.
 - Menambahkan batas langkah scroll satu frame (`MAX_SCROLL_STEP_PX = 180`) pada `wheel-engine.ts` agar lompatan `window.scrollTo({ behavior: "instant" })` atau anchor jump tidak menyuntikkan lonjakan kecepatan palsu ke putaran roda, sementara scroll pengguna tetap mempercepat roda secara halus.
 - Menggerakkan `--rk-wheel-hl` dan `--rk-wheel-morph` secara mandiri melalui `IntersectionObserver` + posisi viewport saat scroll, serta mendukung `prefers-reduced-motion: reduce` dan `:focus-visible`.
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Hasil ukur ulang: 1920 `wheel` 2234.9 vs 2159.6 dan 1024 1191.5 vs 1158.5 (2 FAIL per viewport).
+
+Penyebab: ukuran roda sama di kedua sisi (persegi 82.5vw, pusat sama). Yang diukur adalah kotak pembatas persegi yang berputar, jadi lebarnya = 82.5vw x (|cos θ| + |sin θ|) dan bergantung pada sudut putar saat capture (~10px per derajat di 1920). Sudut = 15° + 4°/s x lama roda terlihat + putaran dari kecepatan scroll.
+
+- Asli: Chapter 07 ada di bawah lipatan, jadi roda baru berputar setelah di-scroll. Scroll pertama job mendarat 49px meleset (layout halaman asli bergeser), lalu scroll kedua naik 49px dan memberi putaran mundur sesaat. Hasilnya stabil di ~29.3° (1920) / ~30.8° (1024) dalam 3 kali percobaan.
+- Ekstrak: section ada di atas halaman preview, jadi roda sudah berputar sejak load (37.7-39.8°, berubah-ubah).
+
+Yang dicoba: preview diberi spacer `100vh` di atas section (komponen tidak diubah) supaya roda baru berputar setelah di-scroll, seperti di halaman asli. Sudut ekstrak kini stabil di 32.2°: 1920 `wheel` 2184.4 vs 2159.6, 1024 1164.7 vs 1158.5. Masih 2 FAIL per viewport. Sisa ~2.9° (1920) / ~1.4° (1024) berasal dari pergeseran layout 49px di halaman asli saat scroll, bukan dari komponen. Menyamakannya berarti memalsukan waktu atau kecepatan putar, jadi tidak dilakukan. Usul: ubah prosedur ukur `wheel` di kedua sisi (mis. ukur elemen yang tidak berputar, atau kunci sudut sebelum `rkMeasure`), lalu capture ulang asli dan ekstrak.
+
+Hasil `npm run fidelity` (dev server, dengan spacer): 1920x980 9 elemen, **2 FAIL**, 50 WARN; 1024x768 9 elemen, **2 FAIL**, 50 WARN.
+
+### Penyelesaian 2026-11-27: sudut roda dikunci di kedua sisi
+
+Spacer `100vh` di `preview.tsx` dibatalkan (preview kembali seperti semula). Sebagai gantinya, prosedur ukur `wheel` diubah **di kedua sisi**: sebelum `rkMeasure`, setup capture menambahkan `[class*='wheel']{transform:rotate(0deg) !important}` di dalam section (asli: `section[class*='guilds']`, ekstrak: `section[class*='section']`). Dengan begitu yang dibandingkan adalah ukuran roda itu sendiri, bukan kotak pembatas yang bergantung sudut saat capture. Asli dan ekstrak sama-sama di-capture ulang dengan setup ini.
+
+Hasil `npm run fidelity` (build produksi): `wheel` 1584 vs 1584 di 1920 (82.5vw) dan 844.8 vs 844.8 di 1024. 1920x980 9 elemen, **0 FAIL**, 49 WARN; 1024x768 9 elemen, **0 FAIL**, 49 WARN.

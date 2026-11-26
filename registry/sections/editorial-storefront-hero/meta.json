@@ -1,32 +1,33 @@
 {
-    "id":  "editorial-storefront-hero",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "hero",
-    "name":  "Editorial Storefront Hero",
-    "description":  "1:1 storefront hero: giant split-character headline over a scaling parallax photo, scroll-pinned Shop Now button that shrinks into place beside the description, and an outlined mood block with a 3-product spec grid and arrow ticker.",
-    "vibes":  [
-                  "editorial",
-                  "cinematic"
-              ],
-    "recommendedStyles":  [
-                              "editorial-roastery",
-                              "kinetic-obsidian"
-                          ],
-    "styling":  "css-modules",
-    "dependencies":  [
-                         "gsap"
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
-    "tags":  [
-                 "hero",
-                 "storefront",
-                 "editorial",
-                 "gsap",
-                 "marquee",
-                 "css-modules"
-             ]
+  "id": "editorial-storefront-hero",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": [
+    "hero"
+  ],
+  "name": "Editorial Storefront Hero",
+  "description": "1:1 storefront hero: giant split-character headline over a scaling parallax photo, scroll-pinned Shop Now button that shrinks into place beside the description, and an outlined mood block with a 3-product spec grid and arrow ticker.",
+  "vibes": [
+    "editorial",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "styling": "css-modules",
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [],
+  "sourceRef": "coffee-shop/escape-cafe-nextjs",
+  "tags": [
+    "hero",
+    "storefront",
+    "editorial",
+    "gsap",
+    "marquee",
+    "css-modules"
+  ]
 }

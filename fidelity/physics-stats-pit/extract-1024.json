@@ -1,9 +1,10 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1024,
     "height": 768
   },
-  "url": "http://localhost:3000/preview/section/physics-stats-pit",
+  "url": "http://localhost:3005/preview/section/physics-stats-pit",
   "elements": {
     "section": {
       "selector": "section[class*='stats']",

@@ -1,32 +1,31 @@
 {
-    "id":  "slide-over-drawer",
-    "kind":  "ui",
-    "level":  "organism",
-    "category":  "drawer",
-    "name":  "Slide-Over Cart Drawer",
-    "description":  "1:1 editorial bag drawer: 440px white panel sliding in from the right, condensed uppercase title, grey free-shipping goal strip with ink progress bar, thumbnail line items with hairline quantity stepper, oversized subtotal, and full-width condensed checkout bar.",
-    "vibes":  [
-                  "editorial",
-                  "minimal"
-              ],
-    "recommendedStyles":  [
-                              "editorial-roastery",
-                              "kinetic-obsidian"
-                          ],
-    "styling":  "css-modules",
-    "dependencies":  [
-
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "coffee-shop/escape-cafe-nextjs",
-    "tags":  [
-                 "drawer",
-                 "cart",
-                 "ecommerce",
-                 "progress-bar",
-                 "overlay",
-                 "css-modules"
-             ]
+  "id": "slide-over-drawer",
+  "kind": "ui",
+  "level": "organism",
+  "category": "drawer",
+  "roles": [
+    "cart"
+  ],
+  "name": "Slide-Over Cart Drawer",
+  "description": "1:1 editorial bag drawer: 440px white panel sliding in from the right, condensed uppercase title, grey free-shipping goal strip with ink progress bar, thumbnail line items with hairline quantity stepper, oversized subtotal, and full-width condensed checkout bar.",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "editorial-roastery",
+    "kinetic-obsidian"
+  ],
+  "styling": "css-modules",
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "coffee-shop/escape-cafe-nextjs",
+  "tags": [
+    "drawer",
+    "cart",
+    "ecommerce",
+    "progress-bar",
+    "overlay",
+    "css-modules"
+  ]
 }

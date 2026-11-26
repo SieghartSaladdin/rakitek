@@ -75,7 +75,7 @@ export function OverviewView() {
             {copy.overview.wf2BeforeStrong}{" "}
             <strong className="text-white">{copy.overview.wf2Strong}</strong>{" "}
             {copy.overview.wf2Between}{" "}
-            <code className="font-mono text-zinc-100">suggest_page_blueprint</code>{" "}
+            <code className="font-mono text-zinc-100">plan_page</code>{" "}
             {copy.overview.wf2AfterCode}
           </p>
         </div>

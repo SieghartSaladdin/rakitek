@@ -85,6 +85,9 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.7;
+  /* Substitute-font compensation: DM Sans sets the original's copy ~3.7% wider
+     than Switzer (820 vs 788px, 1324 vs 1277px at 14px), i.e. ~0.017em per glyph. */
+  letter-spacing: -0.017em;
 }
 
 .colText:first-child {

@@ -80,7 +80,7 @@ export const ID_COPY: WebCopy = {
     wf2BeforeStrong: "Klik",
     wf2Strong: "Salin Prompt MCP",
     wf2Between: "di halaman detail item mana pun, atau minta AI memanggil",
-    wf2AfterCode: "untuk merakit satu halaman utuh.",
+    wf2AfterCode: "dengan brief kamu untuk memilih section dari semua demo dan merakit halaman sendiri.",
     featuredSection: "Section Unggulan",
     featuredUi: "Komponen UI Unggulan",
   },
@@ -190,7 +190,7 @@ export const ID_COPY: WebCopy = {
           mcpDesc: "Buka Customizations → Installed → MCP Servers, klik Copy Config File Path, buka file itu, lalu tambahkan entri rakitek di bawah ke dalam mcpServers. Konfigurasi personal ada di ~/.gemini/config/mcp_config.json.",
           skillTitle: "Pasang skill rakitek-build (global)",
           skillDesc: "Skill global Antigravity ada di ~/.gemini/config/skills dan aktif di semua workspace. Unduh ulang dengan perintah yang sama untuk memperbarui.",
-          checkDesc: "Restart server rakitek dari menu ⋮ (atau restart Antigravity), lalu pastikan 5 tool rakitek muncul.",
+          checkDesc: "Restart server rakitek dari menu ⋮ (atau restart Antigravity), lalu pastikan 6 tool rakitek muncul.",
         },
       },
     },
@@ -233,16 +233,17 @@ export const ID_COPY: WebCopy = {
     tableArgs: "Argumen",
     tablePurpose: "Fungsi",
     mcpToolPurposes: {
+      plan_page: "Mulai di sini: brief jadi slot konten berurutan, tiap slot menawarkan semua section dari demo mana pun yang cocok.",
       suggest_page_blueprint:
-        "Mulai di sini: pilih style dan halaman teruji, susunan section berurutan, dan panggilan berikutnya.",
+        "Satu halaman demo utuh yang sudah teruji; pakai hanya kalau brief sangat mirip demo itu.",
       get_style:
         "Setup sekali per proyek: tokens.css, Google Fonts, base.css, SmoothScrollProvider, versi npm teruji.",
       get_component:
-        "File siap salin plus komponen turunannya dalam satu jawaban; sisanya didaftar di fetchSeparately.",
+        "File siap salin untuk satu komponen (plus turunannya kecuali withComposed false).",
       search_components:
-        "Cari komponen tanpa kode, hanya kalau blueprint belum punya slot yang cocok.",
+        "Cari komponen tanpa kode, misalnya semua section dengan role offerings.",
       list_styles:
-        "Bandingkan style (palet, font, vibe) bila blueprint memberi catatan memakai default.",
+        "Bandingkan style (palet, font, vibe) sebelum memaksa styleId.",
     },
     sec3Tag: "Bagian 03",
     sec3Title: "Skill rakitek-build",

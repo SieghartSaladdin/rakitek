@@ -82,15 +82,20 @@ curl -fsSL ${SKILL_URL} -o ~/.gemini/config/skills/rakitek-build/SKILL.md`,
       },
     ],
     check: `Customizations → Installed → MCP Servers
-# rakitek → 5 tools`,
+# rakitek → 6 tools`,
   },
 };
 
 export const MCP_TOOLS = [
   {
+    name: "plan_page",
+    args: '{ brief: "company profile studio arsitektur", pageType?, styleId? }',
+    purpose: "Mulai di sini: brief jadi slot konten berurutan, tiap slot berisi semua section dari demo mana pun yang cocok.",
+  },
+  {
     name: "suggest_page_blueprint",
     args: '{ niche: "coffee-shop", styleId? }',
-    purpose: "Mulai di sini: pilih style + halaman teruji, susunan section berurutan, dan langkah berikutnya.",
+    purpose: "Satu halaman demo utuh yang sudah teruji; dipakai kalau brief sangat mirip demo itu.",
   },
   {
     name: "get_style",
@@ -99,17 +104,17 @@ export const MCP_TOOLS = [
   },
   {
     name: "get_component",
-    args: '{ id: "storefront-demo-page", withComposed?, includeExample? }',
+    args: '{ id: "collection-split-showcase", withComposed?, includeExample? }',
     purpose: "File siap salin plus komponen turunannya dalam satu jawaban; sisanya di fetchSeparately.",
   },
   {
     name: "search_components",
-    args: '{ kind?, level?, category?, vibe?, query? }',
-    purpose: "Cari komponen tanpa kode, hanya kalau blueprint belum punya slot yang cocok.",
+    args: '{ kind?, level?, role?, category?, vibe?, query? }',
+    purpose: "Cari komponen tanpa kode, misalnya semua section dengan role offerings.",
   },
   {
     name: "list_styles",
     args: "none",
-    purpose: "Bandingkan style (palet, font, vibe) bila blueprint memberi catatan default.",
+    purpose: "Bandingkan style (palet, font, vibe) sebelum memaksa styleId.",
   },
 ];

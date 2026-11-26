@@ -1,4 +1,5 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1920,
     "height": 980
@@ -7,8 +8,8 @@
   "elements": {
     "lead": {
       "selector": "section:has([data-tile]) > p:nth-of-type(1)",
-      "x": 827.2,
-      "y": 299.4,
+      "x": 834.7,
+      "y": 299.8,
       "width": 250.6,
       "height": 20.2,
       "fontFamily": "-apple-system",
@@ -35,8 +36,8 @@
     "footer": {
       "selector": "section:has([data-tile])",
       "x": 0,
-      "y": 0,
-      "width": 1905,
+      "y": 0.4,
+      "width": 1920,
       "height": 980,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -62,8 +63,8 @@
     "topbar": {
       "selector": "section:has([data-tile]) > div:first-of-type",
       "x": 32,
-      "y": 25,
-      "width": 1841,
+      "y": 25.4,
+      "width": 1856,
       "height": 19,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -88,8 +89,8 @@
     },
     "tile": {
       "selector": "section:has([data-tile]) [data-tile]",
-      "x": 886.5,
-      "y": 127.4,
+      "x": 894,
+      "y": 127.8,
       "width": 132,
       "height": 132,
       "fontFamily": "-apple-system",
@@ -116,8 +117,8 @@
     "bottom": {
       "selector": "section:has([data-tile]) > div:last-of-type",
       "x": 0,
-      "y": 896,
-      "width": 1905,
+      "y": 896.4,
+      "width": 1920,
       "height": 84,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -143,8 +144,8 @@
     "inputWrap": {
       "selector": "section:has([data-tile]) form > div",
       "x": 32,
-      "y": 560.8,
-      "width": 1841,
+      "y": 561.2,
+      "width": 1856,
       "height": 114,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -169,8 +170,8 @@
     },
     "pitch": {
       "selector": "section:has([data-tile]) > p:nth-of-type(2)",
-      "x": 789.5,
-      "y": 329.5,
+      "x": 797,
+      "y": 329.9,
       "width": 326,
       "height": 55,
       "fontFamily": "-apple-system",
@@ -197,8 +198,8 @@
     "raysCanvas": {
       "selector": "section:has([data-tile]) canvas",
       "x": 0,
-      "y": 0,
-      "width": 1905,
+      "y": 0.4,
+      "width": 1920,
       "height": 980,
       "fontFamily": "-apple-system",
       "fontRendered": "Segoe UI",
@@ -224,8 +225,8 @@
     "emailInput": {
       "selector": "section:has([data-tile]) input[type=\"email\"]",
       "x": 32,
-      "y": 560.8,
-      "width": 1841,
+      "y": 561.2,
+      "width": 1856,
       "height": 114,
       "fontFamily": "PP Pangaia",
       "fontRendered": "PP Pangaia",
@@ -250,8 +251,8 @@
     },
     "caption": {
       "selector": "section:has([data-tile]) form > p",
-      "x": 853.8,
-      "y": 700.8,
+      "x": 861.3,
+      "y": 701.2,
       "width": 197.5,
       "height": 19,
       "fontFamily": "-apple-system",

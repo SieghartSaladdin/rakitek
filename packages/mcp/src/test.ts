@@ -2,7 +2,13 @@ import assert from "node:assert/strict";
 import { loadCatalog } from "./loader.js";
 import { RAKITEK_INSTRUCTIONS } from "./server.js";
 import { suggestBlueprintResult } from "./tools/blueprint.js";
-import { getComponentBundle, getComponentResult, searchComponentsResult } from "./tools/components.js";
+import {
+  getComponentBundle,
+  getComponentResult,
+  OUTPUT_BUDGET_CHARS,
+  searchComponentsResult,
+} from "./tools/components.js";
+import { planPageResult } from "./tools/plan.js";
 import { getStyleResult, listStylesResult } from "./tools/styles.js";
 
 const RELATIVE_IMPORT_RE =
@@ -116,6 +122,10 @@ function runTests() {
     "get_style must ship the SmoothScrollProvider primitive",
   );
   assert.equal(getStyleResult("editorial-roastery", false).baseCss, undefined, "includeSetup:false skips setup");
+  // The provider must import lenis statically (a computed import is skipped by bundlers) and pin it for setup.
+  assert.match(roastery.primitives?.["smooth-scroll-provider.tsx"] ?? "", /import Lenis from "lenis"/);
+  assert.match(roastery.setupInstallCommand ?? "", /"lenis@\^\d/, "setupInstallCommand must pin lenis");
+  assert.ok(!("react" in (roastery.dependencyVersions ?? {})), "get_style lists only setup packages, not every registry dependency");
 
   const pageBundle = getComponentBundle("storefront-demo-page", true);
   const bundleIds = pageBundle.map((r) => r.id);
@@ -134,15 +144,43 @@ function runTests() {
   assert.equal(saas.stack.filter((s) => s.slot === "hero").length, 1, "Exactly one hero in a blueprint");
   assert.ok("note" in suggestBlueprintResult("travel"), "Unknown niche must say it fell back to a default");
 
-  // Instructions ride along on every turn in Claude Code and Antigravity, so keep them ~300 tokens.
+  // plan_page: a brief outside every demo still gets slots filled from across the registry.
+  const company = planPageResult({ brief: "company profile untuk studio arsitektur di Bandung" });
+  assert.equal(company.pageType, "company-profile");
+  assert.ok(!("pageTypeNote" in company), "A company brief must match the company-profile page type");
+  const slotOf = (role: string) => company.slots.find((s) => s.role === role);
+  assert.ok(slotOf("offerings")?.candidates.some((c) => c.id === "collection-split-showcase"), "Storefront showcase must be offered for services");
+  assert.ok(slotOf("about")?.candidates.some((c) => c.id === "editorial-mission-split"), "Mission split must be offered for about");
+  assert.ok(!company.slots.some((s) => s.role === "cart" || s.role === "engagement"), "Company profile must not ask for a cart or quiz");
+  for (const s of company.slots.filter((x) => x.pick)) {
+    assert.ok(s.candidates[0]?.id === s.pick, `Slot ${s.role}: pick must be the first candidate`);
+  }
+  const picks = company.slots.map((s) => s.pick).filter(Boolean);
+  assert.equal(new Set(picks).size, picks.length, "A section must not be picked for two slots");
+  const navPick = slotOf("navigation")?.pick;
+  assert.ok(navPick, "Navigation slot must have a pick");
+  assert.ok(company.shell.template, `Shell must fit navbar ${navPick}`);
+  const navHosts = (loadCatalog().pages ?? []).filter((p) => p.composes?.includes(`sections/${navPick}`));
+  assert.ok(navHosts.some((p) => p.composes?.includes(`templates/${company.shell.template}`)), "Shell must come from a page that uses the picked navbar");
+  assert.equal(planPageResult({ brief: "landing buat startup aplikasi" }).pageType, "saas");
+  assert.equal(planPageResult({ brief: "toko kopi" }).pageType, "storefront");
+  assert.ok("pageTypeNote" in planPageResult({ brief: "xyz" }), "Unmatched brief must say it fell back");
+  assert.equal(planPageResult({ brief: "xyz", pageType: "waitlist" }).pageType, "waitlist");
+  const roleRows = searchComponentsResult({ role: "offerings" });
+  assert.ok(roleRows.length >= 2 && roleRows.every((r) => r.roles?.includes("offerings")), "role filter must match roles");
+
+  // A page reply must stay under Claude Code's 25k-token tool output limit (dumped to file otherwise).
+  assert.ok(OUTPUT_BUDGET_CHARS <= 40_000, "get_component budget must stay well under 25k tokens");
+
+  // Instructions ride along on every turn in Claude Code and Antigravity, so keep them ~400 tokens.
   assert.ok(RAKITEK_INSTRUCTIONS.length < 1600, `Server instructions too long: ${RAKITEK_INSTRUCTIONS.length} chars`);
-  for (const tool of ["suggest_page_blueprint", "get_style", "get_component"]) {
+  for (const tool of ["plan_page", "suggest_page_blueprint", "get_style", "get_component"]) {
     assert.ok(RAKITEK_INSTRUCTIONS.includes(tool), `Instructions must mention ${tool}`);
   }
 
   assertAllComponentImportsResolvable();
 
-  console.log("[rakitek-mcp test] All tool, setup, bundle, blueprint & import-resolution assertions passed.");
+  console.log("[rakitek-mcp test] All tool, setup, bundle, plan, blueprint & import-resolution assertions passed.");
 }
 
 runTests();

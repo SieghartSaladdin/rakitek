@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, type ReactNode } from "react";
+import Lenis from "lenis";
 
 export interface SmoothScrollProviderProps {
   children: ReactNode;
@@ -9,9 +10,10 @@ export interface SmoothScrollProviderProps {
 }
 
 /**
- * Shared single-instance smooth scroll shell for Rakitek-assembled apps.
- * Dynamically loads Lenis only when installed in the host project so components
- * never create conflicting scroll instances.
+ * Shared single-instance smooth scroll shell for Rakitek-assembled apps, so
+ * components never create conflicting scroll instances.
+ * Lenis is a static import on purpose: a computed `import(name)` is skipped by
+ * bundlers (Vite, Next) and then fails in the browser, silently leaving native scroll.
  */
 export function SmoothScrollProvider({
   children,
@@ -21,31 +23,17 @@ export function SmoothScrollProvider({
     if (disabled || typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
     let rafId = 0;
-    let destroy: (() => void) | undefined;
-
-    (async () => {
-      try {
-        const modName = "lenis";
-        const mod = await import(/* webpackIgnore: true */ modName);
-        const Lenis = mod.default;
-        const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-        const raf = (time: number) => {
-          lenis.raf(time);
-          rafId = requestAnimationFrame(raf);
-        };
-        rafId = requestAnimationFrame(raf);
-        destroy = () => {
-          cancelAnimationFrame(rafId);
-          lenis.destroy();
-        };
-      } catch {
-        // Lenis is optional; native scroll remains active if not installed.
-      }
-    })();
+    const raf = (time: number) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
 
     return () => {
-      destroy?.();
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
     };
   }, [disabled]);
 

@@ -1,4 +1,5 @@
 {
+  "normalized": true,
   "viewport": {
     "width": 1920,
     "height": 980
@@ -9,7 +10,7 @@
       "selector": "#quiz",
       "x": 0,
       "y": 0.3,
-      "width": 1905,
+      "width": 1920,
       "height": 1035.8,
       "fontFamily": "TWK Lausanne",
       "fontRendered": "Arial",

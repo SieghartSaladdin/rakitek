@@ -16,6 +16,7 @@ export interface SearchComponentsArgs {
   kind?: ComponentKind | "all";
   level?: AtomicLevel | "all";
   category?: string;
+  role?: string;
   vibe?: string;
   query?: string;
 }
@@ -29,10 +30,11 @@ export interface ComposedComponentInfo {
 }
 
 /**
- * ~15k tokens per reply. Some MCP clients truncate tool output around 25k tokens
- * (Claude Code's default), which would silently cut code mid-file.
+ * Claude Code saves tool output over 25k tokens to a file instead of showing it, and
+ * dense TSX/CSS runs near 2.5 chars per token, so 60k chars already overflowed.
+ * 36k chars stays near 15k tokens with room for the JSON header.
  */
-const OUTPUT_BUDGET_CHARS = 60_000;
+export const OUTPUT_BUDGET_CHARS = 36_000;
 
 const DESCRIPTION_MAX = 140;
 
@@ -58,6 +60,7 @@ export function searchComponentsResult(args: SearchComponentsArgs) {
   const level = args.level && args.level !== "all" ? args.level : undefined;
   const q = args.query?.trim().toLowerCase();
   const cat = args.category?.trim().toLowerCase();
+  const role = args.role?.trim().toLowerCase();
   const vibe = args.vibe?.trim().toLowerCase();
 
   return allComponents(catalog)
@@ -65,9 +68,10 @@ export function searchComponentsResult(args: SearchComponentsArgs) {
       if (kind && item.kind !== kind) return false;
       if (level && item.level !== level) return false;
       if (cat && item.category.toLowerCase() !== cat) return false;
+      if (role && !(item.roles ?? []).includes(role as never)) return false;
       if (vibe && !item.vibes.some((v) => v.toLowerCase() === vibe)) return false;
       if (q) {
-        const hay = `${item.id} ${item.name} ${item.description} ${item.category} ${item.level} ${item.tags.join(" ")}`.toLowerCase();
+        const hay = `${item.id} ${item.name} ${item.description} ${item.category} ${(item.roles ?? []).join(" ")} ${item.level} ${item.tags.join(" ")}`.toLowerCase();
         if (!q.split(/\s+/).every((word) => hay.includes(word))) return false;
       }
       return true;
@@ -77,6 +81,7 @@ export function searchComponentsResult(args: SearchComponentsArgs) {
       kind: item.kind,
       level: item.level,
       category: item.category,
+      ...(item.roles?.length ? { roles: item.roles } : {}),
       name: item.name,
       description: shortDescription(item.description),
       styles: item.recommendedStyles,
@@ -144,11 +149,12 @@ export function getComponentBundle(id: string, withComposed: boolean) {
 export function registerComponentTools(server: McpServer) {
   server.tool(
     "search_components",
-    "Find Rakitek components. Returns compact rows (no code). Filter by kind, atomic level, category (hero, navbar, footer, showcase, story, stats, quiz, manifesto, button, drawer...), vibe, or keywords.",
+    "Find Rakitek components. Returns compact rows (no code). Filter by kind, atomic level, role (what a section communicates: navigation, hero, offerings, about, process, story, stats, proof, engagement, signup, contact, footer, cart), category, vibe, or keywords.",
     {
       kind: z.enum(["ui", "section", "template", "page", "all"]).optional(),
       level: z.enum(["atom", "molecule", "organism", "template", "page", "all"]).optional(),
       category: z.string().optional().describe("Exact category, e.g. hero"),
+      role: z.string().optional().describe("Content role, e.g. offerings or about"),
       vibe: z.string().optional().describe("e.g. editorial, cinematic"),
       query: z.string().optional().describe("Keywords; all words must match"),
     },

@@ -1,34 +1,36 @@
 {
-    "id":  "spotlight-stat-band",
-    "kind":  "section",
-    "level":  "organism",
-    "category":  "story",
-    "name":  "Spotlight Stat Band",
-    "description":  "Full-bleed oversized serif stat section with ease-out count-up animation, cursor-following radial spotlight, hairline animated divider, and three staggered narrative columns.",
-    "styling":  "css-modules",
-    "vibes":  [
-                  "minimal",
-                  "cinematic",
-                  "editorial"
-              ],
-    "recommendedStyles":  [
-                              "kinetic-obsidian",
-                              "editorial-roastery"
-                          ],
-    "dependencies":  [
-                         "motion"
-                     ],
-    "composes":  [
-
-                 ],
-    "sourceRef":  "saas-app/grail-next",
-    "tags":  [
-                 "stat",
-                 "metrics",
-                 "spotlight",
-                 "count-up",
-                 "editorial",
-                 "story",
-                 "css-modules"
-             ]
+  "id": "spotlight-stat-band",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": [
+    "stats",
+    "proof"
+  ],
+  "name": "Spotlight Stat Band",
+  "description": "Full-bleed oversized serif stat section with ease-out count-up animation, cursor-following radial spotlight, hairline animated divider, and three staggered narrative columns.",
+  "styling": "css-modules",
+  "vibes": [
+    "minimal",
+    "cinematic",
+    "editorial"
+  ],
+  "recommendedStyles": [
+    "kinetic-obsidian",
+    "editorial-roastery"
+  ],
+  "dependencies": [
+    "motion"
+  ],
+  "composes": [],
+  "sourceRef": "saas-app/grail-next",
+  "tags": [
+    "stat",
+    "metrics",
+    "spotlight",
+    "count-up",
+    "editorial",
+    "story",
+    "css-modules"
+  ]
 }

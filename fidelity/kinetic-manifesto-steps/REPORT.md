@@ -36,3 +36,18 @@ Seluruh metrik geometri, padding, line-height, tinggi deskripsi (3 baris 94.4px 
 - Mengganti `.tNarrow` dari `--rk-font-display` (`fw 500`, `ls 0.02em`) ke `--rk-font-narrow` (`fw 300`, `ls normal`).
 - Mengembalikan gaya asli `.ctaBtn` (`padding: 5px` / `min(0.35vw, 0.62vh)`, `border: 0`, `border-radius: 3px`, hover ke `--rk-surface-elevated`) dan `.imageBox` (`background: transparent`, overlay `color-mix`, parallax `--yPercent` `scale(1.2)`).
 - Memporting penuh 4 pola GSAP dari `useEscapeAnimations.ts`: split-char `expo.out` bergantian `xPercent`/`yPercent`, scrub parallax `--yPercent`, fade-up `power2.out` dengan `clearProps: "transform"`, serta reveal baris mobile.
+
+## Pembaruan 2026-11-26: props untuk dipakai ulang
+
+Props opsional baru: `id` pada `<section>` dan `onCtaClick` baru. CTA tidak lagi `preventDefault()` otomatis pada href `#...`; link bernavigasi normal kecuali `onCtaClick` diberikan. Default semua prop baru menghasilkan DOM yang sama dengan sebelumnya.
+
+Diukur ulang 2026-11-26 dengan `scripts/fidelity-capture.ts` (label dan selector sama dengan ekstrak lama, build produksi baru):
+
+- 1920x980: 11 elemen, 7 FAIL, 18 WARN
+- 1024x768: 11 elemen, 7 FAIL, 24 WARN
+
+Catatan: semua FAIL tersisa adalah lebar elemen selebar viewport. `original-*.json` diukur sebelum normalisasi scrollbar (scrollbar 15px, lebar 1905/1009px), sedangkan ekstrak baru diukur dengan `fidelity-capture` yang menyembunyikan scrollbar (1920/1024px). FAIL yang sama sudah ada sebelum perubahan ini (ekstrak lama 1910/1014px juga FAIL melawan 1905/1009px). Perbandingan ekstrak lama vs baru hanya berbeda di lebar viewport itu (plus tinggi blok beraspek-rasio yang ikut melebar), tanpa beda struktur atau teks. Perbaikannya: ukur ulang `original-*.json` dengan `measure.js` terbaru (ternormalisasi).
+
+## Pembaruan 2026-11-27: ukur ulang ternormalisasi
+
+`original-*.json` dan `extract-*.json` diukur ulang dengan `scripts/fidelity-capture.ts` (scrollbar disembunyikan di kedua sisi, lebar penuh 1920/1024px). Hasil `npm run fidelity`: 1920x980 11 elemen, **0 FAIL**, 10 WARN; 1024x768 11 elemen, **0 FAIL**, 13 WARN. FAIL lebar viewport di catatan sebelumnya hilang karena kedua sisi kini sama-sama 1920/1024px. Tidak ada perubahan CSS.
