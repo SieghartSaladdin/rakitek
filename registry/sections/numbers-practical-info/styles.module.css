@@ -1,0 +1,132 @@
+.section {
+  position: relative;
+  box-sizing: border-box;
+  padding: 64px 0 96px;
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+.numbersBlock {
+  margin-bottom: 96px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 32px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--rk-fg-muted);
+}
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.number {
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--rk-fg) 10%, transparent);
+}
+
+.numberValue {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--rk-font-display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.05em;
+}
+
+.numberLabel {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rk-fg-muted);
+}
+
+.infoBlock {
+  padding-top: 64px;
+  border-top: 1px solid color-mix(in srgb, var(--rk-fg) 10%, transparent);
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.infoItem {
+  display: flex;
+  gap: 16px;
+}
+
+.icon {
+  display: block;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--rk-fg-muted);
+}
+
+.infoTitle {
+  margin: 0 0 4px;
+  font-family: var(--rk-font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.infoText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--rk-fg-muted);
+}
+
+.infoTextAction {
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .numbers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .numberValue {
+    font-size: 48px;
+    line-height: 1;
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .numbers {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}

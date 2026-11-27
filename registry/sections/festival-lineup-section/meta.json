@@ -1,0 +1,35 @@
+{
+  "id": "festival-lineup-section",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": [
+    "offerings",
+    "proof"
+  ],
+  "name": "Festival Lineup Section",
+  "description": "Event programme block: tiny tracked label, oversized tightly tracked uppercase title with an optional ghost count, optional stat row and description, a three-column grid of notched image cards, and outline plus filled call-to-action buttons.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/festival-card",
+    "ui/notched-button"
+  ],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "lineup",
+    "program",
+    "talks",
+    "cards",
+    "grid",
+    "festival",
+    "css-modules"
+  ]
+}

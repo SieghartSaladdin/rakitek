@@ -1,0 +1,125 @@
+.btn {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 0;
+  background-color: transparent;
+  color: var(--rk-fg);
+  border: 1.5px solid var(--rk-fg);
+  border-radius: 0;
+  font-family: var(--rk-font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sizeSm {
+  padding: 8px 16px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.sizeMd {
+  padding: 12px 24px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.sizeLg {
+  padding: 16px 32px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--rk-fg);
+  outline-offset: 3px;
+}
+
+.outline {
+  overflow: hidden;
+}
+
+.outline::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    color-mix(in srgb, var(--rk-fg) 6%, transparent),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.outline:hover::before {
+  opacity: 1;
+}
+
+.outline:hover {
+  background-color: var(--rk-fg);
+  color: var(--rk-bg);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  box-shadow: var(--rk-shadow);
+}
+
+.inverse {
+  border-color: var(--rk-bg);
+  background-color: var(--rk-bg);
+  color: var(--rk-fg);
+}
+
+.inverse:hover {
+  background-color: var(--rk-fg);
+  color: var(--rk-bg);
+}
+
+.inverse:focus-visible {
+  outline-color: var(--rk-bg);
+}
+
+.filled {
+  background-color: var(--rk-fg);
+  color: var(--rk-bg);
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+}
+
+.filled:hover {
+  background-color: var(--rk-bg);
+  color: var(--rk-fg);
+  clip-path: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.arrow {
+  display: block;
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+}
+
+.sizeLg .arrow {
+  width: 16px;
+  height: 16px;
+}
+
+.sizeSm .arrow {
+  margin-left: 4px;
+}

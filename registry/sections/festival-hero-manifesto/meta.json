@@ -1,0 +1,34 @@
+{
+  "id": "festival-hero-manifesto",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": [
+    "hero",
+    "about"
+  ],
+  "name": "Festival Hero Manifesto",
+  "description": "Poster-style hero: two-line stroked mega title that auto-fits its container, hairline rule, then a four-column info row with oversized date range, tagline and location, stat trio, and stacked filled and outline notched buttons.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/notched-button"
+  ],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "hero",
+    "poster",
+    "title",
+    "date",
+    "fit-text",
+    "festival",
+    "css-modules"
+  ]
+}

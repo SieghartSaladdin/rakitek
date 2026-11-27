@@ -1,0 +1,27 @@
+{
+  "id": "festival-card",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "card",
+  "name": "Festival Card",
+  "description": "Full-bleed image card with dark gradient caption (studio, title, subtitle, location), optional corner badge, pointer-tracked 3D tilt, soft spotlight, and a cut-corner clip-path reveal on hover.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "card",
+    "image",
+    "tilt",
+    "notched",
+    "event",
+    "css-modules"
+  ]
+}

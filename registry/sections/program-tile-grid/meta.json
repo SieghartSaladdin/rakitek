@@ -1,0 +1,30 @@
+{
+  "id": "program-tile-grid",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": [
+    "offerings"
+  ],
+  "name": "Program Tile Grid",
+  "description": "Five-up portrait tile grid under an oversized uppercase heading: full-bleed image tiles with dark gradient captions, a tiny arrow call-to-action, and a cut-corner clip-path reveal with slow image zoom on hover.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "program",
+    "tiles",
+    "grid",
+    "categories",
+    "clip-path",
+    "css-modules"
+  ]
+}

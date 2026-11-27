@@ -1,0 +1,28 @@
+{
+  "id": "neon-brutalist",
+  "name": "Neon Brutalist",
+  "vibe": "editorial",
+  "description": "Stark white canvas with near-black ink, zero-radius geometry, notched cut corners, heavy tightly tracked uppercase grotesk headings with light geometric body copy, and a neon green, magenta, electric blue and vermilion accent set for festival and event identities.",
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "fonts": {
+    "display": "'Inter Tight', 'Helvetica Neue', sans-serif",
+    "body": "'Poppins', sans-serif",
+    "mono": "'Inter Tight', 'Helvetica Neue', sans-serif",
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+  },
+  "palettePreview": {
+    "bg": "#FFFFFF",
+    "surface": "#F7F7F7",
+    "fg": "#121212",
+    "accent": "#00F305"
+  },
+  "tags": [
+    "brutalist",
+    "festival",
+    "event",
+    "light",
+    "neon",
+    "notched",
+    "uppercase"
+  ]
+}

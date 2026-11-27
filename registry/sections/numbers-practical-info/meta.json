@@ -1,0 +1,33 @@
+{
+  "id": "numbers-practical-info",
+  "kind": "section",
+  "level": "organism",
+  "category": "stats",
+  "roles": [
+    "stats",
+    "contact"
+  ],
+  "name": "Numbers and Practical Info",
+  "description": "Two stacked blocks: a hairline-topped grid of big tabular figures with tiny tracked labels, then a three-column practical info row with muted line icons, bold uppercase headings, copy and an optional notched link button.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/notched-button"
+  ],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "stats",
+    "numbers",
+    "info",
+    "venue",
+    "icons",
+    "css-modules"
+  ]
+}

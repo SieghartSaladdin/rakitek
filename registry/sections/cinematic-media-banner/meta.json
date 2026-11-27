@@ -1,0 +1,31 @@
+{
+  "id": "cinematic-media-banner",
+  "kind": "section",
+  "level": "organism",
+  "category": "media",
+  "roles": [
+    "story",
+    "proof"
+  ],
+  "name": "Cinematic Media Banner",
+  "description": "Full-width 21:9 media strip: a cover image on a dark base, with an optional cropped looping video embed (any iframe player URL) that fades in over a poster and a click-blocking overlay.",
+  "styling": "css-modules",
+  "vibes": [
+    "cinematic",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "banner",
+    "video",
+    "image",
+    "cover",
+    "aftermovie",
+    "css-modules"
+  ]
+}
