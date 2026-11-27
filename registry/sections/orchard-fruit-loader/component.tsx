@@ -121,7 +121,6 @@ export function OrchardFruitLoader({
       pending.length = 0;
     };
     // the loader runs once per mount
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paused]);
 
   if (done) return null;

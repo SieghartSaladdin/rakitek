@@ -4,6 +4,7 @@ import { checkFidelityEvidence } from "./lint-evidence";
 import { checkUtilityClasses } from "./lint-utility-classes";
 import { checkRegistryImports } from "./lint-imports";
 import { checkReuse } from "./lint-reuse";
+import { checkLintSuppressions } from "./lint-suppressions";
 
 interface LintIssue {
   rule: string;
@@ -200,6 +201,7 @@ function main() {
   checkFidelityEvidence(ROOT, issues);
   checkUtilityClasses(ROOT, issues);
   checkReuse(ROOT, issues);
+  checkLintSuppressions(ROOT, issues);
 
   if (issues.length === 0) {
     console.log("[rakitek lint] PASS: 0 issues.");

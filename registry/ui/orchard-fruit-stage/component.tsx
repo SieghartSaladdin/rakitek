@@ -111,7 +111,6 @@ export function OrchardFruitStage({
       physics?.destroy();
     };
     // spawn callbacks are read once at mount, as the physics world is built once
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reduced, list, gravity, seed, settledRatio, interactive, clickBlastRadius, fontWaitMs]);
 
   const cls = [styles.stage, reduced ? styles.static : "", className ?? ""].filter(Boolean).join(" ");

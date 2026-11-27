@@ -197,7 +197,6 @@ export function StoryChancesList({
                 style={{ WebkitMaskImage: CREST_MASK_URL, maskImage: CREST_MASK_URL }}
               >
                 {crestPatterns.map((src, i) => (
-                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     key={i}
                     src={src}
@@ -232,7 +231,6 @@ export function StoryChancesList({
                   </div>
                   <p className={styles.itemNum}>{String(i + 1).padStart(2, "0")}</p>
                 </div>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   className={styles.itemPhoto}
                   src={imgSrc}

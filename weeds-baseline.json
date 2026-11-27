@@ -1,0 +1,381 @@
+{
+  "status": "ok",
+  "root": "/home/fafnir/Documents/backup/rea-web/rakitek",
+  "git_roots": [
+    "."
+  ],
+  "excludes": [
+    "apps/web/src/generated/*",
+    "registry/.generated/*"
+  ],
+  "files_scanned": 403,
+  "summary": {
+    "imperative_timer": 97,
+    "nuance_heavy_use_effect": 136,
+    "lint_or_type_suppression": 0,
+    "hack_justification_comment": 0,
+    "total_code_weeds": 233,
+    "comment_lines": 306,
+    "prose_rule_files": 2,
+    "bloated_prose_rule_files": 0
+  },
+  "prose_rules": [
+    {
+      "file": "AGENTS.md",
+      "lines": 67,
+      "words": 981,
+      "absolute_markers": 0,
+      "bloated": false
+    },
+    {
+      "file": "apps/web/AGENTS.md",
+      "lines": 9,
+      "words": 95,
+      "absolute_markers": 0,
+      "bloated": false
+    }
+  ],
+  "comment_density_top": [
+    {
+      "file": "scripts/lint-reuse.ts",
+      "lines": 58,
+      "comment_lines": 8,
+      "comment_ratio": 0.138
+    },
+    {
+      "file": "registry/templates/swiss-grid-shell/component.tsx",
+      "lines": 46,
+      "comment_lines": 6,
+      "comment_ratio": 0.13
+    },
+    {
+      "file": "registry/primitives/smooth-scroll-provider.tsx",
+      "lines": 41,
+      "comment_lines": 5,
+      "comment_ratio": 0.122
+    },
+    {
+      "file": "scripts/fidelity-sink.ts",
+      "lines": 51,
+      "comment_lines": 4,
+      "comment_ratio": 0.078
+    },
+    {
+      "file": "scripts/lint-utility-classes.ts",
+      "lines": 54,
+      "comment_lines": 4,
+      "comment_ratio": 0.074
+    },
+    {
+      "file": "registry/ui/orchard-spinning-jar/component.tsx",
+      "lines": 82,
+      "comment_lines": 6,
+      "comment_ratio": 0.073
+    },
+    {
+      "file": "registry/ui/bookclub-intro-splash/component.tsx",
+      "lines": 119,
+      "comment_lines": 8,
+      "comment_ratio": 0.067
+    },
+    {
+      "file": "registry/ui/mono-studio-note/component.tsx",
+      "lines": 104,
+      "comment_lines": 7,
+      "comment_ratio": 0.067
+    },
+    {
+      "file": "registry/sections/orchard-fruit-loader/component.tsx",
+      "lines": 152,
+      "comment_lines": 10,
+      "comment_ratio": 0.066
+    },
+    {
+      "file": "scripts/fidelity/measure.js",
+      "lines": 123,
+      "comment_lines": 8,
+      "comment_ratio": 0.065
+    },
+    {
+      "file": "registry/sections/orchard-jar-flight/component.tsx",
+      "lines": 176,
+      "comment_lines": 11,
+      "comment_ratio": 0.062
+    },
+    {
+      "file": "packages/mcp/src/tools/component-reply.ts",
+      "lines": 65,
+      "comment_lines": 4,
+      "comment_ratio": 0.062
+    },
+    {
+      "file": "apps/web/src/app/mcp/route.ts",
+      "lines": 49,
+      "comment_lines": 3,
+      "comment_ratio": 0.061
+    },
+    {
+      "file": "scripts/sync-setup.ts",
+      "lines": 83,
+      "comment_lines": 5,
+      "comment_ratio": 0.06
+    },
+    {
+      "file": "registry/ui/mono-line-reveal/component.tsx",
+      "lines": 157,
+      "comment_lines": 9,
+      "comment_ratio": 0.057
+    },
+    {
+      "file": "registry/ui/orchard-fruit-stage/component.tsx",
+      "lines": 145,
+      "comment_lines": 8,
+      "comment_ratio": 0.055
+    },
+    {
+      "file": "registry/sections/giant-wordmark-footer/component.tsx",
+      "lines": 112,
+      "comment_lines": 6,
+      "comment_ratio": 0.054
+    },
+    {
+      "file": "registry/ui/orchard-cursor-label/component.tsx",
+      "lines": 103,
+      "comment_lines": 5,
+      "comment_ratio": 0.049
+    },
+    {
+      "file": "registry/ui/orchard-page-transition/component.tsx",
+      "lines": 42,
+      "comment_lines": 2,
+      "comment_ratio": 0.048
+    },
+    {
+      "file": "registry/sections/orchard-closing-parallax-frame/parallax.ts",
+      "lines": 43,
+      "comment_lines": 2,
+      "comment_ratio": 0.047
+    }
+  ],
+  "findings": {
+    "imperative_timer": [
+      {
+        "file": "apps/web/src/components/CodeViewer.tsx",
+        "line": 65,
+        "snippet": "setTimeout(() => setCopied(false), 1800);"
+      },
+      {
+        "file": "apps/web/src/components/ItemDetailView.tsx",
+        "line": 95,
+        "snippet": "setTimeout(() => setCopiedMcp(false), 1800);"
+      },
+      {
+        "file": "apps/web/src/components/JellyfishCanvas.tsx",
+        "line": 43,
+        "snippet": "if (!reducedMotion) rafId = requestAnimationFrame(tick);"
+      },
+      {
+        "file": "apps/web/src/components/JellyfishCanvas.tsx",
+        "line": 45,
+        "snippet": "rafId = requestAnimationFrame(tick);"
+      },
+      {
+        "file": "registry/primitives/smooth-scroll-provider.tsx",
+        "line": 30,
+        "snippet": "rafId = requestAnimationFrame(raf);"
+      },
+      {
+        "file": "registry/primitives/smooth-scroll-provider.tsx",
+        "line": 32,
+        "snippet": "rafId = requestAnimationFrame(raf);"
+      },
+      {
+        "file": "registry/sections/bookclub-benefits-stage/component.tsx",
+        "line": 90,
+        "snippet": "rafId = requestAnimationFrame(() => { velX = e.clientX - prevX; velY = e.clientY - prevY; prevX = e.clientX; prevY = e.clientY; rafId = null"
+      },
+      {
+        "file": "registry/sections/bookclub-books-carousel/component.tsx",
+        "line": 75,
+        "snippet": "rafId = requestAnimationFrame(tick);"
+      },
+      {
+        "file": "registry/sections/bookclub-books-carousel/component.tsx",
+        "line": 77,
+        "snippet": "rafId = requestAnimationFrame(tick);"
+      },
+      {
+        "file": "registry/sections/bookclub-choice-winners/component.tsx",
+        "line": 102,
+        "snippet": "rafId = requestAnimationFrame(tick);"
+      },
+      {
+        "file": "registry/sections/bookclub-choice-winners/component.tsx",
+        "line": 104,
+        "snippet": "rafId = requestAnimationFrame(tick);"
+      },
+      {
+        "file": "registry/sections/bookclub-faq-accordion/component.tsx",
+        "line": 122,
+        "snippet": "requestAnimationFrame(expand);"
+      },
+      {
+        "file": "registry/sections/bookclub-hero/component.tsx",
+        "line": 110,
+        "snippet": "raf = requestAnimationFrame(tick);"
+      },
+      {
+        "file": "registry/sections/bookclub-hero/component.tsx",
+        "line": 112,
+        "snippet": "raf = requestAnimationFrame(tick);"
+      },
+      {
+        "file": "registry/sections/editorial-dark-footer/component.tsx",
+        "line": 137,
+        "snippet": "const timer = window.setInterval(() => {"
+      },
+      {
+        "file": "registry/sections/festival-hero-manifesto/use-fit-text.ts",
+        "line": 21,
+        "snippet": "rafId = window.requestAnimationFrame(() => {"
+      },
+      {
+        "file": "registry/sections/fixed-video-backdrop/component.tsx",
+        "line": 67,
+        "snippet": "const timer = window.setTimeout(() => setShowFallback(true), fallbackDelayMs);"
+      },
+      {
+        "file": "registry/sections/fixed-video-backdrop/component.tsx",
+        "line": 93,
+        "snippet": "replay = window.setTimeout(() => post(\"play\"), 300);"
+      },
+      {
+        "file": "registry/sections/floating-pill-navbar/component.tsx",
+        "line": 113,
+        "snippet": "timeoutRef.current = setTimeout(() => {"
+      },
+      {
+        "file": "registry/sections/founder-hover-manifesto/component.tsx",
+        "line": 98,
+        "snippet": "delay.current = window.setTimeout(() => setActive(personId), hoverDelayMs);"
+      }
+    ],
+    "nuance_heavy_use_effect": [
+      {
+        "file": "apps/web/src/components/AppShell.tsx",
+        "line": 16,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/CodeViewer.tsx",
+        "line": 54,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/DropdownSelect.tsx",
+        "line": 26,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/FullscreenPreviewModal.tsx",
+        "line": 43,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/JellyfishCanvas.tsx",
+        "line": 9,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/LanguageProvider.tsx",
+        "line": 25,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/LivePreviewFrame.tsx",
+        "line": 40,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/ResponsiveIframeStage.tsx",
+        "line": 44,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/StandalonePreview.tsx",
+        "line": 27,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/StandalonePreview.tsx",
+        "line": 39,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "apps/web/src/components/StandalonePreview.tsx",
+        "line": 63,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/primitives/smooth-scroll-provider.tsx",
+        "line": 22,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/sections/alternating-story-split/component.tsx",
+        "line": 54,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/sections/bookclub-benefits-stage/component.tsx",
+        "line": 63,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/sections/bookclub-books-carousel/component.tsx",
+        "line": 61,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/sections/bookclub-box-sequence/component.tsx",
+        "line": 58,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/sections/bookclub-choice-winners/component.tsx",
+        "line": 70,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/sections/bookclub-faq-accordion/component.tsx",
+        "line": 69,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/sections/bookclub-floating-header/component.tsx",
+        "line": 101,
+        "snippet": "useEffect(() => {"
+      },
+      {
+        "file": "registry/sections/bookclub-floating-header/component.tsx",
+        "line": 108,
+        "snippet": "useEffect(() => {"
+      }
+    ],
+    "lint_or_type_suppression": [],
+    "hack_justification_comment": []
+  },
+  "comparison": {
+    "baseline": "weeds-baseline.json",
+    "delta": {
+      "imperative_timer": 0,
+      "nuance_heavy_use_effect": 0,
+      "lint_or_type_suppression": -5,
+      "hack_justification_comment": 0,
+      "total_code_weeds": -5,
+      "comment_lines": -2,
+      "bloated_prose_rule_files": 0
+    },
+    "regressions": []
+  }
+}

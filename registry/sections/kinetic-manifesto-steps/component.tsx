@@ -174,7 +174,6 @@ export function KineticManifestoSteps({
           <div ref={imageBoxRef} className={styles.imageBox}>
             <div className={styles.imageInner}>
               {visualImage ? (
-                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={visualImage}
                   alt={visualAlt}

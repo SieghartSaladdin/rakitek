@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "app_name": "rakitek-web",
+  "version": "1.0.0",
+  "features": [
+    {
+      "id": "landing-hero",
+      "user_name": "Halaman depan Rakitek dengan canvas interaktif dan tombol masuk showcase",
+      "aliases": ["landing page", "home", "halaman depan"],
+      "entry_point": "/",
+      "selectors_or_anchors": [
+        "h1",
+        "a[href='/overview']",
+        "canvas"
+      ],
+      "key_invariants": [
+        "Heading utama Rakitek dan tombol masuk ke /overview tampil dan bisa diklik",
+        "Tidak ada horizontal overflow di desktop 1440px",
+        "Nol console error, nol uncaught exception, dan nol respons jaringan HTTP 4xx/5xx"
+      ],
+      "verify_command": "npm run verify:web -- landing-hero",
+      "artifacts": ["screenshot", "cdp-runtime-health"]
+    },
+    {
+      "id": "catalog-overview",
+      "user_name": "Ringkasan katalog dan pencarian sidebar kiri",
+      "aliases": ["overview", "sidebar search", "pencarian komponen"],
+      "entry_point": "/overview",
+      "selectors_or_anchors": [
+        "#rk-sidebar-search",
+        "nav",
+        "main h1"
+      ],
+      "key_invariants": [
+        "Sidebar kiri dan kolom pencarian #rk-sidebar-search tampil di desktop",
+        "Mengetik kata kunci 'magnetic' di pencarian menyaring daftar link sidebar ke item yang cocok",
+        "Nol console error, nol uncaught exception, dan nol respons jaringan HTTP 4xx/5xx"
+      ],
+      "verify_command": "npm run verify:web -- catalog-overview",
+      "artifacts": ["screenshot", "cdp-runtime-health"]
+    },
+    {
+      "id": "styles-gallery",
+      "user_name": "Galeri website styles dan palet warna",
+      "aliases": ["styles", "website styles", "tema"],
+      "entry_point": "/styles",
+      "selectors_or_anchors": [
+        "main h1",
+        "#rk-sidebar-search"
+      ],
+      "key_invariants": [
+        "Daftar preset style tampil tanpa horizontal overflow",
+        "Nol console error, nol uncaught exception, dan nol respons jaringan HTTP 4xx/5xx"
+      ],
+      "verify_command": "npm run verify:web -- styles-gallery",
+      "artifacts": ["screenshot", "cdp-runtime-health"]
+    },
+    {
+      "id": "item-detail-preview",
+      "user_name": "Halaman detail komponen dengan tab Preview, Code, dan Usage",
+      "aliases": ["item detail", "preview komponen", "tab kode"],
+      "entry_point": "/item/ui/magnetic-button",
+      "selectors_or_anchors": [
+        "main h1",
+        "iframe",
+        "main button[aria-pressed='true']"
+      ],
+      "key_invariants": [
+        "Preview iframe termuat dan tab Code menampilkan kode sumber komponen saat diklik",
+        "Nol console error, nol uncaught exception, dan nol respons jaringan HTTP 4xx/5xx"
+      ],
+      "verify_command": "npm run verify:web -- item-detail-preview",
+      "artifacts": ["screenshot", "cdp-runtime-health"]
+    },
+    {
+      "id": "docs-guide",
+      "user_name": "Halaman dokumentasi pemakaian, MCP, dan skills",
+      "aliases": ["docs", "dokumentasi", "panduan mcp"],
+      "entry_point": "/docs",
+      "selectors_or_anchors": [
+        "main h1",
+        "#usage",
+        "#mcp",
+        "#skills"
+      ],
+      "key_invariants": [
+        "Semua bagian panduan (#usage, #mcp, #skills) tampil dan bisa diakses",
+        "Nol console error, nol uncaught exception, dan nol respons jaringan HTTP 4xx/5xx"
+      ],
+      "verify_command": "npm run verify:web -- docs-guide",
+      "artifacts": ["screenshot", "cdp-runtime-health"]
+    },
+    {
+      "id": "health-api",
+      "user_name": "Endpoint status kesehatan layanan dan jumlah katalog",
+      "aliases": ["health check", "api health"],
+      "entry_point": "/api/health",
+      "selectors_or_anchors": [
+        "GET /api/health"
+      ],
+      "key_invariants": [
+        "Mengembalikan HTTP 200 dengan JSON status='ok', service='rakitek', styles > 0, dan components > 0"
+      ],
+      "verify_command": "npm run verify:web -- health-api",
+      "artifacts": ["structured-json"]
+    },
+    {
+      "id": "mcp-endpoint",
+      "user_name": "Endpoint MCP online untuk agen AI",
+      "aliases": ["remote mcp", "mcp route"],
+      "entry_point": "/mcp",
+      "selectors_or_anchors": [
+        "POST /mcp"
+      ],
+      "key_invariants": [
+        "Merespons request JSON-RPC initialize dengan HTTP 200 dan metadata server rakitek-mcp"
+      ],
+      "verify_command": "npm run verify:web -- mcp-endpoint",
+      "artifacts": ["structured-json"]
+    }
+  ]
+}

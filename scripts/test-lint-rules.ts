@@ -6,6 +6,7 @@ import { checkFidelityEvidence } from "./lint-evidence";
 import { checkRegistryImports, type ImportLintIssue } from "./lint-imports";
 import { checkUtilityClasses } from "./lint-utility-classes";
 import { checkReuse } from "./lint-reuse";
+import { checkLintSuppressions } from "./lint-suppressions";
 
 function writeFile(root: string, relPath: string, content: string) {
   const full = path.join(root, relPath);
@@ -200,7 +201,41 @@ function runTests() {
     }
   }
 
-  console.log("[rakitek lint-rules test] All 7 synthetic import/hierarchy/composes/evidence/utility-class/reuse assertions passed.");
+  // Case 8: no-lint-suppression. Real past suppression comments fail; clean comments and string literals pass.
+  {
+    const esNext = ["eslint", "disable-next-line"].join("-");
+    const tsIgn = "@" + "ts-ignore";
+    const fx = makeFixture({
+      "registry/sections/bad-suppress/component.tsx": [
+        `// ${esNext} react-hooks/exhaustive-deps`,
+        `export const A = () => <div>{/* ${esNext} @next/next/no-img-element */}<img alt='' /></div>;`,
+        `// ${tsIgn}`,
+        "export const B = 1;",
+      ].join("\n"),
+      "apps/web/src/clean.ts": [
+        "// Normal explanation comment without any suppression directive",
+        `export const note = "// ${esNext} inside a string literal";`,
+      ].join("\n"),
+    });
+    try {
+      const issues: ImportLintIssue[] = [];
+      checkLintSuppressions(fx.root, issues);
+      const got = issues.map((i) => `${i.rule}@${i.file}:${i.line}`);
+      assert.deepEqual(
+        got,
+        [
+          "rakitek/no-lint-suppression@registry/sections/bad-suppress/component.tsx:1",
+          "rakitek/no-lint-suppression@registry/sections/bad-suppress/component.tsx:2",
+          "rakitek/no-lint-suppression@registry/sections/bad-suppress/component.tsx:3",
+        ],
+        `Unexpected suppression issues: ${JSON.stringify(issues)}`,
+      );
+    } finally {
+      fx.cleanup();
+    }
+  }
+
+  console.log("[rakitek lint-rules test] All 8 synthetic lint rule assertions passed.");
 }
 
 runTests();
