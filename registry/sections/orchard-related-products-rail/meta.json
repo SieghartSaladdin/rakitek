@@ -1,0 +1,16 @@
+{
+  "id": "orchard-related-products-rail",
+  "kind": "section",
+  "level": "organism",
+  "category": "offerings",
+  "roles": ["offerings"],
+  "name": "Orchard Related Products Rail",
+  "description": "Closing product suggestion band with a monumental centered serif title above a full-width drag-and-throw rail of 367:481 jar cards that tilt and rotate on hover.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": ["ui/orchard-jar-slide-card"],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["products", "slider", "drag", "related", "cards"]
+}

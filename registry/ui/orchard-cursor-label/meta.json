@@ -1,0 +1,15 @@
+{
+  "id": "orchard-cursor-label",
+  "kind": "ui",
+  "level": "atom",
+  "category": "cursor",
+  "name": "Orchard Cursor Label",
+  "description": "Fixed white pill with a terracotta diamond and uppercase label that eases after a fine pointer, scales in when a slider zone is hovered and stays inert on touch and reduced-motion devices.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["cursor", "pointer", "label", "drag"]
+}

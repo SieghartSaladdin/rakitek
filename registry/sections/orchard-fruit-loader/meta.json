@@ -1,0 +1,16 @@
+{
+  "id": "orchard-fruit-loader",
+  "kind": "section",
+  "level": "organism",
+  "category": "loader",
+  "roles": ["engagement"],
+  "name": "Orchard Fruit Loader",
+  "description": "Full-viewport intro loader with a huge serif percentage counter over two rounds of falling fruit silhouettes, closing with a terracotta panel sweep and a hairline once the pile has settled or a hard timeout passes.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["matter-js"],
+  "composes": ["ui/orchard-fruit-stage"],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["loader", "intro", "physics", "counter", "sweep"]
+}

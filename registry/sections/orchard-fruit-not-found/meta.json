@@ -1,0 +1,16 @@
+{
+  "id": "orchard-fruit-not-found",
+  "kind": "section",
+  "level": "organism",
+  "category": "error",
+  "roles": ["engagement", "navigation"],
+  "name": "Orchard Fruit Not Found",
+  "description": "Full-viewport 404 screen where flat fruit silhouettes and three giant serif status digits drop onto a pile with matter-js, beside a serif headline, a short lead and rolling-letter links, with a static bottom row for reduced motion.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["matter-js"],
+  "composes": ["ui/orchard-fruit-stage"],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["404", "error", "physics", "fruit", "links"]
+}
