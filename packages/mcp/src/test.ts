@@ -215,6 +215,10 @@ function runTests() {
   for (const tool of ["plan_page", "suggest_page_blueprint", "get_style", "get_component"]) {
     assert.ok(RAKITEK_INSTRUCTIONS.includes(tool), `Instructions must mention ${tool}`);
   }
+  assert.ok(
+    RAKITEK_INSTRUCTIONS.includes("anti-slop") && RAKITEK_INSTRUCTIONS.includes("em dashes"),
+    "Instructions must include the anti-slop copywriting guardrail",
+  );
 
   assertAllComponentImportsResolvable();
 

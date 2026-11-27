@@ -86,7 +86,7 @@ export const DOCS_EN: WebCopy["docs"] = {
   skill2Tag: "Skill (Assembly)",
   skill2Desc1: "Guides AI in new client projects to pull verified styles and components from",
   skill2Desc2: ", mount a single",
-  skill2Desc3: ", and tailor props to match the brief.",
+  skill2Desc3: ", tailor props to match the brief, and write grounded anti-slop copy (no AI buzzwords, generic CTAs, em dashes, or fabricated proof).",
   skill2Prompt:
     'Example prompt: "Build a coffee shop landing page with rakitek-build and the editorial-roastery style."',
 };

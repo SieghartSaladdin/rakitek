@@ -227,13 +227,12 @@ function main() {
   const setup = buildSetup(ROOT, new Set(allItems.flatMap((item) => item.dependencies)));
   fs.writeFileSync(path.join(GEN_REGISTRY_DIR, "setup.json"), JSON.stringify(setup) + "\n", "utf8");
 
-  // User-facing skill, downloadable from <site>/skills/<name>/SKILL.md (see install tutorial in Docs).
+  // User-facing skills (SKILL.md + references/), downloadable from <site>/skills/<name>/ (see install tutorial in Docs).
   const skillsSrc = path.join(ROOT, "packages", "plugin", "skills");
   const skillsOut = path.join(ROOT, "apps", "web", "public", "skills");
   fs.rmSync(skillsOut, { recursive: true, force: true });
   for (const name of listSubdirs(skillsSrc)) {
-    ensureDir(path.join(skillsOut, name));
-    fs.copyFileSync(path.join(skillsSrc, name, "SKILL.md"), path.join(skillsOut, name, "SKILL.md"));
+    fs.cpSync(path.join(skillsSrc, name), path.join(skillsOut, name), { recursive: true });
   }
 
   writePreviewMap(allItems);

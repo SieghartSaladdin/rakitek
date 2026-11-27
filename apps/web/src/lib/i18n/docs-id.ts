@@ -86,7 +86,7 @@ export const DOCS_ID: WebCopy["docs"] = {
   skill2Tag: "Skill (Perakitan)",
   skill2Desc1: "Memandu AI di proyek klien baru agar mengambil style dan komponen teruji dari",
   skill2Desc2: ", memasang",
-  skill2Desc3: "tunggal, dan mengedit props sesuai brief.",
+  skill2Desc3: "tunggal, mengedit props sesuai brief, dan menulis copywriting anti-slop yang natural (tanpa buzzword AI, CTA generik, em dash, atau klaim/statistik palsu).",
   skill2Prompt:
     'Contoh prompt: "Bangun landing page coffee shop pakai rakitek-build dan style editorial-roastery."',
 };

@@ -25,7 +25,9 @@ export default function Page() {
 
 export const SITE_URL = "https://rakitek.qifor.my.id";
 export const MCP_URL = `${SITE_URL}/mcp`;
-const SKILL_URL = `${SITE_URL}/skills/rakitek-build/SKILL.md`;
+const SKILL_BASE_URL = `${SITE_URL}/skills/rakitek-build`;
+const SKILL_URL = `${SKILL_BASE_URL}/SKILL.md`;
+const COPYWRITING_REF_URL = `${SKILL_BASE_URL}/references/copywriting.md`;
 
 export type InstallClient = "claude" | "antigravity";
 
@@ -44,13 +46,15 @@ export const INSTALL_SNIPPETS: Record<
     skill: [
       {
         name: "Windows (PowerShell)",
-        code: `New-Item -ItemType Directory -Force "$HOME\\.claude\\skills\\rakitek-build" | Out-Null
-Invoke-WebRequest ${SKILL_URL} -OutFile "$HOME\\.claude\\skills\\rakitek-build\\SKILL.md"`,
+        code: `New-Item -ItemType Directory -Force "$HOME\\.claude\\skills\\rakitek-build\\references" | Out-Null
+Invoke-WebRequest ${SKILL_URL} -OutFile "$HOME\\.claude\\skills\\rakitek-build\\SKILL.md"
+Invoke-WebRequest ${COPYWRITING_REF_URL} -OutFile "$HOME\\.claude\\skills\\rakitek-build\\references\\copywriting.md"`,
       },
       {
         name: "macOS / Linux",
-        code: `mkdir -p ~/.claude/skills/rakitek-build
-curl -fsSL ${SKILL_URL} -o ~/.claude/skills/rakitek-build/SKILL.md`,
+        code: `mkdir -p ~/.claude/skills/rakitek-build/references
+curl -fsSL ${SKILL_URL} -o ~/.claude/skills/rakitek-build/SKILL.md
+curl -fsSL ${COPYWRITING_REF_URL} -o ~/.claude/skills/rakitek-build/references/copywriting.md`,
       },
     ],
     check: `claude mcp list
@@ -72,13 +76,15 @@ curl -fsSL ${SKILL_URL} -o ~/.claude/skills/rakitek-build/SKILL.md`,
     skill: [
       {
         name: "Windows (PowerShell)",
-        code: `New-Item -ItemType Directory -Force "$HOME\\.gemini\\config\\skills\\rakitek-build" | Out-Null
-Invoke-WebRequest ${SKILL_URL} -OutFile "$HOME\\.gemini\\config\\skills\\rakitek-build\\SKILL.md"`,
+        code: `New-Item -ItemType Directory -Force "$HOME\\.gemini\\config\\skills\\rakitek-build\\references" | Out-Null
+Invoke-WebRequest ${SKILL_URL} -OutFile "$HOME\\.gemini\\config\\skills\\rakitek-build\\SKILL.md"
+Invoke-WebRequest ${COPYWRITING_REF_URL} -OutFile "$HOME\\.gemini\\config\\skills\\rakitek-build\\references\\copywriting.md"`,
       },
       {
         name: "macOS / Linux",
-        code: `mkdir -p ~/.gemini/config/skills/rakitek-build
-curl -fsSL ${SKILL_URL} -o ~/.gemini/config/skills/rakitek-build/SKILL.md`,
+        code: `mkdir -p ~/.gemini/config/skills/rakitek-build/references
+curl -fsSL ${SKILL_URL} -o ~/.gemini/config/skills/rakitek-build/SKILL.md
+curl -fsSL ${COPYWRITING_REF_URL} -o ~/.gemini/config/skills/rakitek-build/references/copywriting.md`,
       },
     ],
     check: `Customizations → Installed → MCP Servers

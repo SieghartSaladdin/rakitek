@@ -3,8 +3,9 @@ name: rakitek-build
 description: >-
   Build websites, landing pages, and UI sections from verified Rakitek styles,
   sections, and templates via the rakitek MCP server instead of generating generic
-  UI from scratch. Use when the user asks to build, design, or assemble a website,
-  landing page, or page section, or mentions Rakitek.
+  UI from scratch, with grounded anti-slop copywriting. Use when the user asks to
+  build, design, or assemble a website, landing page, or page section, or mentions
+  Rakitek.
 ---
 
 # Rakitek Build (MCP → website)
@@ -16,6 +17,7 @@ Rakitek is a set of parts, not a set of finished pages. You pick the sections th
 ## Rules
 - Never write a section from scratch when rakitek-mcp has one for that slot. Copy returned files as-is, then adapt them through props.
 - Adapt through props only: copy, images, links, section `id`s, labels and aria text, `formatPrice`, and show/hide flags such as `showCart`. Leave out parts the brief does not need (empty data or the hide prop).
+- Keep all prop copy grounded and anti-slop (see `## Copywriting` below; read `references/copywriting.md` before writing copy).
 - Keep colors, fonts, radii, and easing on `var(--rk-*)`. No hardcoded hex values or new font names.
 - Never rewrite a section's layout or animation from memory. If props cannot make a section fit, pick another candidate for that slot.
 
@@ -46,5 +48,13 @@ Vue pitfalls that silently break animations:
 - `on*` callback props: use a function prop when the React code checks whether the callback exists (e.g. `onClick={onCtaClick}` leaves `#` links native when it is undefined, or `onX ? handler : undefined`). Use emits only for pure notifications. An emit is always "present", so it would change that behavior.
 - `get_component` lists `alsoNeeded` children it did not send; fetch those too.
 
+## Copywriting (anti-slop)
+Before writing prop copy (headlines, descriptions, cards, FAQs, CTAs, footer text) or auditing the page, **read `references/copywriting.md`** in this skill folder for the full anti-slop patterns, before/after examples, voice calibration, and checklist.
+
+Non-negotiables at a glance:
+- Use only facts from the brief; never invent stats, customer counts, testimonials, names, or claims (drop empty `stats`/`proof`/FAQ slots or use explicit placeholders like `[REAL DATA]`).
+- Ban AI buzzwords (*unlock, elevate, seamless, revolutionary, cutting-edge, journey*), generic CTAs (*Get Started, Learn More*), em dashes (`—`), and formulaic AI cadence.
+- Preserve the user's brand voice and concrete details; do not over-sterilize.
+
 ## Verify
-Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text, readable text contrast on every background.
+Run the project's typecheck/build. Check the page at desktop (1440px) and mobile (390px): no horizontal scroll, no clipped or overlapping text, readable text contrast on every background. Then run the Draft -> Audit -> Final copy check in `references/copywriting.md` across all rendered props and confirm zero em dashes or fabricated claims remain.
