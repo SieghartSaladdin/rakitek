@@ -1,29 +1,24 @@
 # Rakitek
 
-**A multi-style UI/UX component registry, visual showcase, and MCP server for AI coding agents.**
+Rakitek is a React component registry built on `--rk-*` CSS tokens, paired with a Next.js preview site and an MCP server. Everything lives in one `registry/` folder, and `npm run sync` builds the catalog data that both the web app and the MCP server read.
 
-Rakitek drives a single component registry (`registry/`) that powers three surfaces automatically:
-- **Visual Showcase** (`apps/web`) — Browse live previews, inspect code, and switch visual styles at [rakitek.qifor.my.id](https://rakitek.qifor.my.id).
-- **MCP Server** (`packages/mcp`) — Stream verified, token-based styles, sections, templates, and page plans directly into Claude Code, Antigravity, and other MCP clients.
-- **Agent Skill** (`packages/plugin`) — Lightweight build workflow (`rakitek-build`) so AI agents assemble real UI components through props instead of generating generic markup from scratch.
+Live preview site and docs: [rakitek.qifor.my.id](https://rakitek.qifor.my.id)
 
----
+## What is in the registry
 
-## What's Inside
+Components read colors, typography, radii, and spacing from `--rk-*` CSS variables, so you can drop a section from one style into another and pass your own copy, images, links, and options through TypeScript props. Sections with motion keep their original animation libraries (GSAP, Lenis, Swiper, Motion, Three.js, or Matter.js).
 
-All components are built on `--rk-*` CSS design tokens, clean TypeScript props, and production animation engines (GSAP, Lenis, Swiper, Motion, Three.js, Matter.js) so sections can be mixed and matched across visual themes.
+Current catalog contents:
 
-- **7 Style Presets**: `azure-editorial`, `editorial-roastery`, `kinetic-obsidian`, `neon-brutalist`, `orchard-terracotta`, `playful-bookclub`, `swiss-mono`
-- **31 UI Primitives** (`registry/ui`)
-- **78 Page Sections** (`registry/sections`)
-- **8 Layout Templates** (`registry/templates`)
-- **11 Complete Demo Pages** (`registry/pages`)
+- 7 style presets: `azure-editorial`, `editorial-roastery`, `kinetic-obsidian`, `neon-brutalist`, `orchard-terracotta`, `playful-bookclub`, and `swiss-mono`
+- 31 UI primitives in `registry/ui`
+- 78 page sections in `registry/sections`
+- 8 layout templates in `registry/templates`
+- 11 demo pages in `registry/pages`
 
----
+## Connect an AI coding agent via MCP
 
-## Use with AI Coding Agents (MCP)
-
-Hosted MCP endpoint: `https://rakitek.qifor.my.id/mcp`
+The hosted MCP endpoint is `https://rakitek.qifor.my.id/mcp`. Once connected, your agent can inspect styles, plan page slots, and pull verified component source files directly into your project.
 
 ### Claude Code
 
@@ -31,7 +26,7 @@ Hosted MCP endpoint: `https://rakitek.qifor.my.id/mcp`
 claude mcp add --transport http --scope user rakitek https://rakitek.qifor.my.id/mcp
 ```
 
-Optional skill install (`rakitek-build`):
+To install the `rakitek-build` skill globally:
 
 ```bash
 mkdir -p ~/.claude/skills/rakitek-build
@@ -40,7 +35,7 @@ curl -fsSL https://rakitek.qifor.my.id/skills/rakitek-build/SKILL.md -o ~/.claud
 
 ### Antigravity
 
-Add to `mcp_config.json`:
+Add the server to `mcp_config.json`:
 
 ```json
 {
@@ -52,36 +47,34 @@ Add to `mcp_config.json`:
 }
 ```
 
-Optional skill install (`rakitek-build`):
+To install the `rakitek-build` skill globally:
 
 ```bash
 mkdir -p ~/.gemini/config/skills/rakitek-build
 curl -fsSL https://rakitek.qifor.my.id/skills/rakitek-build/SKILL.md -o ~/.gemini/config/skills/rakitek-build/SKILL.md
 ```
 
-### Available MCP Tools
+### MCP tools
 
-| Tool | Purpose |
+| Tool | What it returns |
 | --- | --- |
-| `plan_page` | Turn a project brief into ordered content slots with recommended and alternative sections |
-| `list_styles` | Compare available style presets (palettes, typography, vibe) |
-| `get_style` | Fetch `tokens.css`, Google Fonts URL, `base.css`, `SmoothScrollProvider`, and setup command |
-| `search_components` | Search registry items by `kind`, `level`, `role`, `category`, `vibe`, or `query` |
-| `get_component` | Retrieve copy-ready component source files, dependencies, and usage examples |
-| `suggest_page_blueprint` | Fetch a full verified demo page blueprint for a matching niche |
+| `plan_page` | Ordered page slots for a brief, with a default pick and alternative sections for each slot |
+| `list_styles` | Available style presets with palette, typography, and vibe metadata |
+| `get_style` | A style's `tokens.css`, Google Fonts URL, `base.css`, `SmoothScrollProvider`, and install command |
+| `search_components` | Matching component metadata filtered by `kind`, `level`, `role`, `category`, `vibe`, or `query` |
+| `get_component` | Copy-ready component source files, dependencies, and a working prop example |
+| `suggest_page_blueprint` | One complete demo page blueprint when a brief closely matches an existing demo |
 
----
+## Use components manually
 
-## Using Components Manually
-
-1. Copy a style preset's `tokens.css` into your project and import it in your global stylesheet:
+1. Copy a style preset's `tokens.css` from `registry/styles/<style-id>/` and import it in your global stylesheet:
 
 ```css
 @import "tailwindcss";
 @import "./tokens.css";
 ```
 
-2. Set the `data-rk-style` attribute on `<html>` (or your root wrapper):
+2. Set `data-rk-style` on `<html>` (or on the wrapper around your Rakitek sections):
 
 ```tsx
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -93,56 +86,48 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 ```
 
-3. Copy any component folder from `registry/` and pass your own copy, images, links, and options through props.
+3. Copy the component folder you need from `registry/`, install any packages listed in its `meta.json`, and pass your content through props.
 
----
+## Run locally
 
-## Local Development
-
-### Prerequisites
-
-- Node.js 20+
-- npm 10+
-
-### Run Locally
+The Docker image builds on Node.js 22. Install dependencies and start the development server:
 
 ```bash
 npm install
 npm run dev
 ```
 
-This runs `npm run sync` to validate and index `registry/`, then starts the Next.js showcase on [http://localhost:3000](http://localhost:3000).
+`npm run dev` validates `registry/`, regenerates the catalog indexes, and starts the Next.js app on `http://localhost:3000`.
 
-### Useful Scripts
+Root scripts in `package.json`:
 
-```bash
-npm run sync       # Validate registry schemas and regenerate catalog indexes
-npm run build      # Sync, lint, and build both packages/mcp and apps/web
-npm run typecheck  # Type-check MCP server and Next.js showcase
-npm test           # Run sync, lint, lint rule tests, and MCP tests
-```
+- `npm run sync` validates registry schemas and regenerates index files.
+- `npm run lint` checks tokens, WCAG AA contrast, imports, file size, and registry rules.
+- `npm test` runs `sync`, `lint`, lint rule tests, and MCP server tests.
+- `npm run build` runs `sync`, `lint`, and builds `packages/mcp` and `apps/web`.
+- `npm run typecheck` checks TypeScript types across `packages/mcp` and `apps/web`.
 
-### Docker
+To run the production build with Docker:
 
 ```bash
 docker compose up --build
 ```
 
----
-
-## Repository Structure
+## Project layout
 
 ```text
 rakitek/
-├── registry/          # Single source of truth: styles, ui, sections, templates, pages
-├── apps/web/          # Next.js visual showcase & hosted /mcp HTTP endpoint
+├── registry/          # Source of truth: styles, ui, sections, templates, pages
+├── apps/web/          # Next.js preview site and /mcp HTTP route
 ├── packages/mcp/      # Model Context Protocol server (@rakitek/mcp)
 ├── packages/plugin/   # Distributable agent skill (rakitek-build)
-└── scripts/           # Registry sync, validation, and build tooling
+└── scripts/           # Sync, lint, and verification scripts
 ```
 
----
+## Contributing
+
+Bug fixes, style presets, and registry components are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
 
 ## License
 
-MIT — see [LICENSE](./LICENSE).
+MIT. See [LICENSE](./LICENSE).

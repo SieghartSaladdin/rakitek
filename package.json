@@ -2,7 +2,7 @@
   "name": "rakitek",
   "version": "0.1.0",
   "private": true,
-  "description": "Multi-style UI/UX Registry, Next.js Visual Showcase, MCP Server, and Antigravity Skills",
+  "description": "Token-based React component registry, live preview site, MCP server, and agent skill",
   "workspaces": [
     "apps/web",
     "packages/mcp"
@@ -16,6 +16,8 @@
     "fidelity": "tsx scripts/fidelity-compare.ts",
     "fidelity:all": "tsx scripts/fidelity-all.ts",
     "verify": "npm test && npm run fidelity:all && npm run build -w packages/mcp && npm run build -w apps/web",
+    "verify:web": "tsx scripts/verify-web.ts",
+    "verify:properties": "tsx scripts/verify-web-properties.ts",
     "fidelity:capture": "tsx scripts/fidelity-capture.ts",
     "fidelity:sink": "tsx scripts/fidelity-sink.ts",
     "typecheck": "npm run typecheck -w packages/mcp && npm run typecheck -w apps/web"
