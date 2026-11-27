@@ -40,6 +40,8 @@ export interface WebCopy {
     scrollInside: string;
     realMediaQuery: string;
     languageAria: string;
+    githubAria: string;
+    githubStarsAria: (stars: number) => string;
   };
   landing: {
     tagline: string;

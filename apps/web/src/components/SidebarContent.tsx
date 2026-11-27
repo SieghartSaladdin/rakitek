@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { catalog, getAllComponents } from "@/lib/catalog";
 import { groupByCategory } from "@/lib/catalog-utils";
 import type { AtomicLevel, CatalogComponentEntry } from "../../../../registry/schema";
+import { GitHubStarsLink } from "./GitHubStarsLink";
 import { useLanguage } from "./LanguageProvider";
 import { LanguageToggle } from "./LanguageToggle";
 import { RakitekLogo } from "./RakitekLogo";
@@ -224,6 +225,10 @@ export function SidebarContent({ onNavigate }: SidebarContentProps) {
           );
         })}
       </nav>
+
+      <div className="border-t border-white/10 pt-3">
+        <GitHubStarsLink variant="sidebar" />
+      </div>
     </div>
   );
 }

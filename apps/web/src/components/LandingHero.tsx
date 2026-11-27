@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { GitHubStarsLink } from "./GitHubStarsLink";
 import { JellyfishCanvas } from "./JellyfishCanvas";
 import { useLanguage } from "./LanguageProvider";
 import { LanguageToggle } from "./LanguageToggle";
@@ -16,13 +17,16 @@ export function LandingHero() {
         <JellyfishCanvas />
       </div>
 
-      {/* Minimal top-left wordmark + top-right EN/ID toggle */}
-      <header className="pointer-events-none relative z-10 flex items-center justify-between px-6 py-7 sm:px-10 sm:py-9">
+      {/* Minimal top-left wordmark + top-right GitHub stars and EN/ID toggle */}
+      <header className="pointer-events-none relative z-10 flex items-center justify-between gap-3 px-6 py-7 sm:px-10 sm:py-9">
         <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-zinc-200">
           <RakitekLogo size={28} />
           <span>RAKITEK</span>
         </span>
-        <LanguageToggle />
+        <div className="pointer-events-auto flex items-center gap-2.5">
+          <GitHubStarsLink />
+          <LanguageToggle />
+        </div>
       </header>
 
       {/* Bottom minimalist corners: short typography left, single entry button right */}
