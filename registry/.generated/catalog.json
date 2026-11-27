@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T11:46:50.671Z",
+  "generatedAt": "2026-11-27T11:54:02.599Z",
   "styles": [
     {
       "id": "azure-editorial",
@@ -113,6 +113,64 @@
       "tokensPath": "registry/styles/neon-brutalist/tokens.css"
     },
     {
+      "id": "orchard-terracotta",
+      "name": "Orchard Terracotta",
+      "vibe": "editorial",
+      "description": "Sun-warmed cream canvas, deep wine-burgundy ink, terracotta citrus orange and marigold accents, and high-contrast editorial serif display typography paired with geometric sans-serif body text.",
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "fonts": {
+        "display": "'Italiana', Georgia, serif",
+        "body": "'Outfit', 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+        "mono": "'JetBrains Mono', monospace",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      },
+      "palettePreview": {
+        "bg": "#FDF3EB",
+        "surface": "#FFE9D7",
+        "fg": "#762530",
+        "accent": "#E94E1B"
+      },
+      "tags": [
+        "orchard",
+        "artisan",
+        "fnb",
+        "editorial",
+        "warm",
+        "terracotta",
+        "light"
+      ],
+      "tokensPath": "registry/styles/orchard-terracotta/tokens.css"
+    },
+    {
+      "id": "playful-bookclub",
+      "name": "Playful Bookclub",
+      "vibe": "tactile",
+      "description": "Sun-bright yellow, candy pink, electric cyan, and deep violet surfaces paired with chunky rounded display headings, crisp geometric body copy, handwritten margin notes, and elastic spring hover physics.",
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "fonts": {
+        "display": "'Rubik', Arial, sans-serif",
+        "body": "'Barlow', Arial, sans-serif",
+        "mono": "'IBM Plex Mono', monospace",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Barlow:wght@500;600;700&family=Shadows+Into+Light&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      },
+      "palettePreview": {
+        "bg": "#FFFFFF",
+        "surface": "#FFDBFD",
+        "fg": "#000000",
+        "accent": "#FFD24A"
+      },
+      "tags": [
+        "book-club",
+        "ecommerce",
+        "d2c",
+        "playful",
+        "tactile",
+        "editorial",
+        "bright"
+      ],
+      "tokensPath": "registry/styles/playful-bookclub/tokens.css"
+    },
+    {
       "id": "swiss-mono",
       "name": "Swiss Mono",
       "vibe": "editorial",
@@ -143,6 +201,233 @@
     }
   ],
   "ui": [
+    {
+      "id": "bookclub-app-badges",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "roles": [],
+      "name": "Bookclub App Badges",
+      "description": "Paired App Store and Google Play store badge buttons with elastic hover squash, optional outline styling for dark surfaces, and crisp white-label SVG fallbacks.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "app-store",
+        "google-play",
+        "badges",
+        "download",
+        "cta",
+        "playful"
+      ],
+      "componentPath": "registry/ui/bookclub-app-badges/component.tsx",
+      "previewPath": "registry/ui/bookclub-app-badges/preview.tsx",
+      "stylesPath": "registry/ui/bookclub-app-badges/styles.module.css"
+    },
+    {
+      "id": "bookclub-bouncy-cta",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "roles": [],
+      "name": "Bookclub Bouncy CTA",
+      "description": "Two-piece split pill CTA button with detached square icon badge, elastic overshoot hover tilt, optional anchor-arrow rotation, and GSAP SplitText character bounce.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "button",
+        "cta",
+        "elastic",
+        "gsap",
+        "split-text",
+        "playful"
+      ],
+      "componentPath": "registry/ui/bookclub-bouncy-cta/component.tsx",
+      "previewPath": "registry/ui/bookclub-bouncy-cta/preview.tsx",
+      "stylesPath": "registry/ui/bookclub-bouncy-cta/styles.module.css"
+    },
+    {
+      "id": "bookclub-intro-splash",
+      "kind": "ui",
+      "level": "organism",
+      "category": "overlay",
+      "roles": [],
+      "name": "Bookclub Intro Splash",
+      "description": "Full-screen page-load overlay: a thick organic brush stroke covers the viewport, a logo mark pops in with an elastic spring, then the stroke wipes away with GSAP DrawSVG. Removes itself when done, can be switched off, sped up or held, and skips itself for reduced motion.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "intro",
+        "splash",
+        "loader",
+        "page-transition",
+        "overlay",
+        "drawsvg",
+        "gsap",
+        "elastic"
+      ],
+      "componentPath": "registry/ui/bookclub-intro-splash/component.tsx",
+      "previewPath": "registry/ui/bookclub-intro-splash/preview.tsx",
+      "stylesPath": "registry/ui/bookclub-intro-splash/styles.module.css"
+    },
+    {
+      "id": "bookclub-mascot-popup",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "overlay",
+      "roles": [],
+      "name": "Bookclub Mascot Popup",
+      "description": "Circular emblem trigger that reveals a spring-animated speech bubble popover with twitching ear accents and an embedded bouncy CTA.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-bouncy-cta"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "popup",
+        "popover",
+        "mascot",
+        "easter-egg",
+        "cta",
+        "bouncy"
+      ],
+      "componentPath": "registry/ui/bookclub-mascot-popup/component.tsx",
+      "previewPath": "registry/ui/bookclub-mascot-popup/preview.tsx",
+      "stylesPath": "registry/ui/bookclub-mascot-popup/styles.module.css"
+    },
+    {
+      "id": "bookclub-pill-button",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "roles": [],
+      "name": "Bookclub Pill Button",
+      "description": "Rounded navigation pill button with elastic squash hover, GSAP SplitText character bounce, and optional animated ear accents on the active state.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "button",
+        "pill",
+        "nav",
+        "gsap",
+        "split-text",
+        "elastic"
+      ],
+      "componentPath": "registry/ui/bookclub-pill-button/component.tsx",
+      "previewPath": "registry/ui/bookclub-pill-button/preview.tsx",
+      "stylesPath": "registry/ui/bookclub-pill-button/styles.module.css"
+    },
+    {
+      "id": "bookclub-slider-controls",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "navigation",
+      "roles": [],
+      "name": "Bookclub Slider Controls",
+      "description": "Previous and next circular navigation control pair with elastic hover squash and disabled state styling.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "slider",
+        "carousel",
+        "controls",
+        "arrows",
+        "buttons"
+      ],
+      "componentPath": "registry/ui/bookclub-slider-controls/component.tsx",
+      "previewPath": "registry/ui/bookclub-slider-controls/preview.tsx",
+      "stylesPath": "registry/ui/bookclub-slider-controls/styles.module.css"
+    },
+    {
+      "id": "bookclub-social-button",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "roles": [],
+      "name": "Bookclub Social Button",
+      "description": "Circular social icon button with elastic background squash and counter-rotating inner icon bounce on hover, supporting base and big sizes.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "social",
+        "icon-button",
+        "circle",
+        "elastic",
+        "hover"
+      ],
+      "componentPath": "registry/ui/bookclub-social-button/component.tsx",
+      "previewPath": "registry/ui/bookclub-social-button/preview.tsx",
+      "stylesPath": "registry/ui/bookclub-social-button/styles.module.css"
+    },
     {
       "id": "editorial-button",
       "kind": "ui",
@@ -513,6 +798,284 @@
       "stylesPath": "registry/ui/notched-button/styles.module.css"
     },
     {
+      "id": "orchard-cursor-label",
+      "kind": "ui",
+      "level": "atom",
+      "category": "cursor",
+      "roles": [],
+      "name": "Orchard Cursor Label",
+      "description": "Fixed white pill with a terracotta diamond and uppercase label that eases after a fine pointer, scales in when a slider zone is hovered and stays inert on touch and reduced-motion devices.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "cursor",
+        "pointer",
+        "label",
+        "drag"
+      ],
+      "componentPath": "registry/ui/orchard-cursor-label/component.tsx",
+      "previewPath": "registry/ui/orchard-cursor-label/preview.tsx",
+      "stylesPath": "registry/ui/orchard-cursor-label/styles.module.css"
+    },
+    {
+      "id": "orchard-floating-pill-nav",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "navigation",
+      "roles": [],
+      "name": "Orchard Floating Pill Nav",
+      "description": "Sticky bottom frosted-glass pill navigation bar with a smooth-gliding terracotta active indicator pill, scroll-spy section tracking, footer auto-hide, and mobile collapsible drawer pill.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "navigation",
+        "pill",
+        "floating",
+        "sticky",
+        "scrollspy",
+        "editorial",
+        "molecule"
+      ],
+      "componentPath": "registry/ui/orchard-floating-pill-nav/component.tsx",
+      "previewPath": "registry/ui/orchard-floating-pill-nav/preview.tsx",
+      "stylesPath": "registry/ui/orchard-floating-pill-nav/styles.module.css"
+    },
+    {
+      "id": "orchard-format-badge",
+      "kind": "ui",
+      "level": "atom",
+      "category": "badge",
+      "roles": [],
+      "name": "Orchard Format Badge",
+      "description": "Circular hairline-bordered weight and package format chips paired with an uppercase terracotta micro-heading, matching artisanal jar specification rows.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "badge",
+        "chips",
+        "weights",
+        "formats",
+        "circle",
+        "editorial",
+        "atom"
+      ],
+      "componentPath": "registry/ui/orchard-format-badge/component.tsx",
+      "previewPath": "registry/ui/orchard-format-badge/preview.tsx",
+      "stylesPath": "registry/ui/orchard-format-badge/styles.module.css"
+    },
+    {
+      "id": "orchard-fruit-stage",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "motion",
+      "roles": [],
+      "name": "Orchard Fruit Stage",
+      "description": "Full-bleed matter-js stage that drops flat botanical silhouettes (or any element marked data-fruit) with gravity, optional pointer grab and click blast, a settled callback and a static bottom-row layout for prefers-reduced-motion.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "matter-js"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "physics",
+        "matter-js",
+        "fruit",
+        "stage",
+        "gravity"
+      ],
+      "componentPath": "registry/ui/orchard-fruit-stage/component.tsx",
+      "previewPath": "registry/ui/orchard-fruit-stage/preview.tsx",
+      "stylesPath": "registry/ui/orchard-fruit-stage/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "fruit-physics.ts",
+          "path": "registry/ui/orchard-fruit-stage/fruit-physics.ts"
+        },
+        {
+          "name": "fruit-shapes.ts",
+          "path": "registry/ui/orchard-fruit-stage/fruit-shapes.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-jar-slide-card",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "card",
+      "roles": [],
+      "name": "Orchard Jar Slide Card",
+      "description": "Rounded 367:481 product card that responds to hover with a gentle tilt-scale reveal, 1.1x rotating product silhouette, and Matter.js falling botanical SVG physics.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "matter-js"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "card",
+        "product",
+        "physics",
+        "matter-js",
+        "hover",
+        "botanical",
+        "molecule"
+      ],
+      "componentPath": "registry/ui/orchard-jar-slide-card/component.tsx",
+      "previewPath": "registry/ui/orchard-jar-slide-card/preview.tsx",
+      "stylesPath": "registry/ui/orchard-jar-slide-card/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "fruit-physics.ts",
+          "path": "registry/ui/orchard-jar-slide-card/fruit-physics.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-page-transition",
+      "kind": "ui",
+      "level": "atom",
+      "category": "transition",
+      "roles": [],
+      "name": "Orchard Page Transition",
+      "description": "Viewport-sized wine panel that slides up to cover the page and lifts away, with a hairline sweeping along its bottom edge, plus cover and lift finished callbacks for routing.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "transition",
+        "overlay",
+        "panel",
+        "routing"
+      ],
+      "componentPath": "registry/ui/orchard-page-transition/component.tsx",
+      "previewPath": "registry/ui/orchard-page-transition/preview.tsx",
+      "stylesPath": "registry/ui/orchard-page-transition/styles.module.css"
+    },
+    {
+      "id": "orchard-rolling-toggle",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "roles": [],
+      "name": "Orchard Rolling Toggle",
+      "description": "Two-piece editorial pill and circular diamond/close disc toggle button with character-by-character vertical roll hover animation, open-state cross morph, and light/dark surface polarity.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "button",
+        "toggle",
+        "menu",
+        "roll",
+        "pill",
+        "editorial",
+        "atom"
+      ],
+      "componentPath": "registry/ui/orchard-rolling-toggle/component.tsx",
+      "previewPath": "registry/ui/orchard-rolling-toggle/preview.tsx",
+      "stylesPath": "registry/ui/orchard-rolling-toggle/styles.module.css"
+    },
+    {
+      "id": "orchard-spinning-jar",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "product",
+      "roles": [],
+      "name": "Orchard Spinning Jar",
+      "description": "630:1013 product jar photo with a three.js lathe cylinder that wraps flat label artwork, copies it onto a 2D canvas and rotates it with a 0 to 1 spin value, falling back to a flat label image when WebGL is unavailable.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "three"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "three",
+        "webgl",
+        "jar",
+        "label",
+        "product"
+      ],
+      "componentPath": "registry/ui/orchard-spinning-jar/component.tsx",
+      "previewPath": "registry/ui/orchard-spinning-jar/preview.tsx",
+      "stylesPath": "registry/ui/orchard-spinning-jar/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "jar-art.ts",
+          "path": "registry/ui/orchard-spinning-jar/jar-art.ts"
+        },
+        {
+          "name": "jar-label.ts",
+          "path": "registry/ui/orchard-spinning-jar/jar-label.ts"
+        }
+      ]
+    },
+    {
       "id": "rolling-cta-button",
       "kind": "ui",
       "level": "atom",
@@ -731,6 +1294,555 @@
       "componentPath": "registry/sections/alternating-story-split/component.tsx",
       "previewPath": "registry/sections/alternating-story-split/preview.tsx",
       "stylesPath": "registry/sections/alternating-story-split/styles.module.css"
+    },
+    {
+      "id": "bookclub-benefits-stage",
+      "kind": "section",
+      "level": "organism",
+      "category": "benefits",
+      "roles": [
+        "proof",
+        "about"
+      ],
+      "name": "Bookclub Benefits Stage",
+      "description": "Pale-yellow rounded 16:9 showcase stage with centered emblem, breathing organic wave SVG backdrop, and five floating benefit pills powered by GSAP elastic entry and InertiaPlugin momentum hover physics.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "benefits",
+        "pills",
+        "inertia",
+        "gsap",
+        "momentum",
+        "playful"
+      ],
+      "componentPath": "registry/sections/bookclub-benefits-stage/component.tsx",
+      "previewPath": "registry/sections/bookclub-benefits-stage/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-benefits-stage/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "bg-svg.tsx",
+          "path": "registry/sections/bookclub-benefits-stage/bg-svg.tsx"
+        }
+      ]
+    },
+    {
+      "id": "bookclub-books-carousel",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "offerings"
+      ],
+      "name": "Bookclub Books Carousel",
+      "description": "Horizontal Smooothy parallax book showcase with sinusoidal card tilt, automatic luminance-aware text contrast, twitching ear hover accents, genre pill tags, and circular arrow controls.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "smooothy",
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-slider-controls"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "carousel",
+        "slider",
+        "smooothy",
+        "books",
+        "cards",
+        "parallax"
+      ],
+      "componentPath": "registry/sections/bookclub-books-carousel/component.tsx",
+      "previewPath": "registry/sections/bookclub-books-carousel/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-books-carousel/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "defaults.tsx",
+          "path": "registry/sections/bookclub-books-carousel/defaults.tsx"
+        },
+        {
+          "name": "parallax-slider.ts",
+          "path": "registry/sections/bookclub-books-carousel/parallax-slider.ts"
+        }
+      ]
+    },
+    {
+      "id": "bookclub-box-sequence",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "story",
+        "about"
+      ],
+      "name": "Bookclub Box Sequence",
+      "description": "Pinned 300svh scroll-scrubbed canvas frame sequence inside a pale-blue rounded viewport with SplitText handwritten callouts, mascot popover, and App Store / Google Play badges.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-app-badges",
+        "ui/bookclub-mascot-popup"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "scroll-sequence",
+        "sticky",
+        "canvas",
+        "gsap",
+        "scrolltrigger",
+        "app-badges"
+      ],
+      "componentPath": "registry/sections/bookclub-box-sequence/component.tsx",
+      "previewPath": "registry/sections/bookclub-box-sequence/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-box-sequence/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "sequence.ts",
+          "path": "registry/sections/bookclub-box-sequence/sequence.ts"
+        }
+      ]
+    },
+    {
+      "id": "bookclub-choice-winners",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "proof",
+        "offerings"
+      ],
+      "name": "Bookclub Choice Winners",
+      "description": "Yellow rounded award showcase with Smooothy horizontal parallax slider, circular author portraits, starburst year badges, blurred upcoming-vote card, heart plop-in, and GSAP emoji rain.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "smooothy",
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-mascot-popup",
+        "ui/bookclub-slider-controls"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "awards",
+        "winners",
+        "slider",
+        "smooothy",
+        "celebration",
+        "gsap"
+      ],
+      "componentPath": "registry/sections/bookclub-choice-winners/component.tsx",
+      "previewPath": "registry/sections/bookclub-choice-winners/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-choice-winners/styles.module.css"
+    },
+    {
+      "id": "bookclub-exclusive-showcase",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "proof",
+        "offerings"
+      ],
+      "name": "Bookclub Exclusive Showcase",
+      "description": "Framed anthology feature card with star rating badge, drop-shadow, tilted author callout pill, handwritten reader quotes, decorative badges, and embedded bouncy CTA.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "smooothy"
+      ],
+      "composes": [
+        "ui/bookclub-bouncy-cta",
+        "ui/bookclub-slider-controls"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "exclusive",
+        "anthology",
+        "feature",
+        "rating",
+        "quotes",
+        "card"
+      ],
+      "componentPath": "registry/sections/bookclub-exclusive-showcase/component.tsx",
+      "previewPath": "registry/sections/bookclub-exclusive-showcase/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-exclusive-showcase/styles.module.css"
+    },
+    {
+      "id": "bookclub-faq-accordion",
+      "kind": "section",
+      "level": "organism",
+      "category": "faq",
+      "roles": [
+        "contact",
+        "about"
+      ],
+      "name": "Bookclub FAQ Accordion",
+      "description": "Soft-blue accordion FAQ section with WAAPI height expand/collapse animations, rotating plus/minus icons, breathing wave SVG backdrop, bouncy CTA, and mascot popover.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-bouncy-cta",
+        "ui/bookclub-mascot-popup"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "faq",
+        "accordion",
+        "details",
+        "waapi",
+        "bouncy",
+        "playful"
+      ],
+      "componentPath": "registry/sections/bookclub-faq-accordion/component.tsx",
+      "previewPath": "registry/sections/bookclub-faq-accordion/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-faq-accordion/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "bg-svg.tsx",
+          "path": "registry/sections/bookclub-faq-accordion/bg-svg.tsx"
+        }
+      ]
+    },
+    {
+      "id": "bookclub-floating-header",
+      "kind": "section",
+      "level": "organism",
+      "category": "navigation",
+      "roles": [
+        "navigation"
+      ],
+      "name": "Bookclub Floating Header",
+      "description": "Fixed three-column navigation header with pill links, bouncy CTA, social buttons, scroll-reactive side slide-up, and full-screen spring-clipped mobile menu drawer.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-pill-button",
+        "ui/bookclub-bouncy-cta",
+        "ui/bookclub-social-button"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "header",
+        "navbar",
+        "navigation",
+        "mobile-menu",
+        "drawer",
+        "floating"
+      ],
+      "componentPath": "registry/sections/bookclub-floating-header/component.tsx",
+      "previewPath": "registry/sections/bookclub-floating-header/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-floating-header/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "mobile-menu.module.css",
+          "path": "registry/sections/bookclub-floating-header/mobile-menu.module.css"
+        },
+        {
+          "name": "mobile-menu.tsx",
+          "path": "registry/sections/bookclub-floating-header/mobile-menu.tsx"
+        }
+      ]
+    },
+    {
+      "id": "bookclub-genre-showcase",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "engagement",
+        "offerings"
+      ],
+      "name": "Bookclub Genre Showcase",
+      "description": "Bright-pink rounded genre list where hovering swaps display type to handwritten script, parts neighboring items, and reveals four mouse-parallax cover stacks.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-mascot-popup"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "genres",
+        "hover",
+        "parallax",
+        "typography",
+        "showcase"
+      ],
+      "componentPath": "registry/sections/bookclub-genre-showcase/component.tsx",
+      "previewPath": "registry/sections/bookclub-genre-showcase/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-genre-showcase/styles.module.css"
+    },
+    {
+      "id": "bookclub-gift-feature",
+      "kind": "section",
+      "level": "organism",
+      "category": "feature",
+      "roles": [
+        "story",
+        "offerings"
+      ],
+      "name": "Bookclub Gift Feature",
+      "description": "Gifting spotlight with scroll-scrubbed SVG textPath curved headline, copy + bouncy CTA column, press logo tiles, and elastic pop-in tilted package visual.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-bouncy-cta"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "gift",
+        "svg-text-path",
+        "scroll-scrub",
+        "press-logos",
+        "feature"
+      ],
+      "componentPath": "registry/sections/bookclub-gift-feature/component.tsx",
+      "previewPath": "registry/sections/bookclub-gift-feature/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-gift-feature/styles.module.css"
+    },
+    {
+      "id": "bookclub-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero"
+      ],
+      "name": "Bookclub Hero",
+      "description": "Sun-yellow rounded hero section with SplitText word-bounce headline, handwritten margin note, bouncy CTA, floating mascot popover, breathing organic SVG backdrop, and looping box frame canvas.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-bouncy-cta",
+        "ui/bookclub-mascot-popup"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "hero",
+        "book-club",
+        "gsap",
+        "split-text",
+        "canvas",
+        "playful"
+      ],
+      "componentPath": "registry/sections/bookclub-hero/component.tsx",
+      "previewPath": "registry/sections/bookclub-hero/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-hero/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "bg-svg.tsx",
+          "path": "registry/sections/bookclub-hero/bg-svg.tsx"
+        },
+        {
+          "name": "hero-anim.ts",
+          "path": "registry/sections/bookclub-hero/hero-anim.ts"
+        }
+      ]
+    },
+    {
+      "id": "bookclub-how-it-works",
+      "kind": "section",
+      "level": "organism",
+      "category": "process",
+      "roles": [
+        "process"
+      ],
+      "name": "Bookclub How It Works",
+      "description": "Soft-pink rounded process band with four overlapping color-coded step cards that fan out on mouse hover using GSAP elastic spring physics, plus floating mascot badge and bouncy CTA.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-bouncy-cta"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "process",
+        "steps",
+        "cards",
+        "gsap",
+        "elastic",
+        "how-it-works"
+      ],
+      "componentPath": "registry/sections/bookclub-how-it-works/component.tsx",
+      "previewPath": "registry/sections/bookclub-how-it-works/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-how-it-works/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "bg-svg.tsx",
+          "path": "registry/sections/bookclub-how-it-works/bg-svg.tsx"
+        }
+      ]
+    },
+    {
+      "id": "bookclub-promo-banners",
+      "kind": "section",
+      "level": "organism",
+      "category": "banner",
+      "roles": [
+        "engagement",
+        "proof"
+      ],
+      "name": "Bookclub Promo Banners",
+      "description": "Layered tilted promotional ribbon banners with wavy organic vector fills and GSAP ScrollTrigger elastic snap-in motion.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "promo",
+        "banner",
+        "ribbon",
+        "gsap",
+        "scrolltrigger",
+        "elastic"
+      ],
+      "componentPath": "registry/sections/bookclub-promo-banners/component.tsx",
+      "previewPath": "registry/sections/bookclub-promo-banners/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-promo-banners/styles.module.css"
+    },
+    {
+      "id": "bookclub-wave-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "roles": [
+        "footer",
+        "signup"
+      ],
+      "name": "Bookclub Wave Footer",
+      "description": "Deep-violet newsletter footer with overlapping black copyright bar, GSAP ScrollTrigger parallax box reveal, app store badges, social buttons, and validated mailing-list signup.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "ui/bookclub-app-badges",
+        "ui/bookclub-bouncy-cta",
+        "ui/bookclub-social-button"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "footer",
+        "newsletter",
+        "parallax",
+        "gsap",
+        "signup",
+        "violet"
+      ],
+      "componentPath": "registry/sections/bookclub-wave-footer/component.tsx",
+      "previewPath": "registry/sections/bookclub-wave-footer/preview.tsx",
+      "stylesPath": "registry/sections/bookclub-wave-footer/styles.module.css"
     },
     {
       "id": "cinematic-media-banner",
@@ -1722,6 +2834,919 @@
       ]
     },
     {
+      "id": "orchard-closing-parallax-frame",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Orchard Closing Parallax Frame",
+      "description": "Inset 1002:790 rounded closing photograph centered on columns 3 to 10 whose oversized image drifts behind the frame with a clamped scrubbed parallax.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "image",
+        "parallax",
+        "closing",
+        "frame"
+      ],
+      "componentPath": "registry/sections/orchard-closing-parallax-frame/component.tsx",
+      "previewPath": "registry/sections/orchard-closing-parallax-frame/preview.tsx",
+      "stylesPath": "registry/sections/orchard-closing-parallax-frame/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "parallax.ts",
+          "path": "registry/sections/orchard-closing-parallax-frame/parallax.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-editorial-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "roles": [
+        "footer"
+      ],
+      "name": "Orchard Editorial Footer",
+      "description": "Full-viewport deep wine-burgundy editorial footer featuring a large 9-column brand display mark, 4-column structured navigation, dual office address stack, social/email CTA, and hairline-bordered legal strip.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "footer",
+        "editorial",
+        "columns",
+        "addresses",
+        "wine",
+        "dark"
+      ],
+      "componentPath": "registry/sections/orchard-editorial-footer/component.tsx",
+      "previewPath": "registry/sections/orchard-editorial-footer/preview.tsx",
+      "stylesPath": "registry/sections/orchard-editorial-footer/styles.module.css"
+    },
+    {
+      "id": "orchard-editorial-page-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero"
+      ],
+      "name": "Orchard Editorial Page Hero",
+      "description": "Monumental centered serif page headline paired with an expanding inset full-bleed cover image featuring GSAP ScrollTrigger parallax and optional overlay headline.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "hero",
+        "editorial",
+        "parallax",
+        "gsap",
+        "clip-path",
+        "cover"
+      ],
+      "componentPath": "registry/sections/orchard-editorial-page-hero/component.tsx",
+      "previewPath": "registry/sections/orchard-editorial-page-hero/preview.tsx",
+      "stylesPath": "registry/sections/orchard-editorial-page-hero/styles.module.css"
+    },
+    {
+      "id": "orchard-expanding-cover-outro",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "story",
+        "about"
+      ],
+      "name": "Orchard Expanding Cover Outro",
+      "description": "Full-bleed 16:9 closing editorial visual band that expands from inset rounded corners to edge-to-edge on scroll with GSAP parallax and scale settle.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "outro",
+        "cover",
+        "parallax",
+        "gsap",
+        "clip-path",
+        "editorial"
+      ],
+      "componentPath": "registry/sections/orchard-expanding-cover-outro/component.tsx",
+      "previewPath": "registry/sections/orchard-expanding-cover-outro/preview.tsx",
+      "stylesPath": "registry/sections/orchard-expanding-cover-outro/styles.module.css"
+    },
+    {
+      "id": "orchard-fruit-loader",
+      "kind": "section",
+      "level": "organism",
+      "category": "loader",
+      "roles": [
+        "engagement"
+      ],
+      "name": "Orchard Fruit Loader",
+      "description": "Full-viewport intro loader with a huge serif percentage counter over two rounds of falling fruit silhouettes, closing with a terracotta panel sweep and a hairline once the pile has settled or a hard timeout passes.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "matter-js"
+      ],
+      "composes": [
+        "ui/orchard-fruit-stage"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "loader",
+        "intro",
+        "physics",
+        "counter",
+        "sweep"
+      ],
+      "componentPath": "registry/sections/orchard-fruit-loader/component.tsx",
+      "previewPath": "registry/sections/orchard-fruit-loader/preview.tsx",
+      "stylesPath": "registry/sections/orchard-fruit-loader/styles.module.css"
+    },
+    {
+      "id": "orchard-fruit-not-found",
+      "kind": "section",
+      "level": "organism",
+      "category": "error",
+      "roles": [
+        "engagement",
+        "navigation"
+      ],
+      "name": "Orchard Fruit Not Found",
+      "description": "Full-viewport 404 screen where flat fruit silhouettes and three giant serif status digits drop onto a pile with matter-js, beside a serif headline, a short lead and rolling-letter links, with a static bottom row for reduced motion.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "matter-js"
+      ],
+      "composes": [
+        "ui/orchard-fruit-stage"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "404",
+        "error",
+        "physics",
+        "fruit",
+        "links"
+      ],
+      "componentPath": "registry/sections/orchard-fruit-not-found/component.tsx",
+      "previewPath": "registry/sections/orchard-fruit-not-found/preview.tsx",
+      "stylesPath": "registry/sections/orchard-fruit-not-found/styles.module.css"
+    },
+    {
+      "id": "orchard-fruit-pause-stage",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "story",
+        "about"
+      ],
+      "name": "Orchard Fruit Pause Stage",
+      "description": "Full-height scroll pause where four flat botanical fruit silhouettes fly from the stage centre to their resting corners while a pinned serif line fades in, driven by a GSAP ScrollTrigger scrub.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "scroll",
+        "pin",
+        "scrub",
+        "fruit",
+        "story",
+        "pause"
+      ],
+      "componentPath": "registry/sections/orchard-fruit-pause-stage/component.tsx",
+      "previewPath": "registry/sections/orchard-fruit-pause-stage/preview.tsx",
+      "stylesPath": "registry/sections/orchard-fruit-pause-stage/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "pause-fruits.ts",
+          "path": "registry/sections/orchard-fruit-pause-stage/pause-fruits.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-gravity-contact-stage",
+      "kind": "section",
+      "level": "organism",
+      "category": "contact",
+      "roles": [
+        "contact",
+        "engagement"
+      ],
+      "name": "Orchard Gravity Contact Stage",
+      "description": "Split-screen editorial contact section pairing an interactive Matter.js falling botanical SVG stage on the left (click to blast upward) with a 6-column typography and office contact grid on the right.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "matter-js"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "contact",
+        "physics",
+        "matter-js",
+        "interactive",
+        "botanical",
+        "split"
+      ],
+      "componentPath": "registry/sections/orchard-gravity-contact-stage/component.tsx",
+      "previewPath": "registry/sections/orchard-gravity-contact-stage/preview.tsx",
+      "stylesPath": "registry/sections/orchard-gravity-contact-stage/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "fruit-stage.ts",
+          "path": "registry/sections/orchard-gravity-contact-stage/fruit-stage.ts"
+        },
+        {
+          "name": "fruit-svgs.ts",
+          "path": "registry/sections/orchard-gravity-contact-stage/fruit-svgs.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-jar-flight",
+      "kind": "section",
+      "level": "organism",
+      "category": "transition",
+      "roles": [
+        "engagement"
+      ],
+      "name": "Orchard Jar Flight",
+      "description": "Fixed clone of a clicked product jar that eases from its slider pose to the destination hero pose in two seconds while a three.js label spins, then fades out on landing with a fail-safe timeout.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "three"
+      ],
+      "composes": [
+        "ui/orchard-spinning-jar"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "flight",
+        "transition",
+        "jar",
+        "three",
+        "overlay"
+      ],
+      "componentPath": "registry/sections/orchard-jar-flight/component.tsx",
+      "previewPath": "registry/sections/orchard-jar-flight/preview.tsx",
+      "stylesPath": "registry/sections/orchard-jar-flight/styles.module.css"
+    },
+    {
+      "id": "orchard-jar-marquee-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero"
+      ],
+      "name": "Orchard Jar Marquee Hero",
+      "description": "Full-viewport interactive hero featuring a curved-path marquee of Three.js 3D-wrapped product jars with spring hover physics, wheel/drag momentum, scalloped arch backdrop, rotating circular badge, and center CTA.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "three"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "hero",
+        "3d",
+        "threejs",
+        "marquee",
+        "spring-physics",
+        "jars",
+        "interactive"
+      ],
+      "componentPath": "registry/sections/orchard-jar-marquee-hero/component.tsx",
+      "previewPath": "registry/sections/orchard-jar-marquee-hero/preview.tsx",
+      "stylesPath": "registry/sections/orchard-jar-marquee-hero/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "default-art.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/default-art.ts"
+        },
+        {
+          "name": "jar-input.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/jar-input.ts"
+        },
+        {
+          "name": "jar-math.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/jar-math.ts"
+        },
+        {
+          "name": "jar-renderer.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/jar-renderer.ts"
+        },
+        {
+          "name": "jar-slider.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/jar-slider.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-legal-document",
+      "kind": "section",
+      "level": "organism",
+      "category": "legal",
+      "roles": [
+        "footer",
+        "about"
+      ],
+      "name": "Orchard Legal Document",
+      "description": "Narrow readable privacy and cookie policy page with a serif title, muted update line, numbered serif headings, bullet lists, a horizontally scrollable cookie table and an optional pill action button.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "legal",
+        "privacy",
+        "cookies",
+        "policy",
+        "text"
+      ],
+      "componentPath": "registry/sections/orchard-legal-document/component.tsx",
+      "previewPath": "registry/sections/orchard-legal-document/preview.tsx",
+      "stylesPath": "registry/sections/orchard-legal-document/styles.module.css"
+    },
+    {
+      "id": "orchard-parallax-poster-band",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "offerings",
+        "story"
+      ],
+      "name": "Orchard Parallax Poster Band",
+      "description": "Full-bleed 1517:1230 layered parallax poster featuring edge-to-edge photography, auto-fitted monumental display typography behind a GSAP-parallaxed foreground cutout, centered editorial details, and optional product rail.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap",
+        "matter-js"
+      ],
+      "composes": [
+        "ui/orchard-format-badge",
+        "ui/orchard-jar-slide-card"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "poster",
+        "parallax",
+        "layered",
+        "foreground",
+        "gsap",
+        "offerings"
+      ],
+      "componentPath": "registry/sections/orchard-parallax-poster-band/component.tsx",
+      "previewPath": "registry/sections/orchard-parallax-poster-band/preview.tsx",
+      "stylesPath": "registry/sections/orchard-parallax-poster-band/styles.module.css"
+    },
+    {
+      "id": "orchard-photo-drag-slider",
+      "kind": "section",
+      "level": "organism",
+      "category": "gallery",
+      "roles": [
+        "proof",
+        "story"
+      ],
+      "name": "Orchard Photo Drag Slider",
+      "description": "Infinite looping photo gallery of 980:702 rounded slides driven by transforms, with pointer drag momentum, arrow-key stepping, per-slide image parallax and an optional custom-cursor label hook.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "gallery",
+        "slider",
+        "drag",
+        "parallax",
+        "carousel"
+      ],
+      "componentPath": "registry/sections/orchard-photo-drag-slider/component.tsx",
+      "previewPath": "registry/sections/orchard-photo-drag-slider/preview.tsx",
+      "stylesPath": "registry/sections/orchard-photo-drag-slider/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "default-slides.ts",
+          "path": "registry/sections/orchard-photo-drag-slider/default-slides.ts"
+        },
+        {
+          "name": "slider-math.ts",
+          "path": "registry/sections/orchard-photo-drag-slider/slider-math.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-product-detail-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero",
+        "offerings"
+      ],
+      "name": "Orchard Product Detail Hero",
+      "description": "Full-viewport sticky product hero with a monumental serif product name that falls behind a rising, rotating jar as the visitor scrolls, a category link and origin line, and a three.js label that spins with the scroll progress.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap",
+        "three"
+      ],
+      "composes": [
+        "ui/orchard-spinning-jar"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "hero",
+        "product",
+        "jar",
+        "three",
+        "scroll",
+        "parallax"
+      ],
+      "componentPath": "registry/sections/orchard-product-detail-hero/component.tsx",
+      "previewPath": "registry/sections/orchard-product-detail-hero/preview.tsx",
+      "stylesPath": "registry/sections/orchard-product-detail-hero/styles.module.css"
+    },
+    {
+      "id": "orchard-product-meta-band",
+      "kind": "section",
+      "level": "organism",
+      "category": "offerings",
+      "roles": [
+        "offerings",
+        "process"
+      ],
+      "name": "Orchard Product Meta Band",
+      "description": "Hairline-ruled three-column product facts band with uppercase terracotta labels, a free-text tips column, circular weight chips and a shelf-life note that stacks centered on tablet and mobile.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "product",
+        "details",
+        "weights",
+        "shelf-life",
+        "specs"
+      ],
+      "componentPath": "registry/sections/orchard-product-meta-band/component.tsx",
+      "previewPath": "registry/sections/orchard-product-meta-band/preview.tsx",
+      "stylesPath": "registry/sections/orchard-product-meta-band/styles.module.css"
+    },
+    {
+      "id": "orchard-product-showcase",
+      "kind": "section",
+      "level": "organism",
+      "category": "offerings",
+      "roles": [
+        "offerings"
+      ],
+      "name": "Orchard Product Showcase",
+      "description": "12-column editorial product line showcase pairing a monumental serif heading, GSAP-parallaxed lifestyle cover or inline drag-momentum slider, specification weight chips, and a full-width physics-enabled jar rail.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap",
+        "matter-js"
+      ],
+      "composes": [
+        "ui/orchard-format-badge",
+        "ui/orchard-jar-slide-card"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "showcase",
+        "products",
+        "slider",
+        "parallax",
+        "gsap",
+        "offerings"
+      ],
+      "componentPath": "registry/sections/orchard-product-showcase/component.tsx",
+      "previewPath": "registry/sections/orchard-product-showcase/preview.tsx",
+      "stylesPath": "registry/sections/orchard-product-showcase/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "product-slider.tsx",
+          "path": "registry/sections/orchard-product-showcase/product-slider.tsx"
+        }
+      ]
+    },
+    {
+      "id": "orchard-production-ledger",
+      "kind": "section",
+      "level": "organism",
+      "category": "process",
+      "roles": [
+        "offerings",
+        "process"
+      ],
+      "name": "Orchard Production Ledger",
+      "description": "Centered editorial availability ledger with an optional single-line auto-fitted monumental heading, narrative text, uppercase sub-label and a hairline-bordered 2- or 3-column product table.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "table",
+        "ledger",
+        "availability",
+        "production",
+        "seasonal"
+      ],
+      "componentPath": "registry/sections/orchard-production-ledger/component.tsx",
+      "previewPath": "registry/sections/orchard-production-ledger/preview.tsx",
+      "stylesPath": "registry/sections/orchard-production-ledger/styles.module.css"
+    },
+    {
+      "id": "orchard-related-products-rail",
+      "kind": "section",
+      "level": "organism",
+      "category": "offerings",
+      "roles": [
+        "offerings"
+      ],
+      "name": "Orchard Related Products Rail",
+      "description": "Closing product suggestion band with a monumental centered serif title above a full-width drag-and-throw rail of 367:481 jar cards that tilt and rotate on hover.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/orchard-jar-slide-card"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "products",
+        "slider",
+        "drag",
+        "related",
+        "cards"
+      ],
+      "componentPath": "registry/sections/orchard-related-products-rail/component.tsx",
+      "previewPath": "registry/sections/orchard-related-products-rail/preview.tsx",
+      "stylesPath": "registry/sections/orchard-related-products-rail/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "default-jars.ts",
+          "path": "registry/sections/orchard-related-products-rail/default-jars.ts"
+        },
+        {
+          "name": "rail.tsx",
+          "path": "registry/sections/orchard-related-products-rail/rail.tsx"
+        }
+      ]
+    },
+    {
+      "id": "orchard-rhombus-intro",
+      "kind": "section",
+      "level": "organism",
+      "category": "about",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Orchard Rhombus Intro",
+      "description": "Centered editorial statement band framed by upper and lower 45-degree rotated rhombus markers with optional secondary sub-copy.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "intro",
+        "statement",
+        "rhombus",
+        "editorial",
+        "centered",
+        "story"
+      ],
+      "componentPath": "registry/sections/orchard-rhombus-intro/component.tsx",
+      "previewPath": "registry/sections/orchard-rhombus-intro/preview.tsx",
+      "stylesPath": "registry/sections/orchard-rhombus-intro/styles.module.css"
+    },
+    {
+      "id": "orchard-spec-ledger-section",
+      "kind": "section",
+      "level": "organism",
+      "category": "process",
+      "roles": [
+        "process",
+        "offerings"
+      ],
+      "name": "Orchard Spec Ledger Section",
+      "description": "Centered editorial showcase with a large display heading, narrative introduction, rounded 1004:615 GSAP-parallaxed feature photograph, and a clean hairline-bordered 2- or 3-column specification ledger.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "table",
+        "ledger",
+        "specifications",
+        "hospitality",
+        "parallax",
+        "process"
+      ],
+      "componentPath": "registry/sections/orchard-spec-ledger-section/component.tsx",
+      "previewPath": "registry/sections/orchard-spec-ledger-section/preview.tsx",
+      "stylesPath": "registry/sections/orchard-spec-ledger-section/styles.module.css"
+    },
+    {
+      "id": "orchard-stacked-proposal-cards",
+      "kind": "section",
+      "level": "organism",
+      "category": "offerings",
+      "roles": [
+        "offerings",
+        "process"
+      ],
+      "name": "Orchard Stacked Proposal Cards",
+      "description": "Marigold editorial section with drifting side captions and a GSAP ScrollTrigger pinned 3D card stack that scales, tilts, and shades cards as the visitor scrolls through curated experiences.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "cards",
+        "stacked",
+        "gsap",
+        "scrolltrigger",
+        "3d",
+        "experiences"
+      ],
+      "componentPath": "registry/sections/orchard-stacked-proposal-cards/component.tsx",
+      "previewPath": "registry/sections/orchard-stacked-proposal-cards/preview.tsx",
+      "stylesPath": "registry/sections/orchard-stacked-proposal-cards/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "stack-motion.ts",
+          "path": "registry/sections/orchard-stacked-proposal-cards/stack-motion.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-top-header",
+      "kind": "section",
+      "level": "organism",
+      "category": "navbar",
+      "roles": [
+        "navigation"
+      ],
+      "name": "Orchard Top Header",
+      "description": "Fixed editorial three-zone header with circular language pills, centered collapsible botanical crest logo, rolling toggle trigger, and full-screen terracotta diagonal navigation overlay.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/orchard-rolling-toggle"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "navbar",
+        "header",
+        "overlay",
+        "editorial",
+        "language-switcher",
+        "scroll-compact"
+      ],
+      "componentPath": "registry/sections/orchard-top-header/component.tsx",
+      "previewPath": "registry/sections/orchard-top-header/preview.tsx",
+      "stylesPath": "registry/sections/orchard-top-header/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "default-crest.tsx",
+          "path": "registry/sections/orchard-top-header/default-crest.tsx"
+        },
+        {
+          "name": "nav-overlay.tsx",
+          "path": "registry/sections/orchard-top-header/nav-overlay.tsx"
+        },
+        {
+          "name": "overlay.module.css",
+          "path": "registry/sections/orchard-top-header/overlay.module.css"
+        }
+      ]
+    },
+    {
+      "id": "orchard-vision-parallax-box",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Orchard Vision Parallax Box",
+      "description": "Full-bleed 1517:1230 statement box with a monumental centered serif word scaled to the box width, a floating side statement and an oversized portrait cut-out that drifts upward on scroll with a clamped GSAP parallax.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "vision",
+        "parallax",
+        "portrait",
+        "statement",
+        "about"
+      ],
+      "componentPath": "registry/sections/orchard-vision-parallax-box/component.tsx",
+      "previewPath": "registry/sections/orchard-vision-parallax-box/preview.tsx",
+      "stylesPath": "registry/sections/orchard-vision-parallax-box/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "parallax.ts",
+          "path": "registry/sections/orchard-vision-parallax-box/parallax.ts"
+        }
+      ]
+    },
+    {
       "id": "parallax-destination-carousel",
       "kind": "section",
       "level": "organism",
@@ -2367,6 +4392,37 @@
   ],
   "templates": [
     {
+      "id": "bookclub-landing-template",
+      "kind": "template",
+      "level": "template",
+      "category": "landing",
+      "roles": [],
+      "name": "Bookclub Landing Template",
+      "description": "Full-page playful bookclub shell applying root viewport fluid typography (--rk-bc-size-font), overflow-x: clip for sticky scroll sequences, fixed floating header slot, 11 rounded-corner section slots, and overlapping negative-margin footer slot.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "template",
+        "layout",
+        "book-club",
+        "landing",
+        "shell",
+        "sticky-safe"
+      ],
+      "componentPath": "registry/templates/bookclub-landing-template/component.tsx",
+      "previewPath": "registry/templates/bookclub-landing-template/preview.tsx",
+      "stylesPath": "registry/templates/bookclub-landing-template/styles.module.css"
+    },
+    {
       "id": "editorial-storefront-template",
       "kind": "template",
       "level": "template",
@@ -2459,6 +4515,36 @@
       "componentPath": "registry/templates/kinetic-story-template/component.tsx",
       "previewPath": "registry/templates/kinetic-story-template/preview.tsx",
       "stylesPath": "registry/templates/kinetic-story-template/styles.module.css"
+    },
+    {
+      "id": "orchard-editorial-template",
+      "kind": "template",
+      "level": "template",
+      "category": "editorial",
+      "roles": [],
+      "name": "Orchard Editorial Template",
+      "description": "Full-page editorial shell featuring a fixed top header overlay slot, skip-to-content accessibility link, isolated main region for full-bleed sections, sticky floating bottom pill navigation slot, and full-height footer slot.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "template",
+        "layout",
+        "editorial",
+        "orchard",
+        "shell"
+      ],
+      "componentPath": "registry/templates/orchard-editorial-template/component.tsx",
+      "previewPath": "registry/templates/orchard-editorial-template/preview.tsx",
+      "stylesPath": "registry/templates/orchard-editorial-template/styles.module.css"
     },
     {
       "id": "saas-waitlist-template",
@@ -2559,6 +4645,65 @@
     }
   ],
   "pages": [
+    {
+      "id": "bookclub-landing-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "landing",
+      "roles": [],
+      "name": "Bookclub Landing Demo Page",
+      "description": "Full 12-band playful bookclub landing page composing the landing template with floating header, hero, monthly books carousel, step cards, scroll box sequence, genre list, momentum benefits stage, FAQ accordion, curved gift feature, promo ribbons, choice winners, exclusive spotlight, and parallax footer.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap",
+        "smooothy"
+      ],
+      "composes": [
+        "templates/bookclub-landing-template",
+        "ui/bookclub-intro-splash",
+        "sections/bookclub-floating-header",
+        "sections/bookclub-hero",
+        "sections/bookclub-books-carousel",
+        "sections/bookclub-how-it-works",
+        "sections/bookclub-box-sequence",
+        "sections/bookclub-genre-showcase",
+        "sections/bookclub-benefits-stage",
+        "sections/bookclub-faq-accordion",
+        "sections/bookclub-gift-feature",
+        "sections/bookclub-promo-banners",
+        "sections/bookclub-choice-winners",
+        "sections/bookclub-exclusive-showcase",
+        "sections/bookclub-wave-footer"
+      ],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "page",
+        "demo",
+        "book-club",
+        "landing",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/bookclub-landing-demo-page/component.tsx",
+      "previewPath": "registry/pages/bookclub-landing-demo-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-books.ts",
+          "path": "registry/pages/bookclub-landing-demo-page/demo-books.ts"
+        },
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/bookclub-landing-demo-page/demo-data.ts"
+        }
+      ]
+    },
     {
       "id": "festival-event-demo-page",
       "kind": "page",
@@ -2707,6 +4852,204 @@
         {
           "name": "demo-data.ts",
           "path": "registry/pages/mono-studio-about-page/demo-data.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-about-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "editorial",
+      "roles": [],
+      "name": "Orchard About Demo Page",
+      "description": "Composed orchard about page: expanding page hero, rhombus story intros, a pinned flying-fruit pause, a monumental vision box with portrait parallax, a closing framed photograph and the deep wine footer inside the editorial template.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "templates/orchard-editorial-template",
+        "sections/orchard-top-header",
+        "sections/orchard-editorial-page-hero",
+        "sections/orchard-rhombus-intro",
+        "sections/orchard-fruit-pause-stage",
+        "sections/orchard-vision-parallax-box",
+        "sections/orchard-closing-parallax-frame",
+        "sections/orchard-editorial-footer"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "page",
+        "demo",
+        "about",
+        "story",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/orchard-about-demo-page/component.tsx",
+      "previewPath": "registry/pages/orchard-about-demo-page/preview.tsx",
+      "stylesPath": "registry/pages/orchard-about-demo-page/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/orchard-about-demo-page/demo-data.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-editorial-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "editorial",
+      "roles": [],
+      "name": "Orchard Editorial Demo Page",
+      "description": "Full composed orchard pantry editorial demo page assembling the orchard editorial template with top header, expanding page hero, rhombus intro, product showcases, parallax poster band, specification ledger, closing outro, sticky floating pill nav, and deep wine footer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap",
+        "matter-js"
+      ],
+      "composes": [
+        "templates/orchard-editorial-template",
+        "sections/orchard-top-header",
+        "sections/orchard-editorial-page-hero",
+        "sections/orchard-rhombus-intro",
+        "sections/orchard-product-showcase",
+        "sections/orchard-parallax-poster-band",
+        "sections/orchard-spec-ledger-section",
+        "sections/orchard-expanding-cover-outro",
+        "sections/orchard-editorial-footer",
+        "ui/orchard-floating-pill-nav"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "page",
+        "demo",
+        "orchard",
+        "editorial",
+        "pantry",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/orchard-editorial-demo-page/component.tsx",
+      "previewPath": "registry/pages/orchard-editorial-demo-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/orchard-editorial-demo-page/demo-data.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-product-detail-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "editorial",
+      "roles": [],
+      "name": "Orchard Product Detail Demo Page",
+      "description": "Composed orchard product page: sticky three.js jar hero, rhombus description with allergen note, hairline product facts band, drag photo gallery, related product rail and the deep wine footer inside the editorial template.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap",
+        "three"
+      ],
+      "composes": [
+        "templates/orchard-editorial-template",
+        "sections/orchard-top-header",
+        "sections/orchard-product-detail-hero",
+        "sections/orchard-rhombus-intro",
+        "sections/orchard-product-meta-band",
+        "sections/orchard-photo-drag-slider",
+        "sections/orchard-related-products-rail",
+        "sections/orchard-editorial-footer"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "page",
+        "demo",
+        "product",
+        "detail",
+        "jar",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/orchard-product-detail-demo-page/component.tsx",
+      "previewPath": "registry/pages/orchard-product-detail-demo-page/preview.tsx",
+      "stylesPath": "registry/pages/orchard-product-detail-demo-page/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/orchard-product-detail-demo-page/demo-data.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-production-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "editorial",
+      "roles": [],
+      "name": "Orchard Production Demo Page",
+      "description": "Composed orchard production page: expanding page hero, rhombus intro, two availability ledgers separated by drag photo galleries, sticky product-line pill nav and the deep wine footer inside the editorial template.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [
+        "templates/orchard-editorial-template",
+        "sections/orchard-top-header",
+        "sections/orchard-editorial-page-hero",
+        "sections/orchard-rhombus-intro",
+        "sections/orchard-production-ledger",
+        "sections/orchard-photo-drag-slider",
+        "sections/orchard-editorial-footer",
+        "ui/orchard-floating-pill-nav"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "page",
+        "demo",
+        "production",
+        "ledger",
+        "gallery",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/orchard-production-demo-page/component.tsx",
+      "previewPath": "registry/pages/orchard-production-demo-page/preview.tsx",
+      "stylesPath": "registry/pages/orchard-production-demo-page/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/orchard-production-demo-page/demo-data.ts"
         }
       ]
     },
