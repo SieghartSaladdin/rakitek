@@ -1,0 +1,139 @@
+:where(.root, .root *) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+.root {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100svh;
+  overflow: hidden;
+  background: transparent;
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: calc(var(--rk-u) * 1.1);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--rk-bg);
+}
+
+.root .back {
+  position: absolute;
+  bottom: var(--rk-gutter);
+  left: var(--rk-gutter);
+  z-index: 20;
+  display: flex;
+  color: var(--rk-fg-faint);
+  transition: color 0.3s ease;
+}
+
+.root .back:hover,
+.root .back:focus-within {
+  color: var(--rk-fg);
+}
+
+.info {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-shrink: 0;
+  padding-left: var(--rk-gutter);
+}
+
+.title {
+  width: calc(var(--rk-col) * 2 + var(--rk-gutter));
+}
+
+.meta {
+  width: calc(var(--rk-col) * 3 + var(--rk-gutter) * 2);
+  padding-inline: var(--rk-margin);
+}
+
+.external {
+  display: inline-block;
+  margin-top: calc(var(--rk-u) * 1.1);
+}
+
+.external [data-rk-line] {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.gallery {
+  position: relative;
+  width: calc(var(--rk-col) * 6 + var(--rk-gutter) * 6.5);
+  height: 100svh;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 842px) {
+  .root {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    min-height: 100svh;
+    padding-top: calc(var(--rk-u) * 7);
+    overflow: visible;
+  }
+
+  .info {
+    flex-direction: column;
+    gap: calc(var(--rk-u) * 1.5);
+    margin-bottom: calc(var(--rk-u) * 3);
+    padding-right: var(--rk-gutter);
+  }
+
+  .title,
+  .meta {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--rk-u) * 1.5);
+    width: 100%;
+    height: auto;
+    padding-inline: var(--rk-gutter);
+    padding-bottom: calc(var(--rk-u) * 6);
+    overflow: visible;
+  }
+
+  .card {
+    position: relative;
+    top: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

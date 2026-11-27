@@ -1,0 +1,244 @@
+:where(.root, .root *) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+.root {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  margin-top: calc(var(--rk-u) * 6);
+  background: transparent;
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: calc(var(--rk-u) * 1.1);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--rk-bg);
+}
+
+.stage {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--rk-col) * 6 + var(--rk-gutter) * 5);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.hover {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--rk-col) * 2 + var(--rk-gutter));
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.hover:focus-visible {
+  outline: 1px solid var(--rk-fg);
+  outline-offset: 2px;
+}
+
+.gallery {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  filter: grayscale(1);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 1.6s var(--rk-ease-out-quart), opacity 0.5s, filter 0.8s;
+}
+
+.galleryOn {
+  width: calc(var(--rk-u) * 13);
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s;
+}
+
+.frameOn {
+  opacity: 1;
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.captions {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: calc(100vw - var(--rk-gutter) * 2);
+  height: 1.2em;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.row {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-items: center;
+  grid-template-columns:
+    calc(var(--rk-col) * 2 + var(--rk-gutter) * 2)
+    calc(var(--rk-col) * 2 + var(--rk-gutter))
+    1fr
+    calc(var(--rk-col) * 2 + var(--rk-gutter) * 2)
+    var(--rk-col);
+}
+
+.row > div {
+  overflow: hidden;
+}
+
+.titleCell {
+  grid-column: 1;
+}
+
+.typeCell {
+  grid-column: 2;
+}
+
+.aboutCell {
+  grid-column: 4;
+}
+
+.yearCell {
+  grid-column: 5;
+  text-align: right;
+}
+
+.cell {
+  transform: translateY(110%);
+}
+
+.row[data-state="in"] .cell {
+  transform: translateY(0);
+  animation: cell-in 0.8s var(--rk-ease) backwards;
+}
+
+.row[data-state="out"] .cell {
+  animation: cell-out 0.3s var(--rk-ease-out-quad) both;
+}
+
+@keyframes cell-in {
+  from { transform: translateY(110%); }
+}
+
+@keyframes cell-out {
+  from { transform: translateY(0); }
+  to { transform: translateY(-110%); }
+}
+
+.overview {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: var(--rk-gutter);
+  width: calc(var(--rk-col) * 2.55 + var(--rk-gutter));
+}
+
+.overview p:not(:last-child) {
+  margin-bottom: 1lh;
+}
+
+.overview a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.overview a:hover,
+.overview a:focus-visible {
+  color: var(--rk-fg-faint);
+}
+
+.mark {
+  position: absolute;
+  z-index: 4;
+  top: calc((var(--rk-col) * 6 + var(--rk-gutter) * 5) / 2);
+  left: 50%;
+  color: var(--rk-bg);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.mark svg {
+  display: block;
+  width: calc(var(--rk-u) * 13);
+  height: calc(var(--rk-u) * 13);
+  aspect-ratio: 1;
+  overflow: visible;
+  transition: width 1.6s var(--rk-ease-out-quart), height 1.6s var(--rk-ease-out-quart);
+}
+
+.markOn svg {
+  width: calc(var(--rk-col) * 6 + var(--rk-gutter) * 5);
+  height: calc(var(--rk-col) * 6 + var(--rk-gutter) * 5);
+}
+
+@media (max-width: 900px) {
+  .mark {
+    top: calc(var(--rk-u) * 4 + 37.5vw);
+  }
+
+  .markOn svg {
+    width: 75vw;
+    height: 75vw;
+  }
+
+  .stage {
+    width: 75vw;
+    margin: calc(var(--rk-u) * 4) auto;
+  }
+
+  .overview {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    padding: calc(var(--rk-u) * 2) var(--rk-gutter) 0;
+  }
+
+  .captions {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery, .frame, .mark svg { transition: none; }
+  .row[data-state="in"] .cell, .row[data-state="out"] .cell { animation: none; }
+}

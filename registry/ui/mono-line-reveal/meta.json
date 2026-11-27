@@ -1,0 +1,27 @@
+{
+  "id": "mono-line-reveal",
+  "kind": "ui",
+  "level": "atom",
+  "category": "motion",
+  "name": "Line Reveal",
+  "description": "Scroll-triggered text reveal: words and masked lines rise out of overflow masks one rendered line after another (1.6s expo-out), with an optional rule that draws in. Exports LineReveal, RevealWords and RevealLine.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "reveal",
+    "text",
+    "mask",
+    "scroll",
+    "motion",
+    "css-modules"
+  ]
+}

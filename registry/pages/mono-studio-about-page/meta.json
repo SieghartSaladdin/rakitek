@@ -1,0 +1,37 @@
+{
+  "id": "mono-studio-about-page",
+  "kind": "page",
+  "level": "page",
+  "category": "about",
+  "name": "Mono Studio About Page",
+  "description": "Full composed Swiss Mono studio about page assembling the grid shell, fixed blend-difference clock header, pinned studio note, founder hover manifesto, studio archive hover reel, two-column credits index, and giant wordmark footer.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [
+    "templates/swiss-grid-shell",
+    "sections/mono-clock-header",
+    "ui/mono-studio-note",
+    "sections/founder-hover-manifesto",
+    "sections/studio-hover-reel",
+    "sections/credits-index-columns",
+    "sections/giant-wordmark-footer"
+  ],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "page",
+    "demo",
+    "about",
+    "studio",
+    "swiss",
+    "monochrome",
+    "composed",
+    "full-page"
+  ]
+}

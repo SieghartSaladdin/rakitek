@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T06:14:58.161Z",
+  "generatedAt": "2026-11-27T11:26:55.510Z",
   "styles": [
     {
       "id": "azure-editorial",
@@ -82,6 +82,35 @@
         "waitlist"
       ],
       "tokensPath": "registry/styles/kinetic-obsidian/tokens.css"
+    },
+    {
+      "id": "swiss-mono",
+      "name": "Swiss Mono",
+      "vibe": "editorial",
+      "description": "Pure white canvas, black ink, one pale grey for secondary text, hairline underlines, zero radii, and a single tight neo-grotesk set very large on a 12-column grid that scales with the viewport.",
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "fonts": {
+        "display": "'Inter Tight', 'Helvetica Neue', Arial, sans-serif",
+        "body": "'Inter Tight', 'Helvetica Neue', Arial, sans-serif",
+        "mono": "'JetBrains Mono', monospace",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400&display=swap"
+      },
+      "palettePreview": {
+        "bg": "#FFFFFF",
+        "surface": "#F4F4F4",
+        "fg": "#000000",
+        "accent": "#000000"
+      },
+      "tags": [
+        "monochrome",
+        "swiss",
+        "grid",
+        "agency",
+        "portfolio",
+        "minimal",
+        "light"
+      ],
+      "tokensPath": "registry/styles/swiss-mono/tokens.css"
     }
   ],
   "ui": [
@@ -267,6 +296,99 @@
       "componentPath": "registry/ui/marquee-ticker/component.tsx",
       "previewPath": "registry/ui/marquee-ticker/preview.tsx",
       "stylesPath": "registry/ui/marquee-ticker/styles.module.css"
+    },
+    {
+      "id": "mono-line-reveal",
+      "kind": "ui",
+      "level": "atom",
+      "category": "motion",
+      "roles": [],
+      "name": "Line Reveal",
+      "description": "Scroll-triggered text reveal: words and masked lines rise out of overflow masks one rendered line after another (1.6s expo-out), with an optional rule that draws in. Exports LineReveal, RevealWords and RevealLine.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "reveal",
+        "text",
+        "mask",
+        "scroll",
+        "motion",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/mono-line-reveal/component.tsx",
+      "previewPath": "registry/ui/mono-line-reveal/preview.tsx",
+      "stylesPath": "registry/ui/mono-line-reveal/styles.module.css"
+    },
+    {
+      "id": "mono-studio-note",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "content",
+      "roles": [],
+      "name": "Mono Studio Note",
+      "description": "Short studio statement with a contact link, pinned to the right grid columns under the header. Lines rise 1.4s expo-out 60ms apart, the link underline draws in after 560ms and wipes out to the right on hover; lines leave upward when hidden.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/mono-underline-link"
+      ],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "note",
+        "statement",
+        "contact",
+        "fixed",
+        "reveal",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/mono-studio-note/component.tsx",
+      "previewPath": "registry/ui/mono-studio-note/preview.tsx",
+      "stylesPath": "registry/ui/mono-studio-note/styles.module.css"
+    },
+    {
+      "id": "mono-underline-link",
+      "kind": "ui",
+      "level": "atom",
+      "category": "links",
+      "roles": [],
+      "name": "Draw Underline Link",
+      "description": "Text link with a 1.34px hairline underline that is drawn at rest and wipes out to the right on hover. Rises with its LineReveal block when placed inside one.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "link",
+        "underline",
+        "hover",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/mono-underline-link/component.tsx",
+      "previewPath": "registry/ui/mono-underline-link/preview.tsx",
+      "stylesPath": "registry/ui/mono-underline-link/styles.module.css"
     },
     {
       "id": "rolling-cta-button",
@@ -524,6 +646,43 @@
       "componentPath": "registry/sections/collection-split-showcase/component.tsx",
       "previewPath": "registry/sections/collection-split-showcase/preview.tsx",
       "stylesPath": "registry/sections/collection-split-showcase/styles.module.css"
+    },
+    {
+      "id": "credits-index-columns",
+      "kind": "section",
+      "level": "organism",
+      "category": "about",
+      "roles": [
+        "about",
+        "proof",
+        "contact"
+      ],
+      "name": "Credits Index Columns",
+      "description": "Two-column index of text blocks and link lists (services, industries, awards, talks, press, socials) with pale headings, lines that rise on scroll, link underlines that draw in on hover, and a colophon pinned to the bottom of the right column.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/mono-line-reveal"
+      ],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "credits",
+        "awards",
+        "press",
+        "index",
+        "links",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/credits-index-columns/component.tsx",
+      "previewPath": "registry/sections/credits-index-columns/preview.tsx",
+      "stylesPath": "registry/sections/credits-index-columns/styles.module.css"
     },
     {
       "id": "editorial-columns-footer",
@@ -827,6 +986,74 @@
       "stylesPath": "registry/sections/floating-pill-navbar/styles.module.css"
     },
     {
+      "id": "founder-hover-manifesto",
+      "kind": "section",
+      "level": "organism",
+      "category": "about",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Founder Hover Manifesto",
+      "description": "Very large manifesto paragraphs that rise word by word as they enter view. Underlined names open a portrait with a caption in a fixed panel on hover or focus (clip-path wipe in from the right, out to the left).",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/mono-line-reveal"
+      ],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "manifesto",
+        "about",
+        "team",
+        "hover",
+        "portrait",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/founder-hover-manifesto/component.tsx",
+      "previewPath": "registry/sections/founder-hover-manifesto/preview.tsx",
+      "stylesPath": "registry/sections/founder-hover-manifesto/styles.module.css"
+    },
+    {
+      "id": "giant-wordmark-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "roles": [
+        "footer"
+      ],
+      "name": "Giant Wordmark Footer",
+      "description": "Edge-to-edge footer of oversized SVG glyphs laid out by flex percentages. Each glyph rises out of the clipped row 100ms after the previous one once the footer is 15% visible; a raised trademark glyph starts further down.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "footer",
+        "wordmark",
+        "svg",
+        "reveal",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/giant-wordmark-footer/component.tsx",
+      "previewPath": "registry/sections/giant-wordmark-footer/preview.tsx",
+      "stylesPath": "registry/sections/giant-wordmark-footer/styles.module.css"
+    },
+    {
       "id": "heritage-manifesto-band",
       "kind": "section",
       "level": "organism",
@@ -972,6 +1199,39 @@
       "componentPath": "registry/sections/minimal-saas-footer/component.tsx",
       "previewPath": "registry/sections/minimal-saas-footer/preview.tsx",
       "stylesPath": "registry/sections/minimal-saas-footer/styles.module.css"
+    },
+    {
+      "id": "mono-clock-header",
+      "kind": "section",
+      "level": "organism",
+      "category": "navigation",
+      "roles": [
+        "navigation",
+        "contact"
+      ],
+      "name": "Blend Difference Header",
+      "description": "Fixed header drawn with mix-blend-mode difference so it stays legible over any image: SVG wordmark that narrows to one glyph, comma-separated menu with drawn underlines, live clock, and a contact button that copies an email. Everything rises in on load with a 60ms stagger.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "header",
+        "navigation",
+        "blend-mode",
+        "clock",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/mono-clock-header/component.tsx",
+      "previewPath": "registry/sections/mono-clock-header/preview.tsx",
+      "stylesPath": "registry/sections/mono-clock-header/styles.module.css"
     },
     {
       "id": "newsletter-prefooter",
@@ -1190,6 +1450,42 @@
           "path": "registry/sections/physics-stats-pit/stats-textures.ts"
         }
       ]
+    },
+    {
+      "id": "project-wheel-gallery",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "proof",
+        "story"
+      ],
+      "name": "Project Wheel Gallery",
+      "description": "Single-screen project detail: title and meta lines at the left, a fixed back link, and a right-hand stack of frames that scrolls on wheel, touch or keys with damping, scaling and fading frames away from the centre and sliding in from the right on load.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/mono-line-reveal",
+        "ui/mono-underline-link"
+      ],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "case-study",
+        "gallery",
+        "wheel",
+        "scroll",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/project-wheel-gallery/component.tsx",
+      "previewPath": "registry/sections/project-wheel-gallery/preview.tsx",
+      "stylesPath": "registry/sections/project-wheel-gallery/styles.module.css"
     },
     {
       "id": "rays-waitlist-footer",
@@ -1483,6 +1779,42 @@
       ]
     },
     {
+      "id": "studio-hover-reel",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "about",
+        "story",
+        "proof"
+      ],
+      "name": "Studio Hover Reel",
+      "description": "Square stage holding a pale grayscale archive photo. Hovering the middle shrinks it to a small coloured frame and cycles through the archive every second while a full-width caption row (title, type, place, year) rises in; overview paragraphs sit in the lower-left corner. A mark centred on the stage in difference blend grows to the stage width while the reel runs.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/mono-line-reveal"
+      ],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "gallery",
+        "hover",
+        "archive",
+        "captions",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/studio-hover-reel/component.tsx",
+      "previewPath": "registry/sections/studio-hover-reel/preview.tsx",
+      "stylesPath": "registry/sections/studio-hover-reel/styles.module.css"
+    },
+    {
       "id": "video-expand-hero",
       "kind": "section",
       "level": "organism",
@@ -1659,6 +1991,37 @@
       "stylesPath": "registry/templates/saas-waitlist-template/styles.module.css"
     },
     {
+      "id": "swiss-grid-shell",
+      "kind": "template",
+      "level": "template",
+      "category": "portfolio",
+      "roles": [],
+      "name": "Swiss Grid Shell",
+      "description": "Single-canvas page shell for the Swiss Mono style: skip link, slot for a fixed blend-difference header, a slot for other fixed chrome (such as a studio note), a full-width main stack, and a footer slot. Grid variables come from the style tokens.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "template",
+        "layout",
+        "grid",
+        "portfolio",
+        "shell",
+        "css-modules"
+      ],
+      "componentPath": "registry/templates/swiss-grid-shell/component.tsx",
+      "previewPath": "registry/templates/swiss-grid-shell/preview.tsx",
+      "stylesPath": "registry/templates/swiss-grid-shell/styles.module.css"
+    },
+    {
       "id": "voyage-editorial-template",
       "kind": "template",
       "level": "template",
@@ -1740,6 +2103,56 @@
         {
           "name": "demo-data.ts",
           "path": "registry/pages/kinetic-story-demo-page/demo-data.ts"
+        }
+      ]
+    },
+    {
+      "id": "mono-studio-about-page",
+      "kind": "page",
+      "level": "page",
+      "category": "about",
+      "roles": [],
+      "name": "Mono Studio About Page",
+      "description": "Full composed Swiss Mono studio about page assembling the grid shell, fixed blend-difference clock header, pinned studio note, founder hover manifesto, studio archive hover reel, two-column credits index, and giant wordmark footer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "swiss-mono"
+      ],
+      "dependencies": [],
+      "composes": [
+        "templates/swiss-grid-shell",
+        "sections/mono-clock-header",
+        "ui/mono-studio-note",
+        "sections/founder-hover-manifesto",
+        "sections/studio-hover-reel",
+        "sections/credits-index-columns",
+        "sections/giant-wordmark-footer"
+      ],
+      "sourceRef": "agency-portfolio/obys-agency-nextjs",
+      "tags": [
+        "page",
+        "demo",
+        "about",
+        "studio",
+        "swiss",
+        "monochrome",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/mono-studio-about-page/component.tsx",
+      "previewPath": "registry/pages/mono-studio-about-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-credits.ts",
+          "path": "registry/pages/mono-studio-about-page/demo-credits.ts"
+        },
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/mono-studio-about-page/demo-data.ts"
         }
       ]
     },

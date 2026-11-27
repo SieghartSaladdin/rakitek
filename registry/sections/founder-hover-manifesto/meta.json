@@ -1,0 +1,33 @@
+{
+  "id": "founder-hover-manifesto",
+  "kind": "section",
+  "level": "organism",
+  "category": "about",
+  "roles": [
+    "about",
+    "story"
+  ],
+  "name": "Founder Hover Manifesto",
+  "description": "Very large manifesto paragraphs that rise word by word as they enter view. Underlined names open a portrait with a caption in a fixed panel on hover or focus (clip-path wipe in from the right, out to the left).",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/mono-line-reveal"
+  ],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "manifesto",
+    "about",
+    "team",
+    "hover",
+    "portrait",
+    "css-modules"
+  ]
+}

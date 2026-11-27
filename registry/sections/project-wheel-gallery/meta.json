@@ -1,0 +1,33 @@
+{
+  "id": "project-wheel-gallery",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": [
+    "proof",
+    "story"
+  ],
+  "name": "Project Wheel Gallery",
+  "description": "Single-screen project detail: title and meta lines at the left, a fixed back link, and a right-hand stack of frames that scrolls on wheel, touch or keys with damping, scaling and fading frames away from the centre and sliding in from the right on load.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/mono-line-reveal",
+    "ui/mono-underline-link"
+  ],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "case-study",
+    "gallery",
+    "wheel",
+    "scroll",
+    "css-modules"
+  ]
+}

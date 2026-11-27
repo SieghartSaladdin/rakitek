@@ -1,0 +1,127 @@
+:where(.root, .root *) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+.root {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  background: transparent;
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: calc(var(--rk-u) * 1.1);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--rk-bg);
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  padding: calc(var(--rk-u) * 4.9) var(--rk-gutter) 0;
+}
+
+.primary {
+  width: calc(var(--rk-col) * 5 + var(--rk-gutter) * 3);
+  padding-left: calc(var(--rk-col) * 3 + var(--rk-gutter) * 3);
+}
+
+.secondary {
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--rk-col) * 3 + var(--rk-gutter) * 2);
+  padding-right: var(--rk-gutter);
+}
+
+.primary > *,
+.secondary > * {
+  padding-bottom: calc(var(--rk-u) * 2.5);
+}
+
+.heading {
+  color: var(--rk-fg-faint);
+}
+
+.list {
+  list-style: none;
+}
+
+.list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.list a > span:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+.list a > span:last-child::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1.34px solid;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.8s var(--rk-ease);
+}
+
+.list a:hover > span:last-child::before,
+.list a:focus-visible > span:last-child::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.list a:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+}
+
+.colophon {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+}
+
+.colophon > div:first-child {
+  width: var(--rk-col);
+}
+
+.legal {
+  width: calc(var(--rk-col) * 2 + var(--rk-gutter));
+  align-self: flex-end;
+  color: var(--rk-fg-faint);
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    flex-direction: column;
+    padding: calc(var(--rk-u) * 3) var(--rk-gutter) 0;
+  }
+
+  .primary,
+  .secondary {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

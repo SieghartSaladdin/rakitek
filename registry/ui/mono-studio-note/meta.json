@@ -1,0 +1,29 @@
+{
+  "id": "mono-studio-note",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "content",
+  "name": "Mono Studio Note",
+  "description": "Short studio statement with a contact link, pinned to the right grid columns under the header. Lines rise 1.4s expo-out 60ms apart, the link underline draws in after 560ms and wipes out to the right on hover; lines leave upward when hidden.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/mono-underline-link"
+  ],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "note",
+    "statement",
+    "contact",
+    "fixed",
+    "reveal",
+    "css-modules"
+  ]
+}

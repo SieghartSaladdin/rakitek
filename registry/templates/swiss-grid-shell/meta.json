@@ -1,0 +1,27 @@
+{
+  "id": "swiss-grid-shell",
+  "kind": "template",
+  "level": "template",
+  "category": "portfolio",
+  "name": "Swiss Grid Shell",
+  "description": "Single-canvas page shell for the Swiss Mono style: skip link, slot for a fixed blend-difference header, a slot for other fixed chrome (such as a studio note), a full-width main stack, and a footer slot. Grid variables come from the style tokens.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "template",
+    "layout",
+    "grid",
+    "portfolio",
+    "shell",
+    "css-modules"
+  ]
+}

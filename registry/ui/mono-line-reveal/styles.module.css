@@ -1,0 +1,71 @@
+.block {
+  --line-rise: 1.6s;
+}
+
+.mask {
+  display: block;
+  overflow: hidden;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.line {
+  display: block;
+  position: relative;
+  padding-left: 1px;
+  padding-right: 1px;
+  will-change: transform;
+}
+
+a.line {
+  display: inline-block;
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-block: -0.1em;
+  padding-block: 0.1em;
+}
+
+a .wordMask,
+u .wordMask {
+  text-decoration: inherit;
+}
+
+.word {
+  display: inline-block;
+  will-change: transform;
+}
+
+.block [data-rk-line],
+.block [data-rk-word] {
+  translate: 0 102%;
+  transition: none;
+}
+
+.block[data-rk-in="true"] [data-rk-line],
+.block[data-rk-in="true"] [data-rk-word] {
+  translate: 0 0;
+  transition: translate var(--line-rise) var(--rk-ease) var(--rk-d, 0ms);
+}
+
+.block [data-rk-rule] {
+  translate: -100.1% 0;
+  transition: none;
+}
+
+.block[data-rk-in="true"] [data-rk-rule] {
+  translate: 0 0;
+  transition: translate var(--line-rise) var(--rk-ease) var(--rk-d, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block [data-rk-line],
+  .block [data-rk-word],
+  .block [data-rk-rule] {
+    translate: 0 0;
+    transition: none;
+  }
+}
