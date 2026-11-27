@@ -1,0 +1,80 @@
+.badge {
+  font-size: var(--rk-bc-size-font, 1em);
+  z-index: 2;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+}
+
+.inner {
+  padding-bottom: 10em;
+  overflow-x: clip;
+}
+
+.item {
+  color: var(--rk-bc-wine, var(--rk-fg));
+  width: calc(100% + 6em);
+  margin-left: -3em;
+  display: inline-grid;
+}
+
+.itemTitleOuter {
+  z-index: 1;
+  grid-area: 1 / 1;
+  place-self: center;
+  height: 100%;
+  padding-top: 2.875em;
+  padding-bottom: 2.875em;
+}
+
+.itemTitle {
+  font-family: var(--rk-font-display);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  font-size: 4em;
+  line-height: 0.8;
+  font-weight: 700;
+  display: inline;
+  /* Keeps the line box as tall as the original's despite the free display font's different ascent/descent. */
+  vertical-align: -0.057em;
+}
+
+.itemBg {
+  background-color: var(--rk-bc-bright-pink, var(--rk-surface));
+  width: 100%;
+  height: 100%;
+  color: var(--rk-bc-pale-pink, var(--rk-surface-elevated));
+  grid-area: 1 / 1;
+  position: relative;
+  overflow: clip;
+}
+
+.itemBgBlue {
+  background-color: var(--rk-bc-cyan, var(--rk-highlight));
+  color: var(--rk-bc-pale-blue, var(--rk-surface));
+}
+
+.itemBgSvg {
+  width: auto;
+  height: calc(100% + 2px);
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .itemTitle { font-size: 2em; }
+  .itemTitleOuter { padding-top: 2em; padding-bottom: 2em; }
+}
+
+@media screen and (max-width: 767px) {
+  .itemTitle { font-size: 1.125em; }
+  .itemTitleOuter { padding-top: 0.8125em; padding-bottom: 0.8125em; }
+}
+
+@media screen and (max-width: 479px) {
+  .itemBgSvg { left: -5em; }
+}

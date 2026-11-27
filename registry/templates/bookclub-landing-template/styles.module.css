@@ -1,0 +1,49 @@
+.wrapper {
+  font-size: var(--rk-bc-size-font, 1em);
+  background-color: var(--rk-bc-white, var(--rk-bg));
+  color: var(--rk-bc-black, var(--rk-fg));
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  overflow-x: clip;
+}
+
+.main {
+  background-color: var(--rk-bc-white, var(--rk-bg));
+  display: block;
+  width: 100%;
+}
+
+.slot {
+  width: 100%;
+}
+
+.previewShellHeader {
+  padding: 1.5em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--rk-bc-yellow, var(--rk-accent));
+  font-family: var(--rk-font-body);
+  font-weight: 700;
+}
+
+.previewSlotBand {
+  padding: 5em 2em;
+  text-align: center;
+  font-family: var(--rk-font-display);
+  font-size: 2.5em;
+  border-radius: 2em;
+  margin: 1em;
+}
+
+.previewPink { background-color: var(--rk-bc-soft-pink, var(--rk-surface)); }
+.previewBlue { background-color: var(--rk-bc-pale-blue, var(--rk-highlight)); }
+.previewYellow { background-color: var(--rk-bc-pale-yellow, var(--rk-surface-elevated)); }
+.previewFooter {
+  background-color: var(--rk-bc-violet, var(--rk-fg));
+  color: var(--rk-bc-white, var(--rk-bg));
+  padding: 4em 2em;
+  text-align: center;
+  font-family: var(--rk-font-body);
+}

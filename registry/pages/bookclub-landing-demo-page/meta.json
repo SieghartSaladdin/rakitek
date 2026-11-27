@@ -1,0 +1,30 @@
+{
+  "id": "bookclub-landing-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "landing",
+  "name": "Bookclub Landing Demo Page",
+  "description": "Full 12-band playful bookclub landing page composing the landing template with floating header, hero, monthly books carousel, step cards, scroll box sequence, genre list, momentum benefits stage, FAQ accordion, curved gift feature, promo ribbons, choice winners, exclusive spotlight, and parallax footer.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap", "smooothy"],
+  "composes": [
+    "templates/bookclub-landing-template",
+    "sections/bookclub-floating-header",
+    "sections/bookclub-hero",
+    "sections/bookclub-books-carousel",
+    "sections/bookclub-how-it-works",
+    "sections/bookclub-box-sequence",
+    "sections/bookclub-genre-showcase",
+    "sections/bookclub-benefits-stage",
+    "sections/bookclub-faq-accordion",
+    "sections/bookclub-gift-feature",
+    "sections/bookclub-promo-banners",
+    "sections/bookclub-choice-winners",
+    "sections/bookclub-exclusive-showcase",
+    "sections/bookclub-wave-footer"
+  ],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["page", "demo", "book-club", "landing", "composed", "full-page"]
+}

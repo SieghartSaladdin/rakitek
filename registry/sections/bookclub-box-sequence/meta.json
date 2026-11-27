@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-box-sequence",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": ["story", "about"],
+  "name": "Bookclub Box Sequence",
+  "description": "Pinned 300svh scroll-scrubbed canvas frame sequence inside a pale-blue rounded viewport with SplitText handwritten callouts, mascot popover, and App Store / Google Play badges.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": ["ui/bookclub-app-badges", "ui/bookclub-mascot-popup"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["scroll-sequence", "sticky", "canvas", "gsap", "scrolltrigger", "app-badges"]
+}

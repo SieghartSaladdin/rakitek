@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-promo-banners",
+  "kind": "section",
+  "level": "organism",
+  "category": "banner",
+  "roles": ["engagement", "proof"],
+  "name": "Bookclub Promo Banners",
+  "description": "Layered tilted promotional ribbon banners with wavy organic vector fills and GSAP ScrollTrigger elastic snap-in motion.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["promo", "banner", "ribbon", "gsap", "scrolltrigger", "elastic"]
+}

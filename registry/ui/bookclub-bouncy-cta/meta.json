@@ -1,0 +1,15 @@
+{
+  "id": "bookclub-bouncy-cta",
+  "kind": "ui",
+  "level": "atom",
+  "category": "button",
+  "name": "Bookclub Bouncy CTA",
+  "description": "Two-piece split pill CTA button with detached square icon badge, elastic overshoot hover tilt, optional anchor-arrow rotation, and GSAP SplitText character bounce.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["button", "cta", "elastic", "gsap", "split-text", "playful"]
+}

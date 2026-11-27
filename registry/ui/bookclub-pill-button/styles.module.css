@@ -1,0 +1,212 @@
+.pill {
+  --_color: var(--button-color, var(--rk-bc-black, var(--rk-fg)));
+  --_bg: var(--button-color-background, var(--rk-bc-pale-yellow, var(--rk-surface-elevated)));
+  --_focus: var(--button-color-focus, var(--rk-bc-black, var(--rk-fg)));
+  --_h: var(--button-height, 3.5em);
+  --_px: var(--button-padding, 0 1em);
+  --_radius: var(--button-border-radius, var(--rk-radius-pill, 2em));
+  --_ease-click: var(--rk-bc-ease-click, cubic-bezier(0.4, 0, 0.2, 1));
+  --_ease-soft: var(--rk-bc-ease-soft-overshoot, cubic-bezier(0.59, 1, 0.88, 1.01));
+  --_ease-bounce: var(--rk-bc-ease-bounce, cubic-bezier(0.34, 2.27, 0.64, 1));
+  --_ease-smooth: var(--rk-bc-ease-smooth, cubic-bezier(0.32, 0.72, 0, 1));
+
+  font-size: var(--rk-bc-size-font, 1em);
+  letter-spacing: -0.01em;
+  color: var(--_color);
+  -webkit-user-select: none;
+  user-select: none;
+  height: var(--_h);
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  font-family: var(--rk-font-body);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  display: inline-grid;
+  position: relative;
+  cursor: pointer;
+  transition: scale 0.15s var(--_ease-click);
+}
+
+.pill:focus-visible {
+  outline: none;
+}
+
+.pill:active {
+  scale: 0.955 0.925;
+}
+
+.pill::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: -0.125em;
+  border-radius: var(--_radius);
+  transition: box-shadow 0.3s var(--_ease-smooth);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pill:is(:focus-visible)::after {
+  box-shadow: 0 0 0 0.125em var(--_focus);
+}
+
+.bg {
+  background-color: var(--_bg);
+  border-radius: var(--_radius);
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  transition:
+    scale 0.15s var(--_ease-soft),
+    transform 0.15s var(--_ease-soft);
+}
+
+.withEars .bg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  will-change: transform;
+}
+
+.withEars .bg::before,
+.withEars .bg::after {
+  content: "";
+  display: block;
+  width: 0.8125em;
+  height: 0.8125em;
+  background-color: var(--_bg);
+  position: absolute;
+  translate: 0 -98.5%;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.withEars .bg::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 45'%3E%3Cpath fill='black' d='M1.335.198c.671-.316 1.5-.254 2.186.187C27.678 16.847 39.839 36.953 44 45h-6.048c-2.382-1.604-6.964-3.674-15.652-4.814C2.999 37.666-.665 14.174.09 2.04.152 1.28.589.515 1.335.198Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 45'%3E%3Cpath fill='black' d='M1.335.198c.671-.316 1.5-.254 2.186.187C27.678 16.847 39.839 36.953 44 45h-6.048c-2.382-1.604-6.964-3.674-15.652-4.814C2.999 37.666-.665 14.174.09 2.04.152 1.28.589.515 1.335.198Z'/%3E%3C/svg%3E");
+  margin-left: -0.75em;
+  transform-origin: bottom right;
+  transform: rotate(-36deg) scale(0);
+  transition: transform 0.25s var(--_ease-smooth);
+}
+
+.withEars[aria-current="page"] .bg::before {
+  transform: rotate(0deg) scale(1);
+  transition: transform 0.45s 0.15s var(--_ease-bounce);
+  animation: earTwitchLeft 5.2s 0.6s infinite;
+}
+
+.withEars .bg::after {
+  width: 0.5625em;
+  height: 1.5em;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 80'%3E%3Cpath fill='black' d='M19.388.879c.667-.771 1.647-1.018 2.559-.807.912.21 1.682.956 1.926 1.861C34.595 38.09 25.79 69.237 21.823 80h-4.188c-.17-4.22-2.739-13.318-10.975-22.064-8.493-9.099-8.88-21.913-1.063-37.23C11.221 9.603 19.091 1.266 19.388.879Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 29 80'%3E%3Cpath fill='black' d='M19.388.879c.667-.771 1.647-1.018 2.559-.807.912.21 1.682.956 1.926 1.861C34.595 38.09 25.79 69.237 21.823 80h-4.188c-.17-4.22-2.739-13.318-10.975-22.064-8.493-9.099-8.88-21.913-1.063-37.23C11.221 9.603 19.091 1.266 19.388.879Z'/%3E%3C/svg%3E");
+  transform-origin: bottom center;
+  transform: rotate(-80deg) scale(0);
+  transition: transform 0.25s var(--_ease-smooth);
+}
+
+.withEars[aria-current="page"] .bg::after {
+  transform: rotate(0deg) scale(1);
+  transition: transform 0.45s 0.1s var(--_ease-bounce);
+  animation: earTwitchRight 5.2s 0.6s infinite;
+}
+
+@keyframes earTwitchLeft {
+  0%, 20%, 100% { rotate: 0deg; }
+  24% { rotate: -2deg; }
+  28% { rotate: 1deg; }
+  32% { rotate: -0.75deg; }
+  36% { rotate: 0deg; }
+  68% { rotate: -1deg; }
+  72% { rotate: 0.5deg; }
+  76% { rotate: 0deg; }
+}
+
+@keyframes earTwitchRight {
+  0%, 18%, 100% { rotate: 0deg; }
+  22% { rotate: 8deg; }
+  26% { rotate: -4deg; }
+  30% { rotate: 2.5deg; }
+  34% { rotate: -1deg; }
+  38% { rotate: 0deg; }
+  66% { rotate: 5deg; }
+  70% { rotate: -2deg; }
+  74% { rotate: 1deg; }
+  78% { rotate: 0deg; }
+}
+
+.inner {
+  grid-column-gap: 0.125em;
+  grid-row-gap: 0.125em;
+  width: 100%;
+  height: 100%;
+  padding: var(--_px);
+  z-index: 1;
+  grid-area: 1 / 1;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.text {
+  flex: none;
+  font-size: 1.5em;
+}
+
+.menuSize {
+  --button-height: 4em;
+  --button-padding: 0 1.25em;
+}
+
+.menuSize .text {
+  font-size: 1.6875em;
+}
+
+.toneSoftPink {
+  --button-color: var(--rk-bc-black, var(--rk-fg));
+  --button-color-background: var(--rk-bc-soft-pink, var(--rk-surface));
+}
+
+.toneSoftBlue {
+  --button-color: var(--rk-bc-black, var(--rk-fg));
+  --button-color-background: var(--rk-bc-soft-blue, var(--rk-highlight));
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .pill:is(:hover, :focus-visible) .bg,
+  [data-hover]:is(:hover, :focus-visible) .pill .bg {
+    scale: 0.955 0.925;
+    transform: scale(1.0471204188, 1.0810810811);
+    transition:
+      scale 0.15s var(--_ease-soft),
+      transform 0.35s 0.15s var(--_ease-bounce);
+  }
+}
+
+.previewStage {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 1.5rem;
+  background-color: var(--rk-bc-yellow, var(--rk-accent));
+}
+
+.previewRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}

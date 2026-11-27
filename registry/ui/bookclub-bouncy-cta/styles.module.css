@@ -1,0 +1,223 @@
+.btn {
+  --_color: var(--button-alt-color, var(--rk-bc-white, var(--rk-accent-fg)));
+  --_bg: var(--button-alt-color-background, var(--rk-bc-magenta, var(--rk-highlight)));
+  --_focus: var(--button-alt-color-focus, var(--rk-bc-black, var(--rk-fg)));
+  --_inset: var(--button-alt-focus-inset, -0.125em);
+  --_px: var(--button-alt-padding-x, 1em);
+  --_h: var(--button-alt-height, 3.5em);
+  --_radius: var(--button-alt-border-radius, var(--rk-radius-sm, 0.5em));
+  --_ease-click: var(--rk-bc-ease-click, cubic-bezier(0.4, 0, 0.2, 1));
+  --_ease-soft: var(--rk-bc-ease-soft-overshoot, cubic-bezier(0.59, 1, 0.88, 1.01));
+  --_ease-bounce: var(--rk-bc-ease-bounce, cubic-bezier(0.34, 2.27, 0.64, 1));
+  --_ease-smooth: var(--rk-bc-ease-smooth, cubic-bezier(0.32, 0.72, 0, 1));
+
+  font-size: var(--rk-bc-size-font, 1em);
+  letter-spacing: -0.03em;
+  color: var(--_color);
+  -webkit-user-select: none;
+  user-select: none;
+  height: var(--_h);
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  font-family: var(--rk-font-body);
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  transition: scale 0.15s var(--_ease-click);
+}
+
+.btn:focus-visible {
+  outline: none;
+}
+
+.btn:active {
+  scale: 0.955 0.925;
+}
+
+.btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: var(--_inset);
+  border-radius: var(--_radius);
+  transition: box-shadow 0.3s var(--_ease-smooth);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn:is(:focus-visible)::after {
+  box-shadow: 0 0 0 0.125em var(--_focus);
+}
+
+.textWrap {
+  pointer-events: none;
+  flex-shrink: 0;
+  display: grid;
+  transform-origin: center left;
+  transition:
+    translate 0.15s var(--_ease-soft),
+    rotate 0.15s var(--_ease-soft),
+    transform 0.15s var(--_ease-soft);
+}
+
+.bg {
+  background-color: var(--_bg);
+  border-radius: var(--_radius);
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  transition:
+    scale 0.15s var(--_ease-soft),
+    transform 0.15s var(--_ease-soft);
+}
+
+.textOuter {
+  z-index: 1;
+  grid-area: 1 / 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.text {
+  padding-left: var(--_px);
+  padding-right: var(--_px);
+  font-size: 1.25em;
+}
+
+.small .text {
+  font-size: 1.171875em;
+}
+
+.big .text {
+  font-size: 1.5em;
+}
+
+.menuToggle {
+  --button-alt-height: 3em;
+}
+
+.menuToggle .text {
+  font-size: 1.0625em;
+}
+
+.iconWrap {
+  aspect-ratio: 1;
+  pointer-events: none;
+  width: var(--_h);
+  height: var(--_h);
+  margin-left: -0.0625em;
+  display: grid;
+  transform-origin: center right;
+  transition:
+    translate 0.15s var(--_ease-soft),
+    rotate 0.15s var(--_ease-soft),
+    transform 0.15s var(--_ease-soft);
+}
+
+.iconOuter {
+  z-index: 1;
+  grid-area: 1 / 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.icon {
+  flex: none;
+  width: 0.875em;
+  height: 0.75em;
+}
+
+.iconMenu {
+  flex: none;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.anchorIcon {
+  rotate: 90deg;
+}
+
+.toneOrange {
+  --button-alt-color: var(--rk-bc-black, var(--rk-fg));
+  --button-alt-color-background: var(--rk-bc-orange, var(--rk-accent));
+}
+
+.toneWhite {
+  --button-alt-color: var(--rk-bc-black, var(--rk-fg));
+  --button-alt-color-background: var(--rk-bc-white, var(--rk-bg));
+}
+
+.toneSoftPink {
+  --button-alt-color: var(--rk-bc-black, var(--rk-fg));
+  --button-alt-color-background: var(--rk-bc-soft-pink, var(--rk-surface));
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .btn:is(:hover, :focus-visible) .bg,
+  [data-hover]:is(:hover, :focus-visible) .btn .bg {
+    scale: 0.955 0.925;
+    transform: scale(1.0471204188, 1.0810810811);
+    transition:
+      scale 0.15s var(--_ease-soft),
+      transform 0.35s 0.15s var(--_ease-bounce);
+  }
+
+  .btn:is(:hover, :focus-visible) .textWrap,
+  [data-hover]:is(:hover, :focus-visible) .btn .textWrap {
+    translate: 0.25em 0.125em 0;
+    rotate: 4deg;
+    transform: rotate(-4deg) translate3d(-0.25em, -0.125em, 0);
+    transition:
+      translate 0.15s var(--_ease-soft),
+      rotate 0.15s var(--_ease-soft),
+      transform 0.35s 0.15s var(--_ease-bounce);
+  }
+
+  .btn:is(:hover, :focus-visible) .iconWrap,
+  [data-hover]:is(:hover, :focus-visible) .btn .iconWrap {
+    translate: -0.5em 0.25em 0;
+    rotate: -18deg;
+    transform: rotate(18deg) translate3d(0.5em, -0.25em, 0);
+    transition:
+      translate 0.15s var(--_ease-soft),
+      rotate 0.15s var(--_ease-soft),
+      transform 0.35s 0.15s var(--_ease-bounce);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .btn {
+    --button-alt-padding-x: 0.8125em;
+    --button-alt-height: 3em;
+  }
+}
+
+.previewStage {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 3rem 1.5rem;
+  background-color: var(--rk-bc-pale-yellow, var(--rk-surface-elevated));
+}
+
+.previewRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}

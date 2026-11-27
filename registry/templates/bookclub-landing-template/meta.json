@@ -1,0 +1,15 @@
+{
+  "id": "bookclub-landing-template",
+  "kind": "template",
+  "level": "template",
+  "category": "landing",
+  "name": "Bookclub Landing Template",
+  "description": "Full-page playful bookclub shell applying root viewport fluid typography (--rk-bc-size-font), overflow-x: clip for sticky scroll sequences, fixed floating header slot, 11 rounded-corner section slots, and overlapping negative-margin footer slot.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["template", "layout", "book-club", "landing", "shell", "sticky-safe"]
+}

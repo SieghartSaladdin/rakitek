@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-faq-accordion",
+  "kind": "section",
+  "level": "organism",
+  "category": "faq",
+  "roles": ["contact", "about"],
+  "name": "Bookclub FAQ Accordion",
+  "description": "Soft-blue accordion FAQ section with WAAPI height expand/collapse animations, rotating plus/minus icons, breathing wave SVG backdrop, bouncy CTA, and mascot popover.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": ["ui/bookclub-bouncy-cta", "ui/bookclub-mascot-popup"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["faq", "accordion", "details", "waapi", "bouncy", "playful"]
+}

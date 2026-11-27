@@ -1,0 +1,28 @@
+{
+  "id": "playful-bookclub",
+  "name": "Playful Bookclub",
+  "vibe": "tactile",
+  "description": "Sun-bright yellow, candy pink, electric cyan, and deep violet surfaces paired with chunky rounded display headings, crisp geometric body copy, handwritten margin notes, and elastic spring hover physics.",
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "fonts": {
+    "display": "'Rubik', Arial, sans-serif",
+    "body": "'Barlow', Arial, sans-serif",
+    "mono": "'IBM Plex Mono', monospace",
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Barlow:wght@500;600;700&family=Shadows+Into+Light&family=IBM+Plex+Mono:wght@400;500&display=swap"
+  },
+  "palettePreview": {
+    "bg": "#FFFFFF",
+    "surface": "#FFDBFD",
+    "fg": "#000000",
+    "accent": "#FFD24A"
+  },
+  "tags": [
+    "book-club",
+    "ecommerce",
+    "d2c",
+    "playful",
+    "tactile",
+    "editorial",
+    "bright"
+  ]
+}

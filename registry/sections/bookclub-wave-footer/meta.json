@@ -1,0 +1,20 @@
+{
+  "id": "bookclub-wave-footer",
+  "kind": "section",
+  "level": "organism",
+  "category": "footer",
+  "roles": ["footer", "signup"],
+  "name": "Bookclub Wave Footer",
+  "description": "Deep-violet newsletter footer with overlapping black copyright bar, GSAP ScrollTrigger parallax box reveal, app store badges, social buttons, and validated mailing-list signup.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": [
+    "ui/bookclub-app-badges",
+    "ui/bookclub-bouncy-cta",
+    "ui/bookclub-social-button"
+  ],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["footer", "newsletter", "parallax", "gsap", "signup", "violet"]
+}

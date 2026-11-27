@@ -1,0 +1,114 @@
+.controls {
+  --_ease-click: var(--rk-bc-ease-click, cubic-bezier(0.4, 0, 0.2, 1));
+  --_ease-soft: var(--rk-bc-ease-soft-overshoot, cubic-bezier(0.59, 1, 0.88, 1.01));
+  --_ease-bounce: var(--rk-bc-ease-bounce, cubic-bezier(0.34, 2.27, 0.64, 1));
+
+  font-size: var(--rk-bc-size-font, 1em);
+  z-index: 1;
+  grid-column-gap: 0.5em;
+  grid-row-gap: 0.5em;
+  pointer-events: none;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 5em;
+  padding-right: 2.5em;
+  display: flex;
+  position: relative;
+}
+
+.home {
+  padding-top: 0;
+  padding-bottom: 5em;
+}
+
+.choice {
+  justify-content: center;
+  align-items: center;
+  padding-top: 3em;
+  padding-right: 0;
+}
+
+.exclusive {
+  margin-top: -3em;
+  padding-top: 0;
+  display: flex;
+}
+
+.button {
+  pointer-events: auto;
+  width: 4.5em;
+  height: 4.5em;
+  color: var(--rk-bc-white, var(--rk-bg));
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  display: inline-grid;
+  cursor: pointer;
+  transition: scale 0.15s var(--_ease-click), opacity 0.25s ease-out;
+}
+
+.button:active {
+  scale: 0.9;
+}
+
+.previous {
+  rotate: -180deg;
+}
+
+.disabled {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.buttonBg {
+  background-color: var(--rk-bc-black, var(--rk-fg));
+  border-radius: 50%;
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  transition: scale 0.15s var(--_ease-soft), transform 0.15s var(--_ease-soft);
+}
+
+.iconWrap {
+  z-index: 1;
+  grid-area: 1 / 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.icon {
+  flex: none;
+  width: 1.125em;
+  height: 1em;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .button:is(:hover, :focus-visible) .buttonBg {
+    scale: 0.955 0.925;
+    transform: scale(1.0471204188, 1.0810810811);
+    transition: scale 0.15s var(--_ease-soft), transform 0.35s 0.15s var(--_ease-bounce);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .controls:not(.alwaysVisible) {
+    display: none;
+  }
+}
+
+.previewStage {
+  min-height: 100vh;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  background-color: var(--rk-bc-white, var(--rk-bg));
+}

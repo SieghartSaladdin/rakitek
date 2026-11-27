@@ -1,0 +1,15 @@
+{
+  "id": "bookclub-pill-button",
+  "kind": "ui",
+  "level": "atom",
+  "category": "button",
+  "name": "Bookclub Pill Button",
+  "description": "Rounded navigation pill button with elastic squash hover, GSAP SplitText character bounce, and optional animated ear accents on the active state.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["button", "pill", "nav", "gsap", "split-text", "elastic"]
+}

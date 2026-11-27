@@ -1,0 +1,15 @@
+{
+  "id": "bookclub-social-button",
+  "kind": "ui",
+  "level": "atom",
+  "category": "button",
+  "name": "Bookclub Social Button",
+  "description": "Circular social icon button with elastic background squash and counter-rotating inner icon bounce on hover, supporting base and big sizes.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["social", "icon-button", "circle", "elastic", "hover"]
+}
