@@ -1,0 +1,16 @@
+{
+  "id": "orchard-top-header",
+  "kind": "section",
+  "level": "organism",
+  "category": "navbar",
+  "roles": ["navigation"],
+  "name": "Orchard Top Header",
+  "description": "Fixed editorial three-zone header with circular language pills, centered collapsible botanical crest logo, rolling toggle trigger, and full-screen terracotta diagonal navigation overlay.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": ["ui/orchard-rolling-toggle"],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["navbar", "header", "overlay", "editorial", "language-switcher", "scroll-compact"]
+}

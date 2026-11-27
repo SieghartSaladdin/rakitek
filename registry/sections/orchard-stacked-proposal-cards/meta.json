@@ -1,0 +1,16 @@
+{
+  "id": "orchard-stacked-proposal-cards",
+  "kind": "section",
+  "level": "organism",
+  "category": "offerings",
+  "roles": ["offerings", "process"],
+  "name": "Orchard Stacked Proposal Cards",
+  "description": "Marigold editorial section with drifting side captions and a GSAP ScrollTrigger pinned 3D card stack that scales, tilts, and shades cards as the visitor scrolls through curated experiences.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["cards", "stacked", "gsap", "scrolltrigger", "3d", "experiences"]
+}

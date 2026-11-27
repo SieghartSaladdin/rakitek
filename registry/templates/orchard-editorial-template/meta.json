@@ -1,0 +1,15 @@
+{
+  "id": "orchard-editorial-template",
+  "kind": "template",
+  "level": "template",
+  "category": "editorial",
+  "name": "Orchard Editorial Template",
+  "description": "Full-page editorial shell featuring a fixed top header overlay slot, skip-to-content accessibility link, isolated main region for full-bleed sections, sticky floating bottom pill navigation slot, and full-height footer slot.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["template", "layout", "editorial", "orchard", "shell"]
+}

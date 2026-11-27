@@ -1,0 +1,16 @@
+{
+  "id": "orchard-vision-parallax-box",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": ["about", "story"],
+  "name": "Orchard Vision Parallax Box",
+  "description": "Full-bleed 1517:1230 statement box with a monumental centered serif word scaled to the box width, a floating side statement and an oversized portrait cut-out that drifts upward on scroll with a clamped GSAP parallax.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["vision", "parallax", "portrait", "statement", "about"]
+}

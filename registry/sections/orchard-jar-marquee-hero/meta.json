@@ -1,0 +1,16 @@
+{
+  "id": "orchard-jar-marquee-hero",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": ["hero"],
+  "name": "Orchard Jar Marquee Hero",
+  "description": "Full-viewport interactive hero featuring a curved-path marquee of Three.js 3D-wrapped product jars with spring hover physics, wheel/drag momentum, scalloped arch backdrop, rotating circular badge, and center CTA.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["three"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["hero", "3d", "threejs", "marquee", "spring-physics", "jars", "interactive"]
+}

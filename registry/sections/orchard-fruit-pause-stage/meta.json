@@ -1,0 +1,16 @@
+{
+  "id": "orchard-fruit-pause-stage",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": ["story", "about"],
+  "name": "Orchard Fruit Pause Stage",
+  "description": "Full-height scroll pause where four flat botanical fruit silhouettes fly from the stage centre to their resting corners while a pinned serif line fades in, driven by a GSAP ScrollTrigger scrub.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["scroll", "pin", "scrub", "fruit", "story", "pause"]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "orchard-editorial-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "editorial",
+  "name": "Orchard Editorial Demo Page",
+  "description": "Full composed orchard pantry editorial demo page assembling the orchard editorial template with top header, expanding page hero, rhombus intro, product showcases, parallax poster band, specification ledger, closing outro, sticky floating pill nav, and deep wine footer.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap", "matter-js"],
+  "composes": [
+    "templates/orchard-editorial-template",
+    "sections/orchard-top-header",
+    "sections/orchard-editorial-page-hero",
+    "sections/orchard-rhombus-intro",
+    "sections/orchard-product-showcase",
+    "sections/orchard-parallax-poster-band",
+    "sections/orchard-spec-ledger-section",
+    "sections/orchard-expanding-cover-outro",
+    "sections/orchard-editorial-footer",
+    "ui/orchard-floating-pill-nav"
+  ],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["page", "demo", "orchard", "editorial", "pantry", "composed", "full-page"]
+}

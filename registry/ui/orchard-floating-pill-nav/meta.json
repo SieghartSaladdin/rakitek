@@ -1,0 +1,15 @@
+{
+  "id": "orchard-floating-pill-nav",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "navigation",
+  "name": "Orchard Floating Pill Nav",
+  "description": "Sticky bottom frosted-glass pill navigation bar with a smooth-gliding terracotta active indicator pill, scroll-spy section tracking, footer auto-hide, and mobile collapsible drawer pill.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["navigation", "pill", "floating", "sticky", "scrollspy", "editorial", "molecule"]
+}

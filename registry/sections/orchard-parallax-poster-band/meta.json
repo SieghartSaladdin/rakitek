@@ -1,0 +1,16 @@
+{
+  "id": "orchard-parallax-poster-band",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": ["offerings", "story"],
+  "name": "Orchard Parallax Poster Band",
+  "description": "Full-bleed 1517:1230 layered parallax poster featuring edge-to-edge photography, auto-fitted monumental display typography behind a GSAP-parallaxed foreground cutout, centered editorial details, and optional product rail.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap", "matter-js"],
+  "composes": ["ui/orchard-format-badge", "ui/orchard-jar-slide-card"],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["poster", "parallax", "layered", "foreground", "gsap", "offerings"]
+}

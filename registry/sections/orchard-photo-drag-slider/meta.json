@@ -1,0 +1,16 @@
+{
+  "id": "orchard-photo-drag-slider",
+  "kind": "section",
+  "level": "organism",
+  "category": "gallery",
+  "roles": ["proof", "story"],
+  "name": "Orchard Photo Drag Slider",
+  "description": "Infinite looping photo gallery of 980:702 rounded slides driven by transforms, with pointer drag momentum, arrow-key stepping, per-slide image parallax and an optional custom-cursor label hook.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["gallery", "slider", "drag", "parallax", "carousel"]
+}

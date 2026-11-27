@@ -1,0 +1,16 @@
+{
+  "id": "orchard-rhombus-intro",
+  "kind": "section",
+  "level": "organism",
+  "category": "about",
+  "roles": ["about", "story"],
+  "name": "Orchard Rhombus Intro",
+  "description": "Centered editorial statement band framed by upper and lower 45-degree rotated rhombus markers with optional secondary sub-copy.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["intro", "statement", "rhombus", "editorial", "centered", "story"]
+}

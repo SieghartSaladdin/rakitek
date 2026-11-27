@@ -1,0 +1,28 @@
+{
+  "id": "orchard-terracotta",
+  "name": "Orchard Terracotta",
+  "vibe": "editorial",
+  "description": "Sun-warmed cream canvas, deep wine-burgundy ink, terracotta citrus orange and marigold accents, and high-contrast editorial serif display typography paired with geometric sans-serif body text.",
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "fonts": {
+    "display": "'Italiana', Georgia, serif",
+    "body": "'Outfit', 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+    "mono": "'JetBrains Mono', monospace",
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+  },
+  "palettePreview": {
+    "bg": "#FDF3EB",
+    "surface": "#FFE9D7",
+    "fg": "#762530",
+    "accent": "#E94E1B"
+  },
+  "tags": [
+    "orchard",
+    "artisan",
+    "fnb",
+    "editorial",
+    "warm",
+    "terracotta",
+    "light"
+  ]
+}

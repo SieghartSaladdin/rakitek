@@ -1,0 +1,257 @@
+.header {
+  inset: 0 0 auto;
+  line-height: 1.3;
+  padding: 30px 30px;
+  pointer-events: none;
+  position: fixed;
+  transform: translateZ(0);
+  transition:
+    transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+    background-color 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 100%;
+  z-index: 900;
+}
+
+.isHidden {
+  transform: translate3d(0, calc(-100% - 40px), 0);
+}
+
+.solidBg {
+  background-color: var(--rk-surface-elevated);
+  inset: 0 0 auto;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  transform: translateZ(0);
+  transition:
+    transform 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+    opacity 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 790;
+}
+
+.solidBgVisible {
+  opacity: 1;
+}
+
+.solidBgHidden {
+  transform: translate3d(0, calc(-100% - 40px), 0);
+}
+
+.bar {
+  align-items: flex-start;
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.side {
+  align-items: flex-start;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  pointer-events: auto;
+}
+
+.sideEnd {
+  justify-content: flex-end;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%);
+}
+
+.brand {
+  display: inline-block;
+  overflow: hidden;
+  pointer-events: auto;
+  position: relative;
+  transition: height 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+  width: 135px;
+}
+
+.brandLink {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+.brandLink:focus-visible {
+  border-radius: var(--rk-radius-sm);
+  box-shadow: 0 0 0 5px var(--rk-bg);
+  outline: 2px solid var(--rk-fg);
+  outline-offset: 3px;
+}
+
+.logoSvg {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.logoSvg svg {
+  display: block;
+  height: auto;
+  overflow: visible;
+  width: 100%;
+}
+
+.logoIcon,
+.logoSub,
+.logoWordmark {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    transform 0.78s var(--rk-ease),
+    opacity 0.28s var(--rk-ease),
+    color 0.28s var(--rk-ease);
+}
+
+.logoIcon,
+.logoSub {
+  color: var(--rk-accent);
+}
+
+.logoWordmark {
+  color: var(--rk-fg);
+}
+
+.isLight:not(.isNavOpen) .logoIcon,
+.isLight:not(.isNavOpen) .logoSub,
+.isLight:not(.isNavOpen) .logoWordmark {
+  color: var(--rk-bg);
+}
+
+.isCompact .logoIcon {
+  transform: translate3d(0, -19.8px, 0) scale(0);
+}
+
+.isCompact .logoSub,
+.isCompact .logoWordmark {
+  transform: translate3d(0, -62.1px, 0);
+}
+
+.isNavOpen .logoIcon,
+.isNavOpen .logoSub,
+.isNavOpen .logoWordmark {
+  color: var(--rk-fg);
+}
+
+.langSwitcher {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 0.5px;
+}
+
+.langItem {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--rk-fg);
+  border-radius: 50%;
+  color: var(--rk-fg);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--rk-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: 37px;
+  justify-content: center;
+  line-height: 1.3;
+  padding: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    border-color 0.3s,
+    color 0.3s,
+    background-color 0.3s;
+  width: 37px;
+}
+
+.langItem:hover {
+  border-color: var(--rk-accent);
+  color: var(--rk-accent);
+}
+
+.langItem:focus-visible {
+  box-shadow: 0 0 0 5px var(--rk-bg);
+  outline: 2px solid var(--rk-fg);
+  outline-offset: 3px;
+}
+
+.langActive {
+  background: var(--rk-accent);
+  border-color: var(--rk-accent);
+  color: var(--rk-bg);
+  position: relative;
+  z-index: 1;
+}
+
+.langActive:hover {
+  color: var(--rk-bg);
+}
+
+.isLight:not(.isNavOpen) .langItem {
+  border-color: var(--rk-bg);
+  color: var(--rk-bg);
+}
+
+.isLight:not(.isNavOpen) .langActive {
+  background: var(--rk-bg);
+  border-color: var(--rk-bg);
+  color: var(--rk-fg);
+}
+
+.isNavOpen .langActive {
+  background: var(--rk-bg);
+  border-color: var(--rk-bg);
+  color: var(--rk-fg);
+}
+
+.isNavOpen .langItem:not(.langActive):hover {
+  background: var(--rk-fg);
+  border-color: var(--rk-fg);
+  color: var(--rk-accent);
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 24px 16px;
+  }
+
+  .bar {
+    align-items: flex-start;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  .center {
+    justify-self: center;
+    pointer-events: auto;
+    position: static;
+    transform: none;
+  }
+
+  .brand {
+    width: 108px;
+  }
+
+  .sideStart {
+    display: flex;
+    justify-self: flex-start;
+  }
+
+  .sideEnd {
+    justify-self: flex-end;
+  }
+
+  .isSolid .brand {
+    height: 45px;
+  }
+}

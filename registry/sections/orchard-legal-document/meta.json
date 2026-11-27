@@ -1,0 +1,16 @@
+{
+  "id": "orchard-legal-document",
+  "kind": "section",
+  "level": "organism",
+  "category": "legal",
+  "roles": ["footer", "about"],
+  "name": "Orchard Legal Document",
+  "description": "Narrow readable privacy and cookie policy page with a serif title, muted update line, numbered serif headings, bullet lists, a horizontally scrollable cookie table and an optional pill action button.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["legal", "privacy", "cookies", "policy", "text"]
+}

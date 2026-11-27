@@ -1,0 +1,15 @@
+{
+  "id": "orchard-jar-slide-card",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "card",
+  "name": "Orchard Jar Slide Card",
+  "description": "Rounded 367:481 product card that responds to hover with a gentle tilt-scale reveal, 1.1x rotating product silhouette, and Matter.js falling botanical SVG physics.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["matter-js"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["card", "product", "physics", "matter-js", "hover", "botanical", "molecule"]
+}

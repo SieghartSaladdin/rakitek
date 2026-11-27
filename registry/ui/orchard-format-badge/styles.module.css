@@ -1,0 +1,69 @@
+.root {
+  display: block;
+  line-height: 1.3;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.label {
+  color: var(--rk-accent);
+  font-family: var(--rk-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.labelInner {
+  display: block;
+  margin: -0.14em 0 -0.1em;
+  overflow: hidden;
+  padding: 0.14em 0 0.1em;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  line-height: 1.3;
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.alignCenter .list {
+  justify-content: center;
+}
+
+.item {
+  align-items: center;
+  border: 1px solid var(--rk-fg);
+  border-radius: 50%;
+  color: var(--rk-fg);
+  display: flex;
+  font-family: var(--rk-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  height: 52px;
+  justify-content: center;
+  line-height: 1.3;
+  width: 52px;
+}
+
+.variantMuted .item {
+  border-color: color-mix(in srgb, var(--rk-fg) 25%, transparent);
+}
+
+@media (max-width: 1024px) {
+  .responsiveCenter {
+    align-items: center;
+    text-align: center;
+  }
+
+  .responsiveCenter .list {
+    justify-content: center;
+  }
+}

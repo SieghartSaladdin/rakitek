@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T06:14:58.161Z",
+  "generatedAt": "2026-11-27T11:04:14.419Z",
   "styles": [
     {
       "id": "azure-editorial",
@@ -82,6 +82,35 @@
         "waitlist"
       ],
       "tokensPath": "registry/styles/kinetic-obsidian/tokens.css"
+    },
+    {
+      "id": "orchard-terracotta",
+      "name": "Orchard Terracotta",
+      "vibe": "editorial",
+      "description": "Sun-warmed cream canvas, deep wine-burgundy ink, terracotta citrus orange and marigold accents, and high-contrast editorial serif display typography paired with geometric sans-serif body text.",
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "fonts": {
+        "display": "'Italiana', Georgia, serif",
+        "body": "'Outfit', 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+        "mono": "'JetBrains Mono', monospace",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      },
+      "palettePreview": {
+        "bg": "#FDF3EB",
+        "surface": "#FFE9D7",
+        "fg": "#762530",
+        "accent": "#E94E1B"
+      },
+      "tags": [
+        "orchard",
+        "artisan",
+        "fnb",
+        "editorial",
+        "warm",
+        "terracotta",
+        "light"
+      ],
+      "tokensPath": "registry/styles/orchard-terracotta/tokens.css"
     }
   ],
   "ui": [
@@ -267,6 +296,142 @@
       "componentPath": "registry/ui/marquee-ticker/component.tsx",
       "previewPath": "registry/ui/marquee-ticker/preview.tsx",
       "stylesPath": "registry/ui/marquee-ticker/styles.module.css"
+    },
+    {
+      "id": "orchard-floating-pill-nav",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "navigation",
+      "roles": [],
+      "name": "Orchard Floating Pill Nav",
+      "description": "Sticky bottom frosted-glass pill navigation bar with a smooth-gliding terracotta active indicator pill, scroll-spy section tracking, footer auto-hide, and mobile collapsible drawer pill.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "navigation",
+        "pill",
+        "floating",
+        "sticky",
+        "scrollspy",
+        "editorial",
+        "molecule"
+      ],
+      "componentPath": "registry/ui/orchard-floating-pill-nav/component.tsx",
+      "previewPath": "registry/ui/orchard-floating-pill-nav/preview.tsx",
+      "stylesPath": "registry/ui/orchard-floating-pill-nav/styles.module.css"
+    },
+    {
+      "id": "orchard-format-badge",
+      "kind": "ui",
+      "level": "atom",
+      "category": "badge",
+      "roles": [],
+      "name": "Orchard Format Badge",
+      "description": "Circular hairline-bordered weight and package format chips paired with an uppercase terracotta micro-heading, matching artisanal jar specification rows.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "badge",
+        "chips",
+        "weights",
+        "formats",
+        "circle",
+        "editorial",
+        "atom"
+      ],
+      "componentPath": "registry/ui/orchard-format-badge/component.tsx",
+      "previewPath": "registry/ui/orchard-format-badge/preview.tsx",
+      "stylesPath": "registry/ui/orchard-format-badge/styles.module.css"
+    },
+    {
+      "id": "orchard-jar-slide-card",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "card",
+      "roles": [],
+      "name": "Orchard Jar Slide Card",
+      "description": "Rounded 367:481 product card that responds to hover with a gentle tilt-scale reveal, 1.1x rotating product silhouette, and Matter.js falling botanical SVG physics.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "matter-js"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "card",
+        "product",
+        "physics",
+        "matter-js",
+        "hover",
+        "botanical",
+        "molecule"
+      ],
+      "componentPath": "registry/ui/orchard-jar-slide-card/component.tsx",
+      "previewPath": "registry/ui/orchard-jar-slide-card/preview.tsx",
+      "stylesPath": "registry/ui/orchard-jar-slide-card/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "fruit-physics.ts",
+          "path": "registry/ui/orchard-jar-slide-card/fruit-physics.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-rolling-toggle",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "roles": [],
+      "name": "Orchard Rolling Toggle",
+      "description": "Two-piece editorial pill and circular diamond/close disc toggle button with character-by-character vertical roll hover animation, open-state cross morph, and light/dark surface polarity.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "button",
+        "toggle",
+        "menu",
+        "roll",
+        "pill",
+        "editorial",
+        "atom"
+      ],
+      "componentPath": "registry/ui/orchard-rolling-toggle/component.tsx",
+      "previewPath": "registry/ui/orchard-rolling-toggle/preview.tsx",
+      "stylesPath": "registry/ui/orchard-rolling-toggle/styles.module.css"
     },
     {
       "id": "rolling-cta-button",
@@ -1058,6 +1223,727 @@
       ]
     },
     {
+      "id": "orchard-closing-parallax-frame",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Orchard Closing Parallax Frame",
+      "description": "Inset 1002:790 rounded closing photograph centered on columns 3 to 10 whose oversized image drifts behind the frame with a clamped scrubbed parallax.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "image",
+        "parallax",
+        "closing",
+        "frame"
+      ],
+      "componentPath": "registry/sections/orchard-closing-parallax-frame/component.tsx",
+      "previewPath": "registry/sections/orchard-closing-parallax-frame/preview.tsx",
+      "stylesPath": "registry/sections/orchard-closing-parallax-frame/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "parallax.ts",
+          "path": "registry/sections/orchard-closing-parallax-frame/parallax.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-editorial-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "roles": [
+        "footer"
+      ],
+      "name": "Orchard Editorial Footer",
+      "description": "Full-viewport deep wine-burgundy editorial footer featuring a large 9-column brand display mark, 4-column structured navigation, dual office address stack, social/email CTA, and hairline-bordered legal strip.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "footer",
+        "editorial",
+        "columns",
+        "addresses",
+        "wine",
+        "dark"
+      ],
+      "componentPath": "registry/sections/orchard-editorial-footer/component.tsx",
+      "previewPath": "registry/sections/orchard-editorial-footer/preview.tsx",
+      "stylesPath": "registry/sections/orchard-editorial-footer/styles.module.css"
+    },
+    {
+      "id": "orchard-editorial-page-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero"
+      ],
+      "name": "Orchard Editorial Page Hero",
+      "description": "Monumental centered serif page headline paired with an expanding inset full-bleed cover image featuring GSAP ScrollTrigger parallax and optional overlay headline.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "hero",
+        "editorial",
+        "parallax",
+        "gsap",
+        "clip-path",
+        "cover"
+      ],
+      "componentPath": "registry/sections/orchard-editorial-page-hero/component.tsx",
+      "previewPath": "registry/sections/orchard-editorial-page-hero/preview.tsx",
+      "stylesPath": "registry/sections/orchard-editorial-page-hero/styles.module.css"
+    },
+    {
+      "id": "orchard-expanding-cover-outro",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "story",
+        "about"
+      ],
+      "name": "Orchard Expanding Cover Outro",
+      "description": "Full-bleed 16:9 closing editorial visual band that expands from inset rounded corners to edge-to-edge on scroll with GSAP parallax and scale settle.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "outro",
+        "cover",
+        "parallax",
+        "gsap",
+        "clip-path",
+        "editorial"
+      ],
+      "componentPath": "registry/sections/orchard-expanding-cover-outro/component.tsx",
+      "previewPath": "registry/sections/orchard-expanding-cover-outro/preview.tsx",
+      "stylesPath": "registry/sections/orchard-expanding-cover-outro/styles.module.css"
+    },
+    {
+      "id": "orchard-fruit-pause-stage",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "story",
+        "about"
+      ],
+      "name": "Orchard Fruit Pause Stage",
+      "description": "Full-height scroll pause where four flat botanical fruit silhouettes fly from the stage centre to their resting corners while a pinned serif line fades in, driven by a GSAP ScrollTrigger scrub.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "scroll",
+        "pin",
+        "scrub",
+        "fruit",
+        "story",
+        "pause"
+      ],
+      "componentPath": "registry/sections/orchard-fruit-pause-stage/component.tsx",
+      "previewPath": "registry/sections/orchard-fruit-pause-stage/preview.tsx",
+      "stylesPath": "registry/sections/orchard-fruit-pause-stage/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "pause-fruits.ts",
+          "path": "registry/sections/orchard-fruit-pause-stage/pause-fruits.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-gravity-contact-stage",
+      "kind": "section",
+      "level": "organism",
+      "category": "contact",
+      "roles": [
+        "contact",
+        "engagement"
+      ],
+      "name": "Orchard Gravity Contact Stage",
+      "description": "Split-screen editorial contact section pairing an interactive Matter.js falling botanical SVG stage on the left (click to blast upward) with a 6-column typography and office contact grid on the right.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "matter-js"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "contact",
+        "physics",
+        "matter-js",
+        "interactive",
+        "botanical",
+        "split"
+      ],
+      "componentPath": "registry/sections/orchard-gravity-contact-stage/component.tsx",
+      "previewPath": "registry/sections/orchard-gravity-contact-stage/preview.tsx",
+      "stylesPath": "registry/sections/orchard-gravity-contact-stage/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "fruit-stage.ts",
+          "path": "registry/sections/orchard-gravity-contact-stage/fruit-stage.ts"
+        },
+        {
+          "name": "fruit-svgs.ts",
+          "path": "registry/sections/orchard-gravity-contact-stage/fruit-svgs.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-jar-marquee-hero",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero"
+      ],
+      "name": "Orchard Jar Marquee Hero",
+      "description": "Full-viewport interactive hero featuring a curved-path marquee of Three.js 3D-wrapped product jars with spring hover physics, wheel/drag momentum, scalloped arch backdrop, rotating circular badge, and center CTA.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "three"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "hero",
+        "3d",
+        "threejs",
+        "marquee",
+        "spring-physics",
+        "jars",
+        "interactive"
+      ],
+      "componentPath": "registry/sections/orchard-jar-marquee-hero/component.tsx",
+      "previewPath": "registry/sections/orchard-jar-marquee-hero/preview.tsx",
+      "stylesPath": "registry/sections/orchard-jar-marquee-hero/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "default-art.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/default-art.ts"
+        },
+        {
+          "name": "jar-input.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/jar-input.ts"
+        },
+        {
+          "name": "jar-math.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/jar-math.ts"
+        },
+        {
+          "name": "jar-renderer.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/jar-renderer.ts"
+        },
+        {
+          "name": "jar-slider.ts",
+          "path": "registry/sections/orchard-jar-marquee-hero/jar-slider.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-legal-document",
+      "kind": "section",
+      "level": "organism",
+      "category": "legal",
+      "roles": [
+        "footer",
+        "about"
+      ],
+      "name": "Orchard Legal Document",
+      "description": "Narrow readable privacy and cookie policy page with a serif title, muted update line, numbered serif headings, bullet lists, a horizontally scrollable cookie table and an optional pill action button.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "legal",
+        "privacy",
+        "cookies",
+        "policy",
+        "text"
+      ],
+      "componentPath": "registry/sections/orchard-legal-document/component.tsx",
+      "previewPath": "registry/sections/orchard-legal-document/preview.tsx",
+      "stylesPath": "registry/sections/orchard-legal-document/styles.module.css"
+    },
+    {
+      "id": "orchard-parallax-poster-band",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "offerings",
+        "story"
+      ],
+      "name": "Orchard Parallax Poster Band",
+      "description": "Full-bleed 1517:1230 layered parallax poster featuring edge-to-edge photography, auto-fitted monumental display typography behind a GSAP-parallaxed foreground cutout, centered editorial details, and optional product rail.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap",
+        "matter-js"
+      ],
+      "composes": [
+        "ui/orchard-format-badge",
+        "ui/orchard-jar-slide-card"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "poster",
+        "parallax",
+        "layered",
+        "foreground",
+        "gsap",
+        "offerings"
+      ],
+      "componentPath": "registry/sections/orchard-parallax-poster-band/component.tsx",
+      "previewPath": "registry/sections/orchard-parallax-poster-band/preview.tsx",
+      "stylesPath": "registry/sections/orchard-parallax-poster-band/styles.module.css"
+    },
+    {
+      "id": "orchard-photo-drag-slider",
+      "kind": "section",
+      "level": "organism",
+      "category": "gallery",
+      "roles": [
+        "proof",
+        "story"
+      ],
+      "name": "Orchard Photo Drag Slider",
+      "description": "Infinite looping photo gallery of 980:702 rounded slides driven by transforms, with pointer drag momentum, arrow-key stepping, per-slide image parallax and an optional custom-cursor label hook.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "gallery",
+        "slider",
+        "drag",
+        "parallax",
+        "carousel"
+      ],
+      "componentPath": "registry/sections/orchard-photo-drag-slider/component.tsx",
+      "previewPath": "registry/sections/orchard-photo-drag-slider/preview.tsx",
+      "stylesPath": "registry/sections/orchard-photo-drag-slider/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "default-slides.ts",
+          "path": "registry/sections/orchard-photo-drag-slider/default-slides.ts"
+        },
+        {
+          "name": "slider-math.ts",
+          "path": "registry/sections/orchard-photo-drag-slider/slider-math.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-product-meta-band",
+      "kind": "section",
+      "level": "organism",
+      "category": "offerings",
+      "roles": [
+        "offerings",
+        "process"
+      ],
+      "name": "Orchard Product Meta Band",
+      "description": "Hairline-ruled three-column product facts band with uppercase terracotta labels, a free-text tips column, circular weight chips and a shelf-life note that stacks centered on tablet and mobile.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "product",
+        "details",
+        "weights",
+        "shelf-life",
+        "specs"
+      ],
+      "componentPath": "registry/sections/orchard-product-meta-band/component.tsx",
+      "previewPath": "registry/sections/orchard-product-meta-band/preview.tsx",
+      "stylesPath": "registry/sections/orchard-product-meta-band/styles.module.css"
+    },
+    {
+      "id": "orchard-product-showcase",
+      "kind": "section",
+      "level": "organism",
+      "category": "offerings",
+      "roles": [
+        "offerings"
+      ],
+      "name": "Orchard Product Showcase",
+      "description": "12-column editorial product line showcase pairing a monumental serif heading, GSAP-parallaxed lifestyle cover or inline drag-momentum slider, specification weight chips, and a full-width physics-enabled jar rail.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap",
+        "matter-js"
+      ],
+      "composes": [
+        "ui/orchard-format-badge",
+        "ui/orchard-jar-slide-card"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "showcase",
+        "products",
+        "slider",
+        "parallax",
+        "gsap",
+        "offerings"
+      ],
+      "componentPath": "registry/sections/orchard-product-showcase/component.tsx",
+      "previewPath": "registry/sections/orchard-product-showcase/preview.tsx",
+      "stylesPath": "registry/sections/orchard-product-showcase/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "product-slider.tsx",
+          "path": "registry/sections/orchard-product-showcase/product-slider.tsx"
+        }
+      ]
+    },
+    {
+      "id": "orchard-production-ledger",
+      "kind": "section",
+      "level": "organism",
+      "category": "process",
+      "roles": [
+        "offerings",
+        "process"
+      ],
+      "name": "Orchard Production Ledger",
+      "description": "Centered editorial availability ledger with an optional single-line auto-fitted monumental heading, narrative text, uppercase sub-label and a hairline-bordered 2- or 3-column product table.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "table",
+        "ledger",
+        "availability",
+        "production",
+        "seasonal"
+      ],
+      "componentPath": "registry/sections/orchard-production-ledger/component.tsx",
+      "previewPath": "registry/sections/orchard-production-ledger/preview.tsx",
+      "stylesPath": "registry/sections/orchard-production-ledger/styles.module.css"
+    },
+    {
+      "id": "orchard-rhombus-intro",
+      "kind": "section",
+      "level": "organism",
+      "category": "about",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Orchard Rhombus Intro",
+      "description": "Centered editorial statement band framed by upper and lower 45-degree rotated rhombus markers with optional secondary sub-copy.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "intro",
+        "statement",
+        "rhombus",
+        "editorial",
+        "centered",
+        "story"
+      ],
+      "componentPath": "registry/sections/orchard-rhombus-intro/component.tsx",
+      "previewPath": "registry/sections/orchard-rhombus-intro/preview.tsx",
+      "stylesPath": "registry/sections/orchard-rhombus-intro/styles.module.css"
+    },
+    {
+      "id": "orchard-spec-ledger-section",
+      "kind": "section",
+      "level": "organism",
+      "category": "process",
+      "roles": [
+        "process",
+        "offerings"
+      ],
+      "name": "Orchard Spec Ledger Section",
+      "description": "Centered editorial showcase with a large display heading, narrative introduction, rounded 1004:615 GSAP-parallaxed feature photograph, and a clean hairline-bordered 2- or 3-column specification ledger.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "table",
+        "ledger",
+        "specifications",
+        "hospitality",
+        "parallax",
+        "process"
+      ],
+      "componentPath": "registry/sections/orchard-spec-ledger-section/component.tsx",
+      "previewPath": "registry/sections/orchard-spec-ledger-section/preview.tsx",
+      "stylesPath": "registry/sections/orchard-spec-ledger-section/styles.module.css"
+    },
+    {
+      "id": "orchard-stacked-proposal-cards",
+      "kind": "section",
+      "level": "organism",
+      "category": "offerings",
+      "roles": [
+        "offerings",
+        "process"
+      ],
+      "name": "Orchard Stacked Proposal Cards",
+      "description": "Marigold editorial section with drifting side captions and a GSAP ScrollTrigger pinned 3D card stack that scales, tilts, and shades cards as the visitor scrolls through curated experiences.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "cards",
+        "stacked",
+        "gsap",
+        "scrolltrigger",
+        "3d",
+        "experiences"
+      ],
+      "componentPath": "registry/sections/orchard-stacked-proposal-cards/component.tsx",
+      "previewPath": "registry/sections/orchard-stacked-proposal-cards/preview.tsx",
+      "stylesPath": "registry/sections/orchard-stacked-proposal-cards/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "stack-motion.ts",
+          "path": "registry/sections/orchard-stacked-proposal-cards/stack-motion.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-top-header",
+      "kind": "section",
+      "level": "organism",
+      "category": "navbar",
+      "roles": [
+        "navigation"
+      ],
+      "name": "Orchard Top Header",
+      "description": "Fixed editorial three-zone header with circular language pills, centered collapsible botanical crest logo, rolling toggle trigger, and full-screen terracotta diagonal navigation overlay.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/orchard-rolling-toggle"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "navbar",
+        "header",
+        "overlay",
+        "editorial",
+        "language-switcher",
+        "scroll-compact"
+      ],
+      "componentPath": "registry/sections/orchard-top-header/component.tsx",
+      "previewPath": "registry/sections/orchard-top-header/preview.tsx",
+      "stylesPath": "registry/sections/orchard-top-header/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "default-crest.tsx",
+          "path": "registry/sections/orchard-top-header/default-crest.tsx"
+        },
+        {
+          "name": "nav-overlay.tsx",
+          "path": "registry/sections/orchard-top-header/nav-overlay.tsx"
+        },
+        {
+          "name": "overlay.module.css",
+          "path": "registry/sections/orchard-top-header/overlay.module.css"
+        }
+      ]
+    },
+    {
+      "id": "orchard-vision-parallax-box",
+      "kind": "section",
+      "level": "organism",
+      "category": "story",
+      "roles": [
+        "about",
+        "story"
+      ],
+      "name": "Orchard Vision Parallax Box",
+      "description": "Full-bleed 1517:1230 statement box with a monumental centered serif word scaled to the box width, a floating side statement and an oversized portrait cut-out that drifts upward on scroll with a clamped GSAP parallax.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "vision",
+        "parallax",
+        "portrait",
+        "statement",
+        "about"
+      ],
+      "componentPath": "registry/sections/orchard-vision-parallax-box/component.tsx",
+      "previewPath": "registry/sections/orchard-vision-parallax-box/preview.tsx",
+      "stylesPath": "registry/sections/orchard-vision-parallax-box/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "parallax.ts",
+          "path": "registry/sections/orchard-vision-parallax-box/parallax.ts"
+        }
+      ]
+    },
+    {
       "id": "parallax-destination-carousel",
       "kind": "section",
       "level": "organism",
@@ -1627,6 +2513,36 @@
       "stylesPath": "registry/templates/kinetic-story-template/styles.module.css"
     },
     {
+      "id": "orchard-editorial-template",
+      "kind": "template",
+      "level": "template",
+      "category": "editorial",
+      "roles": [],
+      "name": "Orchard Editorial Template",
+      "description": "Full-page editorial shell featuring a fixed top header overlay slot, skip-to-content accessibility link, isolated main region for full-bleed sections, sticky floating bottom pill navigation slot, and full-height footer slot.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "template",
+        "layout",
+        "editorial",
+        "orchard",
+        "shell"
+      ],
+      "componentPath": "registry/templates/orchard-editorial-template/component.tsx",
+      "previewPath": "registry/templates/orchard-editorial-template/preview.tsx",
+      "stylesPath": "registry/templates/orchard-editorial-template/styles.module.css"
+    },
+    {
       "id": "saas-waitlist-template",
       "kind": "template",
       "level": "template",
@@ -1740,6 +2656,57 @@
         {
           "name": "demo-data.ts",
           "path": "registry/pages/kinetic-story-demo-page/demo-data.ts"
+        }
+      ]
+    },
+    {
+      "id": "orchard-editorial-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "editorial",
+      "roles": [],
+      "name": "Orchard Editorial Demo Page",
+      "description": "Full composed orchard pantry editorial demo page assembling the orchard editorial template with top header, expanding page hero, rhombus intro, product showcases, parallax poster band, specification ledger, closing outro, sticky floating pill nav, and deep wine footer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "tactile"
+      ],
+      "recommendedStyles": [
+        "orchard-terracotta"
+      ],
+      "dependencies": [
+        "gsap",
+        "matter-js"
+      ],
+      "composes": [
+        "templates/orchard-editorial-template",
+        "sections/orchard-top-header",
+        "sections/orchard-editorial-page-hero",
+        "sections/orchard-rhombus-intro",
+        "sections/orchard-product-showcase",
+        "sections/orchard-parallax-poster-band",
+        "sections/orchard-spec-ledger-section",
+        "sections/orchard-expanding-cover-outro",
+        "sections/orchard-editorial-footer",
+        "ui/orchard-floating-pill-nav"
+      ],
+      "sourceRef": "fnb-bakery/agrumea-farm",
+      "tags": [
+        "page",
+        "demo",
+        "orchard",
+        "editorial",
+        "pantry",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/orchard-editorial-demo-page/component.tsx",
+      "previewPath": "registry/pages/orchard-editorial-demo-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/orchard-editorial-demo-page/demo-data.ts"
         }
       ]
     },

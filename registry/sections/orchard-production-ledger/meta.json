@@ -1,0 +1,16 @@
+{
+  "id": "orchard-production-ledger",
+  "kind": "section",
+  "level": "organism",
+  "category": "process",
+  "roles": ["offerings", "process"],
+  "name": "Orchard Production Ledger",
+  "description": "Centered editorial availability ledger with an optional single-line auto-fitted monumental heading, narrative text, uppercase sub-label and a hairline-bordered 2- or 3-column product table.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["table", "ledger", "availability", "production", "seasonal"]
+}
