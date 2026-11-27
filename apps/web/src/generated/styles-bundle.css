@@ -75,3 +75,48 @@
   --rk-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.65);
   --rk-ease: cubic-bezier(0.32, 0.72, 0, 1);
 }
+/* Style: swiss-mono */
+[data-rk-style="swiss-mono"] {
+  --rk-bg: #ffffff;
+  --rk-surface: #f4f4f4;
+  --rk-surface-elevated: #ffffff;
+  --rk-fg: #000000;
+  --rk-fg-muted: #5c5c5c;
+  --rk-fg-faint: #c9c9c9;
+  --rk-accent: #000000;
+  --rk-accent-fg: #ffffff;
+  --rk-highlight: #c9c9c9;
+  --rk-border: rgba(0, 0, 0, 0.1);
+  --rk-border-strong: #000000;
+  --rk-font-display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --rk-font-body: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --rk-font-mono: "JetBrains Mono", monospace;
+  --rk-display-transform: none;
+  --rk-display-tracking: -0.03em;
+  --rk-radius-sm: 0px;
+  --rk-radius-md: 0px;
+  --rk-radius-lg: 0px;
+  --rk-radius-pill: 9999px;
+  --rk-shadow: none;
+  --rk-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --rk-ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+  --rk-ease-out-quad: cubic-bezier(0.5, 1, 0.89, 1);
+  --rk-ease-in-sine: cubic-bezier(0.12, 0, 0.39, 0);
+  --rk-ease-out-quart: cubic-bezier(0.19, 1, 0.22, 1);
+  --rk-u: 0.694444vw;
+  --rk-gutter: var(--rk-u);
+  --rk-margin: var(--rk-u);
+  --rk-col: calc((100vw - (var(--rk-margin) * 2 + var(--rk-gutter) * 11)) / 12);
+}
+
+@media (max-width: 1024px) {
+  [data-rk-style="swiss-mono"] {
+    --rk-u: 1.15vw;
+  }
+}
+
+@media (max-width: 767px) {
+  [data-rk-style="swiss-mono"] {
+    --rk-u: 2.5vw;
+  }
+}

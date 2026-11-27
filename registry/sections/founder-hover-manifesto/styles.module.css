@@ -1,0 +1,135 @@
+:where(.root, .root *) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.root {
+  position: relative;
+  width: 100%;
+  background: var(--rk-bg);
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: calc(var(--rk-u) * 1.1);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.manifesto {
+  position: relative;
+  padding-block-start: calc(var(--rk-u) * 5);
+  padding-block-end: 0;
+  padding-inline: var(--rk-gutter);
+  font-size: calc(var(--rk-u) * 4);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+}
+
+.column {
+  width: calc(var(--rk-col) * 7.525 + var(--rk-gutter) * 6);
+}
+
+.person {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.12em;
+  transition: color 0.3s;
+}
+
+.person:hover,
+.person:focus-visible {
+  color: var(--rk-fg-faint);
+  outline: none;
+}
+
+.portraits {
+  position: fixed;
+  top: calc(var(--rk-u) * 5.2);
+  right: var(--rk-gutter);
+  z-index: 60;
+  width: calc(var(--rk-col) * 3 + var(--rk-gutter) * 2);
+  height: calc(100vh - var(--rk-gutter) * 2);
+  pointer-events: none;
+}
+
+.portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+}
+
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 0.770601;
+  object-fit: cover;
+  clip-path: inset(0 0 0 100%);
+}
+
+.shown img {
+  animation: portrait-in 1.6s var(--rk-ease) both;
+}
+
+.hiding img {
+  animation: portrait-out 0.8s var(--rk-ease-out-cubic) both;
+}
+
+@keyframes portrait-in {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0%);
+  }
+}
+
+@keyframes portrait-out {
+  from {
+    clip-path: inset(0 0 0 0%);
+  }
+  to {
+    clip-path: inset(0 100% 0 0%);
+  }
+}
+
+.caption {
+  display: block;
+  overflow: hidden;
+  margin-top: calc(var(--rk-u) * 0.8);
+  font-size: calc(var(--rk-u) * 1.1);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.caption > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.3s var(--rk-ease-out-cubic);
+  will-change: transform;
+}
+
+.shown .caption > span {
+  transform: translateY(0);
+  transition: transform 1.6s var(--rk-ease);
+}
+
+@media (max-width: 900px) {
+  .manifesto {
+    padding-block-start: calc(var(--rk-u) * 7);
+    font-size: calc(var(--rk-u) * 2.4);
+  }
+
+  .column {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shown img,
+  .hiding img {
+    animation-duration: 0.01ms;
+  }
+}

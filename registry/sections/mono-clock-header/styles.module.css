@@ -1,0 +1,182 @@
+:where(.header, .header *) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  position: fixed;
+  top: var(--rk-margin);
+  inset-inline: var(--rk-margin);
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: var(--rk-bg);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  font-family: var(--rk-font-body);
+  font-size: calc(var(--rk-u) * 1.1);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.title {
+  display: block;
+  max-width: calc(var(--rk-col) * 2 + var(--rk-gutter) * 2);
+  overflow: hidden;
+  pointer-events: all;
+  transition: max-width 0.8s var(--rk-ease);
+}
+
+.compact {
+  max-width: calc(var(--rk-u) * 4.05);
+}
+
+.wordmark {
+  display: block;
+  width: 300px;
+  height: auto;
+}
+
+.wordmark path {
+  transform-box: fill-box;
+  transform: translateY(120%);
+}
+
+.right {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--rk-gutter);
+}
+
+.right > * {
+  width: var(--rk-col);
+}
+
+.menu {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: all;
+}
+
+.menu a {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  height: 1.2lh;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translateY(110%);
+}
+
+.menu a:not(:last-child)::after {
+  content: ",\00a0";
+}
+
+.menu a span {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.menu a span::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-bottom: calc(var(--rk-u) * 0.1) solid;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.8s var(--rk-ease-out-quart);
+  will-change: transform;
+}
+
+.menu a.active span::before,
+.menu a:hover span::before,
+.menu a:focus-visible span::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.menu a:focus-visible,
+.contact:focus-visible,
+.title:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+}
+
+.time {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.time > span {
+  display: inline-block;
+  transform: translateY(110%);
+}
+
+.contactMask {
+  overflow: hidden;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.contact {
+  display: inline-block;
+  color: inherit;
+  text-align: right;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  pointer-events: all;
+  font: inherit;
+  letter-spacing: inherit;
+  transform: translateY(110%);
+}
+
+.booted .wordmark path,
+.booted .menu a,
+.booted .time > span,
+.booted .contact {
+  transform: translateY(0);
+  transition: transform 1.6s var(--rk-ease) var(--rk-d, 0ms);
+}
+
+@media (max-width: 767px) {
+  .time {
+    display: none;
+  }
+
+  .right > * {
+    width: auto;
+  }
+
+  .title:not(.compact) {
+    width: calc(var(--rk-u) * 11);
+    max-width: calc(var(--rk-u) * 11);
+  }
+
+  .wordmark {
+    width: calc(var(--rk-u) * 11);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wordmark path,
+  .menu a,
+  .time > span,
+  .contact {
+    transform: none;
+    transition: none;
+  }
+}

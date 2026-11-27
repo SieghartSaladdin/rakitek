@@ -1,0 +1,29 @@
+{
+  "id": "giant-wordmark-footer",
+  "kind": "section",
+  "level": "organism",
+  "category": "footer",
+  "roles": [
+    "footer"
+  ],
+  "name": "Giant Wordmark Footer",
+  "description": "Edge-to-edge footer of oversized SVG glyphs laid out by flex percentages. Each glyph rises out of the clipped row 100ms after the previous one once the footer is 15% visible; a raised trademark glyph starts further down.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "footer",
+    "wordmark",
+    "svg",
+    "reveal",
+    "css-modules"
+  ]
+}

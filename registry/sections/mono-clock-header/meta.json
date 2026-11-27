@@ -1,0 +1,30 @@
+{
+  "id": "mono-clock-header",
+  "kind": "section",
+  "level": "organism",
+  "category": "navigation",
+  "roles": [
+    "navigation",
+    "contact"
+  ],
+  "name": "Blend Difference Header",
+  "description": "Fixed header drawn with mix-blend-mode difference so it stays legible over any image: SVG wordmark that narrows to one glyph, comma-separated menu with drawn underlines, live clock, and a contact button that copies an email. Everything rises in on load with a 60ms stagger.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "header",
+    "navigation",
+    "blend-mode",
+    "clock",
+    "css-modules"
+  ]
+}

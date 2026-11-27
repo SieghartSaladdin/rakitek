@@ -1,0 +1,33 @@
+{
+  "id": "studio-hover-reel",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": [
+    "about",
+    "story",
+    "proof"
+  ],
+  "name": "Studio Hover Reel",
+  "description": "Square stage holding a pale grayscale archive photo. Hovering the middle shrinks it to a small coloured frame and cycles through the archive every second while a full-width caption row (title, type, place, year) rises in; overview paragraphs sit in the lower-left corner. A mark centred on the stage in difference blend grows to the stage width while the reel runs.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/mono-line-reveal"
+  ],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "gallery",
+    "hover",
+    "archive",
+    "captions",
+    "css-modules"
+  ]
+}

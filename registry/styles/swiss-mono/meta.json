@@ -1,0 +1,28 @@
+{
+  "id": "swiss-mono",
+  "name": "Swiss Mono",
+  "vibe": "editorial",
+  "description": "Pure white canvas, black ink, one pale grey for secondary text, hairline underlines, zero radii, and a single tight neo-grotesk set very large on a 12-column grid that scales with the viewport.",
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "fonts": {
+    "display": "'Inter Tight', 'Helvetica Neue', Arial, sans-serif",
+    "body": "'Inter Tight', 'Helvetica Neue', Arial, sans-serif",
+    "mono": "'JetBrains Mono', monospace",
+    "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=JetBrains+Mono:wght@400&display=swap"
+  },
+  "palettePreview": {
+    "bg": "#FFFFFF",
+    "surface": "#F4F4F4",
+    "fg": "#000000",
+    "accent": "#000000"
+  },
+  "tags": [
+    "monochrome",
+    "swiss",
+    "grid",
+    "agency",
+    "portfolio",
+    "minimal",
+    "light"
+  ]
+}

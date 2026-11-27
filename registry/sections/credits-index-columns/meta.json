@@ -1,0 +1,34 @@
+{
+  "id": "credits-index-columns",
+  "kind": "section",
+  "level": "organism",
+  "category": "about",
+  "roles": [
+    "about",
+    "proof",
+    "contact"
+  ],
+  "name": "Credits Index Columns",
+  "description": "Two-column index of text blocks and link lists (services, industries, awards, talks, press, socials) with pale headings, lines that rise on scroll, link underlines that draw in on hover, and a colophon pinned to the bottom of the right column.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/mono-line-reveal"
+  ],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "credits",
+    "awards",
+    "press",
+    "index",
+    "links",
+    "css-modules"
+  ]
+}

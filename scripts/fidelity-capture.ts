@@ -16,8 +16,13 @@ interface CaptureJob {
 }
 
 const CHROME_PATHS = [
+  ...(process.env.RK_CHROME_PATH ? [process.env.RK_CHROME_PATH] : []),
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
   "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+  "/usr/bin/google-chrome",
+  "/usr/bin/chromium",
+  "/usr/bin/chromium-browser",
+  "/opt/brave.com/brave/brave",
 ];
 
 function findChrome(): string {
@@ -51,9 +56,23 @@ function createCdpClient(wsUrl: string) {
   const pending = new Map<number, { resolve: (v: unknown) => void; reject: (e: Error) => void }>();
   const ws = new WebSocket(wsUrl);
 
+  const rejectAll = (err: Error) => {
+    for (const p of pending.values()) p.reject(err);
+    pending.clear();
+  };
+
   const ready = new Promise<void>((resolve, reject) => {
     ws.addEventListener("open", () => resolve());
-    ws.addEventListener("error", () => reject(new Error("CDP WebSocket error")));
+    ws.addEventListener("error", () => {
+      const err = new Error("CDP WebSocket error");
+      reject(err);
+      rejectAll(err);
+    });
+    ws.addEventListener("close", () => {
+      const err = new Error("CDP WebSocket closed");
+      reject(err);
+      rejectAll(err);
+    });
   });
 
   ws.addEventListener("message", (event) => {
@@ -74,7 +93,15 @@ function createCdpClient(wsUrl: string) {
     await ready;
     const id = nextId++;
     return new Promise((resolve, reject) => {
-      pending.set(id, { resolve, reject });
+      const timer = setTimeout(() => {
+        if (pending.delete(id)) {
+          reject(new Error(`CDP timeout waiting for ${method}`));
+        }
+      }, 30000);
+      pending.set(id, {
+        resolve: (v) => { clearTimeout(timer); resolve(v); },
+        reject: (e) => { clearTimeout(timer); reject(e); },
+      });
       ws.send(JSON.stringify({ id, method, params }));
     });
   }

@@ -1,0 +1,25 @@
+{
+  "id": "mono-underline-link",
+  "kind": "ui",
+  "level": "atom",
+  "category": "links",
+  "name": "Draw Underline Link",
+  "description": "Text link with a 1.34px hairline underline that is drawn at rest and wipes out to the right on hover. Rises with its LineReveal block when placed inside one.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "swiss-mono"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "agency-portfolio/obys-agency-nextjs",
+  "tags": [
+    "link",
+    "underline",
+    "hover",
+    "css-modules"
+  ]
+}
