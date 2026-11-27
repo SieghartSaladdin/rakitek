@@ -1,0 +1,15 @@
+{
+  "id": "orchard-format-badge",
+  "kind": "ui",
+  "level": "atom",
+  "category": "badge",
+  "name": "Orchard Format Badge",
+  "description": "Circular hairline-bordered weight and package format chips paired with an uppercase terracotta micro-heading, matching artisanal jar specification rows.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["badge", "chips", "weights", "formats", "circle", "editorial", "atom"]
+}

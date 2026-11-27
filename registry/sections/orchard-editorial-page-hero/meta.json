@@ -1,0 +1,16 @@
+{
+  "id": "orchard-editorial-page-hero",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": ["hero"],
+  "name": "Orchard Editorial Page Hero",
+  "description": "Monumental centered serif page headline paired with an expanding inset full-bleed cover image featuring GSAP ScrollTrigger parallax and optional overlay headline.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["hero", "editorial", "parallax", "gsap", "clip-path", "cover"]
+}

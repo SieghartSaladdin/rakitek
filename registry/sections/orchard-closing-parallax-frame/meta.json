@@ -1,0 +1,16 @@
+{
+  "id": "orchard-closing-parallax-frame",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": ["about", "story"],
+  "name": "Orchard Closing Parallax Frame",
+  "description": "Inset 1002:790 rounded closing photograph centered on columns 3 to 10 whose oversized image drifts behind the frame with a clamped scrubbed parallax.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["image", "parallax", "closing", "frame"]
+}

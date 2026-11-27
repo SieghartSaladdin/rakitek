@@ -1,0 +1,57 @@
+.footer { background: var(--rk-fg); color: var(--rk-bg); display: flex; flex-direction: column; line-height: 1.3; min-height: 100vh; padding-bottom: 2.5rem; padding-top: 3.75rem; }
+.inner { display: flex; flex: 1; flex-direction: column; justify-content: space-between; padding-left: clamp(30px, 2vw, 40px); padding-right: clamp(30px, 2vw, 40px); width: 100%; }
+.grid12 { display: grid; gap: 0 clamp(12px, 1.45vw, 30px); grid-template-columns: repeat(12, minmax(0, 1fr)); }
+.logo { grid-column: 4 / -1; }
+.logoText { color: var(--rk-bg); display: block; font-family: var(--rk-font-display); font-size: clamp(3.2rem, 8.2vw, 9.5rem); font-weight: 400; line-height: 0.92; margin: 0; text-transform: uppercase; width: 100%; }
+.logoImg { display: block; height: auto; width: 100%; }
+.grid { align-items: stretch; margin-top: 12.5rem; }
+.grid > * { gap: 3.75rem; }
+.brand { display: flex; flex-direction: column; grid-column: 1 / span 3; justify-content: space-between; }
+.mark { color: var(--rk-accent); height: auto; width: clamp(72px, 6vw, 99px); }
+.nav { display: flex; flex-direction: column; grid-column: 4 / span 2; justify-content: space-between; }
+.sedi { display: flex; flex-direction: column; grid-column: 6 / span 3; justify-content: space-between; }
+.contact { display: flex; flex-direction: column; grid-column: 9 / span 4; justify-content: space-between; }
+.links, .social { display: flex; list-style: none; margin: 0; padding: 0; }
+.links { flex-direction: column; gap: 5px; }
+.social { gap: 30px; }
+.link { color: var(--rk-bg); font-family: var(--rk-font-body); font-size: 1rem; line-height: 1.3; text-decoration: none; transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.link:hover, .linkActive { color: var(--rk-accent); }
+.block { display: flex; flex-direction: column; gap: 8px; }
+.label { color: var(--rk-accent); font-family: var(--rk-font-body); font-size: 0.875rem; font-weight: 600; line-height: 1.3; margin: 0; text-transform: uppercase; }
+.text { color: var(--rk-bg); font-family: var(--rk-font-body); font-size: 1rem; line-height: 1.4; }
+.text p { margin: 0; }
+.mail { display: flex; flex-direction: column; }
+.message { color: var(--rk-bg); font-family: var(--rk-font-body); font-size: clamp(1.125rem, calc(1.085rem + 0.165vw), 1.25rem); line-height: 1.4; margin: 0; max-width: 450px; }
+.email { color: var(--rk-accent); font-family: var(--rk-font-body); font-size: clamp(1.125rem, calc(1.085rem + 0.165vw), 1.25rem); line-height: 1.4; margin-top: 1.25rem; text-decoration: none; }
+.copyright { color: var(--rk-bg); display: flex; flex-direction: column; font-family: var(--rk-font-body); font-size: 0.875rem; line-height: 1.6; }
+.copyright p { margin: 0; }
+.copyrightStrong { color: var(--rk-accent); font-weight: 700; text-transform: uppercase; }
+.copyright .vat { margin-top: 1.875rem; }
+.bottom { align-items: baseline; border-top: 1px solid color-mix(in srgb, var(--rk-bg) 18%, transparent); display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between; margin-top: 2.5rem; padding-top: 1rem; }
+.legalList { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.legalLink, .credit { color: currentColor; font-family: var(--rk-font-body); font-size: 0.875rem; line-height: 1.6; opacity: 0.7; text-decoration: underline; text-underline-offset: 3px; transition: opacity 0.25s ease; }
+.credit { text-decoration: none; }
+.legalLink:hover, .credit:hover { opacity: 1; }
+
+@media (max-width: 1024px) {
+  .footer { min-height: auto; }
+  .logo { grid-column: 1 / 10; }
+  .grid { row-gap: 6.25rem; }
+  .brand { grid-column: 1 / span 4; }
+  .nav { grid-column: 6 / span 3; }
+  .sedi { grid-column: 9 / span 4; }
+  .contact { display: contents; }
+  .contactSocial { grid-column: 1 / span 4; grid-row: 2; }
+  .mail { grid-column: 6 / -1; grid-row: 2; }
+}
+
+@media (max-width: 480px) {
+  .footer { padding-top: 6.25rem; }
+  .logo { grid-column: 1 / -1; }
+  .grid { margin-top: clamp(6rem, 12.5rem, 999999px); row-gap: clamp(6rem, 12.5rem, 999999px); }
+  .nav { grid-column: 1 / span 6; justify-content: flex-start; order: 1; }
+  .sedi { grid-column: 7 / span 6; order: 2; }
+  .contact { display: flex; grid-column: 1 / -1; order: 3; }
+  .brand { grid-column: 1 / -1; order: 4; }
+  .mark { display: none; }
+}

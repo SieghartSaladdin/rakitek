@@ -1,0 +1,16 @@
+{
+  "id": "orchard-editorial-footer",
+  "kind": "section",
+  "level": "organism",
+  "category": "footer",
+  "roles": ["footer"],
+  "name": "Orchard Editorial Footer",
+  "description": "Full-viewport deep wine-burgundy editorial footer featuring a large 9-column brand display mark, 4-column structured navigation, dual office address stack, social/email CTA, and hairline-bordered legal strip.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["footer", "editorial", "columns", "addresses", "wine", "dark"]
+}

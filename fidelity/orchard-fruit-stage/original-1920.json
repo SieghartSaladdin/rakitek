@@ -1,0 +1,37 @@
+{
+  "normalized": true,
+  "viewport": {
+    "width": 1920,
+    "height": 980
+  },
+  "url": "http://localhost:3041/en/nonexistent",
+  "elements": {
+    "stage": {
+      "selector": ".not-found__stage",
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1058.4,
+      "fontFamily": "ivystyle-sans",
+      "fontRendered": "ivystyle-sans",
+      "fontSize": 16,
+      "fontWeight": "400",
+      "lineHeight": 20.8,
+      "letterSpacing": "normal",
+      "textTransform": "none",
+      "color": "rgb(118, 37, 48)",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "paddingTop": 0,
+      "paddingRight": 0,
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "borderTop": "0px rgb(118, 37, 48)",
+      "borderBottom": "0px rgb(118, 37, 48)",
+      "borderRadius": "0px",
+      "gap": "normal",
+      "display": "block",
+      "visible": true,
+      "text": "4 0 4 `; var Z1 = typeof globalThis < \"u\" ? globalThis : typ"
+    }
+  }
+}

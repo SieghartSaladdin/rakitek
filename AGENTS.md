@@ -41,7 +41,8 @@ User cukup membaca output `verify`, melihat screenshot, dan membuka web. Kalau u
   | 1 | kikkfestival-be-nextjs |
   | 2 | obys-agency-nextjs |
   | 3 | aardvark-book-club |
-  | 4–9 | bebas; tulis nama sumbernya di sini saat mulai |
+  | 4 | agrumea-farm |
+  | 5–9 | bebas; tulis nama sumbernya di sini saat mulai |
 - Satu proyek sumber hanya dikerjakan satu agent. Folder yang sudah `(done)` tidak dikerjakan lagi.
 - Awali id komponen baru dengan nama style atau ciri yang khas (mis. `kikk-lineup-grid`), supaya tidak bentrok dengan agent lain.
 - Commit di branch sendiri, `npm run verify` lolos di worktree itu. Jangan push dan jangan merge ke `main`; penggabungan dikerjakan satu orang, yang menjalankan `npm run sync` lalu `npm run verify` sekali setelah semua branch masuk. File generated (`registry/.generated/*`, `apps/web/src/generated/*`) boleh diambil dari sisi mana pun saat konflik, karena dibuat ulang oleh sync.

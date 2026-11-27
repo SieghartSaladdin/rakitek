@@ -1,0 +1,16 @@
+{
+  "id": "orchard-jar-flight",
+  "kind": "section",
+  "level": "organism",
+  "category": "transition",
+  "roles": ["engagement"],
+  "name": "Orchard Jar Flight",
+  "description": "Fixed clone of a clicked product jar that eases from its slider pose to the destination hero pose in two seconds while a three.js label spins, then fades out on landing with a fail-safe timeout.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["three"],
+  "composes": ["ui/orchard-spinning-jar"],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["flight", "transition", "jar", "three", "overlay"]
+}

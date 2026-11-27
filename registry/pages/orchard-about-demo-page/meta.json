@@ -1,0 +1,38 @@
+{
+  "id": "orchard-about-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "editorial",
+  "name": "Orchard About Demo Page",
+  "description": "Composed orchard about page: expanding page hero, rhombus story intros, a pinned flying-fruit pause, a monumental vision box with portrait parallax, a closing framed photograph and the deep wine footer inside the editorial template.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "tactile"
+  ],
+  "recommendedStyles": [
+    "orchard-terracotta"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [
+    "templates/orchard-editorial-template",
+    "sections/orchard-top-header",
+    "sections/orchard-editorial-page-hero",
+    "sections/orchard-rhombus-intro",
+    "sections/orchard-fruit-pause-stage",
+    "sections/orchard-vision-parallax-box",
+    "sections/orchard-closing-parallax-frame",
+    "sections/orchard-editorial-footer"
+  ],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": [
+    "page",
+    "demo",
+    "about",
+    "story",
+    "composed",
+    "full-page"
+  ]
+}

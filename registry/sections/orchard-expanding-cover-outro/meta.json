@@ -1,0 +1,16 @@
+{
+  "id": "orchard-expanding-cover-outro",
+  "kind": "section",
+  "level": "organism",
+  "category": "story",
+  "roles": ["story", "about"],
+  "name": "Orchard Expanding Cover Outro",
+  "description": "Full-bleed 16:9 closing editorial visual band that expands from inset rounded corners to edge-to-edge on scroll with GSAP parallax and scale settle.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["outro", "cover", "parallax", "gsap", "clip-path", "editorial"]
+}

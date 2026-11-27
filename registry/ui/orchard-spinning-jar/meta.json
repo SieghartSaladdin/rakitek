@@ -1,0 +1,15 @@
+{
+  "id": "orchard-spinning-jar",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "product",
+  "name": "Orchard Spinning Jar",
+  "description": "630:1013 product jar photo with a three.js lathe cylinder that wraps flat label artwork, copies it onto a 2D canvas and rotates it with a 0 to 1 spin value, falling back to a flat label image when WebGL is unavailable.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["three"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["three", "webgl", "jar", "label", "product"]
+}

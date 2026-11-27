@@ -1,0 +1,16 @@
+{
+  "id": "orchard-gravity-contact-stage",
+  "kind": "section",
+  "level": "organism",
+  "category": "contact",
+  "roles": ["contact", "engagement"],
+  "name": "Orchard Gravity Contact Stage",
+  "description": "Split-screen editorial contact section pairing an interactive Matter.js falling botanical SVG stage on the left (click to blast upward) with a 6-column typography and office contact grid on the right.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["matter-js"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["contact", "physics", "matter-js", "interactive", "botanical", "split"]
+}

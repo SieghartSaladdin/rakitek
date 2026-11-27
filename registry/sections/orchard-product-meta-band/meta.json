@@ -1,0 +1,16 @@
+{
+  "id": "orchard-product-meta-band",
+  "kind": "section",
+  "level": "organism",
+  "category": "offerings",
+  "roles": ["offerings", "process"],
+  "name": "Orchard Product Meta Band",
+  "description": "Hairline-ruled three-column product facts band with uppercase terracotta labels, a free-text tips column, circular weight chips and a shelf-life note that stacks centered on tablet and mobile.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["product", "details", "weights", "shelf-life", "specs"]
+}

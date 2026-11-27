@@ -1,0 +1,16 @@
+{
+  "id": "orchard-product-showcase",
+  "kind": "section",
+  "level": "organism",
+  "category": "offerings",
+  "roles": ["offerings"],
+  "name": "Orchard Product Showcase",
+  "description": "12-column editorial product line showcase pairing a monumental serif heading, GSAP-parallaxed lifestyle cover or inline drag-momentum slider, specification weight chips, and a full-width physics-enabled jar rail.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap", "matter-js"],
+  "composes": ["ui/orchard-format-badge", "ui/orchard-jar-slide-card"],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["showcase", "products", "slider", "parallax", "gsap", "offerings"]
+}

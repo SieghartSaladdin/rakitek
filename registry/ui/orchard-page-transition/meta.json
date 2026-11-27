@@ -1,0 +1,15 @@
+{
+  "id": "orchard-page-transition",
+  "kind": "ui",
+  "level": "atom",
+  "category": "transition",
+  "name": "Orchard Page Transition",
+  "description": "Viewport-sized wine panel that slides up to cover the page and lifts away, with a hairline sweeping along its bottom edge, plus cover and lift finished callbacks for routing.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["transition", "overlay", "panel", "routing"]
+}

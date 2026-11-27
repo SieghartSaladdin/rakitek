@@ -1,0 +1,16 @@
+{
+  "id": "orchard-spec-ledger-section",
+  "kind": "section",
+  "level": "organism",
+  "category": "process",
+  "roles": ["process", "offerings"],
+  "name": "Orchard Spec Ledger Section",
+  "description": "Centered editorial showcase with a large display heading, narrative introduction, rounded 1004:615 GSAP-parallaxed feature photograph, and a clean hairline-bordered 2- or 3-column specification ledger.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "minimal"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["table", "ledger", "specifications", "hospitality", "parallax", "process"]
+}

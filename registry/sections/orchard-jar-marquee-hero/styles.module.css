@@ -1,0 +1,223 @@
+.hero {
+  background: var(--rk-bg);
+  height: 100svh;
+  isolation: isolate;
+  line-height: 1.3;
+  min-height: 100svh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  --jar-circle-rotation: 0deg;
+  --jar-marquee-top: 55%;
+  --jar-marquee-w: 100vw;
+  --jar-marquee-h: 560px;
+  --jar-marquee-angle: 10deg;
+  --jar-item-w: 200px;
+  --jar-item-h: 320px;
+  --jar-shape-intro-opacity: 0;
+  --jar-shape-intro-y: 24px;
+  --jar-badge-intro-opacity: 0;
+  --jar-badge-intro-y: 12px;
+  --jar-badge-intro-rotation: -18deg;
+  --jar-parallax-x: 0;
+  --jar-parallax-y: 0;
+}
+
+.srOnly {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.shapeLayer {
+  inset: auto 50% 0;
+  opacity: var(--jar-shape-intro-opacity);
+  pointer-events: none;
+  position: absolute;
+  transform: translate3d(
+    calc(-50% + var(--jar-parallax-x) * -14px),
+    calc(var(--jar-shape-intro-y) + max(0px, var(--jar-parallax-y) * -10px)),
+    0
+  );
+  transform-origin: center bottom;
+  width: clamp(750px, 80vw, 9999px);
+  z-index: 1;
+}
+
+.shapeImage {
+  display: block;
+  height: auto;
+  transform: scale(0.96);
+  transform-origin: center bottom;
+  width: 100%;
+}
+
+.badge {
+  aspect-ratio: 1;
+  left: 50%;
+  opacity: var(--jar-badge-intro-opacity);
+  position: absolute;
+  top: 20%;
+  transform: translate3d(
+      calc(-52% + var(--jar-parallax-x) * -10px),
+      calc(var(--jar-badge-intro-y) + var(--jar-parallax-y) * -8px),
+      0
+    )
+    rotate(calc(var(--jar-circle-rotation) + var(--jar-badge-intro-rotation)));
+  transform-origin: center;
+  width: 80%;
+}
+
+.badgeArtwork {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.overlay {
+  display: grid;
+  inset: 0;
+  padding-bottom: clamp(48px, 8vw, 106px);
+  place-items: center;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+}
+
+.cta {
+  align-items: center;
+  background: var(--rk-bg);
+  border-radius: var(--rk-radius-pill);
+  box-shadow: var(--rk-shadow);
+  color: var(--rk-accent);
+  display: inline-flex;
+  font-family: var(--rk-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  justify-content: center;
+  min-height: clamp(94px, 8vw, 112px);
+  min-width: clamp(94px, 8vw, 112px);
+  padding: 18px;
+  pointer-events: auto;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.cta:focus-visible {
+  box-shadow: 0 0 0 5px var(--rk-bg);
+  outline: 2px solid var(--rk-fg);
+  outline-offset: 3px;
+}
+
+.prompt {
+  bottom: 30px;
+  color: var(--rk-bg);
+  font-family: var(--rk-font-display);
+  font-size: calc(0.875rem - 1px);
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 0.9s var(--rk-ease) 0.18s,
+    transform 0.9s var(--rk-ease) 0.18s;
+  width: 100%;
+}
+
+.promptReady {
+  opacity: 1;
+  transform: translateZ(0);
+}
+
+.wrapper {
+  cursor: grab;
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+  touch-action: none;
+  z-index: 2;
+}
+
+.wrapper:active {
+  cursor: grabbing;
+}
+
+.marquee {
+  height: var(--jar-marquee-h);
+  left: 50%;
+  position: absolute;
+  top: var(--jar-marquee-top);
+  transform: translate(-50%, -50%) rotate(var(--jar-marquee-angle));
+  width: var(--jar-marquee-w);
+}
+
+.track {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.item {
+  color: inherit;
+  cursor: pointer;
+  height: var(--jar-item-h);
+  left: 0;
+  margin-top: calc(var(--jar-item-h) / -2);
+  pointer-events: auto;
+  position: absolute;
+  text-decoration: none;
+  top: 50%;
+  width: var(--jar-item-w);
+  will-change: transform, opacity, filter;
+}
+
+.item canvas,
+.item img {
+  height: 100%;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    --jar-marquee-top: 43%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    --jar-marquee-top: 45%;
+    --jar-item-w: 24.33vw;
+    --jar-item-h: 39.13vw;
+  }
+
+  .shapeLayer {
+    width: 120vw;
+  }
+
+  .badge {
+    width: 72%;
+  }
+
+  .cta {
+    min-height: 84px;
+    min-width: 84px;
+  }
+
+  .prompt {
+    max-width: calc(100vw - 32px);
+  }
+}

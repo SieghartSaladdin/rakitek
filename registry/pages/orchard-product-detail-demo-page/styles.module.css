@@ -1,0 +1,27 @@
+.plain div p {
+  line-height: 1.3;
+}
+
+.gapAbout {
+  --page-intro-pt: 28vw;
+}
+
+.gapProduct {
+  --page-intro-pt: calc(12.5rem + 15vh);
+}
+
+@media (max-width: 1024px) {
+  .gapAbout {
+    --page-intro-pt: 48vw;
+  }
+
+  .gapProduct {
+    --page-intro-pt: 12.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gapProduct {
+    --page-intro-pt: 6.25rem;
+  }
+}

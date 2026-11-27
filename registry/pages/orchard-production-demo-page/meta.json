@@ -1,0 +1,39 @@
+{
+  "id": "orchard-production-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "editorial",
+  "name": "Orchard Production Demo Page",
+  "description": "Composed orchard production page: expanding page hero, rhombus intro, two availability ledgers separated by drag photo galleries, sticky product-line pill nav and the deep wine footer inside the editorial template.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "tactile"
+  ],
+  "recommendedStyles": [
+    "orchard-terracotta"
+  ],
+  "dependencies": [
+    "gsap"
+  ],
+  "composes": [
+    "templates/orchard-editorial-template",
+    "sections/orchard-top-header",
+    "sections/orchard-editorial-page-hero",
+    "sections/orchard-rhombus-intro",
+    "sections/orchard-production-ledger",
+    "sections/orchard-photo-drag-slider",
+    "sections/orchard-editorial-footer",
+    "ui/orchard-floating-pill-nav"
+  ],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": [
+    "page",
+    "demo",
+    "production",
+    "ledger",
+    "gallery",
+    "composed",
+    "full-page"
+  ]
+}

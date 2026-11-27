@@ -1,0 +1,15 @@
+{
+  "id": "orchard-fruit-stage",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "motion",
+  "name": "Orchard Fruit Stage",
+  "description": "Full-bleed matter-js stage that drops flat botanical silhouettes (or any element marked data-fruit) with gravity, optional pointer grab and click blast, a settled callback and a static bottom-row layout for prefers-reduced-motion.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["matter-js"],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["physics", "matter-js", "fruit", "stage", "gravity"]
+}

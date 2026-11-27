@@ -1,0 +1,16 @@
+{
+  "id": "orchard-product-detail-hero",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": ["hero", "offerings"],
+  "name": "Orchard Product Detail Hero",
+  "description": "Full-viewport sticky product hero with a monumental serif product name that falls behind a rising, rotating jar as the visitor scrolls, a category link and origin line, and a three.js label that spins with the scroll progress.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "cinematic"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": ["gsap", "three"],
+  "composes": ["ui/orchard-spinning-jar"],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["hero", "product", "jar", "three", "scroll", "parallax"]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "orchard-product-detail-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "editorial",
+  "name": "Orchard Product Detail Demo Page",
+  "description": "Composed orchard product page: sticky three.js jar hero, rhombus description with allergen note, hairline product facts band, drag photo gallery, related product rail and the deep wine footer inside the editorial template.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "tactile"
+  ],
+  "recommendedStyles": [
+    "orchard-terracotta"
+  ],
+  "dependencies": [
+    "gsap",
+    "three"
+  ],
+  "composes": [
+    "templates/orchard-editorial-template",
+    "sections/orchard-top-header",
+    "sections/orchard-product-detail-hero",
+    "sections/orchard-rhombus-intro",
+    "sections/orchard-product-meta-band",
+    "sections/orchard-photo-drag-slider",
+    "sections/orchard-related-products-rail",
+    "sections/orchard-editorial-footer"
+  ],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": [
+    "page",
+    "demo",
+    "product",
+    "detail",
+    "jar",
+    "composed",
+    "full-page"
+  ]
+}

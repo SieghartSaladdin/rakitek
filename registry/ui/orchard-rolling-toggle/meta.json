@@ -1,0 +1,15 @@
+{
+  "id": "orchard-rolling-toggle",
+  "kind": "ui",
+  "level": "atom",
+  "category": "button",
+  "name": "Orchard Rolling Toggle",
+  "description": "Two-piece editorial pill and circular diamond/close disc toggle button with character-by-character vertical roll hover animation, open-state cross morph, and light/dark surface polarity.",
+  "styling": "css-modules",
+  "vibes": ["editorial", "tactile"],
+  "recommendedStyles": ["orchard-terracotta"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "fnb-bakery/agrumea-farm",
+  "tags": ["button", "toggle", "menu", "roll", "pill", "editorial", "atom"]
+}

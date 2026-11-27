@@ -1,0 +1,52 @@
+.root {
+  line-height: 1.3;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  will-change: transform;
+  z-index: 950;
+}
+
+.pill {
+  align-items: center;
+  background: var(--rk-surface-elevated);
+  border-radius: 500px;
+  color: var(--rk-accent);
+  display: inline-flex;
+  font-family: var(--rk-font-body);
+  font-size: 13px;
+  font-weight: 600;
+  gap: 10px;
+  opacity: 0;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  transform: translate(18px, -50%) scale(0.4);
+  transform-origin: left center;
+  transition: transform 0.5s var(--rk-ease), opacity 0.35s var(--rk-ease);
+  white-space: nowrap;
+}
+
+.pill.visible {
+  opacity: 1;
+  transform: translate(18px, -50%) scale(1);
+}
+
+.diamond {
+  background: var(--rk-accent);
+  border-radius: 1px;
+  flex: 0 0 auto;
+  height: 7px;
+  transform: rotate(45deg);
+  width: 7px;
+}
+
+.text {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pill {
+    transition: opacity 0.2s linear;
+  }
+}
