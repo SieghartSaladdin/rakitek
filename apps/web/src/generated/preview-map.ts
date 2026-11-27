@@ -4,6 +4,7 @@ import type { ComponentType } from "react";
 export const PREVIEW_LOADERS: Record<string, () => Promise<{ default: ComponentType }>> = {
   "ui/bookclub-app-badges": () => import("../../../../registry/ui/bookclub-app-badges/preview"),
   "ui/bookclub-bouncy-cta": () => import("../../../../registry/ui/bookclub-bouncy-cta/preview"),
+  "ui/bookclub-intro-splash": () => import("../../../../registry/ui/bookclub-intro-splash/preview"),
   "ui/bookclub-mascot-popup": () => import("../../../../registry/ui/bookclub-mascot-popup/preview"),
   "ui/bookclub-pill-button": () => import("../../../../registry/ui/bookclub-pill-button/preview"),
   "ui/bookclub-slider-controls": () => import("../../../../registry/ui/bookclub-slider-controls/preview"),

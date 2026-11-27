@@ -1,7 +1,7 @@
 # Fidelity Report: `bookclub-landing-demo-page`
 
 - **Kind / Level:** `page` / `page`
-- **Composes:** `templates/bookclub-landing-template` dan 12 section `bookclub-*` (header, hero, books, how-it-works, box-sequence, genres, benefits, faq, gift, promo-banners, winners, exclusive, wave-footer).
+- **Composes:** `templates/bookclub-landing-template`, `ui/bookclub-intro-splash` (overlay intro, prop `showIntro`, default aktif, hilang sendiri setelah sekitar 2 detik) dan 12 section `bookclub-*` (header, hero, books, how-it-works, box-sequence, genres, benefits, faq, gift, promo-banners, winners, exclusive, wave-footer).
 - **Sumber (bukti perakitan Langkah 1):** `ecommerce-d2c/aardvark-book-club` (`http://localhost:3031/`)
 - **Preview ekstrak:** `http://localhost:3035/preview/page/bookclub-landing-demo-page`
 - 13 wilayah diukur di kedua sisi: `header`, `hero`, `books`, `howItWorks`, `boxSequence`, `genres`, `benefits`, `faq`, `gift`, `promo`, `winners`, `exclusive`, `footer` (`Math.random` dikunci 0.5 di kedua sisi karena rotasi kartu slider acak).
@@ -38,5 +38,7 @@ Beda terbesar: `gift` 1292px vs 1293.8px (1920) dan 693.8px vs 690px (1024), ked
 | `1920x980` netral | `1024x768` netral | Ikhtisar penuh 1920 | Ikhtisar penuh 1024 |
 | --- | --- | --- | --- |
 | ![netral 1920](./neutral-1920.jpg) | ![netral 1024](./neutral-1024.jpg) | ![ikhtisar 1920](./neutral-overview-1920.jpg) | ![ikhtisar 1024](./neutral-overview-1024.jpg) |
+
+Setelah `bookclub-intro-splash` disambungkan (slot `intro` di template), Step 1 dan Step 2 diukur ulang: hasil tetap 13 elemen, 0 FAIL di 1920 dan 1024, dan tumpukan slot tidak bergeser (slot `intro` bertinggi 0, overlay `position: fixed`).
 
 Catatan: sebagian animasi bergantung scroll (rangkaian kotak, teks lengkung gift) berada pada keadaan awal di ikhtisar penuh, jadi tampak lebih kosong dari saat di-scroll.

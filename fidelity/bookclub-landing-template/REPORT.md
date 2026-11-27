@@ -17,3 +17,6 @@ Tidak ada overflow horizontal dan tidak ada tumpang tindih antar slot (`y` slot 
 | ![template 1920](./extract-1920.jpg) | ![template 1024](./extract-1024.jpg) | ![template 375](./extract-375.jpg) |
 
 Bukti perakitan penuh bersama 12 section ada di `fidelity/bookclub-landing-demo-page/REPORT.md` (0 FAIL terhadap halaman asli utuh).
+
+## Slot `intro`
+Template kini punya slot opsional `intro` (sebelum `header`) untuk overlay muat-halaman seperti `ui/bookclub-intro-splash`. Slot bertinggi 0 dan overlay-nya `position: fixed`, jadi geometri shell di atas tidak berubah; diukur ulang setelah perubahan (angka sama).

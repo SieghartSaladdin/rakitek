@@ -1,6 +1,7 @@
 "use client";
 
 import { BookclubLandingTemplate } from "@registry/templates/bookclub-landing-template/component";
+import { BookclubIntroSplash } from "@registry/ui/bookclub-intro-splash/component";
 import { BookclubFloatingHeader } from "@registry/sections/bookclub-floating-header/component";
 import { BookclubHero } from "@registry/sections/bookclub-hero/component";
 import { BookclubBooksCarousel } from "@registry/sections/bookclub-books-carousel/component";
@@ -18,13 +19,17 @@ import { BOOKCLUB_DEMO_DATA, type BookclubDemoData } from "./demo-data";
 
 export interface BookclubLandingDemoPageProps {
   data?: BookclubDemoData;
+  /** Play the page-load splash overlay (it removes itself after about 2s). */
+  showIntro?: boolean;
 }
 
 export function BookclubLandingDemoPage({
   data = BOOKCLUB_DEMO_DATA,
+  showIntro = true,
 }: BookclubLandingDemoPageProps) {
   return (
     <BookclubLandingTemplate
+      intro={showIntro ? <BookclubIntroSplash /> : null}
       header={
         <BookclubFloatingHeader
           brandName={data.brandName}

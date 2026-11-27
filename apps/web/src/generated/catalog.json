@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T10:44:18.388Z",
+  "generatedAt": "2026-11-27T10:56:41.886Z",
   "styles": [
     {
       "id": "azure-editorial",
@@ -177,6 +177,41 @@
       "componentPath": "registry/ui/bookclub-bouncy-cta/component.tsx",
       "previewPath": "registry/ui/bookclub-bouncy-cta/preview.tsx",
       "stylesPath": "registry/ui/bookclub-bouncy-cta/styles.module.css"
+    },
+    {
+      "id": "bookclub-intro-splash",
+      "kind": "ui",
+      "level": "organism",
+      "category": "overlay",
+      "roles": [],
+      "name": "Bookclub Intro Splash",
+      "description": "Full-screen page-load overlay: a thick organic brush stroke covers the viewport, a logo mark pops in with an elastic spring, then the stroke wipes away with GSAP DrawSVG. Removes itself when done, can be switched off, sped up or held, and skips itself for reduced motion.",
+      "styling": "css-modules",
+      "vibes": [
+        "tactile",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "playful-bookclub"
+      ],
+      "dependencies": [
+        "gsap"
+      ],
+      "composes": [],
+      "sourceRef": "ecommerce-d2c/aardvark-book-club",
+      "tags": [
+        "intro",
+        "splash",
+        "loader",
+        "page-transition",
+        "overlay",
+        "drawsvg",
+        "gsap",
+        "elastic"
+      ],
+      "componentPath": "registry/ui/bookclub-intro-splash/component.tsx",
+      "previewPath": "registry/ui/bookclub-intro-splash/preview.tsx",
+      "stylesPath": "registry/ui/bookclub-intro-splash/styles.module.css"
     },
     {
       "id": "bookclub-mascot-popup",
@@ -2517,6 +2552,7 @@
       ],
       "composes": [
         "templates/bookclub-landing-template",
+        "ui/bookclub-intro-splash",
         "sections/bookclub-floating-header",
         "sections/bookclub-hero",
         "sections/bookclub-books-carousel",

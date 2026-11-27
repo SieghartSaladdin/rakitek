@@ -4,6 +4,8 @@ import type { ReactNode } from "react";
 import styles from "./styles.module.css";
 
 export interface BookclubLandingTemplateProps {
+  /** Page-load overlay (fixed, outside the flow); rendered before the header. */
+  intro?: ReactNode;
   header?: ReactNode;
   hero?: ReactNode;
   books?: ReactNode;
@@ -23,6 +25,7 @@ export interface BookclubLandingTemplateProps {
 }
 
 export function BookclubLandingTemplate({
+  intro,
   header,
   hero,
   books,
@@ -59,6 +62,8 @@ export function BookclubLandingTemplate({
       data-rk-template="bookclub-landing-template"
       className={[styles.wrapper, className].filter(Boolean).join(" ")}
     >
+      {intro ? <div data-template-slot="intro">{intro}</div> : null}
+
       {header ? <div data-template-slot="header">{header}</div> : null}
 
       <main id={mainId} className={styles.main} role="main">

@@ -11,6 +11,7 @@
   "dependencies": ["gsap", "smooothy"],
   "composes": [
     "templates/bookclub-landing-template",
+    "ui/bookclub-intro-splash",
     "sections/bookclub-floating-header",
     "sections/bookclub-hero",
     "sections/bookclub-books-carousel",
