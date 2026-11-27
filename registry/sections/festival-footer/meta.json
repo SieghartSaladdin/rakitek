@@ -1,0 +1,33 @@
+{
+  "id": "festival-footer",
+  "kind": "section",
+  "level": "organism",
+  "category": "footer",
+  "roles": [
+    "footer",
+    "signup"
+  ],
+  "name": "Festival Footer",
+  "description": "Light brutalist footer: oversized stacked newsletter headline with a notched subscribe button, then a six-column grid with logo, edition facts, social links and tracked link columns, closed by a hairline legal bar.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/notched-button"
+  ],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "footer",
+    "newsletter",
+    "links",
+    "social",
+    "festival",
+    "css-modules"
+  ]
+}

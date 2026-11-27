@@ -1,0 +1,39 @@
+{
+  "id": "festival-event-demo-page",
+  "kind": "page",
+  "level": "page",
+  "category": "event",
+  "name": "Festival Event Demo Page",
+  "description": "Full festival landing page: fixed video backdrop revealed under a transparent first screen, transparent header with slide-in drawer, poster hero manifesto, cinematic banners, five-up program tiles, numbered dividers, four lineup grids of notched cards, festival numbers with practical info, a ticket marquee and a newsletter footer.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "cinematic"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [
+    "templates/fixed-backdrop-reveal-template",
+    "sections/fixed-video-backdrop",
+    "sections/festival-header",
+    "sections/festival-hero-manifesto",
+    "sections/cinematic-media-banner",
+    "sections/program-tile-grid",
+    "sections/festival-lineup-section",
+    "sections/numbers-practical-info",
+    "sections/ticket-marquee-bar",
+    "sections/festival-footer",
+    "ui/festival-section-divider"
+  ],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "page",
+    "demo",
+    "festival",
+    "event",
+    "composed",
+    "full-page"
+  ]
+}

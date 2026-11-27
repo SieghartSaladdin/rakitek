@@ -1,0 +1,27 @@
+{
+  "id": "festival-section-divider",
+  "kind": "ui",
+  "level": "atom",
+  "category": "divider",
+  "name": "Festival Section Divider",
+  "description": "Hairline page divider with a faint tabular index number on one side and an ultra-wide tracked uppercase label on the other, mirrored by an alignment flag.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "divider",
+    "label",
+    "index",
+    "hairline",
+    "brutalist",
+    "css-modules"
+  ]
+}

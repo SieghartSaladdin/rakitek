@@ -1,0 +1,33 @@
+{
+  "id": "festival-header",
+  "kind": "section",
+  "level": "organism",
+  "category": "navbar",
+  "roles": [
+    "navigation"
+  ],
+  "name": "Festival Header",
+  "description": "Transparent fixed top bar with a logo, a bordered tool cluster (language switch, notched ticket button, menu toggle) and a full-height dark slide-in drawer with accordion groups, nested sub-menus, CTA and social links.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [
+    "ui/notched-button"
+  ],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "navbar",
+    "header",
+    "drawer",
+    "menu",
+    "language-switch",
+    "accordion",
+    "css-modules"
+  ]
+}

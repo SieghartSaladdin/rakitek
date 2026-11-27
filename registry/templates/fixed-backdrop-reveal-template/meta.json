@@ -1,0 +1,27 @@
+{
+  "id": "fixed-backdrop-reveal-template",
+  "kind": "template",
+  "level": "template",
+  "category": "reveal",
+  "name": "Fixed Backdrop Reveal Template",
+  "description": "Page shell where a fixed full-viewport backdrop (video or colour) stays behind everything: a transparent one-screen spacer shows it first, then an opaque content layer with main and footer slides up over it.",
+  "styling": "css-modules",
+  "vibes": [
+    "cinematic",
+    "editorial"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "template",
+    "layout",
+    "reveal",
+    "backdrop",
+    "shell",
+    "css-modules"
+  ]
+}

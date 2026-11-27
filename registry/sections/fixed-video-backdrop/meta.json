@@ -1,0 +1,30 @@
+{
+  "id": "fixed-video-backdrop",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": [
+    "hero"
+  ],
+  "name": "Fixed Video Backdrop",
+  "description": "Full-viewport fixed colour field with a cover-cropped autoplay video embed (separate mobile source, Player.js style ready detection) and a poster-type text fallback for reduced motion or slow video, meant to sit behind a scrolling page.",
+  "styling": "css-modules",
+  "vibes": [
+    "cinematic",
+    "editorial"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "hero",
+    "video",
+    "backdrop",
+    "fixed",
+    "fallback",
+    "css-modules"
+  ]
+}

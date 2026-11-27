@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T06:14:58.161Z",
+  "generatedAt": "2026-11-27T10:51:26.428Z",
   "styles": [
     {
       "id": "azure-editorial",
@@ -82,6 +82,35 @@
         "waitlist"
       ],
       "tokensPath": "registry/styles/kinetic-obsidian/tokens.css"
+    },
+    {
+      "id": "neon-brutalist",
+      "name": "Neon Brutalist",
+      "vibe": "editorial",
+      "description": "Stark white canvas with near-black ink, zero-radius geometry, notched cut corners, heavy tightly tracked uppercase grotesk headings with light geometric body copy, and a neon green, magenta, electric blue and vermilion accent set for festival and event identities.",
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "fonts": {
+        "display": "'Inter Tight', 'Helvetica Neue', sans-serif",
+        "body": "'Poppins', sans-serif",
+        "mono": "'Inter Tight', 'Helvetica Neue', sans-serif",
+        "googleFontsUrl": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      },
+      "palettePreview": {
+        "bg": "#FFFFFF",
+        "surface": "#F7F7F7",
+        "fg": "#121212",
+        "accent": "#00F305"
+      },
+      "tags": [
+        "brutalist",
+        "festival",
+        "event",
+        "light",
+        "neon",
+        "notched",
+        "uppercase"
+      ],
+      "tokensPath": "registry/styles/neon-brutalist/tokens.css"
     }
   ],
   "ui": [
@@ -151,6 +180,68 @@
       "componentPath": "registry/ui/editorial-product-card/component.tsx",
       "previewPath": "registry/ui/editorial-product-card/preview.tsx",
       "stylesPath": "registry/ui/editorial-product-card/styles.module.css"
+    },
+    {
+      "id": "festival-card",
+      "kind": "ui",
+      "level": "molecule",
+      "category": "card",
+      "roles": [],
+      "name": "Festival Card",
+      "description": "Full-bleed image card with dark gradient caption (studio, title, subtitle, location), optional corner badge, pointer-tracked 3D tilt, soft spotlight, and a cut-corner clip-path reveal on hover.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "card",
+        "image",
+        "tilt",
+        "notched",
+        "event",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/festival-card/component.tsx",
+      "previewPath": "registry/ui/festival-card/preview.tsx",
+      "stylesPath": "registry/ui/festival-card/styles.module.css"
+    },
+    {
+      "id": "festival-section-divider",
+      "kind": "ui",
+      "level": "atom",
+      "category": "divider",
+      "roles": [],
+      "name": "Festival Section Divider",
+      "description": "Hairline page divider with a faint tabular index number on one side and an ultra-wide tracked uppercase label on the other, mirrored by an alignment flag.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "divider",
+        "label",
+        "index",
+        "hairline",
+        "brutalist",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/festival-section-divider/component.tsx",
+      "previewPath": "registry/ui/festival-section-divider/preview.tsx",
+      "stylesPath": "registry/ui/festival-section-divider/styles.module.css"
     },
     {
       "id": "fullscreen-search-overlay",
@@ -267,6 +358,37 @@
       "componentPath": "registry/ui/marquee-ticker/component.tsx",
       "previewPath": "registry/ui/marquee-ticker/preview.tsx",
       "stylesPath": "registry/ui/marquee-ticker/styles.module.css"
+    },
+    {
+      "id": "notched-button",
+      "kind": "ui",
+      "level": "atom",
+      "category": "button",
+      "roles": [],
+      "name": "Notched Button",
+      "description": "Uppercase tight-grotesk CTA with a cut top-right corner: outline and filled variants, three sizes, optional trailing arrow, pointer-tracked soft spotlight, notch-reveal and ink-invert hover with a 1.05 scale.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "button",
+        "cta",
+        "notched",
+        "brutalist",
+        "uppercase",
+        "css-modules"
+      ],
+      "componentPath": "registry/ui/notched-button/component.tsx",
+      "previewPath": "registry/ui/notched-button/preview.tsx",
+      "stylesPath": "registry/ui/notched-button/styles.module.css"
     },
     {
       "id": "rolling-cta-button",
@@ -487,6 +609,40 @@
       "componentPath": "registry/sections/alternating-story-split/component.tsx",
       "previewPath": "registry/sections/alternating-story-split/preview.tsx",
       "stylesPath": "registry/sections/alternating-story-split/styles.module.css"
+    },
+    {
+      "id": "cinematic-media-banner",
+      "kind": "section",
+      "level": "organism",
+      "category": "media",
+      "roles": [
+        "story",
+        "proof"
+      ],
+      "name": "Cinematic Media Banner",
+      "description": "Full-width 21:9 media strip: a cover image on a dark base, with an optional cropped looping video embed (any iframe player URL) that fades in over a poster and a click-blocking overlay.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "banner",
+        "video",
+        "image",
+        "cover",
+        "aftermovie",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/cinematic-media-banner/component.tsx",
+      "previewPath": "registry/sections/cinematic-media-banner/preview.tsx",
+      "stylesPath": "registry/sections/cinematic-media-banner/styles.module.css"
     },
     {
       "id": "collection-split-showcase",
@@ -789,6 +945,212 @@
       "stylesPath": "registry/sections/featured-packages-grid/styles.module.css"
     },
     {
+      "id": "festival-footer",
+      "kind": "section",
+      "level": "organism",
+      "category": "footer",
+      "roles": [
+        "footer",
+        "signup"
+      ],
+      "name": "Festival Footer",
+      "description": "Light brutalist footer: oversized stacked newsletter headline with a notched subscribe button, then a six-column grid with logo, edition facts, social links and tracked link columns, closed by a hairline legal bar.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/notched-button"
+      ],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "footer",
+        "newsletter",
+        "links",
+        "social",
+        "festival",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/festival-footer/component.tsx",
+      "previewPath": "registry/sections/festival-footer/preview.tsx",
+      "stylesPath": "registry/sections/festival-footer/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "newsletter.module.css",
+          "path": "registry/sections/festival-footer/newsletter.module.css"
+        }
+      ]
+    },
+    {
+      "id": "festival-header",
+      "kind": "section",
+      "level": "organism",
+      "category": "navbar",
+      "roles": [
+        "navigation"
+      ],
+      "name": "Festival Header",
+      "description": "Transparent fixed top bar with a logo, a bordered tool cluster (language switch, notched ticket button, menu toggle) and a full-height dark slide-in drawer with accordion groups, nested sub-menus, CTA and social links.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/notched-button"
+      ],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "navbar",
+        "header",
+        "drawer",
+        "menu",
+        "language-switch",
+        "accordion",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/festival-header/component.tsx",
+      "previewPath": "registry/sections/festival-header/preview.tsx",
+      "stylesPath": "registry/sections/festival-header/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "drawer-footer.module.css",
+          "path": "registry/sections/festival-header/drawer-footer.module.css"
+        },
+        {
+          "name": "drawer.module.css",
+          "path": "registry/sections/festival-header/drawer.module.css"
+        },
+        {
+          "name": "menu-drawer.tsx",
+          "path": "registry/sections/festival-header/menu-drawer.tsx"
+        }
+      ]
+    },
+    {
+      "id": "festival-hero-manifesto",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero",
+        "about"
+      ],
+      "name": "Festival Hero Manifesto",
+      "description": "Poster-style hero: two-line stroked mega title that auto-fits its container, hairline rule, then a four-column info row with oversized date range, tagline and location, stat trio, and stacked filled and outline notched buttons.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/notched-button"
+      ],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "hero",
+        "poster",
+        "title",
+        "date",
+        "fit-text",
+        "festival",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/festival-hero-manifesto/component.tsx",
+      "previewPath": "registry/sections/festival-hero-manifesto/preview.tsx",
+      "stylesPath": "registry/sections/festival-hero-manifesto/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "use-fit-text.ts",
+          "path": "registry/sections/festival-hero-manifesto/use-fit-text.ts"
+        }
+      ]
+    },
+    {
+      "id": "festival-lineup-section",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "offerings",
+        "proof"
+      ],
+      "name": "Festival Lineup Section",
+      "description": "Event programme block: tiny tracked label, oversized tightly tracked uppercase title with an optional ghost count, optional stat row and description, a three-column grid of notched image cards, and outline plus filled call-to-action buttons.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/festival-card",
+        "ui/notched-button"
+      ],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "lineup",
+        "program",
+        "talks",
+        "cards",
+        "grid",
+        "festival",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/festival-lineup-section/component.tsx",
+      "previewPath": "registry/sections/festival-lineup-section/preview.tsx",
+      "stylesPath": "registry/sections/festival-lineup-section/styles.module.css"
+    },
+    {
+      "id": "fixed-video-backdrop",
+      "kind": "section",
+      "level": "organism",
+      "category": "hero",
+      "roles": [
+        "hero"
+      ],
+      "name": "Fixed Video Backdrop",
+      "description": "Full-viewport fixed colour field with a cover-cropped autoplay video embed (separate mobile source, Player.js style ready detection) and a poster-type text fallback for reduced motion or slow video, meant to sit behind a scrolling page.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "hero",
+        "video",
+        "backdrop",
+        "fixed",
+        "fallback",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/fixed-video-backdrop/component.tsx",
+      "previewPath": "registry/sections/fixed-video-backdrop/preview.tsx",
+      "stylesPath": "registry/sections/fixed-video-backdrop/styles.module.css"
+    },
+    {
       "id": "floating-pill-navbar",
       "kind": "section",
       "level": "organism",
@@ -1013,6 +1375,48 @@
       "stylesPath": "registry/sections/newsletter-prefooter/styles.module.css"
     },
     {
+      "id": "numbers-practical-info",
+      "kind": "section",
+      "level": "organism",
+      "category": "stats",
+      "roles": [
+        "stats",
+        "contact"
+      ],
+      "name": "Numbers and Practical Info",
+      "description": "Two stacked blocks: a hairline-topped grid of big tabular figures with tiny tracked labels, then a three-column practical info row with muted line icons, bold uppercase headings, copy and an optional notched link button.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [
+        "ui/notched-button"
+      ],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "stats",
+        "numbers",
+        "info",
+        "venue",
+        "icons",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/numbers-practical-info/component.tsx",
+      "previewPath": "registry/sections/numbers-practical-info/preview.tsx",
+      "stylesPath": "registry/sections/numbers-practical-info/styles.module.css",
+      "extraFiles": [
+        {
+          "name": "icons.tsx",
+          "path": "registry/sections/numbers-practical-info/icons.tsx"
+        }
+      ]
+    },
+    {
       "id": "orbital-crest-wheel",
       "kind": "section",
       "level": "organism",
@@ -1190,6 +1594,39 @@
           "path": "registry/sections/physics-stats-pit/stats-textures.ts"
         }
       ]
+    },
+    {
+      "id": "program-tile-grid",
+      "kind": "section",
+      "level": "organism",
+      "category": "showcase",
+      "roles": [
+        "offerings"
+      ],
+      "name": "Program Tile Grid",
+      "description": "Five-up portrait tile grid under an oversized uppercase heading: full-bleed image tiles with dark gradient captions, a tiny arrow call-to-action, and a cut-corner clip-path reveal with slow image zoom on hover.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "program",
+        "tiles",
+        "grid",
+        "categories",
+        "clip-path",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/program-tile-grid/component.tsx",
+      "previewPath": "registry/sections/program-tile-grid/preview.tsx",
+      "stylesPath": "registry/sections/program-tile-grid/styles.module.css"
     },
     {
       "id": "rays-waitlist-footer",
@@ -1483,6 +1920,40 @@
       ]
     },
     {
+      "id": "ticket-marquee-bar",
+      "kind": "section",
+      "level": "organism",
+      "category": "marquee",
+      "roles": [
+        "engagement",
+        "signup"
+      ],
+      "name": "Ticket Marquee Bar",
+      "description": "Slim full-width link bar that scrolls a repeated uppercase call-to-action with a diagonal arrow in an endless CSS loop, and on hover reveals four skewed colour blocks behind it.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "minimal"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "marquee",
+        "ticker",
+        "cta",
+        "tickets",
+        "hover-shapes",
+        "css-modules"
+      ],
+      "componentPath": "registry/sections/ticket-marquee-bar/component.tsx",
+      "previewPath": "registry/sections/ticket-marquee-bar/preview.tsx",
+      "stylesPath": "registry/sections/ticket-marquee-bar/styles.module.css"
+    },
+    {
       "id": "video-expand-hero",
       "kind": "section",
       "level": "organism",
@@ -1595,6 +2066,37 @@
       "stylesPath": "registry/templates/editorial-storefront-template/styles.module.css"
     },
     {
+      "id": "fixed-backdrop-reveal-template",
+      "kind": "template",
+      "level": "template",
+      "category": "reveal",
+      "roles": [],
+      "name": "Fixed Backdrop Reveal Template",
+      "description": "Page shell where a fixed full-viewport backdrop (video or colour) stays behind everything: a transparent one-screen spacer shows it first, then an opaque content layer with main and footer slides up over it.",
+      "styling": "css-modules",
+      "vibes": [
+        "cinematic",
+        "editorial"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "template",
+        "layout",
+        "reveal",
+        "backdrop",
+        "shell",
+        "css-modules"
+      ],
+      "componentPath": "registry/templates/fixed-backdrop-reveal-template/component.tsx",
+      "previewPath": "registry/templates/fixed-backdrop-reveal-template/preview.tsx",
+      "stylesPath": "registry/templates/fixed-backdrop-reveal-template/styles.module.css"
+    },
+    {
       "id": "kinetic-story-template",
       "kind": "template",
       "level": "template",
@@ -1694,6 +2196,58 @@
     }
   ],
   "pages": [
+    {
+      "id": "festival-event-demo-page",
+      "kind": "page",
+      "level": "page",
+      "category": "event",
+      "roles": [],
+      "name": "Festival Event Demo Page",
+      "description": "Full festival landing page: fixed video backdrop revealed under a transparent first screen, transparent header with slide-in drawer, poster hero manifesto, cinematic banners, five-up program tiles, numbered dividers, four lineup grids of notched cards, festival numbers with practical info, a ticket marquee and a newsletter footer.",
+      "styling": "css-modules",
+      "vibes": [
+        "editorial",
+        "cinematic"
+      ],
+      "recommendedStyles": [
+        "neon-brutalist"
+      ],
+      "dependencies": [],
+      "composes": [
+        "templates/fixed-backdrop-reveal-template",
+        "sections/fixed-video-backdrop",
+        "sections/festival-header",
+        "sections/festival-hero-manifesto",
+        "sections/cinematic-media-banner",
+        "sections/program-tile-grid",
+        "sections/festival-lineup-section",
+        "sections/numbers-practical-info",
+        "sections/ticket-marquee-bar",
+        "sections/festival-footer",
+        "ui/festival-section-divider"
+      ],
+      "sourceRef": "education-event/kikkfestival-be-nextjs",
+      "tags": [
+        "page",
+        "demo",
+        "festival",
+        "event",
+        "composed",
+        "full-page"
+      ],
+      "componentPath": "registry/pages/festival-event-demo-page/component.tsx",
+      "previewPath": "registry/pages/festival-event-demo-page/preview.tsx",
+      "extraFiles": [
+        {
+          "name": "demo-cards.ts",
+          "path": "registry/pages/festival-event-demo-page/demo-cards.ts"
+        },
+        {
+          "name": "demo-data.ts",
+          "path": "registry/pages/festival-event-demo-page/demo-data.ts"
+        }
+      ]
+    },
     {
       "id": "kinetic-story-demo-page",
       "kind": "page",

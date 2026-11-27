@@ -1,0 +1,31 @@
+{
+  "id": "ticket-marquee-bar",
+  "kind": "section",
+  "level": "organism",
+  "category": "marquee",
+  "roles": [
+    "engagement",
+    "signup"
+  ],
+  "name": "Ticket Marquee Bar",
+  "description": "Slim full-width link bar that scrolls a repeated uppercase call-to-action with a diagonal arrow in an endless CSS loop, and on hover reveals four skewed colour blocks behind it.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "marquee",
+    "ticker",
+    "cta",
+    "tickets",
+    "hover-shapes",
+    "css-modules"
+  ]
+}

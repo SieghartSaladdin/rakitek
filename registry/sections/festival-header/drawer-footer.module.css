@@ -1,0 +1,46 @@
+.cta {
+  display: flex;
+  gap: 12px;
+  padding-top: 32px;
+}
+
+.ctaButton {
+  flex: 1 1 0%;
+}
+
+.socials {
+  padding: 24px;
+  border-top: 1px solid color-mix(in srgb, var(--rk-bg) 10%, transparent);
+}
+
+.socialRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.social {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: color-mix(in srgb, var(--rk-bg) 30%, transparent);
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social:hover {
+  color: var(--rk-bg);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background-color: color-mix(in srgb, var(--rk-fg) 50%, transparent);
+}
+
+.social:focus-visible {
+  outline: 2px solid var(--rk-bg);
+  outline-offset: 2px;
+}

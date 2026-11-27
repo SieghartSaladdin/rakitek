@@ -1,0 +1,145 @@
+.section {
+  position: relative;
+  box-sizing: border-box;
+  padding: 64px 0;
+  color: var(--rk-fg);
+  font-family: var(--rk-font-body);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+.head {
+  margin-bottom: 48px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--rk-fg-muted);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--rk-font-display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.titleSolo {
+  margin-bottom: 24px;
+}
+
+.ghost {
+  display: none;
+  font-family: var(--rk-font-display);
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: color-mix(in srgb, var(--rk-fg) 8%, transparent);
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+
+.statValue {
+  font-family: var(--rk-font-display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.statLabel {
+  margin-left: 8px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rk-fg-muted);
+}
+
+.description {
+  max-width: 28rem;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: pre-wrap;
+  color: var(--rk-fg-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 80px;
+  }
+
+  .ghost {
+    display: block;
+    font-size: 96px;
+  }
+
+  .statValue {
+    font-size: 60px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 120px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

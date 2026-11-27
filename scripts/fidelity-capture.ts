@@ -16,8 +16,13 @@ interface CaptureJob {
 }
 
 const CHROME_PATHS = [
+  ...(process.env.RK_CHROME_PATH ? [process.env.RK_CHROME_PATH] : []),
   "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
   "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+  "/usr/bin/google-chrome",
+  "/usr/bin/chromium",
+  "/usr/bin/chromium-browser",
+  "/opt/brave.com/brave/brave",
 ];
 
 function findChrome(): string {

@@ -1,0 +1,27 @@
+{
+  "id": "notched-button",
+  "kind": "ui",
+  "level": "atom",
+  "category": "button",
+  "name": "Notched Button",
+  "description": "Uppercase tight-grotesk CTA with a cut top-right corner: outline and filled variants, three sizes, optional trailing arrow, pointer-tracked soft spotlight, notch-reveal and ink-invert hover with a 1.05 scale.",
+  "styling": "css-modules",
+  "vibes": [
+    "editorial",
+    "minimal"
+  ],
+  "recommendedStyles": [
+    "neon-brutalist"
+  ],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "education-event/kikkfestival-be-nextjs",
+  "tags": [
+    "button",
+    "cta",
+    "notched",
+    "brutalist",
+    "uppercase",
+    "css-modules"
+  ]
+}
