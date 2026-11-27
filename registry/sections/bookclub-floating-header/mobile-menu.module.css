@@ -1,0 +1,184 @@
+.menu {
+  --button-social-color: var(--rk-bc-soft-pink, var(--rk-surface));
+  --button-social-color-background: var(--rk-bc-black, var(--rk-fg));
+  --_ease-smooth: var(--rk-bc-ease-smooth, cubic-bezier(0.32, 0.72, 0, 1));
+  --_speed: 0.6s;
+
+  font-size: var(--rk-bc-size-font, 1em);
+  z-index: 1100;
+  width: 100%;
+  height: 100%;
+  min-height: 100dvh;
+  max-height: 100lvh;
+  background-color: transparent;
+  border-style: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  inset: 0%;
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s linear var(--_speed);
+}
+
+.menuActive {
+  pointer-events: auto;
+  visibility: visible;
+  transition: visibility 0s linear 0s;
+}
+
+.menuInner {
+  width: 100%;
+  height: 100%;
+  display: grid;
+}
+
+.menuBackdrop {
+  background-color: var(--rk-bc-white, var(--rk-bg));
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.35s var(--_ease-smooth);
+}
+
+.menuActive .menuBackdrop {
+  opacity: 1;
+}
+
+.menuContainer {
+  z-index: 1;
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  overflow: hidden;
+  will-change: transform, clip-path, opacity;
+  clip-path: inset(100% round 4em);
+  translate: 0 7.5em 0;
+  scale: 0.5;
+  opacity: 0;
+  transition:
+    clip-path var(--_speed) var(--_ease-smooth),
+    scale 0.6s var(--_ease-smooth),
+    translate 0.5s var(--_ease-smooth),
+    opacity 0.2s 0.2s var(--_ease-smooth);
+}
+
+.menuActive .menuContainer {
+  clip-path: inset(0.5em round 2em);
+  scale: 1;
+  translate: 0 0 0;
+  opacity: 1;
+  transition:
+    clip-path var(--_speed) var(--_ease-smooth),
+    scale 0.6s var(--_ease-smooth),
+    translate 0.5s var(--_ease-smooth),
+    opacity 0.2s var(--_ease-smooth);
+}
+
+.menuBg {
+  background-color: var(--rk-bc-bright-pink, var(--rk-highlight));
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: clip;
+}
+
+.menuBgSvg {
+  opacity: 0.5;
+  width: 100%;
+  height: auto;
+  color: var(--rk-bc-white, var(--rk-bg));
+  position: absolute;
+  bottom: 0%;
+  overflow: visible;
+}
+
+.menuContent {
+  z-index: 1;
+  flex-flow: column;
+  grid-area: 1 / 1;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  overflow-y: auto;
+}
+
+.menuHeader {
+  z-index: 10;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 6.5em;
+  margin-bottom: 2.5em;
+  padding: 0.5em 1.5em 0;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.brandLink {
+  pointer-events: auto;
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  color: var(--rk-bc-black, var(--rk-fg));
+}
+
+.menuNav {
+  margin-top: auto;
+}
+
+.menuNavList {
+  grid-column-gap: 0.625em;
+  grid-row-gap: 0.625em;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.menuNavItem {
+  display: flex;
+}
+
+.menuFooter {
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5.125em;
+  padding-bottom: 3.25em;
+  display: flex;
+}
+
+.menuSubList {
+  grid-column-gap: 0.5em;
+  grid-row-gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.menuLogin {
+  grid-column-gap: 0.625em;
+  grid-row-gap: 0.625em;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

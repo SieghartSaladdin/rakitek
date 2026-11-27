@@ -1,0 +1,193 @@
+.box {
+  --_margin: var(--rk-bc-grid-margin, 1.5em);
+  font-size: var(--rk-bc-size-font, 1em);
+  color: var(--rk-bc-black, var(--rk-fg));
+}
+
+.wrap {
+  width: 100%;
+  height: 300svh;
+  position: relative;
+}
+
+.wrapShort {
+  height: 100svh;
+}
+
+.sticky {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 46.25em;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.wrapShort .sticky {
+  height: 100svh;
+  position: relative;
+}
+
+.element {
+  background-color: var(--rk-bc-pale-blue, var(--rk-highlight));
+  width: 100%;
+  height: 100%;
+  clip-path: inset(var(--_margin) round 10em);
+  justify-content: center;
+  align-items: flex-end;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.fallbackCanvasBox {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.fallbackSvg {
+  width: 34em;
+  height: auto;
+  opacity: 0.92;
+}
+
+.easterEgg {
+  z-index: 2;
+  pointer-events: none;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 7em;
+  padding-right: 7.5em;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.easterEggInner {
+  pointer-events: auto;
+}
+
+.textWrap {
+  opacity: 0.75;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+  pointer-events: none;
+}
+
+.textOuter {
+  position: absolute;
+  transform: rotate(6deg) translate(27.5em, -2.5em);
+}
+
+.handwrittenText {
+  color: var(--rk-bc-violet, var(--rk-fg));
+  font-family: var(--rk-font-handwritten);
+  font-size: var(--rk-bc-hand-regular, 2em);
+  letter-spacing: -0.02em;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  max-width: 7.8em;
+  margin: 0;
+}
+
+.content {
+  z-index: 1;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 62.5em;
+  height: 100%;
+  padding-top: 15%;
+  display: flex;
+  position: absolute;
+  top: 0%;
+  bottom: 0%;
+  pointer-events: none;
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+}
+
+.headerImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.headerWordmark {
+  font-family: var(--rk-font-display);
+  font-size: 7.5em;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--rk-bc-black, var(--rk-fg));
+  margin: 0;
+}
+
+.contentTextWrap {
+  opacity: 0.75;
+  position: relative;
+  width: 100%;
+}
+
+.contentTextOuter {
+  margin-top: 0.75em;
+  position: absolute;
+  right: 6.5em;
+  transform: rotate(6deg);
+}
+
+.contentText {
+  max-width: 12ch;
+}
+
+.action {
+  grid-column-gap: 3em;
+  grid-row-gap: 3em;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10em;
+  display: flex;
+  pointer-events: auto;
+}
+
+@media screen and (max-width: 991px) {
+  .sticky { min-height: auto; }
+  .element { clip-path: inset(var(--_margin) round 2.5em); }
+  .easterEgg, .textWrap { display: none; }
+  .content { justify-content: flex-end; align-items: center; width: 50em; padding-top: 0%; padding-bottom: 15em; }
+}
+
+@media screen and (max-width: 767px) {
+  .content { width: 31em; }
+  .contentTextOuter { right: 1em; }
+  .headerWordmark { font-size: 4.5em; }
+}
+
+@media screen and (max-width: 479px) {
+  .content { width: 22.5em; padding-bottom: 6.25em; }
+  .headerImg { width: 30.5em; max-width: none; margin-left: 2em; }
+  .contentTextOuter { margin-top: 1.25em; right: -0.5em; }
+  .action { grid-column-gap: 0.5em; grid-row-gap: 0.5em; padding-top: 8em; }
+  .headerWordmark { font-size: 3.25em; }
+}

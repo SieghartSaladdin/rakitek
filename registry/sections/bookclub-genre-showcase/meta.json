@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-genre-showcase",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": ["engagement", "offerings"],
+  "name": "Bookclub Genre Showcase",
+  "description": "Bright-pink rounded genre list where hovering swaps display type to handwritten script, parts neighboring items, and reveals four mouse-parallax cover stacks.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": ["ui/bookclub-mascot-popup"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["genres", "hover", "parallax", "typography", "showcase"]
+}

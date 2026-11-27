@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-exclusive-showcase",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": ["proof", "offerings"],
+  "name": "Bookclub Exclusive Showcase",
+  "description": "Framed anthology feature card with star rating badge, drop-shadow, tilted author callout pill, handwritten reader quotes, decorative badges, and embedded bouncy CTA.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["smooothy"],
+  "composes": ["ui/bookclub-bouncy-cta", "ui/bookclub-slider-controls"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["exclusive", "anthology", "feature", "rating", "quotes", "card"]
+}

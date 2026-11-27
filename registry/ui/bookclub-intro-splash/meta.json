@@ -1,0 +1,15 @@
+{
+  "id": "bookclub-intro-splash",
+  "kind": "ui",
+  "level": "organism",
+  "category": "overlay",
+  "name": "Bookclub Intro Splash",
+  "description": "Full-screen page-load overlay: a thick organic brush stroke covers the viewport, a logo mark pops in with an elastic spring, then the stroke wipes away with GSAP DrawSVG. Removes itself when done, can be switched off, sped up or held, and skips itself for reduced motion.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["intro", "splash", "loader", "page-transition", "overlay", "drawsvg", "gsap", "elastic"]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "bookclub-slider-controls",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "navigation",
+  "name": "Bookclub Slider Controls",
+  "description": "Previous and next circular navigation control pair with elastic hover squash and disabled state styling.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["slider", "carousel", "controls", "arrows", "buttons"]
+}

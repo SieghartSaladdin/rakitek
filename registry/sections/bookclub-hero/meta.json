@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-hero",
+  "kind": "section",
+  "level": "organism",
+  "category": "hero",
+  "roles": ["hero"],
+  "name": "Bookclub Hero",
+  "description": "Sun-yellow rounded hero section with SplitText word-bounce headline, handwritten margin note, bouncy CTA, floating mascot popover, breathing organic SVG backdrop, and looping box frame canvas.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": ["ui/bookclub-bouncy-cta", "ui/bookclub-mascot-popup"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["hero", "book-club", "gsap", "split-text", "canvas", "playful"]
+}

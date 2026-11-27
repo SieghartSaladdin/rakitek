@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-benefits-stage",
+  "kind": "section",
+  "level": "organism",
+  "category": "benefits",
+  "roles": ["proof", "about"],
+  "name": "Bookclub Benefits Stage",
+  "description": "Pale-yellow rounded 16:9 showcase stage with centered emblem, breathing organic wave SVG backdrop, and five floating benefit pills powered by GSAP elastic entry and InertiaPlugin momentum hover physics.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["benefits", "pills", "inertia", "gsap", "momentum", "playful"]
+}

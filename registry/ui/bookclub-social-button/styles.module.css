@@ -1,0 +1,136 @@
+.social {
+  --_color: var(--button-social-color, var(--rk-bc-pale-yellow, var(--rk-surface-elevated)));
+  --_bg: var(--button-social-color-background, var(--rk-bc-black, var(--rk-fg)));
+  --_focus: var(--button-social-color-focus, var(--rk-bc-black, var(--rk-fg)));
+  --_ease-click: var(--rk-bc-ease-click, cubic-bezier(0.4, 0, 0.2, 1));
+  --_ease-soft: var(--rk-bc-ease-soft-overshoot, cubic-bezier(0.59, 1, 0.88, 1.01));
+  --_ease-bounce: var(--rk-bc-ease-bounce, cubic-bezier(0.34, 2.27, 0.64, 1));
+  --_ease-smooth: var(--rk-bc-ease-smooth, cubic-bezier(0.32, 0.72, 0, 1));
+
+  font-size: var(--rk-bc-size-font, 1em);
+  -webkit-user-select: none;
+  user-select: none;
+  width: 3em;
+  height: 3em;
+  color: var(--_color);
+  display: inline-grid;
+  position: relative;
+  text-decoration: none;
+  transition: scale 0.15s var(--_ease-click);
+}
+
+.social:focus-visible {
+  outline: none;
+}
+
+.social:active {
+  scale: 0.955 0.925;
+}
+
+.social::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: -0.125em;
+  border-radius: 50%;
+  transition: box-shadow 0.3s var(--_ease-smooth);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.social:is(:focus-visible)::after {
+  box-shadow: 0 0 0 0.125em var(--_focus);
+}
+
+.big {
+  width: 3.625em;
+  height: 3.625em;
+}
+
+.inner {
+  pointer-events: none;
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  will-change: transform;
+  transform-origin: center right;
+  transition:
+    translate 0.15s var(--_ease-soft),
+    rotate 0.15s var(--_ease-soft),
+    transform 0.15s var(--_ease-soft);
+}
+
+.bg {
+  background-color: var(--_bg);
+  border-radius: 50%;
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  transition:
+    scale 0.15s var(--_ease-soft),
+    transform 0.15s var(--_ease-soft);
+}
+
+.iconOuter {
+  z-index: 1;
+  grid-area: 1 / 1;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.big .icon {
+  width: 1.875em;
+  height: 1.875em;
+}
+
+.tonePink {
+  --button-social-color: var(--rk-bc-white, var(--rk-bg));
+  --button-social-color-background: var(--rk-bc-bright-pink, var(--rk-highlight));
+}
+
+.toneSoftPink {
+  --button-social-color: var(--rk-bc-soft-pink, var(--rk-surface));
+  --button-social-color-background: var(--rk-bc-black, var(--rk-fg));
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .social:is(:hover, :focus-visible) .bg,
+  [data-hover]:is(:hover, :focus-visible) .social .bg {
+    scale: 0.955 0.925;
+    transform: scale(1.0471204188, 1.0810810811);
+    transition:
+      scale 0.15s var(--_ease-soft),
+      transform 0.35s 0.15s var(--_ease-bounce);
+  }
+
+  .social:is(:hover, :focus-visible) .inner,
+  [data-hover]:is(:hover, :focus-visible) .social .inner {
+    translate: 0 0.375em 0;
+    rotate: -18deg;
+    transform: rotate(18deg) translate3d(0, -0.375em, 0);
+    transition:
+      translate 0.15s var(--_ease-soft),
+      rotate 0.15s var(--_ease-soft),
+      transform 0.35s 0.15s var(--_ease-bounce);
+  }
+}
+
+.previewStage {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 1.5rem;
+  background-color: var(--rk-bc-yellow, var(--rk-accent));
+}

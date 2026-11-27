@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-gift-feature",
+  "kind": "section",
+  "level": "organism",
+  "category": "feature",
+  "roles": ["story", "offerings"],
+  "name": "Bookclub Gift Feature",
+  "description": "Gifting spotlight with scroll-scrubbed SVG textPath curved headline, copy + bouncy CTA column, press logo tiles, and elastic pop-in tilted package visual.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": ["ui/bookclub-bouncy-cta"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["gift", "svg-text-path", "scroll-scrub", "press-logos", "feature"]
+}

@@ -1,0 +1,140 @@
+.faq {
+  --_margin: var(--rk-bc-grid-margin, 1.5em);
+  --_col: var(--rk-bc-grid-column-width, calc((100vw - 3em) / 12));
+  --_ease-smooth: var(--rk-bc-ease-smooth, cubic-bezier(0.32, 0.72, 0, 1));
+  --_ease-bounce: var(--rk-bc-ease-bounce, cubic-bezier(0.34, 2.27, 0.64, 1));
+
+  font-size: var(--rk-bc-size-font, 1em);
+  background-color: var(--rk-bc-white, var(--rk-bg));
+  color: var(--rk-bc-black, var(--rk-fg));
+  z-index: 1;
+  position: relative;
+}
+
+.container { width: 100%; padding-right: var(--_margin); padding-left: var(--_margin); }
+.inner { padding-bottom: 5.3125em; }
+
+.header {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20em;
+  padding-bottom: 2em;
+  display: flex;
+}
+
+.title {
+  font-family: var(--rk-font-display);
+  font-size: var(--rk-bc-heading-l, 6.5em);
+  letter-spacing: -0.01em;
+  line-height: 0.8;
+  margin: 0;
+}
+
+.content {
+  gap: 2em;
+  width: calc(var(--_col) * 6);
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.accordion { width: 100%; }
+.list { gap: 0.5em; flex-flow: column; width: 100%; margin: 0; padding: 0; list-style: none; display: flex; }
+
+.details {
+  background-color: var(--rk-bc-soft-blue, var(--rk-highlight));
+  border-radius: 1.5em;
+  width: 100%;
+  position: relative;
+  transition: background-color 0.25s var(--_ease-smooth);
+}
+
+.detailsActive { background-color: var(--rk-bc-pale-blue, var(--rk-highlight)); }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .details:is(:hover, :focus-visible) { background-color: var(--rk-bc-pale-blue, var(--rk-highlight)); }
+}
+
+.summary { display: block; cursor: pointer; user-select: none; -webkit-user-select: none; list-style: none; }
+.summary::-webkit-details-marker { display: none; }
+
+.titleWrap { gap: 0.75em; justify-content: space-between; align-items: center; padding: 1.8125em 2em; display: flex; }
+
+.question {
+  font-family: var(--rk-font-body);
+  font-size: var(--rk-bc-para-large, 2em);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;
+}
+
+.iconWrap { flex: none; width: 1.25em; height: 1.25em; display: grid; }
+.iconPlus, .iconMinus { grid-area: 1 / 1; width: 100%; height: 100%; }
+
+.iconPlus { transition: opacity 0.2s var(--_ease-smooth), transform 0.4s var(--_ease-bounce); transition-delay: 0.025s; }
+.iconMinus { opacity: 0; transform: scale(0) rotate(40deg); transition: opacity 0.2s var(--_ease-smooth), transform 0.4s var(--_ease-bounce); }
+.detailsActive .iconMinus { opacity: 1; transform: scale(1) rotate(0deg); transition-delay: 0.025s; }
+.detailsActive .iconPlus { opacity: 0; transform: scale(0) rotate(-40deg); transition-delay: 0s; }
+
+.contentInner {
+  padding-bottom: 2em;
+  padding-left: 2em;
+  padding-right: 8.5em;
+  transition: opacity 0.25s var(--_ease-smooth), translate 0.3s var(--_ease-smooth);
+  opacity: 0;
+  translate: 0 -0.5em 0;
+}
+
+.detailsActive .contentInner { opacity: 1; translate: 0 0 0; transition-delay: 0.1s; }
+
+.answer {
+  font-family: var(--rk-font-body);
+  font-size: var(--rk-bc-para-regular, 1.5em);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.answer a { color: var(--rk-bc-black, var(--rk-fg)); text-decoration: underline; }
+
+.bg {
+  z-index: -1;
+  opacity: 0.5;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  color: var(--rk-bc-soft-blue, var(--rk-highlight));
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  position: absolute;
+  top: 6.25em;
+  left: 0%;
+  right: 0%;
+}
+
+.bgSvg { width: 100%; height: auto; overflow: visible; }
+.bgSvgMobile { display: none; }
+
+.easterEgg { z-index: 2; position: absolute; bottom: 3.75em; right: 7.75em; }
+
+@media screen and (max-width: 991px) {
+  .header { padding-top: 5em; padding-bottom: 2em; }
+  .content { gap: 1.5em; width: 100%; }
+  .bg { top: -6.25em; }
+  .list { gap: 0.375em; }
+  .details { border-radius: 1em; }
+  .titleWrap { padding: 1.4375em 1em; }
+  .iconWrap { width: 0.75em; height: 0.75em; }
+  .contentInner { padding-bottom: 1.25em; padding-left: 1em; padding-right: 1em; }
+  .bgSvgDesktop, .easterEgg { display: none; }
+  .bgSvgMobile { display: block; }
+}
+
+@media screen and (max-width: 767px) { .bg { top: -4em; } }
+@media screen and (max-width: 479px) { .bg { top: 1em; } }

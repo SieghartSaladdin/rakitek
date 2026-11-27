@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-books-carousel",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": ["offerings"],
+  "name": "Bookclub Books Carousel",
+  "description": "Horizontal Smooothy parallax book showcase with sinusoidal card tilt, automatic luminance-aware text contrast, twitching ear hover accents, genre pill tags, and circular arrow controls.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["smooothy", "gsap"],
+  "composes": ["ui/bookclub-slider-controls"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["carousel", "slider", "smooothy", "books", "cards", "parallax"]
+}

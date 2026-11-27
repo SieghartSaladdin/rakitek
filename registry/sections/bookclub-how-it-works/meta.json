@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-how-it-works",
+  "kind": "section",
+  "level": "organism",
+  "category": "process",
+  "roles": ["process"],
+  "name": "Bookclub How It Works",
+  "description": "Soft-pink rounded process band with four overlapping color-coded step cards that fan out on mouse hover using GSAP elastic spring physics, plus floating mascot badge and bouncy CTA.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": ["ui/bookclub-bouncy-cta"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["process", "steps", "cards", "gsap", "elastic", "how-it-works"]
+}

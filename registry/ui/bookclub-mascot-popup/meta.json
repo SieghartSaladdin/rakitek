@@ -1,0 +1,15 @@
+{
+  "id": "bookclub-mascot-popup",
+  "kind": "ui",
+  "level": "molecule",
+  "category": "overlay",
+  "name": "Bookclub Mascot Popup",
+  "description": "Circular emblem trigger that reveals a spring-animated speech bubble popover with twitching ear accents and an embedded bouncy CTA.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": ["ui/bookclub-bouncy-cta"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["popup", "popover", "mascot", "easter-egg", "cta", "bouncy"]
+}

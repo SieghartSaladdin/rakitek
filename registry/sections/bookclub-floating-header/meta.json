@@ -1,0 +1,20 @@
+{
+  "id": "bookclub-floating-header",
+  "kind": "section",
+  "level": "organism",
+  "category": "navigation",
+  "roles": ["navigation"],
+  "name": "Bookclub Floating Header",
+  "description": "Fixed three-column navigation header with pill links, bouncy CTA, social buttons, scroll-reactive side slide-up, and full-screen spring-clipped mobile menu drawer.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["gsap"],
+  "composes": [
+    "ui/bookclub-pill-button",
+    "ui/bookclub-bouncy-cta",
+    "ui/bookclub-social-button"
+  ],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["header", "navbar", "navigation", "mobile-menu", "drawer", "floating"]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "bookclub-app-badges",
+  "kind": "ui",
+  "level": "atom",
+  "category": "button",
+  "name": "Bookclub App Badges",
+  "description": "Paired App Store and Google Play store badge buttons with elastic hover squash, optional outline styling for dark surfaces, and crisp white-label SVG fallbacks.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": [],
+  "composes": [],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["app-store", "google-play", "badges", "download", "cta", "playful"]
+}

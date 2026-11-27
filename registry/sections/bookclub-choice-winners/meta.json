@@ -1,0 +1,16 @@
+{
+  "id": "bookclub-choice-winners",
+  "kind": "section",
+  "level": "organism",
+  "category": "showcase",
+  "roles": ["proof", "offerings"],
+  "name": "Bookclub Choice Winners",
+  "description": "Yellow rounded award showcase with Smooothy horizontal parallax slider, circular author portraits, starburst year badges, blurred upcoming-vote card, heart plop-in, and GSAP emoji rain.",
+  "styling": "css-modules",
+  "vibes": ["tactile", "editorial"],
+  "recommendedStyles": ["playful-bookclub"],
+  "dependencies": ["smooothy", "gsap"],
+  "composes": ["ui/bookclub-mascot-popup", "ui/bookclub-slider-controls"],
+  "sourceRef": "ecommerce-d2c/aardvark-book-club",
+  "tags": ["awards", "winners", "slider", "smooothy", "celebration", "gsap"]
+}
